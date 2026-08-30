@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+.DS_Store
+.env
+
+# large artifacts
+artifacts/
+data/jlens-upstream/
+data/corpora/
+
+# generated output and local-only working files
+results/*
+!results/.gitkeep
+notes/
+CLAUDE.md

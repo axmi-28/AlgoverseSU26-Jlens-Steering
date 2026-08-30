@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jsteer"
+version = "0.1.0"
+description = "When are J-Lens read directions valid write directions? Prompt-local Jacobian analysis."
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "torch>=2.4",
+    "transformers>=5.5",
+    "huggingface_hub",
+    "numpy",
+    "pyyaml",
+    "datasets",
+    "requests",
+    "jlens @ git+https://github.com/anthropics/jacobian-lens.git",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+analysis = ["pandas", "scipy", "matplotlib"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["jsteer"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+# E741: `l` for layer index, matching jlens's own convention.
+ignore = ["E501", "E741"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: needs a real model download / many minutes", "network: hits HF or Neuronpedia"]

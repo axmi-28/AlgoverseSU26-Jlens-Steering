@@ -1,0 +1,16 @@
+name: qwen3-8b
+hf_model_id: Qwen/Qwen3-8B
+np_model_id: qwen3-8b
+n_layers: 36
+d_model: 4096
+lens_filename: qwen3-8b/jlens/Salesforce-wikitext/Qwen3-8B_jacobian_lens.pt
+neuronpedia_served: false
+dtype: bfloat16
+device: auto
+dim_batch: 8
+# Workspace band (inclusive) -- see ModelConfig.band.
+band_start: 9
+band_end: 34
+fit:
+  prompts_fitted: 461
+  final_identity_distance: 0.330841

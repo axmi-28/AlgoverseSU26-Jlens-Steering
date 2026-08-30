@@ -1,0 +1,24 @@
+# The parity target. gemma-2-2b is one of the few models neuronpedia.org
+# currently serves a live J-lens for, so it is the only *locally runnable*
+# model on which sanity check 1 (our J-bar vs. the deployed lens) can be run.
+#
+# NOTE: google/gemma-2-2b is a GATED HF repo -- accept the license on the model
+# page and export HF_TOKEN before the weights will download. The lens .pt on
+# neuronpedia/jacobian-lens is public and needs no token.
+name: gemma-2-2b
+hf_model_id: google/gemma-2-2b
+np_model_id: gemma-2-2b
+n_layers: 26
+d_model: 2304
+# NOTE: stem here follows the directory name (lowercase), unlike the Qwen entries.
+lens_filename: gemma-2-2b/jlens/Salesforce-wikitext/gemma-2-2b_jacobian_lens.pt
+neuronpedia_served: true
+dtype: bfloat16
+device: auto
+dim_batch: 8
+# Workspace band (inclusive) -- see ModelConfig.band.
+band_start: 10
+band_end: 24
+fit:
+  prompts_fitted: 454
+  final_identity_distance: 0.478237

@@ -1,0 +1,27 @@
+name: qwen3-1.7b
+hf_model_id: Qwen/Qwen3-1.7B
+np_model_id: qwen3-1.7b
+n_layers: 28
+d_model: 2048
+# NOTE: stem follows the HF id, not the directory name.
+lens_filename: qwen3-1.7b/jlens/Salesforce-wikitext/Qwen3-1.7B_jacobian_lens.pt
+neuronpedia_served: false   # /api/lens/prompt -> "No server host found" (2026-08-29)
+dtype: bfloat16
+device: auto
+dim_batch: 8
+# Workspace band (inclusive) -- see ModelConfig.band.
+band_start: 7
+band_end: 26
+fit:
+  dataset: Salesforce/wikitext
+  dataset_config: wikitext-103-raw-v1
+  dataset_split: train
+  text_field: text
+  max_chars: 2000
+  max_seq_len: 128
+  skip_first: 16
+  target_layer: null
+  dtype: bfloat16
+  n_prompts_requested: 1000
+  prompts_fitted: 466
+  final_identity_distance: 0.52469
