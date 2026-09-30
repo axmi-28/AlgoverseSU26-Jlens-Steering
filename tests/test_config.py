@@ -8,8 +8,11 @@ looking guess silently 404s.
 
 from __future__ import annotations
 
+import re
+
 import pytest
 import requests
+import transformers
 
 from jsteer.config import LENS_REPO, available_configs, load_config
 
@@ -21,7 +24,12 @@ def test_configs_load() -> None:
         config = load_config(name)
         assert config.name == name
         assert config.lens_filename.startswith(f"{config.np_model_id}/")
-        assert config.lens_filename.endswith("_jacobian_lens.pt")
+        # Some lenses carry a fit-size suffix (..._jacobian_lens_n1000.pt).
+        assert re.fullmatch(r".*_jacobian_lens(_n\d+)?\.pt", config.lens_filename), (
+            config.lens_filename
+        )
+        # A wrong Auto* class does not raise -- it random-inits the decoder.
+        assert hasattr(transformers, config.hf_auto_class)
 
 
 def test_unknown_config_lists_alternatives() -> None:

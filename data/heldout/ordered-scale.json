@@ -1,0 +1,202 @@
+{
+  "_comment": [
+    "Held-out swap eval crossing ARGUMENT scale-type against ANSWER type.",
+    "",
+    "WHY. flexible-generalization confounds the two: every numbers template has a",
+    "numeric argument AND (bar first_letter) a numeric answer, so its headline",
+    "cannot say which axis the gsm8k gain rides on. On that set the gain appeared",
+    "in every cell whose ARGUMENT lay on an ordered scale (integers, months) and",
+    "in none whose argument was an unordered category (animals, countries),",
+    "regardless of answer type -- numbers/first_letter (numeric arg, letter",
+    "answer) gained most, animals/legs (categorical arg, number-word answer)",
+    "gained nothing. Here the axes move independently.",
+    "",
+    "PREDICTION, recorded before running: the gsm8k-averaged lens lifts weekdays",
+    "and ordinals on BOTH answer types, and lifts neither sports nor instruments.",
+    "",
+    "TWO MATCHED CONTROLS make this more than four one-sided comparisons:",
+    "  * first_letter runs in all four categories -- answer type held exactly",
+    "    constant while argument scale-type varies.",
+    "  * letter_count runs in weekdays (ordered) and instruments (unordered) --",
+    "    the SAME orthographic operation and the same numeric answer type, so a",
+    "    difference between them is attributable to the argument alone.",
+    "",
+    "CONSTRAINTS ENFORCED BY tests/test_heldout.py:",
+    "  * answers within a func are pairwise distinct, so a swap cannot be scored",
+    "    correct by landing on another argument's answer;",
+    "  * every arg and every answer is single-token in Qwen3 (checked in the",
+    "    tokenizer test) -- resolve_targets silently DROPS multi-token args, and",
+    "    an early draft used banjo/mandolin, which would have left instruments",
+    "    with two arguments and looked like a null result;",
+    "  * no ARGUMENT appears in flexible-generalization, so the eval is held out",
+    "    from the data that generated the hypothesis. The first_letter TEMPLATE is",
+    "    deliberately identical to the original's -- that is the point of it: the",
+    "    original numbers/first_letter was gsm8k's single largest gain (0/12 to",
+    "    7/12), and running the very same operation over ordered and unordered",
+    "    arguments is what turns that observation into a test.",
+    "",
+    "weekdays/position anchors its convention in the template, because",
+    "Sunday-first versus Monday-first would otherwise make the answer ambiguous.",
+    "Weekday arguments are capitalised because single_token_id tests exactly ' '+arg, and ' tuesday' / ' wednesday' / ' saturday' are two tokens while ' Tuesday' etc. are one. This also matches the upstream set's convention of capitalising proper nouns (France, February) and not common ones (lion, three). Getting this wrong does not fail loudly by default -- resolve_targets drops the word with a warning -- which is why run_domain_pullbacks now raises instead."
+  ],
+  "categories": [
+    {
+      "name": "weekdays",
+      "arg_scale": "ordered",
+      "args": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Saturday"
+      ],
+      "funcs": [
+        {
+          "name": "position",
+          "answer_type": "number",
+          "template": "Counting Monday as day one, {arg} is day number",
+          "answers": {
+            "Monday": "one",
+            "Tuesday": "two",
+            "Wednesday": "three",
+            "Saturday": "six"
+          }
+        },
+        {
+          "name": "letter_count",
+          "answer_type": "number",
+          "template": "The number of letters in the word '{arg}' is",
+          "answers": {
+            "Monday": "six",
+            "Tuesday": "seven",
+            "Wednesday": "nine",
+            "Saturday": "eight"
+          }
+        },
+        {
+          "name": "next_day",
+          "answer_type": "word",
+          "template": "The day right after {arg} is",
+          "answers": {
+            "Monday": "Tuesday",
+            "Tuesday": "Wednesday",
+            "Wednesday": "Thursday",
+            "Saturday": "Sunday"
+          }
+        },
+        {
+          "name": "first_letter",
+          "answer_type": "letter",
+          "template": "The word '{arg}' begins with the letter",
+          "answers": {
+            "Monday": "m",
+            "Tuesday": "t",
+            "Wednesday": "w",
+            "Saturday": "s"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ordinals",
+      "arg_scale": "ordered",
+      "args": [
+        "second",
+        "third",
+        "fifth",
+        "ninth"
+      ],
+      "funcs": [
+        {
+          "name": "cardinal",
+          "answer_type": "number",
+          "template": "The ordinal '{arg}' corresponds to the number",
+          "answers": {
+            "second": "two",
+            "third": "three",
+            "fifth": "five",
+            "ninth": "nine"
+          }
+        },
+        {
+          "name": "first_letter",
+          "answer_type": "letter",
+          "template": "The word '{arg}' begins with the letter",
+          "answers": {
+            "second": "s",
+            "third": "t",
+            "fifth": "f",
+            "ninth": "n"
+          }
+        }
+      ]
+    },
+    {
+      "name": "sports",
+      "arg_scale": "unordered",
+      "args": [
+        "soccer",
+        "basketball",
+        "hockey",
+        "rugby"
+      ],
+      "funcs": [
+        {
+          "name": "players",
+          "answer_type": "number",
+          "template": "A standard team in {arg} fields",
+          "answers": {
+            "soccer": "eleven",
+            "basketball": "five",
+            "hockey": "six",
+            "rugby": "fifteen"
+          }
+        },
+        {
+          "name": "first_letter",
+          "answer_type": "letter",
+          "template": "The word '{arg}' begins with the letter",
+          "answers": {
+            "soccer": "s",
+            "basketball": "b",
+            "hockey": "h",
+            "rugby": "r"
+          }
+        }
+      ]
+    },
+    {
+      "name": "instruments",
+      "arg_scale": "unordered",
+      "args": [
+        "drum",
+        "piano",
+        "guitar",
+        "trumpet"
+      ],
+      "funcs": [
+        {
+          "name": "letter_count",
+          "answer_type": "number",
+          "template": "The number of letters in the word '{arg}' is",
+          "answers": {
+            "drum": "four",
+            "piano": "five",
+            "guitar": "six",
+            "trumpet": "seven"
+          }
+        },
+        {
+          "name": "first_letter",
+          "answer_type": "letter",
+          "template": "The word '{arg}' begins with the letter",
+          "answers": {
+            "drum": "d",
+            "piano": "p",
+            "guitar": "g",
+            "trumpet": "t"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -306,3 +306,356 @@ def steering_direction(
     """
     unit = pullback / pullback.norm(dim=-1, keepdim=True).clamp_min(1e-12)
     return unit * (residual_norm * strength)
+
+
+def energy_map_for_prompt(
+    model,
+    prompt: str,
+    source_layers: Sequence[int],
+    *,
+    target_positions: Sequence[int],
+    n_probe: int = 8,
+    target_layer: int | None = None,
+    max_seq_len: int = 128,
+    skip_first: int = SKIP_FIRST_N_POSITIONS,
+    seed: int = 0,
+) -> tuple[dict[int, torch.Tensor], list[int], int]:
+    """Yan et al.'s Jacobian energy ``E_l(t, t') = ||d h_final,t' / d h_l,t||_F^2``.
+
+    Their Sec. 3.3 splits the J-lens's behaviour by where this energy sits: mass
+    on the diagonal ``t ~ t'`` is short-horizon next-token prediction, while
+    horizontal and vertical stripes are the sparse-concept positions. The split
+    is the paper's, the estimator below is not -- they do not say how they
+    compute a ``d x d`` block norm at every cell.
+
+    Computing each block exactly costs ``d_model`` backward passes, which is
+    hopeless for a full map. But the norm is a trace, so Hutchinson applies:
+    for ``v`` with identity covariance, ``E_v[||A^T v||^2] = tr(A A^T) =
+    ||A||_F^2``. One backward pass from a cotangent placed at a single ``t'``
+    returns ``v^T d h_final,t' / d h_l,t`` for *every* source position ``t`` at
+    once, so ``n_probe`` passes estimate an entire row of the map -- every
+    source position and every requested layer -- rather than one cell.
+
+    The estimate is unbiased but noisy at ``n_probe = 8``; it is used only for
+    the aggregate offset profile, where averaging over positions and documents
+    is what carries the signal, never for a single cell.
+
+    Returns:
+        ``(energies, targets, seq_len)``. ``energies`` maps each layer to a
+        ``[seq_len, n_target]`` tensor indexed by absolute source position and
+        by position within ``targets``. Cells with ``t > t'`` are exactly zero
+        by causality and are left in, so the caller can assert on them.
+    """
+    source_layers, target_layer = _check_layer_indices(
+        source_layers, target_layer, model.n_layers
+    )
+    input_ids = model.encode(prompt, max_length=max_seq_len)
+    seq_len = input_ids.shape[1]
+    targets = [t for t in target_positions if skip_first <= t < seq_len]
+    if not targets:
+        raise ValueError(f"no target positions in [{skip_first}, {seq_len})")
+
+    generator = torch.Generator().manual_seed(seed)
+    out = {
+        layer: torch.zeros(seq_len, len(targets), dtype=torch.float32)
+        for layer in source_layers
+    }
+
+    with (
+        ActivationRecorder(
+            model.layers,
+            at=[*source_layers, target_layer],
+            start_graph_at=min(source_layers),
+        ) as recorder,
+        torch.enable_grad(),
+    ):
+        model.forward(input_ids.expand(n_probe, -1))
+        target_activation = recorder.activations[target_layer]
+        source_activations = [recorder.activations[layer] for layer in source_layers]
+        device, dtype = target_activation.device, target_activation.dtype
+
+        # Gaussian, not Rademacher: both have identity covariance and so both
+        # are unbiased here, but the probes are shared across every t' below
+        # and Rademacher's +-1 entries make that reuse visibly correlated.
+        probes = torch.randn(
+            n_probe, model.d_model, generator=generator, dtype=torch.float32
+        ).to(device=device, dtype=dtype)
+        buffer = torch.zeros_like(target_activation)
+
+        for j, t_prime in enumerate(targets):
+            buffer.zero_()
+            buffer[:, t_prime, :] = probes
+            grads = torch.autograd.grad(
+                outputs=target_activation,
+                inputs=source_activations,
+                grad_outputs=buffer,
+                retain_graph=(j < len(targets) - 1),
+            )
+            for layer, grad in zip(source_layers, grads, strict=True):
+                # [n_probe, seq_len, d] -> mean over probes of the squared norm.
+                out[layer][:, j] = grad.float().pow(2).sum(-1).mean(0).cpu()
+            del grads
+
+    return out, targets, seq_len
+
+
+#: Horizon buckets for :func:`horizon_pullbacks_for_prompt`, as inclusive
+#: ``(lo, hi)`` ranges over ``d = t' - t``. ``(0, 0)`` is Yan et al.'s diagonal;
+#: everything above it is the off-diagonal term resolved by distance. Widths
+#: grow because large ``d`` is rarer inside a 128-token window, so equal-width
+#: bins would leave the far buckets estimated from a handful of pairs.
+HORIZON_BUCKETS: tuple[tuple[int, int], ...] = (
+    (0, 0),
+    (1, 1),
+    (2, 2),
+    (3, 4),
+    (5, 8),
+    (9, 16),
+    (17, 1 << 30),
+)
+
+
+def horizon_pullbacks_for_prompt(
+    model,
+    prompt: str,
+    source_layers: Sequence[int],
+    cotangents: torch.Tensor,
+    *,
+    target_layer: int | None = None,
+    dim_batch: int = 16,
+    max_seq_len: int = 128,
+    skip_first: int = SKIP_FIRST_N_POSITIONS,
+    t_stride: int = 1,
+    buckets: Sequence[tuple[int, int]] = HORIZON_BUCKETS,
+) -> tuple[dict[int, dict[str, torch.Tensor]], dict[str, int]]:
+    """Resolve the pullback by *distance* ``d = t' - t``, not just diag/off.
+
+    :func:`component_pullbacks_for_prompt` splits the averaged pullback into
+    ``t' = t`` and ``t' > t``. This bins the second half by how far ahead the
+    influenced position is, giving one write direction per horizon:
+
+        J_bar^(d) = E[ d h_final,t+d / d h_l,t ],   v_y^(d) = J_bar^(d)^T u_y
+
+    The question it exists to answer is whether those are different directions
+    at all. If ``v^(1)`` and ``v^(16)`` are near-collinear, the off-diagonal
+    term is horizon-agnostic, the only special horizon is 0, and there is no
+    positional addressing to look for. If they separate, writing may be
+    targetable in time as well as in content.
+
+    Costs exactly what the diag/off split costs -- one backward pass per target
+    position either way -- since a pass already yields the whole column over
+    ``t`` and this only bins that column differently.
+
+    Returns:
+        ``({layer: {bucket_name: [K, d_model], ..., "total": [K, d_model]}},
+        {bucket_name: n_pairs})``. Buckets are normalized like ``total`` (by
+        the number of target positions), so they sum to it; the pair counts are
+        returned separately because a bucket's direction is only as trustworthy
+        as the number of ``(t, t')`` pairs behind it.
+    """
+    if cotangents.ndim != 2 or cotangents.shape[1] != model.d_model:
+        raise ValueError(
+            f"cotangents must be [K, d_model={model.d_model}], "
+            f"got {tuple(cotangents.shape)}"
+        )
+    source_layers, target_layer = _check_layer_indices(
+        source_layers, target_layer, model.n_layers
+    )
+    input_ids = model.encode(prompt, max_length=max_seq_len)
+    seq_len = input_ids.shape[1]
+    valid = resolve_positions(seq_len, None, skip_first=skip_first)
+    targets = valid[::t_stride]
+    n_valid = len(targets)
+    n_cotangents = cotangents.shape[0]
+    batch = min(dim_batch, n_cotangents)
+
+    names = [f"h{lo}" if lo == hi else f"h{lo}_{hi}" for lo, hi in buckets]
+    names = [
+        n if b[1] < (1 << 30) else f"h{b[0]}plus" for n, b in zip(names, buckets, strict=True)
+    ]
+    out = {
+        layer: {
+            name: torch.zeros(n_cotangents, model.d_model, dtype=torch.float32)
+            for name in [*names, "total"]
+        }
+        for layer in source_layers
+    }
+    pair_counts = dict.fromkeys(names, 0)
+
+    with (
+        ActivationRecorder(
+            model.layers,
+            at=[*source_layers, target_layer],
+            start_graph_at=min(source_layers),
+        ) as recorder,
+        torch.enable_grad(),
+    ):
+        model.forward(input_ids.expand(batch, -1))
+        target_activation = recorder.activations[target_layer]
+        source_activations = [recorder.activations[layer] for layer in source_layers]
+        device = target_activation.device
+        valid_on_device = valid.to(device)
+        cotangents_dev = cotangents.to(device=device, dtype=target_activation.dtype)
+        buffer = torch.zeros_like(target_activation)
+
+        # Which valid source positions fall in each bucket, per target. Built
+        # once per t' and reused across cotangent batches and layers.
+        selections: dict[int, list[torch.Tensor]] = {}
+        for t_prime in targets.tolist():
+            d = t_prime - valid_on_device
+            sel = []
+            for lo, hi in buckets:
+                mask = (d >= lo) & (d <= hi)
+                sel.append(valid_on_device[mask])
+            selections[t_prime] = sel
+
+        n_batches = math.ceil(n_cotangents / batch)
+        for pass_idx in range(n_batches):
+            start = pass_idx * batch
+            stop = min(start + batch, n_cotangents)
+            n_this = stop - start
+            for j, t_prime in enumerate(targets.tolist()):
+                buffer.zero_()
+                buffer[:n_this, t_prime, :] = cotangents_dev[start:stop, None, :][:, 0]
+                last = pass_idx == n_batches - 1 and j == n_valid - 1
+                grads = torch.autograd.grad(
+                    outputs=target_activation,
+                    inputs=source_activations,
+                    grad_outputs=buffer,
+                    retain_graph=not last,
+                )
+                for layer, grad in zip(source_layers, grads, strict=True):
+                    rows = grad[:n_this].float()
+                    out[layer]["total"][start:stop] += (
+                        rows[:, valid_on_device, :].sum(dim=1).cpu()
+                    )
+                    for name, sel in zip(names, selections[t_prime], strict=True):
+                        if sel.numel():
+                            out[layer][name][start:stop] += (
+                                rows[:, sel, :].sum(dim=1).cpu()
+                            )
+                del grads
+        # Counted once, not once per cotangent batch or layer.
+        for t_prime in targets.tolist():
+            for name, sel in zip(names, selections[t_prime], strict=True):
+                pair_counts[name] += int(sel.numel())
+
+    for layer in source_layers:
+        for name in [*names, "total"]:
+            out[layer][name] /= n_valid
+    return out, pair_counts
+
+
+def component_pullbacks_for_prompt(
+    model,
+    prompt: str,
+    source_layers: Sequence[int],
+    cotangents: torch.Tensor,
+    *,
+    target_layer: int | None = None,
+    dim_batch: int = 16,
+    max_seq_len: int = 128,
+    skip_first: int = SKIP_FIRST_N_POSITIONS,
+    t_stride: int = 1,
+) -> dict[int, dict[str, torch.Tensor]]:
+    """Split ``J_x^T c`` into Yan et al.'s two components (Eq. 20).
+
+    The fitting estimator averages over source positions the sum over target
+    positions, ``mean_t sum_t' d h_final,t' / d h_l,t``. Eq. 20 splits that sum
+    by where ``t'`` sits relative to ``t``:
+
+    * ``diag`` -- the ``t' = t`` term alone. The output at a position given its
+      own activation: short-horizon, next-token prediction.
+    * ``off`` -- everything with ``t' > t``. Influence on what gets emitted
+      *later*, which is where a concept broadcast or a re-mention would live.
+
+    Their Table 1 filters pairs this way and scores READOUT. This returns the
+    two components as write directions, so the same split can be steered with,
+    which is the arm their paper does not have.
+
+    One backward pass per target position gives that position's whole column
+    over ``t``, so the cost is ``n_valid`` passes per cotangent batch (~111 on
+    a 128-token window) rather than one -- still far below the ``d_model``
+    passes a full Jacobian needs.
+
+    Returns:
+        ``{layer: {"diag": [K, d], "off": [K, d], "total": [K, d]}}``, where
+        ``total`` reproduces :func:`pullback_for_prompt` and equals
+        ``diag + off`` up to floating point.
+    """
+    if cotangents.ndim != 2 or cotangents.shape[1] != model.d_model:
+        raise ValueError(
+            f"cotangents must be [K, d_model={model.d_model}], "
+            f"got {tuple(cotangents.shape)}"
+        )
+    source_layers, target_layer = _check_layer_indices(
+        source_layers, target_layer, model.n_layers
+    )
+    input_ids = model.encode(prompt, max_length=max_seq_len)
+    seq_len = input_ids.shape[1]
+    valid = resolve_positions(seq_len, None, skip_first=skip_first)
+    # Subsampling target positions costs one backward pass each and leaves both
+    # components unbiased estimates of their own means. It matters because the
+    # pass count is (n_targets x cotangent batches), and a 70-word target list
+    # makes the full 111 targets hours rather than minutes. Safe here because
+    # ``swap_edit`` unit-normalises the read directions, so the overall scale
+    # these share is never used.
+    targets = valid[::t_stride]
+    n_valid = len(targets)
+    n_cotangents = cotangents.shape[0]
+    batch = min(dim_batch, n_cotangents)
+
+    out = {
+        layer: {
+            part: torch.zeros(n_cotangents, model.d_model, dtype=torch.float32)
+            for part in ("diag", "total")
+        }
+        for layer in source_layers
+    }
+
+    with (
+        ActivationRecorder(
+            model.layers,
+            at=[*source_layers, target_layer],
+            start_graph_at=min(source_layers),
+        ) as recorder,
+        torch.enable_grad(),
+    ):
+        model.forward(input_ids.expand(batch, -1))
+        target_activation = recorder.activations[target_layer]
+        source_activations = [recorder.activations[layer] for layer in source_layers]
+        device = target_activation.device
+        valid_on_device = valid.to(device)
+        cotangents_dev = cotangents.to(device=device, dtype=target_activation.dtype)
+        buffer = torch.zeros_like(target_activation)
+
+        n_batches = math.ceil(n_cotangents / batch)
+        for pass_idx in range(n_batches):
+            start = pass_idx * batch
+            stop = min(start + batch, n_cotangents)
+            n_this = stop - start
+            for j, t_prime in enumerate(targets.tolist()):
+                buffer.zero_()
+                buffer[:n_this, t_prime, :] = cotangents_dev[start:stop, None, :][:, 0]
+                last = pass_idx == n_batches - 1 and j == n_valid - 1
+                grads = torch.autograd.grad(
+                    outputs=target_activation,
+                    inputs=source_activations,
+                    grad_outputs=buffer,
+                    retain_graph=not last,
+                )
+                for layer, grad in zip(source_layers, grads, strict=True):
+                    rows = grad[:n_this].float()
+                    # Causality zeroes t > t', so summing the valid set is the
+                    # same as summing t <= t'.
+                    out[layer]["total"][start:stop] += (
+                        rows[:, valid_on_device, :].sum(dim=1).cpu()
+                    )
+                    out[layer]["diag"][start:stop] += rows[:, t_prime, :].cpu()
+                del grads
+
+    for layer in source_layers:
+        for part in ("diag", "total"):
+            out[layer][part] /= n_valid
+        out[layer]["off"] = out[layer]["total"] - out[layer]["diag"]
+    return out

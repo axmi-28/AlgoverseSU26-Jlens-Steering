@@ -16,9 +16,28 @@ neuronpedia_served: true
 dtype: bfloat16
 device: auto
 dim_batch: 8
-# Workspace band (inclusive) -- see ModelConfig.band.
+# Workspace band, DERIVED from the paper rather than guessed.
+#
+# The paper reports "results on 25 evenly spaced layers of the model's residual
+# stream reindexed to the range [0-100] so that layer numbers can be
+# interpreted as percentages", and locates the workspace at L38-L92 in that
+# reindexed space -- "beginning about a third of the way through (~L38) and
+# ending shortly before the output (~L92)".
+#
+# So the band is 38%-92% OF DEPTH, not layer indices: round(0.38*(n_layers-1))
+# to round(0.92*(n_layers-1)) = L10-L23 for this 26 layer model.
+#
+# This was previously read as literal indices, giving a band ~5 layers too wide
+# at the bottom. That is not cosmetic: the swap compounds across layers, and on
+# qwen3-8b the wrong band scored 3/192 against 63/192 for a narrow one.
+#
+# Corroboration: for gemma-2-2b this derives L10-L23, against L10-L24 measured
+# independently by the parity check in scripts/01_check_lens_parity.py.
+#
+# The paper's J-space ablations use "L38-54, the first third of the workspace
+# range" -- L10-L14 here -- if a narrower band is ever wanted.
 band_start: 10
-band_end: 24
+band_end: 23
 fit:
   prompts_fitted: 454
   final_identity_distance: 0.478237

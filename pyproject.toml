@@ -1,10 +1,12 @@
 [build-system]
-requires = ["setuptools>=64"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "jsteer"
 version = "0.1.0"
+license = "MIT"
+license-files = ["LICENSE", "docs/licenses/*.txt"]
 description = "When are J-Lens read directions valid write directions? Prompt-local Jacobian analysis."
 readme = "README.md"
 requires-python = ">=3.11,<3.13"
@@ -16,12 +18,13 @@ dependencies = [
     "pyyaml",
     "datasets",
     "requests",
-    "jlens @ git+https://github.com/anthropics/jacobian-lens.git",
+    "jlens @ git+https://github.com/anthropics/jacobian-lens.git@581d398613e5602a5af361e1c34d3a92ea82ba8e",
 ]
 
 [project.optional-dependencies]
-dev = ["pytest", "ruff"]
-analysis = ["pandas", "scipy", "matplotlib"]
+dev = ["pytest", "ruff", "modal"]
+analysis = ["pandas", "scipy", "matplotlib", "pymupdf"]
+remote = ["modal"]
 
 [tool.setuptools]
 package-dir = {"" = "src"}
@@ -38,4 +41,5 @@ ignore = ["E501", "E741"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+addopts = "-m 'not network and not slow'"
 markers = ["slow: needs a real model download / many minutes", "network: hits HF or Neuronpedia"]

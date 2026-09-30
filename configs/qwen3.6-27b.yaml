@@ -1,0 +1,71 @@
+# The scale replication. Everything here mirrors configs/qwen3-8b.yaml; the
+# only reason this file needs commentary of its own is that Qwen3.6-27B is a
+# structurally different animal from the other four models in configs/.
+#
+# 1. It is a MULTIMODAL checkpoint. config.json says
+#    architectures = ["Qwen3_5ForConditionalGeneration"], and its weights are
+#    named model.language_model.*. transformers maps model_type "qwen3_5" to
+#    Qwen3_5ForCausalLM under AutoModelForCausalLM -- which expects
+#    model.layers.* and ships no _checkpoint_conversion_mapping. Loading it the
+#    default way matches zero decoder keys and returns a randomly initialised
+#    27B model that runs fine and means nothing. Hence hf_auto_class below, and
+#    the missing-key guard in jsteer.loading.load_hf_model. jlens's layout
+#    autodetection finds model.language_model on its own once the right class
+#    is used (verified against a meta-device instantiation).
+#
+# 2. It is a HYBRID model: full_attention_interval = 4, so three of every four
+#    blocks are gated-linear-attention rather than softmax attention. The
+#    Jacobian is still just a VJP through the block stack, but the linear-attn
+#    path must stay on transformers' native torch implementation -- do not add
+#    flash-linear-attention or causal-conv1d to the Modal image, whose fused
+#    kernels are inference-only and would either error or silently drop
+#    gradients.
+#
+# 3. mtp.* (multi-token prediction, 1 layer) is a separate head, not part of
+#    the 64-block stack. It is unused and exempted from the load guard.
+name: qwen3.6-27b
+hf_model_id: Qwen/Qwen3.6-27B
+np_model_id: qwen3.6-27b
+hf_auto_class: AutoModelForImageTextToText
+n_layers: 64
+d_model: 5120
+lens_filename: qwen3.6-27b/jlens/Salesforce-wikitext/Qwen3.6-27B_jacobian_lens_n1000.pt
+neuronpedia_served: false
+dtype: bfloat16
+device: auto
+dim_batch: 8
+# Workspace band, DERIVED the same way as every other config: 38%-92% of depth,
+# because the paper reports on "25 evenly spaced layers ... reindexed to the
+# range [0-100] so that layer numbers can be interpreted as percentages" and
+# puts the workspace at L38-L92 in that reindexed space.
+#
+#   round(0.38 * 63) = 24,  round(0.92 * 63) = 58   ->  L24-L58 (35 layers)
+#
+# The paper's "first third of the workspace range" (L38-54 of depth) is
+# round(0.54 * 63) = 34, so L24-L34 -- that is the pre-registered causal band
+# for C1 on this model, the depth-matched analogue of L14-19 on qwen3-8b. It is
+# derived from the same percentages and is NOT to be re-picked by whichever
+# width scores best; doing that would be fitting the band on the outcome.
+band_start: 24
+band_end: 58
+fit:
+  dataset: Salesforce/wikitext
+  dataset_config: wikitext-103-raw-v1
+  dataset_split: train
+  text_field: text
+  max_chars: 2000
+  max_seq_len: 128
+  skip_first: 16
+  target_layer: null
+  dtype: bfloat16
+  # Read off the .pt itself (modal run modal_app.py::lens --config qwen3.6-27b).
+  # NOTE the difference from qwen3-8b: this lens ran the full 1000 prompts
+  # rather than early-stopping at ~460. J_bar is therefore a tighter estimate
+  # here, which *lowers* the finite-sample floor -- the variance-only
+  # prediction in the bias/variance table scales as 1/sqrt(n_fit), so a
+  # like-for-like comparison with the 8B result has to quote both n's.
+  # The lens is fitted at 63 of the 64 layers, so all 35 band layers are
+  # available and resolve_layers does not silently shrink the sweep.
+  n_prompts_requested: 1000
+  prompts_fitted: 1000
+  final_identity_distance: null

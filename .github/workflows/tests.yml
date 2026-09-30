@@ -1,0 +1,26 @@
+name: Offline checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements/analysis-tested.txt
+      - run: python -m pip install --no-deps -e .
+      - run: python scripts/release.py verify
+      - run: python scripts/release.py restore
+      - run: python scripts/release.py audit
+      - run: python -m pytest -q
+        env:
+          HF_HUB_OFFLINE: '1'
+          HF_DATASETS_OFFLINE: '1'
+      - run: python scripts/reproduce.py tables
+        env:
+          HF_HUB_OFFLINE: '1'
+          HF_DATASETS_OFFLINE: '1'

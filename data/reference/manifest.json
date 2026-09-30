@@ -1,0 +1,447 @@
+{
+  "schema": 1,
+  "description": "Unmodified reference inputs and outputs; gzip transport only. Run scripts/release.py restore.",
+  "files": [
+    {
+      "path": "data/jlens-upstream/experiments/flexible-generalization.json",
+      "packed": "data__jlens-upstream__experiments__flexible-generalization.json.gz",
+      "sha256": "f48d8e877c7422e14fa60794984fde07bbd11acbda4030c0149ec0a593773fdd",
+      "packed_sha256": "21c562cdeb789a3d4daffbcb8ab758260e1b9cc5e8db0f964ca5dcd1dd866a16",
+      "bytes": 4946,
+      "packed_bytes": 1091,
+      "purpose": "Upstream evaluation at pinned J-lens commit"
+    },
+    {
+      "path": "data/jlens-upstream/experiments/probe-swap.json",
+      "packed": "data__jlens-upstream__experiments__probe-swap.json.gz",
+      "sha256": "a0edd27ca23f7b4d0fbe90448c2ddcc7457a3d812121bf024ed12a032ff86796",
+      "packed_sha256": "5b0ee8d745fe4be0d0b1bebb70de6609a73165a3217a1ae41f53a2aa94455fe6",
+      "bytes": 26567,
+      "packed_bytes": 5041,
+      "purpose": "Upstream evaluation at pinned J-lens commit"
+    },
+    {
+      "path": "results/c22/component_fit_corpus_snapshot_20260914.json",
+      "packed": "results__c22__component_fit_corpus_snapshot_20260914.json.gz",
+      "sha256": "ebb221a4039e7f3003e336d6ed3d3d2d106c5107c06af9329a52d150af7ac283",
+      "packed_sha256": "ae6d2da5914e158640dd5b2c08cfd44b666cc1b729582d8b3e00764b55daffe5",
+      "bytes": 426773,
+      "packed_bytes": 133197,
+      "purpose": "Frozen experimental inputs and pilot provenance"
+    },
+    {
+      "path": "results/c22/write_controls_6fff00659415ddf5.json",
+      "packed": "results__c22__write_controls_6fff00659415ddf5.json.gz",
+      "sha256": "e61bb29d6e9dbc51bf24a3a1bc6fe7891e94188c529dca07c515bcb22bf5861c",
+      "packed_sha256": "5751f166fa8c878613db6e80fedc947300beaa9cfd476002f3f77e9100f15fa9",
+      "bytes": 5020583,
+      "packed_bytes": 1071409,
+      "purpose": "Final figure inputs (raw trial-level outputs)"
+    },
+    {
+      "path": "results/c22/write_controls_7a59c53d116e8b6c.json",
+      "packed": "results__c22__write_controls_7a59c53d116e8b6c.json.gz",
+      "sha256": "415b1950fd89fdac7e7f00e7dcd3c2067257ab1e4a02892ae150c47a78594849",
+      "packed_sha256": "9ee1f5e845e06f0f138c90015ca2f42082a5a75abb0b86f3c06366f039fdcb34",
+      "bytes": 737402,
+      "packed_bytes": 160423,
+      "purpose": "Frozen experimental inputs and pilot provenance"
+    },
+    {
+      "path": "results/c22/write_controls_dac7603b1af57dbd.json",
+      "packed": "results__c22__write_controls_dac7603b1af57dbd.json.gz",
+      "sha256": "e247f629d88042b1ad05fb52c1d2f36614eb7dd2db48673c5485d8ff1151d4d3",
+      "packed_sha256": "95a94a978408fb7ae035058ba72b9f568309644777d631b805dc4feedade58a2",
+      "bytes": 5019533,
+      "packed_bytes": 1073151,
+      "purpose": "Final figure inputs (raw trial-level outputs)"
+    },
+    {
+      "path": "results/causal/steering_qwen3-8b_swap_aqua_shard0of1.json",
+      "packed": "results__causal__steering_qwen3-8b_swap_aqua_shard0of1.json.gz",
+      "sha256": "c9cbf0e89f68046c0007c782ceca02054eba1b4f435fb6c8c77eccfbf9620422",
+      "packed_sha256": "e81f6ca9712a549652623fa980ac2052b5347203e7543d853dc06b583adfcc57",
+      "bytes": 2859140,
+      "packed_bytes": 266534,
+      "purpose": "Final figure inputs (raw trial-level outputs)"
+    },
+    {
+      "path": "results/causal/steering_qwen3-8b_swap_comp_shard0of2.json",
+      "packed": "results__causal__steering_qwen3-8b_swap_comp_shard0of2.json.gz",
+      "sha256": "90b8ccab44bebb3b728e883cde93f8dc7d2e2e14076af3ab8e8529d98d04c044",
+      "packed_sha256": "f730f5d52c0c0d2ef81b7c447d4075708ce8d0d9d4ac3fa28ae2cca48a3e7fb7",
+      "bytes": 858174,
+      "packed_bytes": 86093,
+      "purpose": "Final figure inputs (raw trial-level outputs)"
+    },
+    {
+      "path": "results/causal/steering_qwen3-8b_swap_comp_shard1of2.json",
+      "packed": "results__causal__steering_qwen3-8b_swap_comp_shard1of2.json.gz",
+      "sha256": "3a246423d18819fed5f4a1151b338ce62c05f63d3a9e9db4cc21bf587006e227",
+      "packed_sha256": "fb3b7e84883a6845851eabd1998b08728d47fe862c388616da60c838f4c06bbd",
+      "bytes": 857628,
+      "packed_bytes": 85663,
+      "purpose": "Final figure inputs (raw trial-level outputs)"
+    },
+    {
+      "path": "results/causal/steering_qwen3-8b_swap_expanded_shard0of1.json",
+      "packed": "results__causal__steering_qwen3-8b_swap_expanded_shard0of1.json.gz",
+      "sha256": "1441beab86ad98b36d55cea8f99254b9adb57f3a437f5054993faf2c88d82437",
+      "packed_sha256": "d68821db54da2cbd8d84ec1fb3875e89b9764db1f53aa74bb8085e356f05b5d0",
+      "bytes": 3202272,
+      "packed_bytes": 303925,
+      "purpose": "Final figure inputs (raw trial-level outputs)"
+    },
+    {
+      "path": "results/causal/steering_qwen3-8b_swap_oscale_abl_shard0of1.json",
+      "packed": "results__causal__steering_qwen3-8b_swap_oscale_abl_shard0of1.json.gz",
+      "sha256": "23dd9f35dc8bc10cb061a444250e3343d801c796b10b40ed895834c40dd33533",
+      "packed_sha256": "4759edbeb4c793b84b7d7007cc95226be5231e417f1cd42bc2183ea9f9b4d191",
+      "bytes": 2020167,
+      "packed_bytes": 184873,
+      "purpose": "Final figure inputs (raw trial-level outputs)"
+    },
+    {
+      "path": "results/causal/steering_qwen3-8b_swap_tier0_shard0of1.json",
+      "packed": "results__causal__steering_qwen3-8b_swap_tier0_shard0of1.json.gz",
+      "sha256": "e2d5a2c2f0cc72cf19b3771d021d6e1721dc665e30c9ba1658603b4c584975a7",
+      "packed_sha256": "a2400428f46de18eee884d3f83982b53368e3d9f0562f217844792864d681627",
+      "bytes": 3891508,
+      "packed_bytes": 359492,
+      "purpose": "Final figure inputs (raw trial-level outputs)"
+    },
+    {
+      "path": "results/causal/two_hop_qwen3-8b_all_g595bfbbf_twohop89d9c5_shard0of1.json",
+      "packed": "results__causal__two_hop_qwen3-8b_all_g595bfbbf_twohop89d9c5_shard0of1.json.gz",
+      "sha256": "1fa9d7fbac74a11c09a225c22c0ced6b689f967faf1e0288b6becfed07efaa2d",
+      "packed_sha256": "5d96849c9f4b3c95a1e7439da6754df6dc2b230eac48b60a3caf3d67fb3825bb",
+      "bytes": 530247,
+      "packed_bytes": 18665,
+      "purpose": "Frozen experimental inputs and pilot provenance"
+    },
+    {
+      "path": "results/concept/clean_qwen3-8b_3c395ded62_shard0of2.json",
+      "packed": "results__concept__clean_qwen3-8b_3c395ded62_shard0of2.json.gz",
+      "sha256": "663150be2885502b88992dd1a5c6df8bd976e84a48e9799df095e662d0136d0f",
+      "packed_sha256": "1905235087cbda635577fb79edf6b36c326dfb18bd0596c4ffb3459fb4650beb",
+      "bytes": 2879913,
+      "packed_bytes": 88198,
+      "purpose": "Clean eligibility run"
+    },
+    {
+      "path": "results/concept/clean_qwen3-8b_3c395ded62_shard1of2.json",
+      "packed": "results__concept__clean_qwen3-8b_3c395ded62_shard1of2.json.gz",
+      "sha256": "ce1bd0bce49345e3b83308f15e8b8909825d66b21ad82cc68920a444b1f47631",
+      "packed_sha256": "6182df9fbbf09d7b85cd81d9c46646109f01980e6dd5506b44f4cc0ecd2c2e11",
+      "bytes": 2878726,
+      "packed_bytes": 88068,
+      "purpose": "Clean eligibility run"
+    },
+    {
+      "path": "results/concept/eligibility.json",
+      "packed": "results__concept__eligibility.json.gz",
+      "sha256": "e12fe7f61d9d40df1f337d5ca378647aa40037ee1dbacc2a7e13c83b19c3993a",
+      "packed_sha256": "188e10addcccb93c748e074a2bb45ba72fcbdd2dcfb9515127697a09f48a7b2f",
+      "bytes": 499431,
+      "packed_bytes": 8780,
+      "purpose": "Frozen experimental inputs and pilot provenance"
+    },
+    {
+      "path": "results/concept/gradcheck_c39checkprefix_qwen3-8b_daaf929b6f_shard0of1.json",
+      "packed": "results__concept__gradcheck_c39checkprefix_qwen3-8b_daaf929b6f_shard0of1.json.gz",
+      "sha256": "d8822aec267306cf9fae2ea02ef2f0c50fc2a0fd8616e48c10f9ef0de6595fe7",
+      "packed_sha256": "c8707cb554411d1b125a6ca053150e24c4049a9e0b9375731f2321ad3ce36341",
+      "bytes": 172519,
+      "packed_bytes": 66343,
+      "purpose": "Float32 finite-difference gate"
+    },
+    {
+      "path": "results/concept/gradcheck_c39checkprompt_qwen3-8b_e79dda3815_shard0of1.json",
+      "packed": "results__concept__gradcheck_c39checkprompt_qwen3-8b_e79dda3815_shard0of1.json.gz",
+      "sha256": "933926f2e69b642efc5a1648cd9f9059fc4e55d3f66d6e7b00a1c366431d6225",
+      "packed_sha256": "7950405b87e3ae0b046299baea714d6c453ef6e6b85a358070ccf7134322a41b",
+      "bytes": 177023,
+      "packed_bytes": 69857,
+      "purpose": "Float32 finite-difference gate"
+    },
+    {
+      "path": "results/concept/gradgeom_c39gradprefix_qwen3-8b_59a868ba52_shard0of2.json",
+      "packed": "results__concept__gradgeom_c39gradprefix_qwen3-8b_59a868ba52_shard0of2.json.gz",
+      "sha256": "fa9fedc7e11f37cf5e412f414556f3d22fad0f24625cf2fe4ef7d88553bc8080",
+      "packed_sha256": "9607f71bd83ceb8b5e61050eb33645d496394d2b3972a1b0bdb15b3d45eb5219",
+      "bytes": 2838526,
+      "packed_bytes": 902629,
+      "purpose": "Relational/leakage gradients"
+    },
+    {
+      "path": "results/concept/gradgeom_c39gradprefix_qwen3-8b_59a868ba52_shard1of2.json",
+      "packed": "results__concept__gradgeom_c39gradprefix_qwen3-8b_59a868ba52_shard1of2.json.gz",
+      "sha256": "50aac9b608419d79e897e0f661dd51a13d3de1f77b41b93a535a3bf21891663f",
+      "packed_sha256": "9666d10184746dbae1412458b0df1a5ed3e48d17908a41f2af797df48385043e",
+      "bytes": 2792210,
+      "packed_bytes": 887893,
+      "purpose": "Relational/leakage gradients"
+    },
+    {
+      "path": "results/concept/gradgeom_c39gradprompt_qwen3-8b_ec4eca685b_shard0of2.json",
+      "packed": "results__concept__gradgeom_c39gradprompt_qwen3-8b_ec4eca685b_shard0of2.json.gz",
+      "sha256": "ac19efc670f847b9c8cf4b47f1c9447599152e9525fc36d10328904473a462ed",
+      "packed_sha256": "f77f450268a230aa8c33a6c784734bb9a6d04737d795e1f24ebba6aef7f18e43",
+      "bytes": 2847540,
+      "packed_bytes": 917634,
+      "purpose": "Relational/leakage gradients"
+    },
+    {
+      "path": "results/concept/gradgeom_c39gradprompt_qwen3-8b_ec4eca685b_shard1of2.json",
+      "packed": "results__concept__gradgeom_c39gradprompt_qwen3-8b_ec4eca685b_shard1of2.json.gz",
+      "sha256": "dbf607b18f8314c9e68083879d60c631f9bda53816c1934d870ccab2504ee147",
+      "packed_sha256": "f1b45c68762b596da53a7b74cdc2056f8beaefdfac4ca13155aa8a4241108ef5",
+      "bytes": 2800790,
+      "packed_bytes": 900663,
+      "purpose": "Relational/leakage gradients"
+    },
+    {
+      "path": "results/concept/magmatched_c38matchedprefix_qwen3-8b_9e09edf74f_shard0of2.json",
+      "packed": "results__concept__magmatched_c38matchedprefix_qwen3-8b_9e09edf74f_shard0of2.json.gz",
+      "sha256": "ba165905dc1c57511ee64de03b226a2a72c6342b66688e7f7a911acda96e748c",
+      "packed_sha256": "a47c66985e1bd28db8d4a9f7962b6a2464a212c7c8057447fc704e707c4e2fe5",
+      "bytes": 695295,
+      "packed_bytes": 140699,
+      "purpose": "Dynamic magnitude control"
+    },
+    {
+      "path": "results/concept/magmatched_c38matchedprefix_qwen3-8b_9e09edf74f_shard1of2.json",
+      "packed": "results__concept__magmatched_c38matchedprefix_qwen3-8b_9e09edf74f_shard1of2.json.gz",
+      "sha256": "cb12f924ad4a748dfed75837f7a58e8c3a65dbdbcfc83ed8b6d5594cd6362544",
+      "packed_sha256": "d2f1503c8094c029c80348057a6057e806b2bb0d121864e84f900f42fce63846",
+      "bytes": 684758,
+      "packed_bytes": 138298,
+      "purpose": "Dynamic magnitude control"
+    },
+    {
+      "path": "results/concept/magmatched_c38matchedprompt_qwen3-8b_1d98ba3422_shard0of2.json",
+      "packed": "results__concept__magmatched_c38matchedprompt_qwen3-8b_1d98ba3422_shard0of2.json.gz",
+      "sha256": "8402695cf666dec08376b216c35b4e92c55747178d853ba5bcd2772b625e09ef",
+      "packed_sha256": "cee475961aa2dbe7fea7a3ec65455da27427ef1d51ed80a916f963c8bf9b70d9",
+      "bytes": 688434,
+      "packed_bytes": 154013,
+      "purpose": "Dynamic magnitude control"
+    },
+    {
+      "path": "results/concept/magmatched_c38matchedprompt_qwen3-8b_1d98ba3422_shard1of2.json",
+      "packed": "results__concept__magmatched_c38matchedprompt_qwen3-8b_1d98ba3422_shard1of2.json.gz",
+      "sha256": "dfc141ee532785515d6202a439b60c078e293d3a8ae26e6ea36c6c853a4b1edd",
+      "packed_sha256": "c5fa4b4aa88c2d0fae2212ee7dc5cdad3dc69d8b4a802ef2c43cf17b332e2373",
+      "bytes": 677718,
+      "packed_bytes": 151621,
+      "purpose": "Dynamic magnitude control"
+    },
+    {
+      "path": "results/concept/magnitude_c38magprefix_qwen3-8b_6f428d1a17_shard0of2.json",
+      "packed": "results__concept__magnitude_c38magprefix_qwen3-8b_6f428d1a17_shard0of2.json.gz",
+      "sha256": "65ca7c3e778d4a1ba3da967d3458b9ab3ed8193299b2a52db2d55509fdbbcf73",
+      "packed_sha256": "7ac170f6f6c36c8cbb569fba55417bcf2f3ecd86ddab7781c6e3bb8f2dbb1610",
+      "bytes": 3232695,
+      "packed_bytes": 595406,
+      "purpose": "Edit-magnitude control"
+    },
+    {
+      "path": "results/concept/magnitude_c38magprefix_qwen3-8b_6f428d1a17_shard0of2.sites.pt",
+      "packed": "results__concept__magnitude_c38magprefix_qwen3-8b_6f428d1a17_shard0of2.sites.pt.gz",
+      "sha256": "9494632d359e141c640f182be5b41feaf8a233e070759d839f83a652584e5385",
+      "packed_sha256": "aaef0fb7d26b55b3d21706f0714a1f9b9f95fdde67394e417e06cb6f216c9c1a",
+      "bytes": 21850189,
+      "packed_bytes": 12318431,
+      "purpose": "Per-site edit-magnitude measurements"
+    },
+    {
+      "path": "results/concept/magnitude_c38magprefix_qwen3-8b_6f428d1a17_shard1of2.json",
+      "packed": "results__concept__magnitude_c38magprefix_qwen3-8b_6f428d1a17_shard1of2.json.gz",
+      "sha256": "1d838f03a13ededb6ae4b06c76b49c2031b7d36ce5d98a1d27693ffc51826458",
+      "packed_sha256": "93bece03fa82c90d5e82f25e0b095b1f5817aaeb1df79e374d573f49ec23b17b",
+      "bytes": 3180823,
+      "packed_bytes": 589453,
+      "purpose": "Edit-magnitude control"
+    },
+    {
+      "path": "results/concept/magnitude_c38magprefix_qwen3-8b_6f428d1a17_shard1of2.sites.pt",
+      "packed": "results__concept__magnitude_c38magprefix_qwen3-8b_6f428d1a17_shard1of2.sites.pt.gz",
+      "sha256": "65c81b20e1380586e75074bf6920bedc60e9efc568d1f0b9b3afe5b0ad49478f",
+      "packed_sha256": "6fbe52fbf22b6bf35a766e93da8f2fe903a3ab2e2187c4940bef2f9ec485c481",
+      "bytes": 21418089,
+      "packed_bytes": 11945734,
+      "purpose": "Per-site edit-magnitude measurements"
+    },
+    {
+      "path": "results/concept/magnitude_c38magprompt_qwen3-8b_c7822ff955_shard0of2.json",
+      "packed": "results__concept__magnitude_c38magprompt_qwen3-8b_c7822ff955_shard0of2.json.gz",
+      "sha256": "8350242b944d5b5e2d24ebef08203ece734d1aae9007d16eceabe8c77aa9d32d",
+      "packed_sha256": "d06a0c623fcad0f3ca79c5739693d2525a127b205d9256e61342e8d577175fb3",
+      "bytes": 3228953,
+      "packed_bytes": 599423,
+      "purpose": "Edit-magnitude control"
+    },
+    {
+      "path": "results/concept/magnitude_c38magprompt_qwen3-8b_c7822ff955_shard0of2.sites.pt",
+      "packed": "results__concept__magnitude_c38magprompt_qwen3-8b_c7822ff955_shard0of2.sites.pt.gz",
+      "sha256": "18f34c03faedad892f465186f58cc3753ea15746bdbda7147c2339e2678a79e7",
+      "packed_sha256": "0e345f437cbb2714a15b268090a4d4caab84534e024cb6d79f60fd760eaacc7b",
+      "bytes": 33036749,
+      "packed_bytes": 25970785,
+      "purpose": "Per-site edit-magnitude measurements"
+    },
+    {
+      "path": "results/concept/magnitude_c38magprompt_qwen3-8b_c7822ff955_shard1of2.json",
+      "packed": "results__concept__magnitude_c38magprompt_qwen3-8b_c7822ff955_shard1of2.json.gz",
+      "sha256": "cee796bc99fead92ff87b60b3977ffa595bd9a515c483a6b29313f37325f08b7",
+      "packed_sha256": "4daef860c34cc663dbefb93cd7c747118296026a691661768fb92bf0a0334bb6",
+      "bytes": 3177328,
+      "packed_bytes": 592995,
+      "purpose": "Edit-magnitude control"
+    },
+    {
+      "path": "results/concept/magnitude_c38magprompt_qwen3-8b_c7822ff955_shard1of2.sites.pt",
+      "packed": "results__concept__magnitude_c38magprompt_qwen3-8b_c7822ff955_shard1of2.sites.pt.gz",
+      "sha256": "6cc654770620ca8f45723383436e21e7d53d4d8cc276c802cc2f36f24333bfd0",
+      "packed_sha256": "bddd5dd282111b984ed5322123c33cc6287bc4cb578bf1676e8fdd8927978988",
+      "bytes": 32426985,
+      "packed_bytes": 25494285,
+      "purpose": "Per-site edit-magnitude measurements"
+    },
+    {
+      "path": "results/concept/swap_c36kappa_qwen3-8b_3b28f16205_shard0of4.json",
+      "packed": "results__concept__swap_c36kappa_qwen3-8b_3b28f16205_shard0of4.json.gz",
+      "sha256": "d1aaf0bfdfe7e3b1dfa440601a490110fc79bc3c620f4f92683459b431e340c5",
+      "packed_sha256": "e68dc58e8df9b45da392cbb9ffcf0842b58a6a6741170b8d66367eea678ea5e1",
+      "bytes": 4821764,
+      "packed_bytes": 590250,
+      "purpose": "Direction-scale control"
+    },
+    {
+      "path": "results/concept/swap_c36kappa_qwen3-8b_3b28f16205_shard1of4.json",
+      "packed": "results__concept__swap_c36kappa_qwen3-8b_3b28f16205_shard1of4.json.gz",
+      "sha256": "ddb99a37997124087e3d65d4a6c89718c59d9b0b1fc5db79b8d5473c8bbec6ef",
+      "packed_sha256": "3b46e63fc65b3f1ebfd28ee5c104df55b7c7f29be90f6b837154758718c5ded0",
+      "bytes": 4780077,
+      "packed_bytes": 578975,
+      "purpose": "Direction-scale control"
+    },
+    {
+      "path": "results/concept/swap_c36kappa_qwen3-8b_3b28f16205_shard2of4.json",
+      "packed": "results__concept__swap_c36kappa_qwen3-8b_3b28f16205_shard2of4.json.gz",
+      "sha256": "0f52b7a0279a6c4f0c29e840beea0316ca6086022f1e36d1f3b24c869dba1a4c",
+      "packed_sha256": "60f46ceebbce609790a3a5d3a5e952df5f3607eaf52b93d6cef266741fadf749",
+      "bytes": 4814846,
+      "packed_bytes": 585413,
+      "purpose": "Direction-scale control"
+    },
+    {
+      "path": "results/concept/swap_c36kappa_qwen3-8b_3b28f16205_shard3of4.json",
+      "packed": "results__concept__swap_c36kappa_qwen3-8b_3b28f16205_shard3of4.json.gz",
+      "sha256": "b7a8d92ff58892d742048f5839a119cc41bb605c942f553c563b87e08cad09d8",
+      "packed_sha256": "512b89dc36a815d7eecaa2ae378a33248de68a7bfc1d184059930bbd2734a12f",
+      "bytes": 4798257,
+      "packed_bytes": 583469,
+      "purpose": "Direction-scale control"
+    },
+    {
+      "path": "results/concept/swap_c37lambdaprefix_qwen3-8b_75f74629d0_shard0of4.json",
+      "packed": "results__concept__swap_c37lambdaprefix_qwen3-8b_75f74629d0_shard0of4.json.gz",
+      "sha256": "c6066fdd1ff5f7f3c7819ec7b34d8ba288699e3cff587ba3f8810cb43563a911",
+      "packed_sha256": "44f5f232e66bc8938e83c2da07605e87f4e0403f0a22133a5989fec9d145d3e2",
+      "bytes": 6122230,
+      "packed_bytes": 639803,
+      "purpose": "Final figure inputs (raw trial-level outputs)"
+    },
+    {
+      "path": "results/concept/swap_c37lambdaprefix_qwen3-8b_75f74629d0_shard1of4.json",
+      "packed": "results__concept__swap_c37lambdaprefix_qwen3-8b_75f74629d0_shard1of4.json.gz",
+      "sha256": "4fea6a6ea96af4f98a32be10c82c2c68c082947a9aa623eaacd456213d34734a",
+      "packed_sha256": "e3cfffe55acc09586f96adadf69d5fad8ab6c79b712bc21fcda46fc50b3c4b44",
+      "bytes": 6066340,
+      "packed_bytes": 629123,
+      "purpose": "Final figure inputs (raw trial-level outputs)"
+    },
+    {
+      "path": "results/concept/swap_c37lambdaprefix_qwen3-8b_75f74629d0_shard2of4.json",
+      "packed": "results__concept__swap_c37lambdaprefix_qwen3-8b_75f74629d0_shard2of4.json.gz",
+      "sha256": "3f1b0904928bb8fde5dc751df749267da66df14fd6ec8b7f6fe2ee81921e6ae4",
+      "packed_sha256": "c48100fab473af0af3ebd38c0829b5a9155c4e45a6c587537c6d9487a5751a8b",
+      "bytes": 6109073,
+      "packed_bytes": 634370,
+      "purpose": "Final figure inputs (raw trial-level outputs)"
+    },
+    {
+      "path": "results/concept/swap_c37lambdaprefix_qwen3-8b_75f74629d0_shard3of4.json",
+      "packed": "results__concept__swap_c37lambdaprefix_qwen3-8b_75f74629d0_shard3of4.json.gz",
+      "sha256": "bde4e5b740260f3c4172b6b3119e4fc0643b955c81e8adbc947615adce7a1e64",
+      "packed_sha256": "a8d51b5d7bc628955e87c1333197530e066aa4ca33eb4e03b65f6fde50329b9a",
+      "bytes": 6088203,
+      "packed_bytes": 634897,
+      "purpose": "Final figure inputs (raw trial-level outputs)"
+    },
+    {
+      "path": "results/concept/swap_c37lambdaprompt_qwen3-8b_034da26ce9_shard0of4.json",
+      "packed": "results__concept__swap_c37lambdaprompt_qwen3-8b_034da26ce9_shard0of4.json.gz",
+      "sha256": "64a9fb7cf3fb93cf224505b3b6090f75e737d624e598a416c3b949cc63cf587d",
+      "packed_sha256": "3f90882c7e16e2ca4b8c25eb8e6ab5dd8af5a0f7a726ffa74f3262b923341d42",
+      "bytes": 6130707,
+      "packed_bytes": 679005,
+      "purpose": "Final figure inputs (raw trial-level outputs)"
+    },
+    {
+      "path": "results/concept/swap_c37lambdaprompt_qwen3-8b_034da26ce9_shard1of4.json",
+      "packed": "results__concept__swap_c37lambdaprompt_qwen3-8b_034da26ce9_shard1of4.json.gz",
+      "sha256": "50e92e2f15bafc361f23f7b6960fbefa7a56323fb868c90f8d6611d4b3d3841f",
+      "packed_sha256": "a6f5c5d2558c486537551042e0df91fa0ff8cc894260188cb3a02747f30ee895",
+      "bytes": 6077934,
+      "packed_bytes": 666845,
+      "purpose": "Final figure inputs (raw trial-level outputs)"
+    },
+    {
+      "path": "results/concept/swap_c37lambdaprompt_qwen3-8b_034da26ce9_shard2of4.json",
+      "packed": "results__concept__swap_c37lambdaprompt_qwen3-8b_034da26ce9_shard2of4.json.gz",
+      "sha256": "00a6322daf52676c87fccaa56bb7b3f27aa5c32570312ba693c9916299cfa66f",
+      "packed_sha256": "493f0d34f1a9d936e47009355773684b69b233d89f807bee7845f5dbcaaafb97",
+      "bytes": 6122085,
+      "packed_bytes": 674555,
+      "purpose": "Final figure inputs (raw trial-level outputs)"
+    },
+    {
+      "path": "results/concept/swap_c37lambdaprompt_qwen3-8b_034da26ce9_shard3of4.json",
+      "packed": "results__concept__swap_c37lambdaprompt_qwen3-8b_034da26ce9_shard3of4.json.gz",
+      "sha256": "eccd4601042419ba896fb8f543ed59f6ec7b77a60384d0fa385aced395ac00ae",
+      "packed_sha256": "2d5ffbae485870cfb57f1ebaebbf9560abfe19d31d8c9825f90409d04e1903d3",
+      "bytes": 6099377,
+      "packed_bytes": 671044,
+      "purpose": "Final figure inputs (raw trial-level outputs)"
+    },
+    {
+      "path": "results/energy/energy_qwen3-8b_all_energy_0b90e7d2_shard0of1.json",
+      "packed": "results__energy__energy_qwen3-8b_all_energy_0b90e7d2_shard0of1.json.gz",
+      "sha256": "c12a39262dc2ee3e4e7125d72403e914642579c151ce898f4db8027b8d2f9652",
+      "packed_sha256": "39a9e0e8a78e6ca9ed9b23b59a886bb6f5a1712ea94069d331bc112799016a8d",
+      "bytes": 35243,
+      "packed_bytes": 7710,
+      "purpose": "Position-pair energy measurements"
+    },
+    {
+      "path": "results/energy/energy_qwen3-8b_all_energy_5a1dcf96_shard0of1.json",
+      "packed": "results__energy__energy_qwen3-8b_all_energy_5a1dcf96_shard0of1.json.gz",
+      "sha256": "f096c4e2398c19d969f1db1294cf43cba4d44777c37583edda16c7c573b14b59",
+      "packed_sha256": "19563e0c7dbf92f371df848dd0676dac0aa1f58bb3e6b8faf9608d9ac09da8dd",
+      "bytes": 756942,
+      "packed_bytes": 154033,
+      "purpose": "Position-pair energy measurements"
+    },
+    {
+      "path": "results/rq1/group_mean_digests_qwen3-8b_dom2x32_968c0ba0_pb_t89d64f82_comp_s4.pt",
+      "packed": "results__rq1__group_mean_digests_qwen3-8b_dom2x32_968c0ba0_pb_t89d64f82_comp_s4.pt.gz",
+      "sha256": "b604f0227d551da73ee74470597818c08a93cec02fb468bb67da75a02b1e86d0",
+      "packed_sha256": "078b253ccf6cafdd1455d302c0e5339a0a44f86d204400c73d92a306967e1387",
+      "bytes": 48187909,
+      "packed_bytes": 44551195,
+      "purpose": "Frozen experimental inputs and pilot provenance"
+    }
+  ]
+}

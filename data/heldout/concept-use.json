@@ -1,0 +1,549 @@
+{
+  "description": "C32-C35 express-vs-use panel. Each entity has two latent clues (never naming the entity, and never located in or naming a relation answer) and an explicit-name prefix. Queries share the edited prefix; only the unedited suffix differs. Aliases: an answer is correct if the continuation begins with any alias. Authored 2026-09-16 before any intervention on these prompts. Express-query aliases come from an entity's 'names' list when present, else the entity string.",
+  "prefix": "Fact: Consider {clue}.",
+  "neutral_query": {
+    "text": " Separately, the number of days in a week is",
+    "aliases": [
+      "seven",
+      "7"
+    ]
+  },
+  "types": {
+    "country": {
+      "express": " The name of this country is",
+      "relations": {
+        "capital": " The capital city of this country is",
+        "language": " The official language of this country is",
+        "continent": " This country is located on the continent of"
+      },
+      "entities": {
+        "Canada": {
+          "clues": [
+            "the country directly north of the United States",
+            "the country whose flag shows a red maple leaf"
+          ],
+          "capital": [
+            "Ottawa"
+          ],
+          "language": [
+            "English",
+            "French"
+          ],
+          "continent": [
+            "North America"
+          ]
+        },
+        "France": {
+          "clues": [
+            "the hexagon-shaped country famous for Bordeaux and Champagne wines",
+            "the country that fought the Hundred Years' War against England"
+          ],
+          "capital": [
+            "Paris"
+          ],
+          "language": [
+            "French"
+          ],
+          "continent": [
+            "Europe"
+          ]
+        },
+        "Japan": {
+          "clues": [
+            "the island country whose flag is a red circle on a white field",
+            "the country where Mount Fuji stands"
+          ],
+          "capital": [
+            "Tokyo"
+          ],
+          "language": [
+            "Japanese"
+          ],
+          "continent": [
+            "Asia"
+          ]
+        },
+        "Brazil": {
+          "clues": [
+            "the country that contains most of the Amazon rainforest",
+            "the country that has won the most men's football World Cups"
+          ],
+          "capital": [
+            "Brasilia",
+            "Brasília"
+          ],
+          "language": [
+            "Portuguese"
+          ],
+          "continent": [
+            "South America"
+          ]
+        },
+        "Egypt": {
+          "clues": [
+            "the country through which the Suez Canal runs",
+            "the country where the Nile River reaches the Mediterranean Sea"
+          ],
+          "capital": [
+            "Cairo"
+          ],
+          "language": [
+            "Arabic"
+          ],
+          "continent": [
+            "Africa"
+          ]
+        },
+        "Italy": {
+          "clues": [
+            "the boot-shaped country that juts into the Mediterranean Sea",
+            "the country that includes the islands of Sicily and Sardinia"
+          ],
+          "capital": [
+            "Rome"
+          ],
+          "language": [
+            "Italian"
+          ],
+          "continent": [
+            "Europe"
+          ]
+        },
+        "Germany": {
+          "clues": [
+            "the country where Oktoberfest originated",
+            "the country that was reunified in 1990"
+          ],
+          "capital": [
+            "Berlin"
+          ],
+          "language": [
+            "German"
+          ],
+          "continent": [
+            "Europe"
+          ]
+        },
+        "Australia": {
+          "clues": [
+            "the country where kangaroos live in the wild",
+            "the country beside which the Great Barrier Reef lies"
+          ],
+          "capital": [
+            "Canberra"
+          ],
+          "language": [
+            "English"
+          ],
+          "continent": [
+            "Australia",
+            "Oceania"
+          ]
+        },
+        "India": {
+          "clues": [
+            "the country where the Taj Mahal stands",
+            "the country through which the Ganges River flows"
+          ],
+          "capital": [
+            "New Delhi",
+            "Delhi"
+          ],
+          "language": [
+            "Hindi",
+            "English"
+          ],
+          "continent": [
+            "Asia"
+          ]
+        },
+        "China": {
+          "clues": [
+            "the country where the Great Wall was built",
+            "the country where giant pandas live in the wild"
+          ],
+          "capital": [
+            "Beijing",
+            "Peking"
+          ],
+          "language": [
+            "Mandarin",
+            "Chinese",
+            "Standard Chinese"
+          ],
+          "continent": [
+            "Asia"
+          ]
+        },
+        "Russia": {
+          "clues": [
+            "the largest country in the world by area",
+            "the country that spans all of Siberia"
+          ],
+          "capital": [
+            "Moscow"
+          ],
+          "language": [
+            "Russian"
+          ],
+          "continent": [
+            "Europe",
+            "Asia",
+            "Eurasia"
+          ]
+        },
+        "Spain": {
+          "clues": [
+            "the country that shares the Iberian Peninsula with Portugal",
+            "the country where flamenco dancing originated"
+          ],
+          "capital": [
+            "Madrid"
+          ],
+          "language": [
+            "Spanish",
+            "Castilian"
+          ],
+          "continent": [
+            "Europe"
+          ]
+        },
+        "Greece": {
+          "clues": [
+            "the country where the ancient Olympic Games were first held",
+            "the country that includes the island of Crete"
+          ],
+          "capital": [
+            "Athens"
+          ],
+          "language": [
+            "Greek"
+          ],
+          "continent": [
+            "Europe"
+          ]
+        },
+        "Sweden": {
+          "clues": [
+            "the Scandinavian country where IKEA was founded",
+            "the Scandinavian country that borders Norway to the east"
+          ],
+          "capital": [
+            "Stockholm"
+          ],
+          "language": [
+            "Swedish"
+          ],
+          "continent": [
+            "Europe"
+          ]
+        },
+        "Peru": {
+          "clues": [
+            "the country where Machu Picchu stands",
+            "the country that was the center of the Inca Empire"
+          ],
+          "capital": [
+            "Lima"
+          ],
+          "language": [
+            "Spanish",
+            "Quechua"
+          ],
+          "continent": [
+            "South America"
+          ]
+        },
+        "Poland": {
+          "clues": [
+            "the country where the composer Chopin was born",
+            "the country where Marie Curie was born"
+          ],
+          "capital": [
+            "Warsaw"
+          ],
+          "language": [
+            "Polish"
+          ],
+          "continent": [
+            "Europe"
+          ]
+        },
+        "Hungary": {
+          "clues": [
+            "the country where the Rubik's Cube was invented",
+            "the landlocked country whose language is distantly related to Finnish"
+          ],
+          "capital": [
+            "Budapest"
+          ],
+          "language": [
+            "Hungarian",
+            "Magyar"
+          ],
+          "continent": [
+            "Europe"
+          ]
+        },
+        "Mexico": {
+          "clues": [
+            "the country directly south of the United States",
+            "the country where the Yucatan Peninsula lies"
+          ],
+          "language": [
+            "Spanish"
+          ],
+          "continent": [
+            "North America"
+          ]
+        }
+      }
+    },
+    "person": {
+      "express": " The name of this person is",
+      "relations": {
+        "firstname": " The first name of this person is",
+        "birthcountry": " The country where this person was born is"
+      },
+      "entities": {
+        "Einstein": {
+          "clues": [
+            "the physicist who developed the theory of relativity",
+            "the scientist famous for the equation E equals mc squared"
+          ],
+          "firstname": [
+            "Albert"
+          ],
+          "birthcountry": [
+            "Germany"
+          ],
+          "names": [
+            "Albert Einstein",
+            "Einstein"
+          ]
+        },
+        "Darwin": {
+          "clues": [
+            "the naturalist who proposed evolution by natural selection",
+            "the scientist who sailed on HMS Beagle to the Galapagos Islands"
+          ],
+          "firstname": [
+            "Charles"
+          ],
+          "birthcountry": [
+            "England",
+            "the United Kingdom",
+            "United Kingdom",
+            "Britain",
+            "Great Britain"
+          ],
+          "names": [
+            "Charles Darwin",
+            "Darwin"
+          ]
+        },
+        "Newton": {
+          "clues": [
+            "the physicist who formulated the laws of motion and universal gravitation",
+            "the scientist said to have been inspired by a falling apple"
+          ],
+          "firstname": [
+            "Isaac",
+            "Sir Isaac"
+          ],
+          "birthcountry": [
+            "England",
+            "the United Kingdom",
+            "United Kingdom",
+            "Britain",
+            "Great Britain"
+          ],
+          "names": [
+            "Isaac Newton",
+            "Sir Isaac Newton",
+            "Newton"
+          ]
+        },
+        "Mozart": {
+          "clues": [
+            "the composer of the opera The Magic Flute",
+            "the child prodigy composer from Salzburg"
+          ],
+          "firstname": [
+            "Wolfgang"
+          ],
+          "birthcountry": [
+            "Austria"
+          ],
+          "names": [
+            "Wolfgang Amadeus Mozart",
+            "Wolfgang Mozart",
+            "Mozart"
+          ]
+        },
+        "Shakespeare": {
+          "clues": [
+            "the playwright who wrote Hamlet and Macbeth",
+            "the poet known as the Bard of Avon"
+          ],
+          "firstname": [
+            "William"
+          ],
+          "birthcountry": [
+            "England",
+            "the United Kingdom",
+            "United Kingdom",
+            "Britain",
+            "Great Britain"
+          ],
+          "names": [
+            "William Shakespeare",
+            "Shakespeare"
+          ]
+        },
+        "Lincoln": {
+          "clues": [
+            "the president who issued the Emancipation Proclamation",
+            "the president who was assassinated at Ford's Theatre"
+          ],
+          "firstname": [
+            "Abraham"
+          ],
+          "birthcountry": [
+            "the United States",
+            "United States",
+            "America",
+            "the USA",
+            "USA"
+          ],
+          "names": [
+            "Abraham Lincoln",
+            "President Abraham Lincoln",
+            "Lincoln"
+          ]
+        },
+        "Napoleon": {
+          "clues": [
+            "the emperor who was exiled to Elba and later to Saint Helena",
+            "the general defeated at the Battle of Waterloo in 1815"
+          ],
+          "birthcountry": [
+            "France",
+            "Corsica"
+          ],
+          "names": [
+            "Napoleon Bonaparte",
+            "Napoleon",
+            "Emperor Napoleon",
+            "Napoléon Bonaparte"
+          ]
+        }
+      }
+    },
+    "element": {
+      "express": " The name of this element is",
+      "relations": {
+        "symbol": " The chemical symbol of this element is",
+        "state": " At room temperature, this element is a"
+      },
+      "entities": {
+        "gold": {
+          "clues": [
+            "the precious yellow metal used for first-place Olympic medals",
+            "the metal into which King Midas turned everything he touched"
+          ],
+          "symbol": [
+            "Au"
+          ],
+          "state": [
+            "solid"
+          ]
+        },
+        "silver": {
+          "clues": [
+            "the precious metal awarded for second place at the Olympics",
+            "the shiny precious metal used for sterling cutlery"
+          ],
+          "symbol": [
+            "Ag"
+          ],
+          "state": [
+            "solid"
+          ]
+        },
+        "iron": {
+          "clues": [
+            "the main metal in steel, which rusts when left wet",
+            "the metal smelted in blast furnaces during the Industrial Revolution"
+          ],
+          "symbol": [
+            "Fe"
+          ],
+          "state": [
+            "solid"
+          ]
+        },
+        "carbon": {
+          "clues": [
+            "the element that makes up both diamond and graphite",
+            "the element at the heart of organic chemistry"
+          ],
+          "symbol": [
+            "C"
+          ],
+          "state": [
+            "solid"
+          ]
+        },
+        "oxygen": {
+          "clues": [
+            "the element that humans must breathe to stay alive",
+            "the element that makes up about a fifth of the air and feeds fire"
+          ],
+          "symbol": [
+            "O"
+          ],
+          "state": [
+            "gas"
+          ]
+        },
+        "sodium": {
+          "clues": [
+            "the soft reactive metal that combines with chlorine to make table salt",
+            "the reactive metal that gives some streetlamps their orange-yellow glow"
+          ],
+          "symbol": [
+            "Na"
+          ],
+          "state": [
+            "solid"
+          ]
+        },
+        "calcium": {
+          "clues": [
+            "the element that makes bones and teeth strong",
+            "the element abundant in milk and in limestone"
+          ],
+          "symbol": [
+            "Ca"
+          ],
+          "state": [
+            "solid"
+          ]
+        },
+        "mercury": {
+          "clues": [
+            "the toxic metal once used in thermometers and barometers",
+            "the element named after the Roman messenger god"
+          ],
+          "symbol": [
+            "Hg"
+          ],
+          "state": [
+            "liquid"
+          ]
+        }
+      }
+    }
+  }
+}

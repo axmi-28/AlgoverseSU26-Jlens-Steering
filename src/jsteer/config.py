@@ -62,9 +62,25 @@ class ModelConfig:
     n_layers: int
     d_model: int
     lens_filename: str
+    #: Immutable Hub revisions. None is allowed for exploratory configurations.
+    model_revision: str | None = None
+    lens_revision: str | None = None
     #: Whether neuronpedia.org currently serves a live lens for this model.
     #: Only served models can be used for the API parity check.
     neuronpedia_served: bool = False
+    #: Which ``transformers.Auto*`` class instantiates ``hf_model_id``.
+    #:
+    #: Almost always ``AutoModelForCausalLM``. It is a field because
+    #: Qwen3.6-27B ships as a *multimodal* checkpoint
+    #: (``Qwen3_5ForConditionalGeneration``) whose weights are named
+    #: ``model.language_model.*``, while ``AutoModelForCausalLM`` maps it to
+    #: ``Qwen3_5ForCausalLM``, which expects ``model.layers.*`` and defines no
+    #: ``_checkpoint_conversion_mapping``. Loading it the usual way therefore
+    #: matches *zero* decoder keys and returns a randomly initialised 27B
+    #: model that runs, produces logits, and is silently meaningless --
+    #: exactly the failure-by-succeeding this repo has been bitten by before.
+    #: ``load_model`` hard-fails on that; this field is how you avoid it.
+    hf_auto_class: str = "AutoModelForCausalLM"
     dtype: str = "bfloat16"
     device: str = "auto"
     #: Output dims (or cotangents) per backward pass. Trades memory for passes.

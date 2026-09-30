@@ -17,3 +17,28 @@ results/*
 !results/.gitkeep
 notes/
 CLAUDE.md
+implementation.md
+research_proposal.md
+
+# Manuscripts, downloaded papers, private working material, and generated files.
+/paper/
+/PAPER DRAFT.md
+/Gurnee et al.
+/output/
+/logs/
+/tmp/
+/dist/
+/.claude/
+/.codex/
+.env.*
+!.env.example
+*.pem
+*.key
+/build/
+
+# Only explicitly curated, checksummed reference artifacts belong in Git.
+/data/*
+!/data/heldout/
+!/data/reference/
+!/data/README.md
+!/data/protocols/

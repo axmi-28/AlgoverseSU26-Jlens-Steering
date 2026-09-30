@@ -1,0 +1,65 @@
+{
+  "_comment": [
+    "Computation-depth ladder. ONE argument set, four templates that differ only",
+    "in how much work stands between the swapped argument and the graded answer.",
+    "",
+    "WHY. Across two evals the gsm8k-averaged lens gains most on first_letter and",
+    "least on retrieval templates, and the target-argument rank data says why:",
+    "at alpha=1.0 it drops median target_rank from 34 to 12 while the published",
+    "lens does not move it, and the templates whose rank improves are exactly the",
+    "templates whose steering improves. That says the corpus buys a cleaner",
+    "REBINDING, and that downstream computation attenuates the visible effect.",
+    "That reading is post-hoc. This eval tests it prospectively.",
+    "",
+    "PREDICTION, recorded before running: the gsm8k gain over the published lens",
+    "decreases monotonically with depth -- largest at echo, smallest at family.",
+    "",
+    "Holding the argument set fixed across all four rungs is the point: any",
+    "difference between rungs is the downstream operation alone, with the",
+    "arguments, the corpus and the intervention identical.",
+    "",
+    "echo grades the swap target's own token as the answer, so it measures the",
+    "rebinding with zero computation in between -- the depth-0 rung that neither",
+    "previous eval contained.",
+    "",
+    "Arguments are the instruments set, already verified single-token under the",
+    "' '+arg form that single_token_id tests."
+  ],
+  "categories": [
+    {
+      "name": "ladder",
+      "arg_scale": "unordered",
+      "args": ["drum", "piano", "guitar", "trumpet"],
+      "funcs": [
+        {
+          "name": "d0_echo",
+          "depth": 0,
+          "answer_type": "word",
+          "template": "Here is a word: {arg}. Written out once more, the word is",
+          "answers": {"drum": "drum", "piano": "piano", "guitar": "guitar", "trumpet": "trumpet"}
+        },
+        {
+          "name": "d1_first_letter",
+          "depth": 1,
+          "answer_type": "letter",
+          "template": "The word '{arg}' begins with the letter",
+          "answers": {"drum": "d", "piano": "p", "guitar": "g", "trumpet": "t"}
+        },
+        {
+          "name": "d2_letter_count",
+          "depth": 2,
+          "answer_type": "number",
+          "template": "The number of letters in the word '{arg}' is",
+          "answers": {"drum": "four", "piano": "five", "guitar": "six", "trumpet": "seven"}
+        },
+        {
+          "name": "d3_family",
+          "depth": 3,
+          "answer_type": "word",
+          "template": "In an orchestra, the {arg} belongs to the section called the",
+          "answers": {"drum": "percussion", "piano": "keyboard", "guitar": "strings", "trumpet": "brass"}
+        }
+      ]
+    }
+  ]
+}
