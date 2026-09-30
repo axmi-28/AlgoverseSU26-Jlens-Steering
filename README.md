@@ -1,10 +1,8 @@
-# J-lens steering with position-pair filtering
+# Investigating J-lens steering with position-pair filtering
 
-Research code for testing how the construction of a Jacobian lens changes the
+This repo hosts the research code for the paper Investigating J-Lens Steering with Position-Pair Filtering, on testing how the construction of a Jacobian lens changes the
 causal effects of writing its directions into a language model. The principal
-experiments use **Qwen3-8B**. They separate a lens into same-position and
-later-position contributions, then measure answer changes and target-name
-leakage under residual-stream interventions. No language model is trained here.
+experiments are on Qwen3-8B.
 
 ## Start here
 
