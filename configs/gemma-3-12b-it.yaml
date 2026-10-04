@@ -1,0 +1,13 @@
+name: gemma-3-12b-it
+hf_model_id: google/gemma-3-12b-it
+model_revision: 96b6f1eccf38110c56df3a15bffe176da04bfd80
+np_model_id: gemma-3-12b-it
+n_layers: 48
+d_model: 3840
+lens_filename: unused-direct-component-fit
+hf_auto_class: Gemma3ForConditionalGeneration
+dtype: bfloat16
+device: cuda
+dim_batch: 8
+band_start: 18
+band_end: 43

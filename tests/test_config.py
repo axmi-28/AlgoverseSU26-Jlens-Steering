@@ -23,6 +23,12 @@ def test_configs_load() -> None:
     for name in names:
         config = load_config(name)
         assert config.name == name
+        # Direct-component replications intentionally need no published lens.
+        assert hasattr(transformers, config.hf_auto_class)
+        if config.lens_filename == "unused-direct-component-fit":
+            assert config.model_revision is not None
+            assert re.fullmatch(r"[0-9a-f]{40}", config.model_revision)
+            continue
         assert config.lens_filename.startswith(f"{config.np_model_id}/")
         # Some lenses carry a fit-size suffix (..._jacobian_lens_n1000.pt).
         assert re.fullmatch(r".*_jacobian_lens(_n\d+)?\.pt", config.lens_filename), (
@@ -41,6 +47,8 @@ def test_unknown_config_lists_alternatives() -> None:
 @pytest.mark.parametrize("name", available_configs())
 def test_lens_file_exists_on_hub(name: str) -> None:
     config = load_config(name)
+    if config.lens_filename == "unused-direct-component-fit":
+        pytest.skip("This configuration fits components directly; no published lens")
     url = f"https://huggingface.co/{LENS_REPO}/resolve/main/{config.lens_filename}"
     response = requests.head(url, allow_redirects=True, timeout=60)
     assert response.status_code == 200, (

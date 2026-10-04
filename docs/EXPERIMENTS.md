@@ -23,3 +23,20 @@ Every included artifact is enumerated in `data/reference/manifest.json`, with
 both transport and content hashes. See `docs/PAPER_AUDIT.md` before comparing a
 historical manuscript cell with an updated report. Original exploratory scripts
 remain available for extensions, but their results are not all bundled.
+
+## Subsequent experimental work
+
+| Experiment | Implementation and inputs | Entrypoints |
+|---|---|---|
+| Expanded latent panel | `latent_panel.py`; `latent-kb.json`, `latent-candidates.json`, `latent-panel.json` | `57_latent_panel.py` (generate, screen, freeze, run, report) |
+| Loading and edit-position analyses | `latent_panel.py` loading/profile runners | `58_loading_split.py`, `59_loading_positions.py` |
+| Gemma 3 12B and Llama 3.1 8B replication | `cross_model.py`; pinned model configs and `cross_model_filtering.json` | `59_cross_model.py`, `60_cross_model_report.py` |
+| Gemma pressure test | `gemma_pressure.py`; frozen `gemma_pressure.json` | `61_gemma_pressure.py`, `fetch_gemma_pressure.py`, `62_gemma_pressure_report.py` |
+| Updated manuscript figures | CPU analysis of saved outputs | `63_paper_figures_v3.py` |
+
+These additions retain their frozen protocols and tests. GPU launchers require
+the appropriate model access and an existing Modal deployment; committing them
+does not launch experiments. Their generated results remain under the ignored
+`results/` tree and are **not part of the earlier 49-file reference bundle**.
+The newer figure scripts write to the ignored manuscript figure directory;
+`63_paper_figures_v3.py --collect` additionally requires a local manuscript.

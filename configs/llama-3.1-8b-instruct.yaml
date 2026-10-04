@@ -1,0 +1,12 @@
+name: llama-3.1-8b-instruct
+hf_model_id: meta-llama/Llama-3.1-8B-Instruct
+model_revision: 0e9e39f249a16976918f6564b8830bc894c89659
+np_model_id: llama-3.1-8b-instruct
+n_layers: 32
+d_model: 4096
+lens_filename: unused-direct-component-fit
+dtype: bfloat16
+device: cuda
+dim_batch: 8
+band_start: 12
+band_end: 29

@@ -67,3 +67,12 @@ Start with `reproduce.py`, `run_paper.py` and `release.py`. Original numeric fil
 | [`report_write_controls.py`](../scripts/report_write_controls.py) | Paper / validation | Audit and report the bounded latent-write pilot, distinct from C22 projection. |
 | [`reproduce.py`](../scripts/reproduce.py) | Release entrypoint | Rebuild paper results on CPU from the verified reference artifacts. |
 | [`run_paper.py`](../scripts/run_paper.py) | Release entrypoint | Print reproducible local experiment plans; --execute runs the requested stage. |
+| [`57_latent_panel.py`](../scripts/57_latent_panel.py) | Subsequent experiments | C40: build, screen, freeze and run the expanded latent-intermediate panel. |
+| [`58_loading_split.py`](../scripts/58_loading_split.py) | Subsequent experiments | C41 - does filtering still help where workspace loading is poor? |
+| [`59_cross_model.py`](../scripts/59_cross_model.py) | Subsequent experiments | Launch one sequential cross-model replication under the deployed jsteer app. |
+| [`59_loading_positions.py`](../scripts/59_loading_positions.py) | Subsequent experiments | C41c - why does filtering survive low loading on one set and not the other? |
+| [`60_cross_model_report.py`](../scripts/60_cross_model_report.py) | Subsequent experiments | CPU reports for completed cross-model runs; paired source-cluster intervals. |
+| [`61_gemma_pressure.py`](../scripts/61_gemma_pressure.py) | Subsequent experiments | Launch the frozen Gemma pressure test under the existing deployed app. |
+| [`62_gemma_pressure_report.py`](../scripts/62_gemma_pressure_report.py) | Subsequent experiments | CPU report of frozen Gemma development search and validation outcomes. |
+| [`63_paper_figures_v3.py`](../scripts/63_paper_figures_v3.py) | Subsequent experiments | Main-text figures for the restructured paper (Oct 2026). CPU only, no GPU calls. |
+| [`fetch_gemma_pressure.py`](../scripts/fetch_gemma_pressure.py) | Subsequent experiments | Wait for the submitted diagnostic run, fetch small artifacts, build report. |

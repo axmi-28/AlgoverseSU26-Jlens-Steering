@@ -614,7 +614,13 @@ def rq1(
 #: nothing to disk, it returns its numbers -- and the extra commit it now gets
 #: is a no-op.
 GPU_TASKS: dict[str, tuple[str, str]] = {
+    "gemma_pressure": ("PressureSpec", "run_pressure"),
+    "cross_model": ("CrossModelSpec", "run_cross_model"),
     "write_controls": ("WriteControlSpec", "run_write_controls"),
+    "latent_screen": ("LatentScreenSpec", "run_latent_screen"),
+    "latent_controls": ("LatentControlSpec", "run_latent_controls"),
+    "latent_loading": ("LatentLoadingSpec", "run_latent_loading"),
+    "latent_profiles": ("LoadingProfileSpec", "run_loading_profiles"),
     "concept": ("ConceptSpec", "run_concept"),
     "jacobian": ("JacobianSweepSpec", "run_jacobian_sweep"),
     "pullback": ("PullbackSweepSpec", "run_pullback_sweep"),
@@ -668,6 +674,12 @@ def gpu_task(task: str, spec_kwargs: dict) -> dict:
         from jsteer import write_controls as sweeps
     if task == "concept":
         from jsteer import concept_use as sweeps
+    if task == "cross_model":
+        from jsteer import cross_model as sweeps
+    if task == "gemma_pressure":
+        from jsteer import gemma_pressure as sweeps
+    if task.startswith("latent_"):
+        from jsteer import latent_panel as sweeps
 
     if task not in GPU_TASKS:
         raise ValueError(f"unknown task {task!r}; expected one of {sorted(GPU_TASKS)}")
@@ -685,6 +697,33 @@ def gpu_task(task: str, spec_kwargs: dict) -> dict:
     summary = getattr(sweeps, runner)(getattr(sweeps, spec_cls)(**spec_kwargs))
     results_volume.commit()
     return summary
+
+
+@app.function(image=image, volumes=VOLUMES, timeout=3600, max_containers=1)
+def prepare_cross_model(config_name: str) -> dict:
+    """Download a pinned model on CPU; no published lens is needed."""
+    from huggingface_hub import snapshot_download
+    from jsteer.config import load_config
+    config = load_config(config_name)
+    path = snapshot_download(
+        config.hf_model_id, revision=config.model_revision,
+        allow_patterns=["*.json", "*.safetensors", "*.model", "*.txt", "*.jinja"],
+    )
+    cache_volume.commit()
+    return {"config": config_name, "revision": config.model_revision, "path": path}
+
+
+@app.function(image=image, volumes=VOLUMES, timeout=3600, max_containers=1)
+def prepare_gemma_pressure() -> dict:
+    import json
+    from huggingface_hub import hf_hub_download
+    from jlens import JacobianLens
+    from jsteer.gemma_pressure import PROTOCOL
+    p = json.loads(PROTOCOL.read_text())
+    path = hf_hub_download(p["released_repo"], p["released_file"], revision=p["released_revision"])
+    lens = JacobianLens.load(path)
+    cache_volume.commit()
+    return {"path": path, "n_prompts": lens.n_prompts, "layers": lens.source_layers, "d_model": lens.d_model}
 
 
 @app.function(

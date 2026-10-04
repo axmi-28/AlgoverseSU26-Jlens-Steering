@@ -1,0 +1,4903 @@
+{
+ "kb_sha256": "c272abfbce9d1785d30cd8f205984385c013643ac9663b69ba53a2c566cb25f5",
+ "items": [
+  {
+   "name": "c40-animal-legs-ant-0",
+   "category": "animal-legs",
+   "type": "animal",
+   "relation": "legs",
+   "clue": "small insect that lives in colonies and farms aphids",
+   "prompt": "Fact: The number of legs on the small insect that lives in colonies and farms aphids is",
+   "intermediate": "ant",
+   "answer_forms": [
+    "six",
+    "6"
+   ],
+   "swap_to": "snake",
+   "swap_answer_forms": [
+    "zero",
+    "0",
+    "none",
+    "no"
+   ],
+   "one_hop_source": "Fact: The number of legs on a ant is",
+   "one_hop_target": "Fact: The number of legs on a snake is",
+   "answer": "six",
+   "swap_answer": "zero"
+  },
+  {
+   "name": "c40-animal-legs-elephant-0",
+   "category": "animal-legs",
+   "type": "animal",
+   "relation": "legs",
+   "clue": "animal with ivory tusks and a long trunk",
+   "prompt": "Fact: The number of legs on the animal with ivory tusks and a long trunk is",
+   "intermediate": "elephant",
+   "answer_forms": [
+    "four",
+    "4"
+   ],
+   "swap_to": "ant",
+   "swap_answer_forms": [
+    "six",
+    "6"
+   ],
+   "one_hop_source": "Fact: The number of legs on a elephant is",
+   "one_hop_target": "Fact: The number of legs on a ant is",
+   "answer": "four",
+   "swap_answer": "six"
+  },
+  {
+   "name": "c40-animal-legs-snake-0",
+   "category": "animal-legs",
+   "type": "animal",
+   "relation": "legs",
+   "clue": "reptile that slithers and flicks its forked tongue",
+   "prompt": "Fact: The number of legs on the reptile that slithers and flicks its forked tongue is",
+   "intermediate": "snake",
+   "answer_forms": [
+    "zero",
+    "0",
+    "none",
+    "no"
+   ],
+   "swap_to": "spider",
+   "swap_answer_forms": [
+    "eight",
+    "8"
+   ],
+   "one_hop_source": "Fact: The number of legs on a snake is",
+   "one_hop_target": "Fact: The number of legs on a spider is",
+   "answer": "zero",
+   "swap_answer": "eight"
+  },
+  {
+   "name": "c40-animal-legs-spider-0",
+   "category": "animal-legs",
+   "type": "animal",
+   "relation": "legs",
+   "clue": "creature that spins silk webs to trap flies",
+   "prompt": "Fact: The number of legs on the creature that spins silk webs to trap flies is",
+   "intermediate": "spider",
+   "answer_forms": [
+    "eight",
+    "8"
+   ],
+   "swap_to": "snake",
+   "swap_answer_forms": [
+    "zero",
+    "0",
+    "none",
+    "no"
+   ],
+   "one_hop_source": "Fact: The number of legs on a spider is",
+   "one_hop_target": "Fact: The number of legs on a snake is",
+   "answer": "eight",
+   "swap_answer": "zero"
+  },
+  {
+   "name": "c40-celestial-color-Earth-0",
+   "category": "celestial-color",
+   "type": "celestial",
+   "relation": "color",
+   "clue": "planet whose surface is about 71 percent ocean",
+   "prompt": "Fact: As seen from space, the color of the planet whose surface is about 71 percent ocean is",
+   "intermediate": "Earth",
+   "answer_forms": [
+    "blue"
+   ],
+   "swap_to": "Mars",
+   "swap_answer_forms": [
+    "red",
+    "reddish",
+    "rust"
+   ],
+   "one_hop_source": "Fact: As seen from space, the color of Earth is",
+   "one_hop_target": "Fact: As seen from space, the color of Mars is",
+   "answer": "blue",
+   "swap_answer": "red"
+  },
+  {
+   "name": "c40-celestial-color-Earth-1",
+   "category": "celestial-color",
+   "type": "celestial",
+   "relation": "color",
+   "clue": "only planet known to support life",
+   "prompt": "Fact: As seen from space, the color of the only planet known to support life is",
+   "intermediate": "Earth",
+   "answer_forms": [
+    "blue"
+   ],
+   "swap_to": "Mars",
+   "swap_answer_forms": [
+    "red",
+    "reddish",
+    "rust"
+   ],
+   "one_hop_source": "Fact: As seen from space, the color of Earth is",
+   "one_hop_target": "Fact: As seen from space, the color of Mars is",
+   "answer": "blue",
+   "swap_answer": "red"
+  },
+  {
+   "name": "c40-celestial-color-Mars-0",
+   "category": "celestial-color",
+   "type": "celestial",
+   "relation": "color",
+   "clue": "planet explored by the Curiosity and Perseverance rovers",
+   "prompt": "Fact: As seen from space, the color of the planet explored by the Curiosity and Perseverance rovers is",
+   "intermediate": "Mars",
+   "answer_forms": [
+    "red",
+    "reddish",
+    "rust"
+   ],
+   "swap_to": "Earth",
+   "swap_answer_forms": [
+    "blue"
+   ],
+   "one_hop_source": "Fact: As seen from space, the color of Mars is",
+   "one_hop_target": "Fact: As seen from space, the color of Earth is",
+   "answer": "red",
+   "swap_answer": "blue"
+  },
+  {
+   "name": "c40-celestial-color-Mars-1",
+   "category": "celestial-color",
+   "type": "celestial",
+   "relation": "color",
+   "clue": "planet whose Olympus Mons is the tallest volcano in the solar system",
+   "prompt": "Fact: As seen from space, the color of the planet whose Olympus Mons is the tallest volcano in the solar system is",
+   "intermediate": "Mars",
+   "answer_forms": [
+    "red",
+    "reddish",
+    "rust"
+   ],
+   "swap_to": "Earth",
+   "swap_answer_forms": [
+    "blue"
+   ],
+   "one_hop_source": "Fact: As seen from space, the color of Mars is",
+   "one_hop_target": "Fact: As seen from space, the color of Earth is",
+   "answer": "red",
+   "swap_answer": "blue"
+  },
+  {
+   "name": "c40-celestial-moons-Earth-0",
+   "category": "celestial-moons",
+   "type": "celestial",
+   "relation": "moons",
+   "clue": "planet whose surface is about 71 percent ocean",
+   "prompt": "Fact: The number of natural moons of the planet whose surface is about 71 percent ocean is",
+   "intermediate": "Earth",
+   "answer_forms": [
+    "one",
+    "1"
+   ],
+   "swap_to": "Mars",
+   "swap_answer_forms": [
+    "two",
+    "2"
+   ],
+   "one_hop_source": "Fact: The number of natural moons of Earth is",
+   "one_hop_target": "Fact: The number of natural moons of Mars is",
+   "answer": "one",
+   "swap_answer": "two"
+  },
+  {
+   "name": "c40-celestial-moons-Earth-1",
+   "category": "celestial-moons",
+   "type": "celestial",
+   "relation": "moons",
+   "clue": "only planet known to support life",
+   "prompt": "Fact: The number of natural moons of the only planet known to support life is",
+   "intermediate": "Earth",
+   "answer_forms": [
+    "one",
+    "1"
+   ],
+   "swap_to": "Mars",
+   "swap_answer_forms": [
+    "two",
+    "2"
+   ],
+   "one_hop_source": "Fact: The number of natural moons of Earth is",
+   "one_hop_target": "Fact: The number of natural moons of Mars is",
+   "answer": "one",
+   "swap_answer": "two"
+  },
+  {
+   "name": "c40-celestial-moons-Mars-0",
+   "category": "celestial-moons",
+   "type": "celestial",
+   "relation": "moons",
+   "clue": "planet explored by the Curiosity and Perseverance rovers",
+   "prompt": "Fact: The number of natural moons of the planet explored by the Curiosity and Perseverance rovers is",
+   "intermediate": "Mars",
+   "answer_forms": [
+    "two",
+    "2"
+   ],
+   "swap_to": "Earth",
+   "swap_answer_forms": [
+    "one",
+    "1"
+   ],
+   "one_hop_source": "Fact: The number of natural moons of Mars is",
+   "one_hop_target": "Fact: The number of natural moons of Earth is",
+   "answer": "two",
+   "swap_answer": "one"
+  },
+  {
+   "name": "c40-celestial-moons-Mars-1",
+   "category": "celestial-moons",
+   "type": "celestial",
+   "relation": "moons",
+   "clue": "planet whose Olympus Mons is the tallest volcano in the solar system",
+   "prompt": "Fact: The number of natural moons of the planet whose Olympus Mons is the tallest volcano in the solar system is",
+   "intermediate": "Mars",
+   "answer_forms": [
+    "two",
+    "2"
+   ],
+   "swap_to": "Earth",
+   "swap_answer_forms": [
+    "one",
+    "1"
+   ],
+   "one_hop_source": "Fact: The number of natural moons of Mars is",
+   "one_hop_target": "Fact: The number of natural moons of Earth is",
+   "answer": "two",
+   "swap_answer": "one"
+  },
+  {
+   "name": "c40-city-state-Philadelphia-0",
+   "category": "city-state",
+   "type": "city",
+   "relation": "state",
+   "clue": "city where the Declaration of Independence was signed",
+   "prompt": "Fact: The US state in which the city where the Declaration of Independence was signed is located is",
+   "intermediate": "Philadelphia",
+   "answer_forms": [
+    "Pennsylvania"
+   ],
+   "swap_to": "Seattle",
+   "swap_answer_forms": [
+    "Washington"
+   ],
+   "one_hop_source": "Fact: The US state in which Philadelphia is located is",
+   "one_hop_target": "Fact: The US state in which Seattle is located is",
+   "answer": "Pennsylvania",
+   "swap_answer": "Washington"
+  },
+  {
+   "name": "c40-city-state-Philadelphia-1",
+   "category": "city-state",
+   "type": "city",
+   "relation": "state",
+   "clue": "city whose museum steps Rocky Balboa ran up",
+   "prompt": "Fact: The US state in which the city whose museum steps Rocky Balboa ran up is located is",
+   "intermediate": "Philadelphia",
+   "answer_forms": [
+    "Pennsylvania"
+   ],
+   "swap_to": "Seattle",
+   "swap_answer_forms": [
+    "Washington"
+   ],
+   "one_hop_source": "Fact: The US state in which Philadelphia is located is",
+   "one_hop_target": "Fact: The US state in which Seattle is located is",
+   "answer": "Pennsylvania",
+   "swap_answer": "Washington"
+  },
+  {
+   "name": "c40-city-state-Seattle-0",
+   "category": "city-state",
+   "type": "city",
+   "relation": "state",
+   "clue": "city where the first Starbucks cafe opened",
+   "prompt": "Fact: The US state in which the city where the first Starbucks cafe opened is located is",
+   "intermediate": "Seattle",
+   "answer_forms": [
+    "Washington"
+   ],
+   "swap_to": "Philadelphia",
+   "swap_answer_forms": [
+    "Pennsylvania"
+   ],
+   "one_hop_source": "Fact: The US state in which Seattle is located is",
+   "one_hop_target": "Fact: The US state in which Philadelphia is located is",
+   "answer": "Washington",
+   "swap_answer": "Pennsylvania"
+  },
+  {
+   "name": "c40-city-state-Seattle-1",
+   "category": "city-state",
+   "type": "city",
+   "relation": "state",
+   "clue": "city where the grunge band Nirvana rose to fame",
+   "prompt": "Fact: The US state in which the city where the grunge band Nirvana rose to fame is located is",
+   "intermediate": "Seattle",
+   "answer_forms": [
+    "Washington"
+   ],
+   "swap_to": "Philadelphia",
+   "swap_answer_forms": [
+    "Pennsylvania"
+   ],
+   "one_hop_source": "Fact: The US state in which Seattle is located is",
+   "one_hop_target": "Fact: The US state in which Philadelphia is located is",
+   "answer": "Washington",
+   "swap_answer": "Pennsylvania"
+  },
+  {
+   "name": "c40-citystate-continent-Singapore-0",
+   "category": "citystate-continent",
+   "type": "citystate",
+   "relation": "continent",
+   "clue": "island city-state at the southern tip of the Malay Peninsula",
+   "prompt": "Fact: The continent that contains the island city-state at the southern tip of the Malay Peninsula is",
+   "intermediate": "Singapore",
+   "answer_forms": [
+    "Asia"
+   ],
+   "swap_to": "Vatican",
+   "swap_answer_forms": [
+    "Europe"
+   ],
+   "one_hop_source": "Fact: The continent that contains Singapore is",
+   "one_hop_target": "Fact: The continent that contains Vatican is",
+   "answer": "Asia",
+   "swap_answer": "Europe"
+  },
+  {
+   "name": "c40-citystate-continent-Vatican-0",
+   "category": "citystate-continent",
+   "type": "citystate",
+   "relation": "continent",
+   "clue": "city-state where the Pope lives",
+   "prompt": "Fact: The continent that contains the city-state where the Pope lives is",
+   "intermediate": "Vatican",
+   "answer_forms": [
+    "Europe"
+   ],
+   "swap_to": "Singapore",
+   "swap_answer_forms": [
+    "Asia"
+   ],
+   "one_hop_source": "Fact: The continent that contains Vatican is",
+   "one_hop_target": "Fact: The continent that contains Singapore is",
+   "answer": "Europe",
+   "swap_answer": "Asia"
+  },
+  {
+   "name": "c40-country-capital-Australia-1",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the red sandstone monolith Uluru stands",
+   "prompt": "Fact: The capital of the country where the red sandstone monolith Uluru stands is",
+   "intermediate": "Australia",
+   "answer_forms": [
+    "Canberra"
+   ],
+   "swap_to": "Egypt",
+   "swap_answer_forms": [
+    "Cairo"
+   ],
+   "one_hop_source": "Fact: The capital of Australia is",
+   "one_hop_target": "Fact: The capital of Egypt is",
+   "answer": "Canberra",
+   "swap_answer": "Cairo"
+  },
+  {
+   "name": "c40-country-capital-Australia-2",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the Sydney Opera House stands",
+   "prompt": "Fact: The capital of the country where the Sydney Opera House stands is",
+   "intermediate": "Australia",
+   "answer_forms": [
+    "Canberra"
+   ],
+   "swap_to": "Egypt",
+   "swap_answer_forms": [
+    "Cairo"
+   ],
+   "one_hop_source": "Fact: The capital of Australia is",
+   "one_hop_target": "Fact: The capital of Egypt is",
+   "answer": "Canberra",
+   "swap_answer": "Cairo"
+  },
+  {
+   "name": "c40-country-capital-Brazil-0",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the Christ the Redeemer statue overlooks Rio de Janeiro",
+   "prompt": "Fact: The capital of the country where the Christ the Redeemer statue overlooks Rio de Janeiro is",
+   "intermediate": "Brazil",
+   "answer_forms": [
+    "Brasilia",
+    "Brasília"
+   ],
+   "swap_to": "Germany",
+   "swap_answer_forms": [
+    "Berlin"
+   ],
+   "one_hop_source": "Fact: The capital of Brazil is",
+   "one_hop_target": "Fact: The capital of Germany is",
+   "answer": "Brasilia",
+   "swap_answer": "Berlin"
+  },
+  {
+   "name": "c40-country-capital-Brazil-2",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the footballer Pele was born",
+   "prompt": "Fact: The capital of the country where the footballer Pele was born is",
+   "intermediate": "Brazil",
+   "answer_forms": [
+    "Brasilia",
+    "Brasília"
+   ],
+   "swap_to": "Japan",
+   "swap_answer_forms": [
+    "Tokyo"
+   ],
+   "one_hop_source": "Fact: The capital of Brazil is",
+   "one_hop_target": "Fact: The capital of Japan is",
+   "answer": "Brasilia",
+   "swap_answer": "Tokyo"
+  },
+  {
+   "name": "c40-country-capital-Canada-1",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the CN Tower stands",
+   "prompt": "Fact: The capital of the country where the CN Tower stands is",
+   "intermediate": "Canada",
+   "answer_forms": [
+    "Ottawa"
+   ],
+   "swap_to": "Sweden",
+   "swap_answer_forms": [
+    "Stockholm"
+   ],
+   "one_hop_source": "Fact: The capital of Canada is",
+   "one_hop_target": "Fact: The capital of Sweden is",
+   "answer": "Ottawa",
+   "swap_answer": "Stockholm"
+  },
+  {
+   "name": "c40-country-capital-Canada-2",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the city of Montreal is located",
+   "prompt": "Fact: The capital of the country where the city of Montreal is located is",
+   "intermediate": "Canada",
+   "answer_forms": [
+    "Ottawa"
+   ],
+   "swap_to": "Sweden",
+   "swap_answer_forms": [
+    "Stockholm"
+   ],
+   "one_hop_source": "Fact: The capital of Canada is",
+   "one_hop_target": "Fact: The capital of Sweden is",
+   "answer": "Ottawa",
+   "swap_answer": "Stockholm"
+  },
+  {
+   "name": "c40-country-capital-China-1",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the city of Shanghai is located",
+   "prompt": "Fact: The capital of the country where the city of Shanghai is located is",
+   "intermediate": "China",
+   "answer_forms": [
+    "Beijing",
+    "Peking"
+   ],
+   "swap_to": "Greece",
+   "swap_answer_forms": [
+    "Athens"
+   ],
+   "one_hop_source": "Fact: The capital of China is",
+   "one_hop_target": "Fact: The capital of Greece is",
+   "answer": "Beijing",
+   "swap_answer": "Athens"
+  },
+  {
+   "name": "c40-country-capital-China-2",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the Terracotta Army was found",
+   "prompt": "Fact: The capital of the country where the Terracotta Army was found is",
+   "intermediate": "China",
+   "answer_forms": [
+    "Beijing",
+    "Peking"
+   ],
+   "swap_to": "Peru",
+   "swap_answer_forms": [
+    "Lima"
+   ],
+   "one_hop_source": "Fact: The capital of China is",
+   "one_hop_target": "Fact: The capital of Peru is",
+   "answer": "Beijing",
+   "swap_answer": "Lima"
+  },
+  {
+   "name": "c40-country-capital-Egypt-1",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the city of Alexandria is located",
+   "prompt": "Fact: The capital of the country where the city of Alexandria is located is",
+   "intermediate": "Egypt",
+   "answer_forms": [
+    "Cairo"
+   ],
+   "swap_to": "Germany",
+   "swap_answer_forms": [
+    "Berlin"
+   ],
+   "one_hop_source": "Fact: The capital of Egypt is",
+   "one_hop_target": "Fact: The capital of Germany is",
+   "answer": "Cairo",
+   "swap_answer": "Berlin"
+  },
+  {
+   "name": "c40-country-capital-Egypt-2",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the temples of Luxor and Karnak stand",
+   "prompt": "Fact: The capital of the country where the temples of Luxor and Karnak stand is",
+   "intermediate": "Egypt",
+   "answer_forms": [
+    "Cairo"
+   ],
+   "swap_to": "Russia",
+   "swap_answer_forms": [
+    "Moscow"
+   ],
+   "one_hop_source": "Fact: The capital of Egypt is",
+   "one_hop_target": "Fact: The capital of Russia is",
+   "answer": "Cairo",
+   "swap_answer": "Moscow"
+  },
+  {
+   "name": "c40-country-capital-England-0",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the prehistoric monument Stonehenge stands",
+   "prompt": "Fact: The capital of the country where the prehistoric monument Stonehenge stands is",
+   "intermediate": "England",
+   "answer_forms": [
+    "London"
+   ],
+   "swap_to": "France",
+   "swap_answer_forms": [
+    "Paris"
+   ],
+   "one_hop_source": "Fact: The capital of England is",
+   "one_hop_target": "Fact: The capital of France is",
+   "answer": "London",
+   "swap_answer": "Paris"
+  },
+  {
+   "name": "c40-country-capital-England-2",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the universities of Oxford and Cambridge are located",
+   "prompt": "Fact: The capital of the country where the universities of Oxford and Cambridge are located is",
+   "intermediate": "England",
+   "answer_forms": [
+    "London"
+   ],
+   "swap_to": "France",
+   "swap_answer_forms": [
+    "Paris"
+   ],
+   "one_hop_source": "Fact: The capital of England is",
+   "one_hop_target": "Fact: The capital of France is",
+   "answer": "London",
+   "swap_answer": "Paris"
+  },
+  {
+   "name": "c40-country-capital-France-0",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the city of Marseille is located",
+   "prompt": "Fact: The capital of the country where the city of Marseille is located is",
+   "intermediate": "France",
+   "answer_forms": [
+    "Paris"
+   ],
+   "swap_to": "China",
+   "swap_answer_forms": [
+    "Beijing",
+    "Peking"
+   ],
+   "one_hop_source": "Fact: The capital of France is",
+   "one_hop_target": "Fact: The capital of China is",
+   "answer": "Paris",
+   "swap_answer": "Beijing"
+  },
+  {
+   "name": "c40-country-capital-France-1",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the abbey of Mont Saint-Michel stands",
+   "prompt": "Fact: The capital of the country where the abbey of Mont Saint-Michel stands is",
+   "intermediate": "France",
+   "answer_forms": [
+    "Paris"
+   ],
+   "swap_to": "Egypt",
+   "swap_answer_forms": [
+    "Cairo"
+   ],
+   "one_hop_source": "Fact: The capital of France is",
+   "one_hop_target": "Fact: The capital of Egypt is",
+   "answer": "Paris",
+   "swap_answer": "Cairo"
+  },
+  {
+   "name": "c40-country-capital-Germany-0",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the city of Hamburg is located",
+   "prompt": "Fact: The capital of the country where the city of Hamburg is located is",
+   "intermediate": "Germany",
+   "answer_forms": [
+    "Berlin"
+   ],
+   "swap_to": "England",
+   "swap_answer_forms": [
+    "London"
+   ],
+   "one_hop_source": "Fact: The capital of Germany is",
+   "one_hop_target": "Fact: The capital of England is",
+   "answer": "Berlin",
+   "swap_answer": "London"
+  },
+  {
+   "name": "c40-country-capital-Germany-2",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the composer Beethoven was born",
+   "prompt": "Fact: The capital of the country where the composer Beethoven was born is",
+   "intermediate": "Germany",
+   "answer_forms": [
+    "Berlin"
+   ],
+   "swap_to": "Sweden",
+   "swap_answer_forms": [
+    "Stockholm"
+   ],
+   "one_hop_source": "Fact: The capital of Germany is",
+   "one_hop_target": "Fact: The capital of Sweden is",
+   "answer": "Berlin",
+   "swap_answer": "Stockholm"
+  },
+  {
+   "name": "c40-country-capital-Greece-0",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the city of Thessaloniki is located",
+   "prompt": "Fact: The capital of the country where the city of Thessaloniki is located is",
+   "intermediate": "Greece",
+   "answer_forms": [
+    "Athens"
+   ],
+   "swap_to": "India",
+   "swap_answer_forms": [
+    "New Delhi",
+    "Delhi"
+   ],
+   "one_hop_source": "Fact: The capital of Greece is",
+   "one_hop_target": "Fact: The capital of India is",
+   "answer": "Athens",
+   "swap_answer": "New Delhi"
+  },
+  {
+   "name": "c40-country-capital-Greece-2",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where Mount Olympus stands",
+   "prompt": "Fact: The capital of the country where Mount Olympus stands is",
+   "intermediate": "Greece",
+   "answer_forms": [
+    "Athens"
+   ],
+   "swap_to": "Spain",
+   "swap_answer_forms": [
+    "Madrid"
+   ],
+   "one_hop_source": "Fact: The capital of Greece is",
+   "one_hop_target": "Fact: The capital of Spain is",
+   "answer": "Athens",
+   "swap_answer": "Madrid"
+  },
+  {
+   "name": "c40-country-capital-Hungary-0",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where Lake Balaton lies",
+   "prompt": "Fact: The capital of the country where Lake Balaton lies is",
+   "intermediate": "Hungary",
+   "answer_forms": [
+    "Budapest"
+   ],
+   "swap_to": "Sweden",
+   "swap_answer_forms": [
+    "Stockholm"
+   ],
+   "one_hop_source": "Fact: The capital of Hungary is",
+   "one_hop_target": "Fact: The capital of Sweden is",
+   "answer": "Budapest",
+   "swap_answer": "Stockholm"
+  },
+  {
+   "name": "c40-country-capital-Hungary-1",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the city of Debrecen is located",
+   "prompt": "Fact: The capital of the country where the city of Debrecen is located is",
+   "intermediate": "Hungary",
+   "answer_forms": [
+    "Budapest"
+   ],
+   "swap_to": "Spain",
+   "swap_answer_forms": [
+    "Madrid"
+   ],
+   "one_hop_source": "Fact: The capital of Hungary is",
+   "one_hop_target": "Fact: The capital of Spain is",
+   "answer": "Budapest",
+   "swap_answer": "Madrid"
+  },
+  {
+   "name": "c40-country-capital-India-0",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the city of Mumbai is located",
+   "prompt": "Fact: The capital of the country where the city of Mumbai is located is",
+   "intermediate": "India",
+   "answer_forms": [
+    "New Delhi",
+    "Delhi"
+   ],
+   "swap_to": "Peru",
+   "swap_answer_forms": [
+    "Lima"
+   ],
+   "one_hop_source": "Fact: The capital of India is",
+   "one_hop_target": "Fact: The capital of Peru is",
+   "answer": "New Delhi",
+   "swap_answer": "Lima"
+  },
+  {
+   "name": "c40-country-capital-India-1",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where Mahatma Gandhi led the independence movement",
+   "prompt": "Fact: The capital of the country where Mahatma Gandhi led the independence movement is",
+   "intermediate": "India",
+   "answer_forms": [
+    "New Delhi",
+    "Delhi"
+   ],
+   "swap_to": "China",
+   "swap_answer_forms": [
+    "Beijing",
+    "Peking"
+   ],
+   "one_hop_source": "Fact: The capital of India is",
+   "one_hop_target": "Fact: The capital of China is",
+   "answer": "New Delhi",
+   "swap_answer": "Beijing"
+  },
+  {
+   "name": "c40-country-capital-Italy-1",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the city of Milan is located",
+   "prompt": "Fact: The capital of the country where the city of Milan is located is",
+   "intermediate": "Italy",
+   "answer_forms": [
+    "Rome"
+   ],
+   "swap_to": "Poland",
+   "swap_answer_forms": [
+    "Warsaw"
+   ],
+   "one_hop_source": "Fact: The capital of Italy is",
+   "one_hop_target": "Fact: The capital of Poland is",
+   "answer": "Rome",
+   "swap_answer": "Warsaw"
+  },
+  {
+   "name": "c40-country-capital-Italy-2",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the canals of Venice are located",
+   "prompt": "Fact: The capital of the country where the canals of Venice are located is",
+   "intermediate": "Italy",
+   "answer_forms": [
+    "Rome"
+   ],
+   "swap_to": "Canada",
+   "swap_answer_forms": [
+    "Ottawa"
+   ],
+   "one_hop_source": "Fact: The capital of Italy is",
+   "one_hop_target": "Fact: The capital of Canada is",
+   "answer": "Rome",
+   "swap_answer": "Ottawa"
+  },
+  {
+   "name": "c40-country-capital-Japan-0",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the city of Osaka is located",
+   "prompt": "Fact: The capital of the country where the city of Osaka is located is",
+   "intermediate": "Japan",
+   "answer_forms": [
+    "Tokyo"
+   ],
+   "swap_to": "France",
+   "swap_answer_forms": [
+    "Paris"
+   ],
+   "one_hop_source": "Fact: The capital of Japan is",
+   "one_hop_target": "Fact: The capital of France is",
+   "answer": "Tokyo",
+   "swap_answer": "Paris"
+  },
+  {
+   "name": "c40-country-capital-Japan-2",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the city of Hiroshima is located",
+   "prompt": "Fact: The capital of the country where the city of Hiroshima is located is",
+   "intermediate": "Japan",
+   "answer_forms": [
+    "Tokyo"
+   ],
+   "swap_to": "Italy",
+   "swap_answer_forms": [
+    "Rome"
+   ],
+   "one_hop_source": "Fact: The capital of Japan is",
+   "one_hop_target": "Fact: The capital of Italy is",
+   "answer": "Tokyo",
+   "swap_answer": "Rome"
+  },
+  {
+   "name": "c40-country-capital-Peru-1",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the Nazca Lines were drawn",
+   "prompt": "Fact: The capital of the country where the Nazca Lines were drawn is",
+   "intermediate": "Peru",
+   "answer_forms": [
+    "Lima"
+   ],
+   "swap_to": "Brazil",
+   "swap_answer_forms": [
+    "Brasilia",
+    "Brasília"
+   ],
+   "one_hop_source": "Fact: The capital of Peru is",
+   "one_hop_target": "Fact: The capital of Brazil is",
+   "answer": "Lima",
+   "swap_answer": "Brasilia"
+  },
+  {
+   "name": "c40-country-capital-Peru-2",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the dish ceviche originated",
+   "prompt": "Fact: The capital of the country where the dish ceviche originated is",
+   "intermediate": "Peru",
+   "answer_forms": [
+    "Lima"
+   ],
+   "swap_to": "Brazil",
+   "swap_answer_forms": [
+    "Brasilia",
+    "Brasília"
+   ],
+   "one_hop_source": "Fact: The capital of Peru is",
+   "one_hop_target": "Fact: The capital of Brazil is",
+   "answer": "Lima",
+   "swap_answer": "Brasilia"
+  },
+  {
+   "name": "c40-country-capital-Poland-0",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the city of Krakow is located",
+   "prompt": "Fact: The capital of the country where the city of Krakow is located is",
+   "intermediate": "Poland",
+   "answer_forms": [
+    "Warsaw"
+   ],
+   "swap_to": "Greece",
+   "swap_answer_forms": [
+    "Athens"
+   ],
+   "one_hop_source": "Fact: The capital of Poland is",
+   "one_hop_target": "Fact: The capital of Greece is",
+   "answer": "Warsaw",
+   "swap_answer": "Athens"
+  },
+  {
+   "name": "c40-country-capital-Poland-2",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the city of Gdansk is located",
+   "prompt": "Fact: The capital of the country where the city of Gdansk is located is",
+   "intermediate": "Poland",
+   "answer_forms": [
+    "Warsaw"
+   ],
+   "swap_to": "Sweden",
+   "swap_answer_forms": [
+    "Stockholm"
+   ],
+   "one_hop_source": "Fact: The capital of Poland is",
+   "one_hop_target": "Fact: The capital of Sweden is",
+   "answer": "Warsaw",
+   "swap_answer": "Stockholm"
+  },
+  {
+   "name": "c40-country-capital-Russia-0",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the city of Saint Petersburg is located",
+   "prompt": "Fact: The capital of the country where the city of Saint Petersburg is located is",
+   "intermediate": "Russia",
+   "answer_forms": [
+    "Moscow"
+   ],
+   "swap_to": "Germany",
+   "swap_answer_forms": [
+    "Berlin"
+   ],
+   "one_hop_source": "Fact: The capital of Russia is",
+   "one_hop_target": "Fact: The capital of Germany is",
+   "answer": "Moscow",
+   "swap_answer": "Berlin"
+  },
+  {
+   "name": "c40-country-capital-Russia-1",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where Lake Baikal lies",
+   "prompt": "Fact: The capital of the country where Lake Baikal lies is",
+   "intermediate": "Russia",
+   "answer_forms": [
+    "Moscow"
+   ],
+   "swap_to": "Hungary",
+   "swap_answer_forms": [
+    "Budapest"
+   ],
+   "one_hop_source": "Fact: The capital of Russia is",
+   "one_hop_target": "Fact: The capital of Hungary is",
+   "answer": "Moscow",
+   "swap_answer": "Budapest"
+  },
+  {
+   "name": "c40-country-capital-Russia-2",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the writer Leo Tolstoy was born",
+   "prompt": "Fact: The capital of the country where the writer Leo Tolstoy was born is",
+   "intermediate": "Russia",
+   "answer_forms": [
+    "Moscow"
+   ],
+   "swap_to": "Germany",
+   "swap_answer_forms": [
+    "Berlin"
+   ],
+   "one_hop_source": "Fact: The capital of Russia is",
+   "one_hop_target": "Fact: The capital of Germany is",
+   "answer": "Moscow",
+   "swap_answer": "Berlin"
+  },
+  {
+   "name": "c40-country-capital-Spain-1",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the Alhambra palace stands",
+   "prompt": "Fact: The capital of the country where the Alhambra palace stands is",
+   "intermediate": "Spain",
+   "answer_forms": [
+    "Madrid"
+   ],
+   "swap_to": "England",
+   "swap_answer_forms": [
+    "London"
+   ],
+   "one_hop_source": "Fact: The capital of Spain is",
+   "one_hop_target": "Fact: The capital of England is",
+   "answer": "Madrid",
+   "swap_answer": "London"
+  },
+  {
+   "name": "c40-country-capital-Spain-2",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the city of Seville is located",
+   "prompt": "Fact: The capital of the country where the city of Seville is located is",
+   "intermediate": "Spain",
+   "answer_forms": [
+    "Madrid"
+   ],
+   "swap_to": "Sweden",
+   "swap_answer_forms": [
+    "Stockholm"
+   ],
+   "one_hop_source": "Fact: The capital of Spain is",
+   "one_hop_target": "Fact: The capital of Sweden is",
+   "answer": "Madrid",
+   "swap_answer": "Stockholm"
+  },
+  {
+   "name": "c40-country-capital-Sweden-0",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the city of Gothenburg is located",
+   "prompt": "Fact: The capital of the country where the city of Gothenburg is located is",
+   "intermediate": "Sweden",
+   "answer_forms": [
+    "Stockholm"
+   ],
+   "swap_to": "Greece",
+   "swap_answer_forms": [
+    "Athens"
+   ],
+   "one_hop_source": "Fact: The capital of Sweden is",
+   "one_hop_target": "Fact: The capital of Greece is",
+   "answer": "Stockholm",
+   "swap_answer": "Athens"
+  },
+  {
+   "name": "c40-country-capital-Sweden-2",
+   "category": "country-capital",
+   "type": "country",
+   "relation": "capital",
+   "clue": "where the car maker Volvo was founded",
+   "prompt": "Fact: The capital of the country where the car maker Volvo was founded is",
+   "intermediate": "Sweden",
+   "answer_forms": [
+    "Stockholm"
+   ],
+   "swap_to": "Hungary",
+   "swap_answer_forms": [
+    "Budapest"
+   ],
+   "one_hop_source": "Fact: The capital of Sweden is",
+   "one_hop_target": "Fact: The capital of Hungary is",
+   "answer": "Stockholm",
+   "swap_answer": "Budapest"
+  },
+  {
+   "name": "c40-country-continent-Australia-1",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the red sandstone monolith Uluru stands",
+   "prompt": "Fact: The continent that contains the country where the red sandstone monolith Uluru stands is",
+   "intermediate": "Australia",
+   "answer_forms": [
+    "Oceania"
+   ],
+   "swap_to": "China",
+   "swap_answer_forms": [
+    "Asia"
+   ],
+   "one_hop_source": "Fact: The continent that contains Australia is",
+   "one_hop_target": "Fact: The continent that contains China is",
+   "answer": "Oceania",
+   "swap_answer": "Asia"
+  },
+  {
+   "name": "c40-country-continent-Australia-2",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the Sydney Opera House stands",
+   "prompt": "Fact: The continent that contains the country where the Sydney Opera House stands is",
+   "intermediate": "Australia",
+   "answer_forms": [
+    "Oceania"
+   ],
+   "swap_to": "Peru",
+   "swap_answer_forms": [
+    "South"
+   ],
+   "one_hop_source": "Fact: The continent that contains Australia is",
+   "one_hop_target": "Fact: The continent that contains Peru is",
+   "answer": "Oceania",
+   "swap_answer": "South"
+  },
+  {
+   "name": "c40-country-continent-Brazil-0",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the Christ the Redeemer statue overlooks Rio de Janeiro",
+   "prompt": "Fact: The continent that contains the country where the Christ the Redeemer statue overlooks Rio de Janeiro is",
+   "intermediate": "Brazil",
+   "answer_forms": [
+    "South"
+   ],
+   "swap_to": "Greece",
+   "swap_answer_forms": [
+    "Europe"
+   ],
+   "one_hop_source": "Fact: The continent that contains Brazil is",
+   "one_hop_target": "Fact: The continent that contains Greece is",
+   "answer": "South",
+   "swap_answer": "Europe"
+  },
+  {
+   "name": "c40-country-continent-Brazil-2",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the footballer Pele was born",
+   "prompt": "Fact: The continent that contains the country where the footballer Pele was born is",
+   "intermediate": "Brazil",
+   "answer_forms": [
+    "South"
+   ],
+   "swap_to": "England",
+   "swap_answer_forms": [
+    "Europe"
+   ],
+   "one_hop_source": "Fact: The continent that contains Brazil is",
+   "one_hop_target": "Fact: The continent that contains England is",
+   "answer": "South",
+   "swap_answer": "Europe"
+  },
+  {
+   "name": "c40-country-continent-Canada-1",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the CN Tower stands",
+   "prompt": "Fact: The continent that contains the country where the CN Tower stands is",
+   "intermediate": "Canada",
+   "answer_forms": [
+    "North"
+   ],
+   "swap_to": "Brazil",
+   "swap_answer_forms": [
+    "South"
+   ],
+   "one_hop_source": "Fact: The continent that contains Canada is",
+   "one_hop_target": "Fact: The continent that contains Brazil is",
+   "answer": "North",
+   "swap_answer": "South"
+  },
+  {
+   "name": "c40-country-continent-Canada-2",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the city of Montreal is located",
+   "prompt": "Fact: The continent that contains the country where the city of Montreal is located is",
+   "intermediate": "Canada",
+   "answer_forms": [
+    "North"
+   ],
+   "swap_to": "Australia",
+   "swap_answer_forms": [
+    "Oceania"
+   ],
+   "one_hop_source": "Fact: The continent that contains Canada is",
+   "one_hop_target": "Fact: The continent that contains Australia is",
+   "answer": "North",
+   "swap_answer": "Oceania"
+  },
+  {
+   "name": "c40-country-continent-China-1",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the city of Shanghai is located",
+   "prompt": "Fact: The continent that contains the country where the city of Shanghai is located is",
+   "intermediate": "China",
+   "answer_forms": [
+    "Asia"
+   ],
+   "swap_to": "Germany",
+   "swap_answer_forms": [
+    "Europe"
+   ],
+   "one_hop_source": "Fact: The continent that contains China is",
+   "one_hop_target": "Fact: The continent that contains Germany is",
+   "answer": "Asia",
+   "swap_answer": "Europe"
+  },
+  {
+   "name": "c40-country-continent-China-2",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the Terracotta Army was found",
+   "prompt": "Fact: The continent that contains the country where the Terracotta Army was found is",
+   "intermediate": "China",
+   "answer_forms": [
+    "Asia"
+   ],
+   "swap_to": "Spain",
+   "swap_answer_forms": [
+    "Europe"
+   ],
+   "one_hop_source": "Fact: The continent that contains China is",
+   "one_hop_target": "Fact: The continent that contains Spain is",
+   "answer": "Asia",
+   "swap_answer": "Europe"
+  },
+  {
+   "name": "c40-country-continent-Egypt-1",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the city of Alexandria is located",
+   "prompt": "Fact: The continent that contains the country where the city of Alexandria is located is",
+   "intermediate": "Egypt",
+   "answer_forms": [
+    "Africa"
+   ],
+   "swap_to": "Poland",
+   "swap_answer_forms": [
+    "Europe"
+   ],
+   "one_hop_source": "Fact: The continent that contains Egypt is",
+   "one_hop_target": "Fact: The continent that contains Poland is",
+   "answer": "Africa",
+   "swap_answer": "Europe"
+  },
+  {
+   "name": "c40-country-continent-Egypt-2",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the temples of Luxor and Karnak stand",
+   "prompt": "Fact: The continent that contains the country where the temples of Luxor and Karnak stand is",
+   "intermediate": "Egypt",
+   "answer_forms": [
+    "Africa"
+   ],
+   "swap_to": "Italy",
+   "swap_answer_forms": [
+    "Europe"
+   ],
+   "one_hop_source": "Fact: The continent that contains Egypt is",
+   "one_hop_target": "Fact: The continent that contains Italy is",
+   "answer": "Africa",
+   "swap_answer": "Europe"
+  },
+  {
+   "name": "c40-country-continent-England-0",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the prehistoric monument Stonehenge stands",
+   "prompt": "Fact: The continent that contains the country where the prehistoric monument Stonehenge stands is",
+   "intermediate": "England",
+   "answer_forms": [
+    "Europe"
+   ],
+   "swap_to": "Japan",
+   "swap_answer_forms": [
+    "Asia"
+   ],
+   "one_hop_source": "Fact: The continent that contains England is",
+   "one_hop_target": "Fact: The continent that contains Japan is",
+   "answer": "Europe",
+   "swap_answer": "Asia"
+  },
+  {
+   "name": "c40-country-continent-England-2",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the universities of Oxford and Cambridge are located",
+   "prompt": "Fact: The continent that contains the country where the universities of Oxford and Cambridge are located is",
+   "intermediate": "England",
+   "answer_forms": [
+    "Europe"
+   ],
+   "swap_to": "Peru",
+   "swap_answer_forms": [
+    "South"
+   ],
+   "one_hop_source": "Fact: The continent that contains England is",
+   "one_hop_target": "Fact: The continent that contains Peru is",
+   "answer": "Europe",
+   "swap_answer": "South"
+  },
+  {
+   "name": "c40-country-continent-France-0",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the city of Marseille is located",
+   "prompt": "Fact: The continent that contains the country where the city of Marseille is located is",
+   "intermediate": "France",
+   "answer_forms": [
+    "Europe"
+   ],
+   "swap_to": "Peru",
+   "swap_answer_forms": [
+    "South"
+   ],
+   "one_hop_source": "Fact: The continent that contains France is",
+   "one_hop_target": "Fact: The continent that contains Peru is",
+   "answer": "Europe",
+   "swap_answer": "South"
+  },
+  {
+   "name": "c40-country-continent-France-2",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the city of Nice is located",
+   "prompt": "Fact: The continent that contains the country where the city of Nice is located is",
+   "intermediate": "France",
+   "answer_forms": [
+    "Europe"
+   ],
+   "swap_to": "China",
+   "swap_answer_forms": [
+    "Asia"
+   ],
+   "one_hop_source": "Fact: The continent that contains France is",
+   "one_hop_target": "Fact: The continent that contains China is",
+   "answer": "Europe",
+   "swap_answer": "Asia"
+  },
+  {
+   "name": "c40-country-continent-Germany-1",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where Neuschwanstein Castle stands",
+   "prompt": "Fact: The continent that contains the country where Neuschwanstein Castle stands is",
+   "intermediate": "Germany",
+   "answer_forms": [
+    "Europe"
+   ],
+   "swap_to": "India",
+   "swap_answer_forms": [
+    "Asia"
+   ],
+   "one_hop_source": "Fact: The continent that contains Germany is",
+   "one_hop_target": "Fact: The continent that contains India is",
+   "answer": "Europe",
+   "swap_answer": "Asia"
+  },
+  {
+   "name": "c40-country-continent-Germany-2",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the composer Beethoven was born",
+   "prompt": "Fact: The continent that contains the country where the composer Beethoven was born is",
+   "intermediate": "Germany",
+   "answer_forms": [
+    "Europe"
+   ],
+   "swap_to": "India",
+   "swap_answer_forms": [
+    "Asia"
+   ],
+   "one_hop_source": "Fact: The continent that contains Germany is",
+   "one_hop_target": "Fact: The continent that contains India is",
+   "answer": "Europe",
+   "swap_answer": "Asia"
+  },
+  {
+   "name": "c40-country-continent-Greece-0",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the city of Thessaloniki is located",
+   "prompt": "Fact: The continent that contains the country where the city of Thessaloniki is located is",
+   "intermediate": "Greece",
+   "answer_forms": [
+    "Europe"
+   ],
+   "swap_to": "Japan",
+   "swap_answer_forms": [
+    "Asia"
+   ],
+   "one_hop_source": "Fact: The continent that contains Greece is",
+   "one_hop_target": "Fact: The continent that contains Japan is",
+   "answer": "Europe",
+   "swap_answer": "Asia"
+  },
+  {
+   "name": "c40-country-continent-Greece-1",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the island of Santorini lies",
+   "prompt": "Fact: The continent that contains the country where the island of Santorini lies is",
+   "intermediate": "Greece",
+   "answer_forms": [
+    "Europe"
+   ],
+   "swap_to": "Peru",
+   "swap_answer_forms": [
+    "South"
+   ],
+   "one_hop_source": "Fact: The continent that contains Greece is",
+   "one_hop_target": "Fact: The continent that contains Peru is",
+   "answer": "Europe",
+   "swap_answer": "South"
+  },
+  {
+   "name": "c40-country-continent-Hungary-1",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the city of Debrecen is located",
+   "prompt": "Fact: The continent that contains the country where the city of Debrecen is located is",
+   "intermediate": "Hungary",
+   "answer_forms": [
+    "Europe"
+   ],
+   "swap_to": "Egypt",
+   "swap_answer_forms": [
+    "Africa"
+   ],
+   "one_hop_source": "Fact: The continent that contains Hungary is",
+   "one_hop_target": "Fact: The continent that contains Egypt is",
+   "answer": "Europe",
+   "swap_answer": "Africa"
+  },
+  {
+   "name": "c40-country-continent-Hungary-2",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the dish goulash originated",
+   "prompt": "Fact: The continent that contains the country where the dish goulash originated is",
+   "intermediate": "Hungary",
+   "answer_forms": [
+    "Europe"
+   ],
+   "swap_to": "Australia",
+   "swap_answer_forms": [
+    "Oceania"
+   ],
+   "one_hop_source": "Fact: The continent that contains Hungary is",
+   "one_hop_target": "Fact: The continent that contains Australia is",
+   "answer": "Europe",
+   "swap_answer": "Oceania"
+  },
+  {
+   "name": "c40-country-continent-India-0",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the city of Mumbai is located",
+   "prompt": "Fact: The continent that contains the country where the city of Mumbai is located is",
+   "intermediate": "India",
+   "answer_forms": [
+    "Asia"
+   ],
+   "swap_to": "Germany",
+   "swap_answer_forms": [
+    "Europe"
+   ],
+   "one_hop_source": "Fact: The continent that contains India is",
+   "one_hop_target": "Fact: The continent that contains Germany is",
+   "answer": "Asia",
+   "swap_answer": "Europe"
+  },
+  {
+   "name": "c40-country-continent-India-2",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the city of Bangalore is located",
+   "prompt": "Fact: The continent that contains the country where the city of Bangalore is located is",
+   "intermediate": "India",
+   "answer_forms": [
+    "Asia"
+   ],
+   "swap_to": "Hungary",
+   "swap_answer_forms": [
+    "Europe"
+   ],
+   "one_hop_source": "Fact: The continent that contains India is",
+   "one_hop_target": "Fact: The continent that contains Hungary is",
+   "answer": "Asia",
+   "swap_answer": "Europe"
+  },
+  {
+   "name": "c40-country-continent-Italy-0",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the Leaning Tower of Pisa stands",
+   "prompt": "Fact: The continent that contains the country where the Leaning Tower of Pisa stands is",
+   "intermediate": "Italy",
+   "answer_forms": [
+    "Europe"
+   ],
+   "swap_to": "Japan",
+   "swap_answer_forms": [
+    "Asia"
+   ],
+   "one_hop_source": "Fact: The continent that contains Italy is",
+   "one_hop_target": "Fact: The continent that contains Japan is",
+   "answer": "Europe",
+   "swap_answer": "Asia"
+  },
+  {
+   "name": "c40-country-continent-Italy-2",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the canals of Venice are located",
+   "prompt": "Fact: The continent that contains the country where the canals of Venice are located is",
+   "intermediate": "Italy",
+   "answer_forms": [
+    "Europe"
+   ],
+   "swap_to": "Japan",
+   "swap_answer_forms": [
+    "Asia"
+   ],
+   "one_hop_source": "Fact: The continent that contains Italy is",
+   "one_hop_target": "Fact: The continent that contains Japan is",
+   "answer": "Europe",
+   "swap_answer": "Asia"
+  },
+  {
+   "name": "c40-country-continent-Japan-0",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the city of Osaka is located",
+   "prompt": "Fact: The continent that contains the country where the city of Osaka is located is",
+   "intermediate": "Japan",
+   "answer_forms": [
+    "Asia"
+   ],
+   "swap_to": "Sweden",
+   "swap_answer_forms": [
+    "Europe"
+   ],
+   "one_hop_source": "Fact: The continent that contains Japan is",
+   "one_hop_target": "Fact: The continent that contains Sweden is",
+   "answer": "Asia",
+   "swap_answer": "Europe"
+  },
+  {
+   "name": "c40-country-continent-Japan-2",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the city of Hiroshima is located",
+   "prompt": "Fact: The continent that contains the country where the city of Hiroshima is located is",
+   "intermediate": "Japan",
+   "answer_forms": [
+    "Asia"
+   ],
+   "swap_to": "Australia",
+   "swap_answer_forms": [
+    "Oceania"
+   ],
+   "one_hop_source": "Fact: The continent that contains Japan is",
+   "one_hop_target": "Fact: The continent that contains Australia is",
+   "answer": "Asia",
+   "swap_answer": "Oceania"
+  },
+  {
+   "name": "c40-country-continent-Mexico-0",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the Mayan pyramid of Chichen Itza stands",
+   "prompt": "Fact: The continent that contains the country where the Mayan pyramid of Chichen Itza stands is",
+   "intermediate": "Mexico",
+   "answer_forms": [
+    "North"
+   ],
+   "swap_to": "India",
+   "swap_answer_forms": [
+    "Asia"
+   ],
+   "one_hop_source": "Fact: The continent that contains Mexico is",
+   "one_hop_target": "Fact: The continent that contains India is",
+   "answer": "North",
+   "swap_answer": "Asia"
+  },
+  {
+   "name": "c40-country-continent-Mexico-2",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the beach resort of Cancun is located",
+   "prompt": "Fact: The continent that contains the country where the beach resort of Cancun is located is",
+   "intermediate": "Mexico",
+   "answer_forms": [
+    "North"
+   ],
+   "swap_to": "Australia",
+   "swap_answer_forms": [
+    "Oceania"
+   ],
+   "one_hop_source": "Fact: The continent that contains Mexico is",
+   "one_hop_target": "Fact: The continent that contains Australia is",
+   "answer": "North",
+   "swap_answer": "Oceania"
+  },
+  {
+   "name": "c40-country-continent-Peru-0",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the ancient Inca city of Cusco is located",
+   "prompt": "Fact: The continent that contains the country where the ancient Inca city of Cusco is located is",
+   "intermediate": "Peru",
+   "answer_forms": [
+    "South"
+   ],
+   "swap_to": "Hungary",
+   "swap_answer_forms": [
+    "Europe"
+   ],
+   "one_hop_source": "Fact: The continent that contains Peru is",
+   "one_hop_target": "Fact: The continent that contains Hungary is",
+   "answer": "South",
+   "swap_answer": "Europe"
+  },
+  {
+   "name": "c40-country-continent-Peru-2",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the dish ceviche originated",
+   "prompt": "Fact: The continent that contains the country where the dish ceviche originated is",
+   "intermediate": "Peru",
+   "answer_forms": [
+    "South"
+   ],
+   "swap_to": "Greece",
+   "swap_answer_forms": [
+    "Europe"
+   ],
+   "one_hop_source": "Fact: The continent that contains Peru is",
+   "one_hop_target": "Fact: The continent that contains Greece is",
+   "answer": "South",
+   "swap_answer": "Europe"
+  },
+  {
+   "name": "c40-country-continent-Poland-0",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the city of Krakow is located",
+   "prompt": "Fact: The continent that contains the country where the city of Krakow is located is",
+   "intermediate": "Poland",
+   "answer_forms": [
+    "Europe"
+   ],
+   "swap_to": "Brazil",
+   "swap_answer_forms": [
+    "South"
+   ],
+   "one_hop_source": "Fact: The continent that contains Poland is",
+   "one_hop_target": "Fact: The continent that contains Brazil is",
+   "answer": "Europe",
+   "swap_answer": "South"
+  },
+  {
+   "name": "c40-country-continent-Poland-1",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the Wieliczka Salt Mine is located",
+   "prompt": "Fact: The continent that contains the country where the Wieliczka Salt Mine is located is",
+   "intermediate": "Poland",
+   "answer_forms": [
+    "Europe"
+   ],
+   "swap_to": "China",
+   "swap_answer_forms": [
+    "Asia"
+   ],
+   "one_hop_source": "Fact: The continent that contains Poland is",
+   "one_hop_target": "Fact: The continent that contains China is",
+   "answer": "Europe",
+   "swap_answer": "Asia"
+  },
+  {
+   "name": "c40-country-continent-Spain-0",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the city of Barcelona is located",
+   "prompt": "Fact: The continent that contains the country where the city of Barcelona is located is",
+   "intermediate": "Spain",
+   "answer_forms": [
+    "Europe"
+   ],
+   "swap_to": "Peru",
+   "swap_answer_forms": [
+    "South"
+   ],
+   "one_hop_source": "Fact: The continent that contains Spain is",
+   "one_hop_target": "Fact: The continent that contains Peru is",
+   "answer": "Europe",
+   "swap_answer": "South"
+  },
+  {
+   "name": "c40-country-continent-Spain-2",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the city of Seville is located",
+   "prompt": "Fact: The continent that contains the country where the city of Seville is located is",
+   "intermediate": "Spain",
+   "answer_forms": [
+    "Europe"
+   ],
+   "swap_to": "Canada",
+   "swap_answer_forms": [
+    "North"
+   ],
+   "one_hop_source": "Fact: The continent that contains Spain is",
+   "one_hop_target": "Fact: The continent that contains Canada is",
+   "answer": "Europe",
+   "swap_answer": "North"
+  },
+  {
+   "name": "c40-country-continent-Sweden-0",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the city of Gothenburg is located",
+   "prompt": "Fact: The continent that contains the country where the city of Gothenburg is located is",
+   "intermediate": "Sweden",
+   "answer_forms": [
+    "Europe"
+   ],
+   "swap_to": "Japan",
+   "swap_answer_forms": [
+    "Asia"
+   ],
+   "one_hop_source": "Fact: The continent that contains Sweden is",
+   "one_hop_target": "Fact: The continent that contains Japan is",
+   "answer": "Europe",
+   "swap_answer": "Asia"
+  },
+  {
+   "name": "c40-country-continent-Sweden-2",
+   "category": "country-continent",
+   "type": "country",
+   "relation": "continent",
+   "clue": "where the car maker Volvo was founded",
+   "prompt": "Fact: The continent that contains the country where the car maker Volvo was founded is",
+   "intermediate": "Sweden",
+   "answer_forms": [
+    "Europe"
+   ],
+   "swap_to": "India",
+   "swap_answer_forms": [
+    "Asia"
+   ],
+   "one_hop_source": "Fact: The continent that contains Sweden is",
+   "one_hop_target": "Fact: The continent that contains India is",
+   "answer": "Europe",
+   "swap_answer": "Asia"
+  },
+  {
+   "name": "c40-country-currency-Australia-1",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where the red sandstone monolith Uluru stands",
+   "prompt": "Fact: The currency used in the country where the red sandstone monolith Uluru stands is the",
+   "intermediate": "Australia",
+   "answer_forms": [
+    "dollar"
+   ],
+   "swap_to": "Peru",
+   "swap_answer_forms": [
+    "sol",
+    "nuevo"
+   ],
+   "one_hop_source": "Fact: The currency used in Australia is the",
+   "one_hop_target": "Fact: The currency used in Peru is the",
+   "answer": "dollar",
+   "swap_answer": "sol"
+  },
+  {
+   "name": "c40-country-currency-Brazil-2",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where the footballer Pele was born",
+   "prompt": "Fact: The currency used in the country where the footballer Pele was born is the",
+   "intermediate": "Brazil",
+   "answer_forms": [
+    "real"
+   ],
+   "swap_to": "Hungary",
+   "swap_answer_forms": [
+    "forint",
+    "Hungarian"
+   ],
+   "one_hop_source": "Fact: The currency used in Brazil is the",
+   "one_hop_target": "Fact: The currency used in Hungary is the",
+   "answer": "real",
+   "swap_answer": "forint"
+  },
+  {
+   "name": "c40-country-currency-Canada-1",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where the CN Tower stands",
+   "prompt": "Fact: The currency used in the country where the CN Tower stands is the",
+   "intermediate": "Canada",
+   "answer_forms": [
+    "Canadian",
+    "dollar"
+   ],
+   "swap_to": "Brazil",
+   "swap_answer_forms": [
+    "real"
+   ],
+   "one_hop_source": "Fact: The currency used in Canada is the",
+   "one_hop_target": "Fact: The currency used in Brazil is the",
+   "answer": "Canadian",
+   "swap_answer": "real"
+  },
+  {
+   "name": "c40-country-currency-China-2",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where the Terracotta Army was found",
+   "prompt": "Fact: The currency used in the country where the Terracotta Army was found is the",
+   "intermediate": "China",
+   "answer_forms": [
+    "yuan",
+    "renminbi",
+    "Chinese",
+    "RMB"
+   ],
+   "swap_to": "Greece",
+   "swap_answer_forms": [
+    "euro",
+    "Euro"
+   ],
+   "one_hop_source": "Fact: The currency used in China is the",
+   "one_hop_target": "Fact: The currency used in Greece is the",
+   "answer": "yuan",
+   "swap_answer": "euro"
+  },
+  {
+   "name": "c40-country-currency-Egypt-0",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where the Great Pyramid of Giza stands",
+   "prompt": "Fact: The currency used in the country where the Great Pyramid of Giza stands is the",
+   "intermediate": "Egypt",
+   "answer_forms": [
+    "pound"
+   ],
+   "swap_to": "China",
+   "swap_answer_forms": [
+    "yuan",
+    "renminbi",
+    "Chinese",
+    "RMB"
+   ],
+   "one_hop_source": "Fact: The currency used in Egypt is the",
+   "one_hop_target": "Fact: The currency used in China is the",
+   "answer": "pound",
+   "swap_answer": "yuan"
+  },
+  {
+   "name": "c40-country-currency-England-2",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where the universities of Oxford and Cambridge are located",
+   "prompt": "Fact: The currency used in the country where the universities of Oxford and Cambridge are located is the",
+   "intermediate": "England",
+   "answer_forms": [
+    "pound",
+    "British",
+    "sterling",
+    "Pound"
+   ],
+   "swap_to": "Germany",
+   "swap_answer_forms": [
+    "euro",
+    "Euro"
+   ],
+   "one_hop_source": "Fact: The currency used in England is the",
+   "one_hop_target": "Fact: The currency used in Germany is the",
+   "answer": "pound",
+   "swap_answer": "euro"
+  },
+  {
+   "name": "c40-country-currency-France-2",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where the city of Nice is located",
+   "prompt": "Fact: The currency used in the country where the city of Nice is located is the",
+   "intermediate": "France",
+   "answer_forms": [
+    "euro",
+    "Euro"
+   ],
+   "swap_to": "Poland",
+   "swap_answer_forms": [
+    "zloty",
+    "złoty",
+    "Polish"
+   ],
+   "one_hop_source": "Fact: The currency used in France is the",
+   "one_hop_target": "Fact: The currency used in Poland is the",
+   "answer": "euro",
+   "swap_answer": "zloty"
+  },
+  {
+   "name": "c40-country-currency-Germany-2",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where the composer Beethoven was born",
+   "prompt": "Fact: The currency used in the country where the composer Beethoven was born is the",
+   "intermediate": "Germany",
+   "answer_forms": [
+    "euro",
+    "Euro"
+   ],
+   "swap_to": "Canada",
+   "swap_answer_forms": [
+    "Canadian",
+    "dollar"
+   ],
+   "one_hop_source": "Fact: The currency used in Germany is the",
+   "one_hop_target": "Fact: The currency used in Canada is the",
+   "answer": "euro",
+   "swap_answer": "Canadian"
+  },
+  {
+   "name": "c40-country-currency-Greece-2",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where Mount Olympus stands",
+   "prompt": "Fact: The currency used in the country where Mount Olympus stands is the",
+   "intermediate": "Greece",
+   "answer_forms": [
+    "euro",
+    "Euro"
+   ],
+   "swap_to": "India",
+   "swap_answer_forms": [
+    "rupee"
+   ],
+   "one_hop_source": "Fact: The currency used in Greece is the",
+   "one_hop_target": "Fact: The currency used in India is the",
+   "answer": "euro",
+   "swap_answer": "rupee"
+  },
+  {
+   "name": "c40-country-currency-Hungary-2",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where the dish goulash originated",
+   "prompt": "Fact: The currency used in the country where the dish goulash originated is the",
+   "intermediate": "Hungary",
+   "answer_forms": [
+    "forint",
+    "Hungarian"
+   ],
+   "swap_to": "Canada",
+   "swap_answer_forms": [
+    "Canadian",
+    "dollar"
+   ],
+   "one_hop_source": "Fact: The currency used in Hungary is the",
+   "one_hop_target": "Fact: The currency used in Canada is the",
+   "answer": "forint",
+   "swap_answer": "Canadian"
+  },
+  {
+   "name": "c40-country-currency-India-2",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where the city of Bangalore is located",
+   "prompt": "Fact: The currency used in the country where the city of Bangalore is located is the",
+   "intermediate": "India",
+   "answer_forms": [
+    "rupee"
+   ],
+   "swap_to": "Spain",
+   "swap_answer_forms": [
+    "euro",
+    "Euro"
+   ],
+   "one_hop_source": "Fact: The currency used in India is the",
+   "one_hop_target": "Fact: The currency used in Spain is the",
+   "answer": "rupee",
+   "swap_answer": "euro"
+  },
+  {
+   "name": "c40-country-currency-Italy-2",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where the canals of Venice are located",
+   "prompt": "Fact: The currency used in the country where the canals of Venice are located is the",
+   "intermediate": "Italy",
+   "answer_forms": [
+    "euro",
+    "Euro"
+   ],
+   "swap_to": "Sweden",
+   "swap_answer_forms": [
+    "krona",
+    "Swedish",
+    "kronor"
+   ],
+   "one_hop_source": "Fact: The currency used in Italy is the",
+   "one_hop_target": "Fact: The currency used in Sweden is the",
+   "answer": "euro",
+   "swap_answer": "krona"
+  },
+  {
+   "name": "c40-country-currency-Japan-0",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where the city of Osaka is located",
+   "prompt": "Fact: The currency used in the country where the city of Osaka is located is the",
+   "intermediate": "Japan",
+   "answer_forms": [
+    "yen"
+   ],
+   "swap_to": "Sweden",
+   "swap_answer_forms": [
+    "krona",
+    "Swedish",
+    "kronor"
+   ],
+   "one_hop_source": "Fact: The currency used in Japan is the",
+   "one_hop_target": "Fact: The currency used in Sweden is the",
+   "answer": "yen",
+   "swap_answer": "krona"
+  },
+  {
+   "name": "c40-country-currency-Japan-2",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where the city of Hiroshima is located",
+   "prompt": "Fact: The currency used in the country where the city of Hiroshima is located is the",
+   "intermediate": "Japan",
+   "answer_forms": [
+    "yen"
+   ],
+   "swap_to": "Canada",
+   "swap_answer_forms": [
+    "Canadian",
+    "dollar"
+   ],
+   "one_hop_source": "Fact: The currency used in Japan is the",
+   "one_hop_target": "Fact: The currency used in Canada is the",
+   "answer": "yen",
+   "swap_answer": "Canadian"
+  },
+  {
+   "name": "c40-country-currency-Mexico-0",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where the Mayan pyramid of Chichen Itza stands",
+   "prompt": "Fact: The currency used in the country where the Mayan pyramid of Chichen Itza stands is the",
+   "intermediate": "Mexico",
+   "answer_forms": [
+    "peso",
+    "Mexican"
+   ],
+   "swap_to": "China",
+   "swap_answer_forms": [
+    "yuan",
+    "renminbi",
+    "Chinese",
+    "RMB"
+   ],
+   "one_hop_source": "Fact: The currency used in Mexico is the",
+   "one_hop_target": "Fact: The currency used in China is the",
+   "answer": "peso",
+   "swap_answer": "yuan"
+  },
+  {
+   "name": "c40-country-currency-Mexico-2",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where the beach resort of Cancun is located",
+   "prompt": "Fact: The currency used in the country where the beach resort of Cancun is located is the",
+   "intermediate": "Mexico",
+   "answer_forms": [
+    "peso",
+    "Mexican"
+   ],
+   "swap_to": "Germany",
+   "swap_answer_forms": [
+    "euro",
+    "Euro"
+   ],
+   "one_hop_source": "Fact: The currency used in Mexico is the",
+   "one_hop_target": "Fact: The currency used in Germany is the",
+   "answer": "peso",
+   "swap_answer": "euro"
+  },
+  {
+   "name": "c40-country-currency-Peru-2",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where the dish ceviche originated",
+   "prompt": "Fact: The currency used in the country where the dish ceviche originated is the",
+   "intermediate": "Peru",
+   "answer_forms": [
+    "sol",
+    "nuevo"
+   ],
+   "swap_to": "Hungary",
+   "swap_answer_forms": [
+    "forint",
+    "Hungarian"
+   ],
+   "one_hop_source": "Fact: The currency used in Peru is the",
+   "one_hop_target": "Fact: The currency used in Hungary is the",
+   "answer": "sol",
+   "swap_answer": "forint"
+  },
+  {
+   "name": "c40-country-currency-Poland-1",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where the Wieliczka Salt Mine is located",
+   "prompt": "Fact: The currency used in the country where the Wieliczka Salt Mine is located is the",
+   "intermediate": "Poland",
+   "answer_forms": [
+    "zloty",
+    "złoty",
+    "Polish"
+   ],
+   "swap_to": "Australia",
+   "swap_answer_forms": [
+    "dollar"
+   ],
+   "one_hop_source": "Fact: The currency used in Poland is the",
+   "one_hop_target": "Fact: The currency used in Australia is the",
+   "answer": "zloty",
+   "swap_answer": "dollar"
+  },
+  {
+   "name": "c40-country-currency-Russia-0",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where the city of Saint Petersburg is located",
+   "prompt": "Fact: The currency used in the country where the city of Saint Petersburg is located is the",
+   "intermediate": "Russia",
+   "answer_forms": [
+    "ruble",
+    "rouble"
+   ],
+   "swap_to": "Brazil",
+   "swap_answer_forms": [
+    "real"
+   ],
+   "one_hop_source": "Fact: The currency used in Russia is the",
+   "one_hop_target": "Fact: The currency used in Brazil is the",
+   "answer": "ruble",
+   "swap_answer": "real"
+  },
+  {
+   "name": "c40-country-currency-Russia-1",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where Lake Baikal lies",
+   "prompt": "Fact: The currency used in the country where Lake Baikal lies is the",
+   "intermediate": "Russia",
+   "answer_forms": [
+    "ruble",
+    "rouble"
+   ],
+   "swap_to": "Brazil",
+   "swap_answer_forms": [
+    "real"
+   ],
+   "one_hop_source": "Fact: The currency used in Russia is the",
+   "one_hop_target": "Fact: The currency used in Brazil is the",
+   "answer": "ruble",
+   "swap_answer": "real"
+  },
+  {
+   "name": "c40-country-currency-Russia-2",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where the writer Leo Tolstoy was born",
+   "prompt": "Fact: The currency used in the country where the writer Leo Tolstoy was born is the",
+   "intermediate": "Russia",
+   "answer_forms": [
+    "ruble",
+    "rouble"
+   ],
+   "swap_to": "Egypt",
+   "swap_answer_forms": [
+    "pound"
+   ],
+   "one_hop_source": "Fact: The currency used in Russia is the",
+   "one_hop_target": "Fact: The currency used in Egypt is the",
+   "answer": "ruble",
+   "swap_answer": "pound"
+  },
+  {
+   "name": "c40-country-currency-Spain-0",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "where the city of Barcelona is located",
+   "prompt": "Fact: The currency used in the country where the city of Barcelona is located is the",
+   "intermediate": "Spain",
+   "answer_forms": [
+    "euro",
+    "Euro"
+   ],
+   "swap_to": "Egypt",
+   "swap_answer_forms": [
+    "pound"
+   ],
+   "one_hop_source": "Fact: The currency used in Spain is the",
+   "one_hop_target": "Fact: The currency used in Egypt is the",
+   "answer": "euro",
+   "swap_answer": "pound"
+  },
+  {
+   "name": "c40-country-currency-Sweden-1",
+   "category": "country-currency",
+   "type": "country",
+   "relation": "currency",
+   "clue": "that the pop group ABBA came from",
+   "prompt": "Fact: The currency used in the country that the pop group ABBA came from is the",
+   "intermediate": "Sweden",
+   "answer_forms": [
+    "krona",
+    "Swedish",
+    "kronor"
+   ],
+   "swap_to": "Russia",
+   "swap_answer_forms": [
+    "ruble",
+    "rouble"
+   ],
+   "one_hop_source": "Fact: The currency used in Sweden is the",
+   "one_hop_target": "Fact: The currency used in Russia is the",
+   "answer": "krona",
+   "swap_answer": "ruble"
+  },
+  {
+   "name": "c40-country-language-Australia-2",
+   "category": "country-language",
+   "type": "country",
+   "relation": "language",
+   "clue": "where the Sydney Opera House stands",
+   "prompt": "Fact: The official language of the country where the Sydney Opera House stands is",
+   "intermediate": "Australia",
+   "answer_forms": [
+    "English"
+   ],
+   "swap_to": "Italy",
+   "swap_answer_forms": [
+    "Italian"
+   ],
+   "one_hop_source": "Fact: The official language of Australia is",
+   "one_hop_target": "Fact: The official language of Italy is",
+   "answer": "English",
+   "swap_answer": "Italian"
+  },
+  {
+   "name": "c40-country-language-Brazil-0",
+   "category": "country-language",
+   "type": "country",
+   "relation": "language",
+   "clue": "where the Christ the Redeemer statue overlooks Rio de Janeiro",
+   "prompt": "Fact: The official language of the country where the Christ the Redeemer statue overlooks Rio de Janeiro is",
+   "intermediate": "Brazil",
+   "answer_forms": [
+    "Portuguese"
+   ],
+   "swap_to": "Mexico",
+   "swap_answer_forms": [
+    "Spanish"
+   ],
+   "one_hop_source": "Fact: The official language of Brazil is",
+   "one_hop_target": "Fact: The official language of Mexico is",
+   "answer": "Portuguese",
+   "swap_answer": "Spanish"
+  },
+  {
+   "name": "c40-country-language-Canada-2",
+   "category": "country-language",
+   "type": "country",
+   "relation": "language",
+   "clue": "where the city of Montreal is located",
+   "prompt": "Fact: The official language of the country where the city of Montreal is located is",
+   "intermediate": "Canada",
+   "answer_forms": [
+    "English",
+    "French"
+   ],
+   "swap_to": "Sweden",
+   "swap_answer_forms": [
+    "Swedish"
+   ],
+   "one_hop_source": "Fact: The official language of Canada is",
+   "one_hop_target": "Fact: The official language of Sweden is",
+   "answer": "English",
+   "swap_answer": "Swedish"
+  },
+  {
+   "name": "c40-country-language-China-1",
+   "category": "country-language",
+   "type": "country",
+   "relation": "language",
+   "clue": "where the city of Shanghai is located",
+   "prompt": "Fact: The official language of the country where the city of Shanghai is located is",
+   "intermediate": "China",
+   "answer_forms": [
+    "Mandarin",
+    "Chinese"
+   ],
+   "swap_to": "Australia",
+   "swap_answer_forms": [
+    "English"
+   ],
+   "one_hop_source": "Fact: The official language of China is",
+   "one_hop_target": "Fact: The official language of Australia is",
+   "answer": "Mandarin",
+   "swap_answer": "English"
+  },
+  {
+   "name": "c40-country-language-Egypt-0",
+   "category": "country-language",
+   "type": "country",
+   "relation": "language",
+   "clue": "where the Great Pyramid of Giza stands",
+   "prompt": "Fact: The official language of the country where the Great Pyramid of Giza stands is",
+   "intermediate": "Egypt",
+   "answer_forms": [
+    "Arabic"
+   ],
+   "swap_to": "Sweden",
+   "swap_answer_forms": [
+    "Swedish"
+   ],
+   "one_hop_source": "Fact: The official language of Egypt is",
+   "one_hop_target": "Fact: The official language of Sweden is",
+   "answer": "Arabic",
+   "swap_answer": "Swedish"
+  },
+  {
+   "name": "c40-country-language-England-0",
+   "category": "country-language",
+   "type": "country",
+   "relation": "language",
+   "clue": "where the prehistoric monument Stonehenge stands",
+   "prompt": "Fact: The official language of the country where the prehistoric monument Stonehenge stands is",
+   "intermediate": "England",
+   "answer_forms": [
+    "English"
+   ],
+   "swap_to": "Germany",
+   "swap_answer_forms": [
+    "German"
+   ],
+   "one_hop_source": "Fact: The official language of England is",
+   "one_hop_target": "Fact: The official language of Germany is",
+   "answer": "English",
+   "swap_answer": "German"
+  },
+  {
+   "name": "c40-country-language-France-0",
+   "category": "country-language",
+   "type": "country",
+   "relation": "language",
+   "clue": "where the city of Marseille is located",
+   "prompt": "Fact: The official language of the country where the city of Marseille is located is",
+   "intermediate": "France",
+   "answer_forms": [
+    "French"
+   ],
+   "swap_to": "Mexico",
+   "swap_answer_forms": [
+    "Spanish"
+   ],
+   "one_hop_source": "Fact: The official language of France is",
+   "one_hop_target": "Fact: The official language of Mexico is",
+   "answer": "French",
+   "swap_answer": "Spanish"
+  },
+  {
+   "name": "c40-country-language-Germany-1",
+   "category": "country-language",
+   "type": "country",
+   "relation": "language",
+   "clue": "where Neuschwanstein Castle stands",
+   "prompt": "Fact: The official language of the country where Neuschwanstein Castle stands is",
+   "intermediate": "Germany",
+   "answer_forms": [
+    "German"
+   ],
+   "swap_to": "England",
+   "swap_answer_forms": [
+    "English"
+   ],
+   "one_hop_source": "Fact: The official language of Germany is",
+   "one_hop_target": "Fact: The official language of England is",
+   "answer": "German",
+   "swap_answer": "English"
+  },
+  {
+   "name": "c40-country-language-Greece-1",
+   "category": "country-language",
+   "type": "country",
+   "relation": "language",
+   "clue": "where the island of Santorini lies",
+   "prompt": "Fact: The official language of the country where the island of Santorini lies is",
+   "intermediate": "Greece",
+   "answer_forms": [
+    "Greek"
+   ],
+   "swap_to": "India",
+   "swap_answer_forms": [
+    "Hindi",
+    "English"
+   ],
+   "one_hop_source": "Fact: The official language of Greece is",
+   "one_hop_target": "Fact: The official language of India is",
+   "answer": "Greek",
+   "swap_answer": "Hindi"
+  },
+  {
+   "name": "c40-country-language-Hungary-2",
+   "category": "country-language",
+   "type": "country",
+   "relation": "language",
+   "clue": "where the dish goulash originated",
+   "prompt": "Fact: The official language of the country where the dish goulash originated is",
+   "intermediate": "Hungary",
+   "answer_forms": [
+    "Hungarian",
+    "Magyar"
+   ],
+   "swap_to": "Germany",
+   "swap_answer_forms": [
+    "German"
+   ],
+   "one_hop_source": "Fact: The official language of Hungary is",
+   "one_hop_target": "Fact: The official language of Germany is",
+   "answer": "Hungarian",
+   "swap_answer": "German"
+  },
+  {
+   "name": "c40-country-language-India-2",
+   "category": "country-language",
+   "type": "country",
+   "relation": "language",
+   "clue": "where the city of Bangalore is located",
+   "prompt": "Fact: The official language of the country where the city of Bangalore is located is",
+   "intermediate": "India",
+   "answer_forms": [
+    "Hindi",
+    "English"
+   ],
+   "swap_to": "Poland",
+   "swap_answer_forms": [
+    "Polish"
+   ],
+   "one_hop_source": "Fact: The official language of India is",
+   "one_hop_target": "Fact: The official language of Poland is",
+   "answer": "Hindi",
+   "swap_answer": "Polish"
+  },
+  {
+   "name": "c40-country-language-Italy-1",
+   "category": "country-language",
+   "type": "country",
+   "relation": "language",
+   "clue": "where the city of Milan is located",
+   "prompt": "Fact: The official language of the country where the city of Milan is located is",
+   "intermediate": "Italy",
+   "answer_forms": [
+    "Italian"
+   ],
+   "swap_to": "Sweden",
+   "swap_answer_forms": [
+    "Swedish"
+   ],
+   "one_hop_source": "Fact: The official language of Italy is",
+   "one_hop_target": "Fact: The official language of Sweden is",
+   "answer": "Italian",
+   "swap_answer": "Swedish"
+  },
+  {
+   "name": "c40-country-language-Mexico-0",
+   "category": "country-language",
+   "type": "country",
+   "relation": "language",
+   "clue": "where the Mayan pyramid of Chichen Itza stands",
+   "prompt": "Fact: The official language of the country where the Mayan pyramid of Chichen Itza stands is",
+   "intermediate": "Mexico",
+   "answer_forms": [
+    "Spanish"
+   ],
+   "swap_to": "Germany",
+   "swap_answer_forms": [
+    "German"
+   ],
+   "one_hop_source": "Fact: The official language of Mexico is",
+   "one_hop_target": "Fact: The official language of Germany is",
+   "answer": "Spanish",
+   "swap_answer": "German"
+  },
+  {
+   "name": "c40-country-language-Mexico-1",
+   "category": "country-language",
+   "type": "country",
+   "relation": "language",
+   "clue": "where the city of Guadalajara is located",
+   "prompt": "Fact: The official language of the country where the city of Guadalajara is located is",
+   "intermediate": "Mexico",
+   "answer_forms": [
+    "Spanish"
+   ],
+   "swap_to": "Poland",
+   "swap_answer_forms": [
+    "Polish"
+   ],
+   "one_hop_source": "Fact: The official language of Mexico is",
+   "one_hop_target": "Fact: The official language of Poland is",
+   "answer": "Spanish",
+   "swap_answer": "Polish"
+  },
+  {
+   "name": "c40-country-language-Peru-0",
+   "category": "country-language",
+   "type": "country",
+   "relation": "language",
+   "clue": "where the ancient Inca city of Cusco is located",
+   "prompt": "Fact: The official language of the country where the ancient Inca city of Cusco is located is",
+   "intermediate": "Peru",
+   "answer_forms": [
+    "Spanish",
+    "Quechua"
+   ],
+   "swap_to": "Brazil",
+   "swap_answer_forms": [
+    "Portuguese"
+   ],
+   "one_hop_source": "Fact: The official language of Peru is",
+   "one_hop_target": "Fact: The official language of Brazil is",
+   "answer": "Spanish",
+   "swap_answer": "Portuguese"
+  },
+  {
+   "name": "c40-country-language-Poland-0",
+   "category": "country-language",
+   "type": "country",
+   "relation": "language",
+   "clue": "where the city of Krakow is located",
+   "prompt": "Fact: The official language of the country where the city of Krakow is located is",
+   "intermediate": "Poland",
+   "answer_forms": [
+    "Polish"
+   ],
+   "swap_to": "Sweden",
+   "swap_answer_forms": [
+    "Swedish"
+   ],
+   "one_hop_source": "Fact: The official language of Poland is",
+   "one_hop_target": "Fact: The official language of Sweden is",
+   "answer": "Polish",
+   "swap_answer": "Swedish"
+  },
+  {
+   "name": "c40-country-language-Spain-0",
+   "category": "country-language",
+   "type": "country",
+   "relation": "language",
+   "clue": "where the city of Barcelona is located",
+   "prompt": "Fact: The official language of the country where the city of Barcelona is located is",
+   "intermediate": "Spain",
+   "answer_forms": [
+    "Spanish",
+    "Castilian"
+   ],
+   "swap_to": "Poland",
+   "swap_answer_forms": [
+    "Polish"
+   ],
+   "one_hop_source": "Fact: The official language of Spain is",
+   "one_hop_target": "Fact: The official language of Poland is",
+   "answer": "Spanish",
+   "swap_answer": "Polish"
+  },
+  {
+   "name": "c40-country-language-Sweden-1",
+   "category": "country-language",
+   "type": "country",
+   "relation": "language",
+   "clue": "that the pop group ABBA came from",
+   "prompt": "Fact: The official language of the country that the pop group ABBA came from is",
+   "intermediate": "Sweden",
+   "answer_forms": [
+    "Swedish"
+   ],
+   "swap_to": "Spain",
+   "swap_answer_forms": [
+    "Spanish",
+    "Castilian"
+   ],
+   "one_hop_source": "Fact: The official language of Sweden is",
+   "one_hop_target": "Fact: The official language of Spain is",
+   "answer": "Swedish",
+   "swap_answer": "Spanish"
+  },
+  {
+   "name": "c40-element-state-calcium-0",
+   "category": "element-state",
+   "type": "element",
+   "relation": "state",
+   "clue": "metal whose carbonate forms chalk and limestone",
+   "prompt": "Fact: At room temperature, the metal whose carbonate forms chalk and limestone is a",
+   "intermediate": "calcium",
+   "answer_forms": [
+    "solid"
+   ],
+   "swap_to": "oxygen",
+   "swap_answer_forms": [
+    "gas"
+   ],
+   "one_hop_source": "Fact: At room temperature, calcium is a",
+   "one_hop_target": "Fact: At room temperature, oxygen is a",
+   "answer": "solid",
+   "swap_answer": "gas"
+  },
+  {
+   "name": "c40-element-state-calcium-1",
+   "category": "element-state",
+   "type": "element",
+   "relation": "state",
+   "clue": "element with atomic number 20",
+   "prompt": "Fact: At room temperature, the element with atomic number 20 is a",
+   "intermediate": "calcium",
+   "answer_forms": [
+    "solid"
+   ],
+   "swap_to": "oxygen",
+   "swap_answer_forms": [
+    "gas"
+   ],
+   "one_hop_source": "Fact: At room temperature, calcium is a",
+   "one_hop_target": "Fact: At room temperature, oxygen is a",
+   "answer": "solid",
+   "swap_answer": "gas"
+  },
+  {
+   "name": "c40-element-state-carbon-0",
+   "category": "element-state",
+   "type": "element",
+   "relation": "state",
+   "clue": "element whose isotope 14 is used to date ancient artifacts",
+   "prompt": "Fact: At room temperature, the element whose isotope 14 is used to date ancient artifacts is a",
+   "intermediate": "carbon",
+   "answer_forms": [
+    "solid"
+   ],
+   "swap_to": "oxygen",
+   "swap_answer_forms": [
+    "gas"
+   ],
+   "one_hop_source": "Fact: At room temperature, carbon is a",
+   "one_hop_target": "Fact: At room temperature, oxygen is a",
+   "answer": "solid",
+   "swap_answer": "gas"
+  },
+  {
+   "name": "c40-element-state-carbon-1",
+   "category": "element-state",
+   "type": "element",
+   "relation": "state",
+   "clue": "element that pencil graphite is made of",
+   "prompt": "Fact: At room temperature, the element that pencil graphite is made of is a",
+   "intermediate": "carbon",
+   "answer_forms": [
+    "solid"
+   ],
+   "swap_to": "mercury",
+   "swap_answer_forms": [
+    "liquid"
+   ],
+   "one_hop_source": "Fact: At room temperature, carbon is a",
+   "one_hop_target": "Fact: At room temperature, mercury is a",
+   "answer": "solid",
+   "swap_answer": "liquid"
+  },
+  {
+   "name": "c40-element-state-gold-0",
+   "category": "element-state",
+   "type": "element",
+   "relation": "state",
+   "clue": "precious metal whose purity is measured in karats",
+   "prompt": "Fact: At room temperature, the precious metal whose purity is measured in karats is a",
+   "intermediate": "gold",
+   "answer_forms": [
+    "solid"
+   ],
+   "swap_to": "mercury",
+   "swap_answer_forms": [
+    "liquid"
+   ],
+   "one_hop_source": "Fact: At room temperature, gold is a",
+   "one_hop_target": "Fact: At room temperature, mercury is a",
+   "answer": "solid",
+   "swap_answer": "liquid"
+  },
+  {
+   "name": "c40-element-state-gold-1",
+   "category": "element-state",
+   "type": "element",
+   "relation": "state",
+   "clue": "metal sought by prospectors in the 1849 California rush",
+   "prompt": "Fact: At room temperature, the metal sought by prospectors in the 1849 California rush is a",
+   "intermediate": "gold",
+   "answer_forms": [
+    "solid"
+   ],
+   "swap_to": "mercury",
+   "swap_answer_forms": [
+    "liquid"
+   ],
+   "one_hop_source": "Fact: At room temperature, gold is a",
+   "one_hop_target": "Fact: At room temperature, mercury is a",
+   "answer": "solid",
+   "swap_answer": "liquid"
+  },
+  {
+   "name": "c40-element-state-iron-0",
+   "category": "element-state",
+   "type": "element",
+   "relation": "state",
+   "clue": "metal smelted from hematite ore",
+   "prompt": "Fact: At room temperature, the metal smelted from hematite ore is a",
+   "intermediate": "iron",
+   "answer_forms": [
+    "solid"
+   ],
+   "swap_to": "oxygen",
+   "swap_answer_forms": [
+    "gas"
+   ],
+   "one_hop_source": "Fact: At room temperature, iron is a",
+   "one_hop_target": "Fact: At room temperature, oxygen is a",
+   "answer": "solid",
+   "swap_answer": "gas"
+  },
+  {
+   "name": "c40-element-state-iron-1",
+   "category": "element-state",
+   "type": "element",
+   "relation": "state",
+   "clue": "metal that makes up most of the Earth's core",
+   "prompt": "Fact: At room temperature, the metal that makes up most of the Earth's core is a",
+   "intermediate": "iron",
+   "answer_forms": [
+    "solid"
+   ],
+   "swap_to": "oxygen",
+   "swap_answer_forms": [
+    "gas"
+   ],
+   "one_hop_source": "Fact: At room temperature, iron is a",
+   "one_hop_target": "Fact: At room temperature, oxygen is a",
+   "answer": "solid",
+   "swap_answer": "gas"
+  },
+  {
+   "name": "c40-element-state-mercury-0",
+   "category": "element-state",
+   "type": "element",
+   "relation": "state",
+   "clue": "metal whose vapor glows inside fluorescent lamps",
+   "prompt": "Fact: At room temperature, the metal whose vapor glows inside fluorescent lamps is a",
+   "intermediate": "mercury",
+   "answer_forms": [
+    "liquid"
+   ],
+   "swap_to": "calcium",
+   "swap_answer_forms": [
+    "solid"
+   ],
+   "one_hop_source": "Fact: At room temperature, mercury is a",
+   "one_hop_target": "Fact: At room temperature, calcium is a",
+   "answer": "liquid",
+   "swap_answer": "solid"
+  },
+  {
+   "name": "c40-element-state-mercury-1",
+   "category": "element-state",
+   "type": "element",
+   "relation": "state",
+   "clue": "silvery metal once used in dental amalgam fillings and thermometers",
+   "prompt": "Fact: At room temperature, the silvery metal once used in dental amalgam fillings and thermometers is a",
+   "intermediate": "mercury",
+   "answer_forms": [
+    "liquid"
+   ],
+   "swap_to": "iron",
+   "swap_answer_forms": [
+    "solid"
+   ],
+   "one_hop_source": "Fact: At room temperature, mercury is a",
+   "one_hop_target": "Fact: At room temperature, iron is a",
+   "answer": "liquid",
+   "swap_answer": "solid"
+  },
+  {
+   "name": "c40-element-state-oxygen-1",
+   "category": "element-state",
+   "type": "element",
+   "relation": "state",
+   "clue": "element that ozone molecules are made of",
+   "prompt": "Fact: At room temperature, the element that ozone molecules are made of is a",
+   "intermediate": "oxygen",
+   "answer_forms": [
+    "gas"
+   ],
+   "swap_to": "carbon",
+   "swap_answer_forms": [
+    "solid"
+   ],
+   "one_hop_source": "Fact: At room temperature, oxygen is a",
+   "one_hop_target": "Fact: At room temperature, carbon is a",
+   "answer": "gas",
+   "swap_answer": "solid"
+  },
+  {
+   "name": "c40-element-state-silver-0",
+   "category": "element-state",
+   "type": "element",
+   "relation": "state",
+   "clue": "precious metal with atomic number 47",
+   "prompt": "Fact: At room temperature, the precious metal with atomic number 47 is a",
+   "intermediate": "silver",
+   "answer_forms": [
+    "solid"
+   ],
+   "swap_to": "mercury",
+   "swap_answer_forms": [
+    "liquid"
+   ],
+   "one_hop_source": "Fact: At room temperature, silver is a",
+   "one_hop_target": "Fact: At room temperature, mercury is a",
+   "answer": "solid",
+   "swap_answer": "liquid"
+  },
+  {
+   "name": "c40-element-state-silver-1",
+   "category": "element-state",
+   "type": "element",
+   "relation": "state",
+   "clue": "precious metal whose compounds were used in early photographic film",
+   "prompt": "Fact: At room temperature, the precious metal whose compounds were used in early photographic film is a",
+   "intermediate": "silver",
+   "answer_forms": [
+    "solid"
+   ],
+   "swap_to": "oxygen",
+   "swap_answer_forms": [
+    "gas"
+   ],
+   "one_hop_source": "Fact: At room temperature, silver is a",
+   "one_hop_target": "Fact: At room temperature, oxygen is a",
+   "answer": "solid",
+   "swap_answer": "gas"
+  },
+  {
+   "name": "c40-element-state-sodium-0",
+   "category": "element-state",
+   "type": "element",
+   "relation": "state",
+   "clue": "metal in baking soda",
+   "prompt": "Fact: At room temperature, the metal in baking soda is a",
+   "intermediate": "sodium",
+   "answer_forms": [
+    "solid"
+   ],
+   "swap_to": "oxygen",
+   "swap_answer_forms": [
+    "gas"
+   ],
+   "one_hop_source": "Fact: At room temperature, sodium is a",
+   "one_hop_target": "Fact: At room temperature, oxygen is a",
+   "answer": "solid",
+   "swap_answer": "gas"
+  },
+  {
+   "name": "c40-element-state-sodium-1",
+   "category": "element-state",
+   "type": "element",
+   "relation": "state",
+   "clue": "soft alkali metal stored under oil because it reacts violently with water",
+   "prompt": "Fact: At room temperature, the soft alkali metal stored under oil because it reacts violently with water is a",
+   "intermediate": "sodium",
+   "answer_forms": [
+    "solid"
+   ],
+   "swap_to": "oxygen",
+   "swap_answer_forms": [
+    "gas"
+   ],
+   "one_hop_source": "Fact: At room temperature, sodium is a",
+   "one_hop_target": "Fact: At room temperature, oxygen is a",
+   "answer": "solid",
+   "swap_answer": "gas"
+  },
+  {
+   "name": "c40-element-symbol-calcium-0",
+   "category": "element-symbol",
+   "type": "element",
+   "relation": "symbol",
+   "clue": "metal whose carbonate forms chalk and limestone",
+   "prompt": "Fact: The chemical symbol of the metal whose carbonate forms chalk and limestone is",
+   "intermediate": "calcium",
+   "answer_forms": [
+    "Ca"
+   ],
+   "swap_to": "oxygen",
+   "swap_answer_forms": [
+    "O"
+   ],
+   "one_hop_source": "Fact: The chemical symbol of calcium is",
+   "one_hop_target": "Fact: The chemical symbol of oxygen is",
+   "answer": "Ca",
+   "swap_answer": "O"
+  },
+  {
+   "name": "c40-element-symbol-calcium-1",
+   "category": "element-symbol",
+   "type": "element",
+   "relation": "symbol",
+   "clue": "element with atomic number 20",
+   "prompt": "Fact: The chemical symbol of the element with atomic number 20 is",
+   "intermediate": "calcium",
+   "answer_forms": [
+    "Ca"
+   ],
+   "swap_to": "silver",
+   "swap_answer_forms": [
+    "Ag"
+   ],
+   "one_hop_source": "Fact: The chemical symbol of calcium is",
+   "one_hop_target": "Fact: The chemical symbol of silver is",
+   "answer": "Ca",
+   "swap_answer": "Ag"
+  },
+  {
+   "name": "c40-element-symbol-carbon-0",
+   "category": "element-symbol",
+   "type": "element",
+   "relation": "symbol",
+   "clue": "element whose isotope 14 is used to date ancient artifacts",
+   "prompt": "Fact: The chemical symbol of the element whose isotope 14 is used to date ancient artifacts is",
+   "intermediate": "carbon",
+   "answer_forms": [
+    "C"
+   ],
+   "swap_to": "silver",
+   "swap_answer_forms": [
+    "Ag"
+   ],
+   "one_hop_source": "Fact: The chemical symbol of carbon is",
+   "one_hop_target": "Fact: The chemical symbol of silver is",
+   "answer": "C",
+   "swap_answer": "Ag"
+  },
+  {
+   "name": "c40-element-symbol-carbon-1",
+   "category": "element-symbol",
+   "type": "element",
+   "relation": "symbol",
+   "clue": "element that pencil graphite is made of",
+   "prompt": "Fact: The chemical symbol of the element that pencil graphite is made of is",
+   "intermediate": "carbon",
+   "answer_forms": [
+    "C"
+   ],
+   "swap_to": "iron",
+   "swap_answer_forms": [
+    "Fe"
+   ],
+   "one_hop_source": "Fact: The chemical symbol of carbon is",
+   "one_hop_target": "Fact: The chemical symbol of iron is",
+   "answer": "C",
+   "swap_answer": "Fe"
+  },
+  {
+   "name": "c40-element-symbol-gold-0",
+   "category": "element-symbol",
+   "type": "element",
+   "relation": "symbol",
+   "clue": "precious metal whose purity is measured in karats",
+   "prompt": "Fact: The chemical symbol of the precious metal whose purity is measured in karats is",
+   "intermediate": "gold",
+   "answer_forms": [
+    "Au"
+   ],
+   "swap_to": "iron",
+   "swap_answer_forms": [
+    "Fe"
+   ],
+   "one_hop_source": "Fact: The chemical symbol of gold is",
+   "one_hop_target": "Fact: The chemical symbol of iron is",
+   "answer": "Au",
+   "swap_answer": "Fe"
+  },
+  {
+   "name": "c40-element-symbol-gold-1",
+   "category": "element-symbol",
+   "type": "element",
+   "relation": "symbol",
+   "clue": "metal sought by prospectors in the 1849 California rush",
+   "prompt": "Fact: The chemical symbol of the metal sought by prospectors in the 1849 California rush is",
+   "intermediate": "gold",
+   "answer_forms": [
+    "Au"
+   ],
+   "swap_to": "oxygen",
+   "swap_answer_forms": [
+    "O"
+   ],
+   "one_hop_source": "Fact: The chemical symbol of gold is",
+   "one_hop_target": "Fact: The chemical symbol of oxygen is",
+   "answer": "Au",
+   "swap_answer": "O"
+  },
+  {
+   "name": "c40-element-symbol-iron-0",
+   "category": "element-symbol",
+   "type": "element",
+   "relation": "symbol",
+   "clue": "metal smelted from hematite ore",
+   "prompt": "Fact: The chemical symbol of the metal smelted from hematite ore is",
+   "intermediate": "iron",
+   "answer_forms": [
+    "Fe"
+   ],
+   "swap_to": "carbon",
+   "swap_answer_forms": [
+    "C"
+   ],
+   "one_hop_source": "Fact: The chemical symbol of iron is",
+   "one_hop_target": "Fact: The chemical symbol of carbon is",
+   "answer": "Fe",
+   "swap_answer": "C"
+  },
+  {
+   "name": "c40-element-symbol-iron-1",
+   "category": "element-symbol",
+   "type": "element",
+   "relation": "symbol",
+   "clue": "metal that makes up most of the Earth's core",
+   "prompt": "Fact: The chemical symbol of the metal that makes up most of the Earth's core is",
+   "intermediate": "iron",
+   "answer_forms": [
+    "Fe"
+   ],
+   "swap_to": "calcium",
+   "swap_answer_forms": [
+    "Ca"
+   ],
+   "one_hop_source": "Fact: The chemical symbol of iron is",
+   "one_hop_target": "Fact: The chemical symbol of calcium is",
+   "answer": "Fe",
+   "swap_answer": "Ca"
+  },
+  {
+   "name": "c40-element-symbol-mercury-0",
+   "category": "element-symbol",
+   "type": "element",
+   "relation": "symbol",
+   "clue": "metal whose vapor glows inside fluorescent lamps",
+   "prompt": "Fact: The chemical symbol of the metal whose vapor glows inside fluorescent lamps is",
+   "intermediate": "mercury",
+   "answer_forms": [
+    "Hg"
+   ],
+   "swap_to": "silver",
+   "swap_answer_forms": [
+    "Ag"
+   ],
+   "one_hop_source": "Fact: The chemical symbol of mercury is",
+   "one_hop_target": "Fact: The chemical symbol of silver is",
+   "answer": "Hg",
+   "swap_answer": "Ag"
+  },
+  {
+   "name": "c40-element-symbol-mercury-1",
+   "category": "element-symbol",
+   "type": "element",
+   "relation": "symbol",
+   "clue": "silvery metal once used in dental amalgam fillings and thermometers",
+   "prompt": "Fact: The chemical symbol of the silvery metal once used in dental amalgam fillings and thermometers is",
+   "intermediate": "mercury",
+   "answer_forms": [
+    "Hg"
+   ],
+   "swap_to": "iron",
+   "swap_answer_forms": [
+    "Fe"
+   ],
+   "one_hop_source": "Fact: The chemical symbol of mercury is",
+   "one_hop_target": "Fact: The chemical symbol of iron is",
+   "answer": "Hg",
+   "swap_answer": "Fe"
+  },
+  {
+   "name": "c40-element-symbol-oxygen-0",
+   "category": "element-symbol",
+   "type": "element",
+   "relation": "symbol",
+   "clue": "gas that hospitals supply to patients through nasal tubes",
+   "prompt": "Fact: The chemical symbol of the gas that hospitals supply to patients through nasal tubes is",
+   "intermediate": "oxygen",
+   "answer_forms": [
+    "O"
+   ],
+   "swap_to": "silver",
+   "swap_answer_forms": [
+    "Ag"
+   ],
+   "one_hop_source": "Fact: The chemical symbol of oxygen is",
+   "one_hop_target": "Fact: The chemical symbol of silver is",
+   "answer": "O",
+   "swap_answer": "Ag"
+  },
+  {
+   "name": "c40-element-symbol-oxygen-1",
+   "category": "element-symbol",
+   "type": "element",
+   "relation": "symbol",
+   "clue": "element that ozone molecules are made of",
+   "prompt": "Fact: The chemical symbol of the element that ozone molecules are made of is",
+   "intermediate": "oxygen",
+   "answer_forms": [
+    "O"
+   ],
+   "swap_to": "mercury",
+   "swap_answer_forms": [
+    "Hg"
+   ],
+   "one_hop_source": "Fact: The chemical symbol of oxygen is",
+   "one_hop_target": "Fact: The chemical symbol of mercury is",
+   "answer": "O",
+   "swap_answer": "Hg"
+  },
+  {
+   "name": "c40-element-symbol-silver-0",
+   "category": "element-symbol",
+   "type": "element",
+   "relation": "symbol",
+   "clue": "precious metal with atomic number 47",
+   "prompt": "Fact: The chemical symbol of the precious metal with atomic number 47 is",
+   "intermediate": "silver",
+   "answer_forms": [
+    "Ag"
+   ],
+   "swap_to": "gold",
+   "swap_answer_forms": [
+    "Au"
+   ],
+   "one_hop_source": "Fact: The chemical symbol of silver is",
+   "one_hop_target": "Fact: The chemical symbol of gold is",
+   "answer": "Ag",
+   "swap_answer": "Au"
+  },
+  {
+   "name": "c40-element-symbol-silver-1",
+   "category": "element-symbol",
+   "type": "element",
+   "relation": "symbol",
+   "clue": "precious metal whose compounds were used in early photographic film",
+   "prompt": "Fact: The chemical symbol of the precious metal whose compounds were used in early photographic film is",
+   "intermediate": "silver",
+   "answer_forms": [
+    "Ag"
+   ],
+   "swap_to": "gold",
+   "swap_answer_forms": [
+    "Au"
+   ],
+   "one_hop_source": "Fact: The chemical symbol of silver is",
+   "one_hop_target": "Fact: The chemical symbol of gold is",
+   "answer": "Ag",
+   "swap_answer": "Au"
+  },
+  {
+   "name": "c40-element-symbol-sodium-0",
+   "category": "element-symbol",
+   "type": "element",
+   "relation": "symbol",
+   "clue": "metal in baking soda",
+   "prompt": "Fact: The chemical symbol of the metal in baking soda is",
+   "intermediate": "sodium",
+   "answer_forms": [
+    "Na"
+   ],
+   "swap_to": "mercury",
+   "swap_answer_forms": [
+    "Hg"
+   ],
+   "one_hop_source": "Fact: The chemical symbol of sodium is",
+   "one_hop_target": "Fact: The chemical symbol of mercury is",
+   "answer": "Na",
+   "swap_answer": "Hg"
+  },
+  {
+   "name": "c40-element-symbol-sodium-1",
+   "category": "element-symbol",
+   "type": "element",
+   "relation": "symbol",
+   "clue": "soft alkali metal stored under oil because it reacts violently with water",
+   "prompt": "Fact: The chemical symbol of the soft alkali metal stored under oil because it reacts violently with water is",
+   "intermediate": "sodium",
+   "answer_forms": [
+    "Na"
+   ],
+   "swap_to": "calcium",
+   "swap_answer_forms": [
+    "Ca"
+   ],
+   "one_hop_source": "Fact: The chemical symbol of sodium is",
+   "one_hop_target": "Fact: The chemical symbol of calcium is",
+   "answer": "Na",
+   "swap_answer": "Ca"
+  },
+  {
+   "name": "c40-food-plant-apple-0",
+   "category": "food-plant",
+   "type": "food",
+   "relation": "plant",
+   "clue": "fruit that cider is pressed from",
+   "prompt": "Fact: The kind of plant that the fruit that cider is pressed from grows on is a",
+   "intermediate": "apple",
+   "answer_forms": [
+    "tree"
+   ],
+   "swap_to": "grape",
+   "swap_answer_forms": [
+    "vine"
+   ],
+   "one_hop_source": "Fact: The kind of plant that the apple grows on is a",
+   "one_hop_target": "Fact: The kind of plant that the grape grows on is a",
+   "answer": "tree",
+   "swap_answer": "vine"
+  },
+  {
+   "name": "c40-food-plant-grape-0",
+   "category": "food-plant",
+   "type": "food",
+   "relation": "plant",
+   "clue": "fruit that raisins are dried from",
+   "prompt": "Fact: The kind of plant that the fruit that raisins are dried from grows on is a",
+   "intermediate": "grape",
+   "answer_forms": [
+    "vine"
+   ],
+   "swap_to": "apple",
+   "swap_answer_forms": [
+    "tree"
+   ],
+   "one_hop_source": "Fact: The kind of plant that the grape grows on is a",
+   "one_hop_target": "Fact: The kind of plant that the apple grows on is a",
+   "answer": "vine",
+   "swap_answer": "tree"
+  },
+  {
+   "name": "c40-food-producer-butter-0",
+   "category": "food-producer",
+   "type": "food",
+   "relation": "producer",
+   "clue": "yellow dairy spread made by churning cream",
+   "prompt": "Fact: The animal that produces the yellow dairy spread made by churning cream is the",
+   "intermediate": "butter",
+   "answer_forms": [
+    "cow",
+    "cows"
+   ],
+   "swap_to": "honey",
+   "swap_answer_forms": [
+    "bee",
+    "bees"
+   ],
+   "one_hop_source": "Fact: The animal that produces butter is the",
+   "one_hop_target": "Fact: The animal that produces honey is the",
+   "answer": "cow",
+   "swap_answer": "bee"
+  },
+  {
+   "name": "c40-food-producer-honey-0",
+   "category": "food-producer",
+   "type": "food",
+   "relation": "producer",
+   "clue": "sweet syrup stored in wax combs inside hives",
+   "prompt": "Fact: The animal that produces the sweet syrup stored in wax combs inside hives is the",
+   "intermediate": "honey",
+   "answer_forms": [
+    "bee",
+    "bees"
+   ],
+   "swap_to": "butter",
+   "swap_answer_forms": [
+    "cow",
+    "cows"
+   ],
+   "one_hop_source": "Fact: The animal that produces honey is the",
+   "one_hop_target": "Fact: The animal that produces butter is the",
+   "answer": "bee",
+   "swap_answer": "cow"
+  },
+  {
+   "name": "c40-gem-color-pearl-0",
+   "category": "gem-color",
+   "type": "gem",
+   "relation": "color",
+   "clue": "gem that forms inside an oyster",
+   "prompt": "Fact: The color of the gem that forms inside an oyster is",
+   "intermediate": "pearl",
+   "answer_forms": [
+    "white",
+    "creamy",
+    "cream",
+    "iridescent"
+   ],
+   "swap_to": "ruby",
+   "swap_answer_forms": [
+    "red",
+    "deep",
+    "crimson"
+   ],
+   "one_hop_source": "Fact: The color of a pearl is",
+   "one_hop_target": "Fact: The color of a ruby is",
+   "answer": "white",
+   "swap_answer": "red"
+  },
+  {
+   "name": "c40-gem-color-ruby-0",
+   "category": "gem-color",
+   "type": "gem",
+   "relation": "color",
+   "clue": "gemstone traditionally given on a fortieth wedding anniversary",
+   "prompt": "Fact: The color of the gemstone traditionally given on a fortieth wedding anniversary is",
+   "intermediate": "ruby",
+   "answer_forms": [
+    "red",
+    "deep",
+    "crimson"
+   ],
+   "swap_to": "pearl",
+   "swap_answer_forms": [
+    "white",
+    "creamy",
+    "cream",
+    "iridescent"
+   ],
+   "one_hop_source": "Fact: The color of a ruby is",
+   "one_hop_target": "Fact: The color of a pearl is",
+   "answer": "red",
+   "swap_answer": "white"
+  },
+  {
+   "name": "c40-holiday-season-Christmas-0",
+   "category": "holiday-season",
+   "type": "holiday",
+   "relation": "season",
+   "clue": "holiday when children hang stockings for Santa Claus",
+   "prompt": "Fact: The season in which the holiday when children hang stockings for Santa Claus is celebrated is",
+   "intermediate": "Christmas",
+   "answer_forms": [
+    "winter"
+   ],
+   "swap_to": "Easter",
+   "swap_answer_forms": [
+    "spring"
+   ],
+   "one_hop_source": "Fact: The season in which Christmas is celebrated is",
+   "one_hop_target": "Fact: The season in which Easter is celebrated is",
+   "answer": "winter",
+   "swap_answer": "spring"
+  },
+  {
+   "name": "c40-holiday-season-Christmas-1",
+   "category": "holiday-season",
+   "type": "holiday",
+   "relation": "season",
+   "clue": "holiday marking the birth of Jesus",
+   "prompt": "Fact: The season in which the holiday marking the birth of Jesus is celebrated is",
+   "intermediate": "Christmas",
+   "answer_forms": [
+    "winter"
+   ],
+   "swap_to": "Easter",
+   "swap_answer_forms": [
+    "spring"
+   ],
+   "one_hop_source": "Fact: The season in which Christmas is celebrated is",
+   "one_hop_target": "Fact: The season in which Easter is celebrated is",
+   "answer": "winter",
+   "swap_answer": "spring"
+  },
+  {
+   "name": "c40-holiday-season-Easter-0",
+   "category": "holiday-season",
+   "type": "holiday",
+   "relation": "season",
+   "clue": "holiday of egg hunts and chocolate bunnies",
+   "prompt": "Fact: The season in which the holiday of egg hunts and chocolate bunnies is celebrated is",
+   "intermediate": "Easter",
+   "answer_forms": [
+    "spring"
+   ],
+   "swap_to": "Christmas",
+   "swap_answer_forms": [
+    "winter"
+   ],
+   "one_hop_source": "Fact: The season in which Easter is celebrated is",
+   "one_hop_target": "Fact: The season in which Christmas is celebrated is",
+   "answer": "spring",
+   "swap_answer": "winter"
+  },
+  {
+   "name": "c40-holiday-season-Easter-1",
+   "category": "holiday-season",
+   "type": "holiday",
+   "relation": "season",
+   "clue": "holiday celebrating the resurrection of Jesus",
+   "prompt": "Fact: The season in which the holiday celebrating the resurrection of Jesus is celebrated is",
+   "intermediate": "Easter",
+   "answer_forms": [
+    "spring"
+   ],
+   "swap_to": "Christmas",
+   "swap_answer_forms": [
+    "winter"
+   ],
+   "one_hop_source": "Fact: The season in which Easter is celebrated is",
+   "one_hop_target": "Fact: The season in which Christmas is celebrated is",
+   "answer": "spring",
+   "swap_answer": "winter"
+  },
+  {
+   "name": "c40-instrument-strings-guitar-0",
+   "category": "instrument-strings",
+   "type": "instrument",
+   "relation": "strings",
+   "clue": "instrument that Jimi Hendrix famously played at Woodstock",
+   "prompt": "Fact: The number of strings on the instrument that Jimi Hendrix famously played at Woodstock is",
+   "intermediate": "guitar",
+   "answer_forms": [
+    "six",
+    "6"
+   ],
+   "swap_to": "violin",
+   "swap_answer_forms": [
+    "four",
+    "4"
+   ],
+   "one_hop_source": "Fact: The number of strings on a guitar is",
+   "one_hop_target": "Fact: The number of strings on a violin is",
+   "answer": "six",
+   "swap_answer": "four"
+  },
+  {
+   "name": "c40-instrument-strings-violin-0",
+   "category": "instrument-strings",
+   "type": "instrument",
+   "relation": "strings",
+   "clue": "instrument made famous by the workshop of Antonio Stradivari and played under the chin",
+   "prompt": "Fact: The number of strings on the instrument made famous by the workshop of Antonio Stradivari and played under the chin is",
+   "intermediate": "violin",
+   "answer_forms": [
+    "four",
+    "4"
+   ],
+   "swap_to": "guitar",
+   "swap_answer_forms": [
+    "six",
+    "6"
+   ],
+   "one_hop_source": "Fact: The number of strings on a violin is",
+   "one_hop_target": "Fact: The number of strings on a guitar is",
+   "answer": "four",
+   "swap_answer": "six"
+  },
+  {
+   "name": "c40-month-next-July-0",
+   "category": "month-next",
+   "type": "month",
+   "relation": "next",
+   "clue": "month named after Julius Caesar",
+   "prompt": "Fact: The month that comes right after the month named after Julius Caesar is",
+   "intermediate": "July",
+   "answer_forms": [
+    "August"
+   ],
+   "swap_to": "May",
+   "swap_answer_forms": [
+    "June"
+   ],
+   "one_hop_source": "Fact: The month that comes right after July is",
+   "one_hop_target": "Fact: The month that comes right after May is",
+   "answer": "August",
+   "swap_answer": "June"
+  },
+  {
+   "name": "c40-month-next-July-1",
+   "category": "month-next",
+   "type": "month",
+   "relation": "next",
+   "clue": "month in which the United States celebrates Independence Day",
+   "prompt": "Fact: The month that comes right after the month in which the United States celebrates Independence Day is",
+   "intermediate": "July",
+   "answer_forms": [
+    "August"
+   ],
+   "swap_to": "May",
+   "swap_answer_forms": [
+    "June"
+   ],
+   "one_hop_source": "Fact: The month that comes right after July is",
+   "one_hop_target": "Fact: The month that comes right after May is",
+   "answer": "August",
+   "swap_answer": "June"
+  },
+  {
+   "name": "c40-month-next-May-0",
+   "category": "month-next",
+   "type": "month",
+   "relation": "next",
+   "clue": "month in which the United States observes Memorial Day",
+   "prompt": "Fact: The month that comes right after the month in which the United States observes Memorial Day is",
+   "intermediate": "May",
+   "answer_forms": [
+    "June"
+   ],
+   "swap_to": "July",
+   "swap_answer_forms": [
+    "August"
+   ],
+   "one_hop_source": "Fact: The month that comes right after May is",
+   "one_hop_target": "Fact: The month that comes right after July is",
+   "answer": "June",
+   "swap_answer": "August"
+  },
+  {
+   "name": "c40-month-next-May-1",
+   "category": "month-next",
+   "type": "month",
+   "relation": "next",
+   "clue": "month named after the Greek goddess Maia",
+   "prompt": "Fact: The month that comes right after the month named after the Greek goddess Maia is",
+   "intermediate": "May",
+   "answer_forms": [
+    "June"
+   ],
+   "swap_to": "July",
+   "swap_answer_forms": [
+    "August"
+   ],
+   "one_hop_source": "Fact: The month that comes right after May is",
+   "one_hop_target": "Fact: The month that comes right after July is",
+   "answer": "June",
+   "swap_answer": "August"
+  },
+  {
+   "name": "c40-month-season-July-0",
+   "category": "month-season",
+   "type": "month",
+   "relation": "season",
+   "clue": "month named after Julius Caesar",
+   "prompt": "Fact: In the Northern Hemisphere, the month named after Julius Caesar falls in the season of",
+   "intermediate": "July",
+   "answer_forms": [
+    "summer"
+   ],
+   "swap_to": "May",
+   "swap_answer_forms": [
+    "spring"
+   ],
+   "one_hop_source": "Fact: In the Northern Hemisphere, July falls in the season of",
+   "one_hop_target": "Fact: In the Northern Hemisphere, May falls in the season of",
+   "answer": "summer",
+   "swap_answer": "spring"
+  },
+  {
+   "name": "c40-month-season-July-1",
+   "category": "month-season",
+   "type": "month",
+   "relation": "season",
+   "clue": "month in which the United States celebrates Independence Day",
+   "prompt": "Fact: In the Northern Hemisphere, the month in which the United States celebrates Independence Day falls in the season of",
+   "intermediate": "July",
+   "answer_forms": [
+    "summer"
+   ],
+   "swap_to": "May",
+   "swap_answer_forms": [
+    "spring"
+   ],
+   "one_hop_source": "Fact: In the Northern Hemisphere, July falls in the season of",
+   "one_hop_target": "Fact: In the Northern Hemisphere, May falls in the season of",
+   "answer": "summer",
+   "swap_answer": "spring"
+  },
+  {
+   "name": "c40-month-season-May-0",
+   "category": "month-season",
+   "type": "month",
+   "relation": "season",
+   "clue": "month in which the United States observes Memorial Day",
+   "prompt": "Fact: In the Northern Hemisphere, the month in which the United States observes Memorial Day falls in the season of",
+   "intermediate": "May",
+   "answer_forms": [
+    "spring"
+   ],
+   "swap_to": "July",
+   "swap_answer_forms": [
+    "summer"
+   ],
+   "one_hop_source": "Fact: In the Northern Hemisphere, May falls in the season of",
+   "one_hop_target": "Fact: In the Northern Hemisphere, July falls in the season of",
+   "answer": "spring",
+   "swap_answer": "summer"
+  },
+  {
+   "name": "c40-month-season-May-1",
+   "category": "month-season",
+   "type": "month",
+   "relation": "season",
+   "clue": "month named after the Greek goddess Maia",
+   "prompt": "Fact: In the Northern Hemisphere, the month named after the Greek goddess Maia falls in the season of",
+   "intermediate": "May",
+   "answer_forms": [
+    "spring"
+   ],
+   "swap_to": "July",
+   "swap_answer_forms": [
+    "summer"
+   ],
+   "one_hop_source": "Fact: In the Northern Hemisphere, May falls in the season of",
+   "one_hop_target": "Fact: In the Northern Hemisphere, July falls in the season of",
+   "answer": "spring",
+   "swap_answer": "summer"
+  },
+  {
+   "name": "c40-organ-location-brain-0",
+   "category": "organ-location",
+   "type": "organ",
+   "relation": "location",
+   "clue": "organ made of two hemispheres joined by the corpus callosum",
+   "prompt": "Fact: The part of the body that contains the organ made of two hemispheres joined by the corpus callosum is the",
+   "intermediate": "brain",
+   "answer_forms": [
+    "head",
+    "skull",
+    "cranium"
+   ],
+   "swap_to": "heart",
+   "swap_answer_forms": [
+    "chest",
+    "thorax",
+    "thoracic",
+    "ribcage",
+    "rib"
+   ],
+   "one_hop_source": "Fact: The part of the body that contains the brain is the",
+   "one_hop_target": "Fact: The part of the body that contains the heart is the",
+   "answer": "head",
+   "swap_answer": "chest"
+  },
+  {
+   "name": "c40-organ-location-brain-1",
+   "category": "organ-location",
+   "type": "organ",
+   "relation": "location",
+   "clue": "organ where neurons process thought and memory",
+   "prompt": "Fact: The part of the body that contains the organ where neurons process thought and memory is the",
+   "intermediate": "brain",
+   "answer_forms": [
+    "head",
+    "skull",
+    "cranium"
+   ],
+   "swap_to": "lung",
+   "swap_answer_forms": [
+    "chest",
+    "thorax",
+    "thoracic",
+    "ribcage",
+    "rib"
+   ],
+   "one_hop_source": "Fact: The part of the body that contains the brain is the",
+   "one_hop_target": "Fact: The part of the body that contains the lung is the",
+   "answer": "head",
+   "swap_answer": "chest"
+  },
+  {
+   "name": "c40-organ-location-heart-0",
+   "category": "organ-location",
+   "type": "organ",
+   "relation": "location",
+   "clue": "organ whose beat a doctor listens to with a stethoscope",
+   "prompt": "Fact: The part of the body that contains the organ whose beat a doctor listens to with a stethoscope is the",
+   "intermediate": "heart",
+   "answer_forms": [
+    "chest",
+    "thorax",
+    "thoracic",
+    "ribcage",
+    "rib"
+   ],
+   "swap_to": "liver",
+   "swap_answer_forms": [
+    "abdomen",
+    "abdominal",
+    "belly"
+   ],
+   "one_hop_source": "Fact: The part of the body that contains the heart is the",
+   "one_hop_target": "Fact: The part of the body that contains the liver is the",
+   "answer": "chest",
+   "swap_answer": "abdomen"
+  },
+  {
+   "name": "c40-organ-location-heart-1",
+   "category": "organ-location",
+   "type": "organ",
+   "relation": "location",
+   "clue": "four-chambered organ that circulates blood",
+   "prompt": "Fact: The part of the body that contains the four-chambered organ that circulates blood is the",
+   "intermediate": "heart",
+   "answer_forms": [
+    "chest",
+    "thorax",
+    "thoracic",
+    "ribcage",
+    "rib"
+   ],
+   "swap_to": "liver",
+   "swap_answer_forms": [
+    "abdomen",
+    "abdominal",
+    "belly"
+   ],
+   "one_hop_source": "Fact: The part of the body that contains the heart is the",
+   "one_hop_target": "Fact: The part of the body that contains the liver is the",
+   "answer": "chest",
+   "swap_answer": "abdomen"
+  },
+  {
+   "name": "c40-organ-location-liver-0",
+   "category": "organ-location",
+   "type": "organ",
+   "relation": "location",
+   "clue": "organ that produces bile and is damaged by cirrhosis",
+   "prompt": "Fact: The part of the body that contains the organ that produces bile and is damaged by cirrhosis is the",
+   "intermediate": "liver",
+   "answer_forms": [
+    "abdomen",
+    "abdominal",
+    "belly"
+   ],
+   "swap_to": "brain",
+   "swap_answer_forms": [
+    "head",
+    "skull",
+    "cranium"
+   ],
+   "one_hop_source": "Fact: The part of the body that contains the liver is the",
+   "one_hop_target": "Fact: The part of the body that contains the brain is the",
+   "answer": "abdomen",
+   "swap_answer": "head"
+  },
+  {
+   "name": "c40-organ-location-liver-1",
+   "category": "organ-location",
+   "type": "organ",
+   "relation": "location",
+   "clue": "organ that stores glycogen and filters toxins from the blood",
+   "prompt": "Fact: The part of the body that contains the organ that stores glycogen and filters toxins from the blood is the",
+   "intermediate": "liver",
+   "answer_forms": [
+    "abdomen",
+    "abdominal",
+    "belly"
+   ],
+   "swap_to": "lung",
+   "swap_answer_forms": [
+    "chest",
+    "thorax",
+    "thoracic",
+    "ribcage",
+    "rib"
+   ],
+   "one_hop_source": "Fact: The part of the body that contains the liver is the",
+   "one_hop_target": "Fact: The part of the body that contains the lung is the",
+   "answer": "abdomen",
+   "swap_answer": "chest"
+  },
+  {
+   "name": "c40-organ-location-lung-0",
+   "category": "organ-location",
+   "type": "organ",
+   "relation": "location",
+   "clue": "organ filled with air sacs called alveoli",
+   "prompt": "Fact: The part of the body that contains the organ filled with air sacs called alveoli is the",
+   "intermediate": "lung",
+   "answer_forms": [
+    "chest",
+    "thorax",
+    "thoracic",
+    "ribcage",
+    "rib"
+   ],
+   "swap_to": "liver",
+   "swap_answer_forms": [
+    "abdomen",
+    "abdominal",
+    "belly"
+   ],
+   "one_hop_source": "Fact: The part of the body that contains the lung is the",
+   "one_hop_target": "Fact: The part of the body that contains the liver is the",
+   "answer": "chest",
+   "swap_answer": "abdomen"
+  },
+  {
+   "name": "c40-organ-location-lung-1",
+   "category": "organ-location",
+   "type": "organ",
+   "relation": "location",
+   "clue": "spongy organ that exchanges oxygen and carbon dioxide",
+   "prompt": "Fact: The part of the body that contains the spongy organ that exchanges oxygen and carbon dioxide is the",
+   "intermediate": "lung",
+   "answer_forms": [
+    "chest",
+    "thorax",
+    "thoracic",
+    "ribcage",
+    "rib"
+   ],
+   "swap_to": "liver",
+   "swap_answer_forms": [
+    "abdomen",
+    "abdominal",
+    "belly"
+   ],
+   "one_hop_source": "Fact: The part of the body that contains the lung is the",
+   "one_hop_target": "Fact: The part of the body that contains the liver is the",
+   "answer": "chest",
+   "swap_answer": "abdomen"
+  },
+  {
+   "name": "c40-person-birthcountry-Darwin-0",
+   "category": "person-birthcountry",
+   "type": "person",
+   "relation": "birthcountry",
+   "clue": "naturalist who wrote On the Origin of Species",
+   "prompt": "Fact: The country where the naturalist who wrote On the Origin of Species was born is",
+   "intermediate": "Darwin",
+   "answer_forms": [
+    "England",
+    "the United Kingdom",
+    "United Kingdom",
+    "Britain",
+    "Great Britain"
+   ],
+   "swap_to": "Lincoln",
+   "swap_answer_forms": [
+    "the United States",
+    "United States",
+    "America",
+    "the USA",
+    "USA",
+    "the US"
+   ],
+   "one_hop_source": "Fact: The country where Darwin was born is",
+   "one_hop_target": "Fact: The country where Lincoln was born is",
+   "answer": "England",
+   "swap_answer": "the United States"
+  },
+  {
+   "name": "c40-person-birthcountry-Darwin-1",
+   "category": "person-birthcountry",
+   "type": "person",
+   "relation": "birthcountry",
+   "clue": "naturalist who studied the finches of the Galapagos Islands",
+   "prompt": "Fact: The country where the naturalist who studied the finches of the Galapagos Islands was born is",
+   "intermediate": "Darwin",
+   "answer_forms": [
+    "England",
+    "the United Kingdom",
+    "United Kingdom",
+    "Britain",
+    "Great Britain"
+   ],
+   "swap_to": "Einstein",
+   "swap_answer_forms": [
+    "Germany"
+   ],
+   "one_hop_source": "Fact: The country where Darwin was born is",
+   "one_hop_target": "Fact: The country where Einstein was born is",
+   "answer": "England",
+   "swap_answer": "Germany"
+  },
+  {
+   "name": "c40-person-birthcountry-Einstein-0",
+   "category": "person-birthcountry",
+   "type": "person",
+   "relation": "birthcountry",
+   "clue": "physicist who won the 1921 Nobel Prize for explaining the photoelectric effect",
+   "prompt": "Fact: The country where the physicist who won the 1921 Nobel Prize for explaining the photoelectric effect was born is",
+   "intermediate": "Einstein",
+   "answer_forms": [
+    "Germany"
+   ],
+   "swap_to": "Lincoln",
+   "swap_answer_forms": [
+    "the United States",
+    "United States",
+    "America",
+    "the USA",
+    "USA",
+    "the US"
+   ],
+   "one_hop_source": "Fact: The country where Einstein was born is",
+   "one_hop_target": "Fact: The country where Lincoln was born is",
+   "answer": "Germany",
+   "swap_answer": "the United States"
+  },
+  {
+   "name": "c40-person-birthcountry-Einstein-1",
+   "category": "person-birthcountry",
+   "type": "person",
+   "relation": "birthcountry",
+   "clue": "scientist who worked as a patent clerk in Bern before publishing special relativity",
+   "prompt": "Fact: The country where the scientist who worked as a patent clerk in Bern before publishing special relativity was born is",
+   "intermediate": "Einstein",
+   "answer_forms": [
+    "Germany"
+   ],
+   "swap_to": "Mozart",
+   "swap_answer_forms": [
+    "Austria"
+   ],
+   "one_hop_source": "Fact: The country where Einstein was born is",
+   "one_hop_target": "Fact: The country where Mozart was born is",
+   "answer": "Germany",
+   "swap_answer": "Austria"
+  },
+  {
+   "name": "c40-person-birthcountry-Mozart-0",
+   "category": "person-birthcountry",
+   "type": "person",
+   "relation": "birthcountry",
+   "clue": "composer who wrote the opera Don Giovanni",
+   "prompt": "Fact: The country where the composer who wrote the opera Don Giovanni was born is",
+   "intermediate": "Mozart",
+   "answer_forms": [
+    "Austria"
+   ],
+   "swap_to": "Newton",
+   "swap_answer_forms": [
+    "England",
+    "the United Kingdom",
+    "United Kingdom",
+    "Britain",
+    "Great Britain"
+   ],
+   "one_hop_source": "Fact: The country where Mozart was born is",
+   "one_hop_target": "Fact: The country where Newton was born is",
+   "answer": "Austria",
+   "swap_answer": "England"
+  },
+  {
+   "name": "c40-person-birthcountry-Mozart-1",
+   "category": "person-birthcountry",
+   "type": "person",
+   "relation": "birthcountry",
+   "clue": "composer who wrote Eine kleine Nachtmusik",
+   "prompt": "Fact: The country where the composer who wrote Eine kleine Nachtmusik was born is",
+   "intermediate": "Mozart",
+   "answer_forms": [
+    "Austria"
+   ],
+   "swap_to": "Einstein",
+   "swap_answer_forms": [
+    "Germany"
+   ],
+   "one_hop_source": "Fact: The country where Mozart was born is",
+   "one_hop_target": "Fact: The country where Einstein was born is",
+   "answer": "Austria",
+   "swap_answer": "Germany"
+  },
+  {
+   "name": "c40-person-birthcountry-Newton-0",
+   "category": "person-birthcountry",
+   "type": "person",
+   "relation": "birthcountry",
+   "clue": "scientist who wrote the Principia Mathematica",
+   "prompt": "Fact: The country where the scientist who wrote the Principia Mathematica was born is",
+   "intermediate": "Newton",
+   "answer_forms": [
+    "England",
+    "the United Kingdom",
+    "United Kingdom",
+    "Britain",
+    "Great Britain"
+   ],
+   "swap_to": "Mozart",
+   "swap_answer_forms": [
+    "Austria"
+   ],
+   "one_hop_source": "Fact: The country where Newton was born is",
+   "one_hop_target": "Fact: The country where Mozart was born is",
+   "answer": "England",
+   "swap_answer": "Austria"
+  },
+  {
+   "name": "c40-person-birthcountry-Newton-1",
+   "category": "person-birthcountry",
+   "type": "person",
+   "relation": "birthcountry",
+   "clue": "physicist who used a prism to split white light into a spectrum",
+   "prompt": "Fact: The country where the physicist who used a prism to split white light into a spectrum was born is",
+   "intermediate": "Newton",
+   "answer_forms": [
+    "England",
+    "the United Kingdom",
+    "United Kingdom",
+    "Britain",
+    "Great Britain"
+   ],
+   "swap_to": "Einstein",
+   "swap_answer_forms": [
+    "Germany"
+   ],
+   "one_hop_source": "Fact: The country where Newton was born is",
+   "one_hop_target": "Fact: The country where Einstein was born is",
+   "answer": "England",
+   "swap_answer": "Germany"
+  },
+  {
+   "name": "c40-person-birthcountry-Shakespeare-0",
+   "category": "person-birthcountry",
+   "type": "person",
+   "relation": "birthcountry",
+   "clue": "playwright who wrote King Lear and Othello",
+   "prompt": "Fact: The country where the playwright who wrote King Lear and Othello was born is",
+   "intermediate": "Shakespeare",
+   "answer_forms": [
+    "England",
+    "the United Kingdom",
+    "United Kingdom",
+    "Britain",
+    "Great Britain"
+   ],
+   "swap_to": "Mozart",
+   "swap_answer_forms": [
+    "Austria"
+   ],
+   "one_hop_source": "Fact: The country where Shakespeare was born is",
+   "one_hop_target": "Fact: The country where Mozart was born is",
+   "answer": "England",
+   "swap_answer": "Austria"
+  },
+  {
+   "name": "c40-person-birthcountry-Shakespeare-1",
+   "category": "person-birthcountry",
+   "type": "person",
+   "relation": "birthcountry",
+   "clue": "poet who wrote the sonnet beginning 'Shall I compare thee to a summer's day'",
+   "prompt": "Fact: The country where the poet who wrote the sonnet beginning 'Shall I compare thee to a summer's day' was born is",
+   "intermediate": "Shakespeare",
+   "answer_forms": [
+    "England",
+    "the United Kingdom",
+    "United Kingdom",
+    "Britain",
+    "Great Britain"
+   ],
+   "swap_to": "Lincoln",
+   "swap_answer_forms": [
+    "the United States",
+    "United States",
+    "America",
+    "the USA",
+    "USA",
+    "the US"
+   ],
+   "one_hop_source": "Fact: The country where Shakespeare was born is",
+   "one_hop_target": "Fact: The country where Lincoln was born is",
+   "answer": "England",
+   "swap_answer": "the United States"
+  },
+  {
+   "name": "c40-person-deathcentury-Darwin-0",
+   "category": "person-deathcentury",
+   "type": "person",
+   "relation": "deathcentury",
+   "clue": "naturalist who wrote On the Origin of Species",
+   "prompt": "Fact: The naturalist who wrote On the Origin of Species died in the",
+   "intermediate": "Darwin",
+   "answer_forms": [
+    "19th",
+    "nineteenth"
+   ],
+   "swap_to": "Einstein",
+   "swap_answer_forms": [
+    "20th",
+    "twentieth"
+   ],
+   "one_hop_source": "Fact: Darwin died in the",
+   "one_hop_target": "Fact: Einstein died in the",
+   "answer": "19th",
+   "swap_answer": "20th"
+  },
+  {
+   "name": "c40-person-deathcentury-Darwin-1",
+   "category": "person-deathcentury",
+   "type": "person",
+   "relation": "deathcentury",
+   "clue": "naturalist who studied the finches of the Galapagos Islands",
+   "prompt": "Fact: The naturalist who studied the finches of the Galapagos Islands died in the",
+   "intermediate": "Darwin",
+   "answer_forms": [
+    "19th",
+    "nineteenth"
+   ],
+   "swap_to": "Einstein",
+   "swap_answer_forms": [
+    "20th",
+    "twentieth"
+   ],
+   "one_hop_source": "Fact: Darwin died in the",
+   "one_hop_target": "Fact: Einstein died in the",
+   "answer": "19th",
+   "swap_answer": "20th"
+  },
+  {
+   "name": "c40-person-deathcentury-Einstein-0",
+   "category": "person-deathcentury",
+   "type": "person",
+   "relation": "deathcentury",
+   "clue": "physicist who won the 1921 Nobel Prize for explaining the photoelectric effect",
+   "prompt": "Fact: The physicist who won the 1921 Nobel Prize for explaining the photoelectric effect died in the",
+   "intermediate": "Einstein",
+   "answer_forms": [
+    "20th",
+    "twentieth"
+   ],
+   "swap_to": "Newton",
+   "swap_answer_forms": [
+    "18th",
+    "eighteenth"
+   ],
+   "one_hop_source": "Fact: Einstein died in the",
+   "one_hop_target": "Fact: Newton died in the",
+   "answer": "20th",
+   "swap_answer": "18th"
+  },
+  {
+   "name": "c40-person-deathcentury-Einstein-1",
+   "category": "person-deathcentury",
+   "type": "person",
+   "relation": "deathcentury",
+   "clue": "scientist who worked as a patent clerk in Bern before publishing special relativity",
+   "prompt": "Fact: The scientist who worked as a patent clerk in Bern before publishing special relativity died in the",
+   "intermediate": "Einstein",
+   "answer_forms": [
+    "20th",
+    "twentieth"
+   ],
+   "swap_to": "Lincoln",
+   "swap_answer_forms": [
+    "19th",
+    "nineteenth"
+   ],
+   "one_hop_source": "Fact: Einstein died in the",
+   "one_hop_target": "Fact: Lincoln died in the",
+   "answer": "20th",
+   "swap_answer": "19th"
+  },
+  {
+   "name": "c40-person-deathcentury-Lincoln-0",
+   "category": "person-deathcentury",
+   "type": "person",
+   "relation": "deathcentury",
+   "clue": "sixteenth president of the United States",
+   "prompt": "Fact: The sixteenth president of the United States died in the",
+   "intermediate": "Lincoln",
+   "answer_forms": [
+    "19th",
+    "nineteenth"
+   ],
+   "swap_to": "Newton",
+   "swap_answer_forms": [
+    "18th",
+    "eighteenth"
+   ],
+   "one_hop_source": "Fact: Lincoln died in the",
+   "one_hop_target": "Fact: Newton died in the",
+   "answer": "19th",
+   "swap_answer": "18th"
+  },
+  {
+   "name": "c40-person-deathcentury-Lincoln-1",
+   "category": "person-deathcentury",
+   "type": "person",
+   "relation": "deathcentury",
+   "clue": "president whose face is on the American penny",
+   "prompt": "Fact: The president whose face is on the American penny died in the",
+   "intermediate": "Lincoln",
+   "answer_forms": [
+    "19th",
+    "nineteenth"
+   ],
+   "swap_to": "Newton",
+   "swap_answer_forms": [
+    "18th",
+    "eighteenth"
+   ],
+   "one_hop_source": "Fact: Lincoln died in the",
+   "one_hop_target": "Fact: Newton died in the",
+   "answer": "19th",
+   "swap_answer": "18th"
+  },
+  {
+   "name": "c40-person-deathcentury-Mozart-0",
+   "category": "person-deathcentury",
+   "type": "person",
+   "relation": "deathcentury",
+   "clue": "composer who wrote the opera Don Giovanni",
+   "prompt": "Fact: The composer who wrote the opera Don Giovanni died in the",
+   "intermediate": "Mozart",
+   "answer_forms": [
+    "18th",
+    "eighteenth"
+   ],
+   "swap_to": "Darwin",
+   "swap_answer_forms": [
+    "19th",
+    "nineteenth"
+   ],
+   "one_hop_source": "Fact: Mozart died in the",
+   "one_hop_target": "Fact: Darwin died in the",
+   "answer": "18th",
+   "swap_answer": "19th"
+  },
+  {
+   "name": "c40-person-deathcentury-Mozart-1",
+   "category": "person-deathcentury",
+   "type": "person",
+   "relation": "deathcentury",
+   "clue": "composer who wrote Eine kleine Nachtmusik",
+   "prompt": "Fact: The composer who wrote Eine kleine Nachtmusik died in the",
+   "intermediate": "Mozart",
+   "answer_forms": [
+    "18th",
+    "eighteenth"
+   ],
+   "swap_to": "Darwin",
+   "swap_answer_forms": [
+    "19th",
+    "nineteenth"
+   ],
+   "one_hop_source": "Fact: Mozart died in the",
+   "one_hop_target": "Fact: Darwin died in the",
+   "answer": "18th",
+   "swap_answer": "19th"
+  },
+  {
+   "name": "c40-person-deathcentury-Napoleon-0",
+   "category": "person-deathcentury",
+   "type": "person",
+   "relation": "deathcentury",
+   "clue": "emperor who crowned himself at Notre-Dame in 1804",
+   "prompt": "Fact: The emperor who crowned himself at Notre-Dame in 1804 died in the",
+   "intermediate": "Napoleon",
+   "answer_forms": [
+    "19th",
+    "nineteenth"
+   ],
+   "swap_to": "Newton",
+   "swap_answer_forms": [
+    "18th",
+    "eighteenth"
+   ],
+   "one_hop_source": "Fact: Napoleon died in the",
+   "one_hop_target": "Fact: Newton died in the",
+   "answer": "19th",
+   "swap_answer": "18th"
+  },
+  {
+   "name": "c40-person-deathcentury-Napoleon-1",
+   "category": "person-deathcentury",
+   "type": "person",
+   "relation": "deathcentury",
+   "clue": "Corsican general who became Emperor of the French",
+   "prompt": "Fact: The Corsican general who became Emperor of the French died in the",
+   "intermediate": "Napoleon",
+   "answer_forms": [
+    "19th",
+    "nineteenth"
+   ],
+   "swap_to": "Einstein",
+   "swap_answer_forms": [
+    "20th",
+    "twentieth"
+   ],
+   "one_hop_source": "Fact: Napoleon died in the",
+   "one_hop_target": "Fact: Einstein died in the",
+   "answer": "19th",
+   "swap_answer": "20th"
+  },
+  {
+   "name": "c40-person-deathcentury-Newton-0",
+   "category": "person-deathcentury",
+   "type": "person",
+   "relation": "deathcentury",
+   "clue": "scientist who wrote the Principia Mathematica",
+   "prompt": "Fact: The scientist who wrote the Principia Mathematica died in the",
+   "intermediate": "Newton",
+   "answer_forms": [
+    "18th",
+    "eighteenth"
+   ],
+   "swap_to": "Einstein",
+   "swap_answer_forms": [
+    "20th",
+    "twentieth"
+   ],
+   "one_hop_source": "Fact: Newton died in the",
+   "one_hop_target": "Fact: Einstein died in the",
+   "answer": "18th",
+   "swap_answer": "20th"
+  },
+  {
+   "name": "c40-person-deathcentury-Newton-1",
+   "category": "person-deathcentury",
+   "type": "person",
+   "relation": "deathcentury",
+   "clue": "physicist who used a prism to split white light into a spectrum",
+   "prompt": "Fact: The physicist who used a prism to split white light into a spectrum died in the",
+   "intermediate": "Newton",
+   "answer_forms": [
+    "18th",
+    "eighteenth"
+   ],
+   "swap_to": "Darwin",
+   "swap_answer_forms": [
+    "19th",
+    "nineteenth"
+   ],
+   "one_hop_source": "Fact: Newton died in the",
+   "one_hop_target": "Fact: Darwin died in the",
+   "answer": "18th",
+   "swap_answer": "19th"
+  },
+  {
+   "name": "c40-person-deathcentury-Shakespeare-0",
+   "category": "person-deathcentury",
+   "type": "person",
+   "relation": "deathcentury",
+   "clue": "playwright who wrote King Lear and Othello",
+   "prompt": "Fact: The playwright who wrote King Lear and Othello died in the",
+   "intermediate": "Shakespeare",
+   "answer_forms": [
+    "17th",
+    "seventeenth"
+   ],
+   "swap_to": "Einstein",
+   "swap_answer_forms": [
+    "20th",
+    "twentieth"
+   ],
+   "one_hop_source": "Fact: Shakespeare died in the",
+   "one_hop_target": "Fact: Einstein died in the",
+   "answer": "17th",
+   "swap_answer": "20th"
+  },
+  {
+   "name": "c40-person-deathcentury-Shakespeare-1",
+   "category": "person-deathcentury",
+   "type": "person",
+   "relation": "deathcentury",
+   "clue": "poet who wrote the sonnet beginning 'Shall I compare thee to a summer's day'",
+   "prompt": "Fact: The poet who wrote the sonnet beginning 'Shall I compare thee to a summer's day' died in the",
+   "intermediate": "Shakespeare",
+   "answer_forms": [
+    "17th",
+    "seventeenth"
+   ],
+   "swap_to": "Newton",
+   "swap_answer_forms": [
+    "18th",
+    "eighteenth"
+   ],
+   "one_hop_source": "Fact: Shakespeare died in the",
+   "one_hop_target": "Fact: Newton died in the",
+   "answer": "17th",
+   "swap_answer": "18th"
+  },
+  {
+   "name": "c40-person-firstname-Darwin-0",
+   "category": "person-firstname",
+   "type": "person",
+   "relation": "firstname",
+   "clue": "naturalist who wrote On the Origin of Species",
+   "prompt": "Fact: The first name of the naturalist who wrote On the Origin of Species was",
+   "intermediate": "Darwin",
+   "answer_forms": [
+    "Charles"
+   ],
+   "swap_to": "Newton",
+   "swap_answer_forms": [
+    "Isaac",
+    "Sir"
+   ],
+   "one_hop_source": "Fact: The first name of the famous Darwin was",
+   "one_hop_target": "Fact: The first name of the famous Newton was",
+   "answer": "Charles",
+   "swap_answer": "Isaac"
+  },
+  {
+   "name": "c40-person-firstname-Darwin-1",
+   "category": "person-firstname",
+   "type": "person",
+   "relation": "firstname",
+   "clue": "naturalist who studied the finches of the Galapagos Islands",
+   "prompt": "Fact: The first name of the naturalist who studied the finches of the Galapagos Islands was",
+   "intermediate": "Darwin",
+   "answer_forms": [
+    "Charles"
+   ],
+   "swap_to": "Shakespeare",
+   "swap_answer_forms": [
+    "William"
+   ],
+   "one_hop_source": "Fact: The first name of the famous Darwin was",
+   "one_hop_target": "Fact: The first name of the famous Shakespeare was",
+   "answer": "Charles",
+   "swap_answer": "William"
+  },
+  {
+   "name": "c40-person-firstname-Einstein-0",
+   "category": "person-firstname",
+   "type": "person",
+   "relation": "firstname",
+   "clue": "physicist who won the 1921 Nobel Prize for explaining the photoelectric effect",
+   "prompt": "Fact: The first name of the physicist who won the 1921 Nobel Prize for explaining the photoelectric effect was",
+   "intermediate": "Einstein",
+   "answer_forms": [
+    "Albert"
+   ],
+   "swap_to": "Darwin",
+   "swap_answer_forms": [
+    "Charles"
+   ],
+   "one_hop_source": "Fact: The first name of the famous Einstein was",
+   "one_hop_target": "Fact: The first name of the famous Darwin was",
+   "answer": "Albert",
+   "swap_answer": "Charles"
+  },
+  {
+   "name": "c40-person-firstname-Einstein-1",
+   "category": "person-firstname",
+   "type": "person",
+   "relation": "firstname",
+   "clue": "scientist who worked as a patent clerk in Bern before publishing special relativity",
+   "prompt": "Fact: The first name of the scientist who worked as a patent clerk in Bern before publishing special relativity was",
+   "intermediate": "Einstein",
+   "answer_forms": [
+    "Albert"
+   ],
+   "swap_to": "Darwin",
+   "swap_answer_forms": [
+    "Charles"
+   ],
+   "one_hop_source": "Fact: The first name of the famous Einstein was",
+   "one_hop_target": "Fact: The first name of the famous Darwin was",
+   "answer": "Albert",
+   "swap_answer": "Charles"
+  },
+  {
+   "name": "c40-person-firstname-Lincoln-0",
+   "category": "person-firstname",
+   "type": "person",
+   "relation": "firstname",
+   "clue": "sixteenth president of the United States",
+   "prompt": "Fact: The first name of the sixteenth president of the United States was",
+   "intermediate": "Lincoln",
+   "answer_forms": [
+    "Abraham"
+   ],
+   "swap_to": "Darwin",
+   "swap_answer_forms": [
+    "Charles"
+   ],
+   "one_hop_source": "Fact: The first name of the famous Lincoln was",
+   "one_hop_target": "Fact: The first name of the famous Darwin was",
+   "answer": "Abraham",
+   "swap_answer": "Charles"
+  },
+  {
+   "name": "c40-person-firstname-Lincoln-1",
+   "category": "person-firstname",
+   "type": "person",
+   "relation": "firstname",
+   "clue": "president whose face is on the American penny",
+   "prompt": "Fact: The first name of the president whose face is on the American penny was",
+   "intermediate": "Lincoln",
+   "answer_forms": [
+    "Abraham"
+   ],
+   "swap_to": "Einstein",
+   "swap_answer_forms": [
+    "Albert"
+   ],
+   "one_hop_source": "Fact: The first name of the famous Lincoln was",
+   "one_hop_target": "Fact: The first name of the famous Einstein was",
+   "answer": "Abraham",
+   "swap_answer": "Albert"
+  },
+  {
+   "name": "c40-person-firstname-Mozart-0",
+   "category": "person-firstname",
+   "type": "person",
+   "relation": "firstname",
+   "clue": "composer who wrote the opera Don Giovanni",
+   "prompt": "Fact: The first name of the composer who wrote the opera Don Giovanni was",
+   "intermediate": "Mozart",
+   "answer_forms": [
+    "Wolfgang"
+   ],
+   "swap_to": "Einstein",
+   "swap_answer_forms": [
+    "Albert"
+   ],
+   "one_hop_source": "Fact: The first name of the famous Mozart was",
+   "one_hop_target": "Fact: The first name of the famous Einstein was",
+   "answer": "Wolfgang",
+   "swap_answer": "Albert"
+  },
+  {
+   "name": "c40-person-firstname-Mozart-1",
+   "category": "person-firstname",
+   "type": "person",
+   "relation": "firstname",
+   "clue": "composer who wrote Eine kleine Nachtmusik",
+   "prompt": "Fact: The first name of the composer who wrote Eine kleine Nachtmusik was",
+   "intermediate": "Mozart",
+   "answer_forms": [
+    "Wolfgang"
+   ],
+   "swap_to": "Darwin",
+   "swap_answer_forms": [
+    "Charles"
+   ],
+   "one_hop_source": "Fact: The first name of the famous Mozart was",
+   "one_hop_target": "Fact: The first name of the famous Darwin was",
+   "answer": "Wolfgang",
+   "swap_answer": "Charles"
+  },
+  {
+   "name": "c40-person-firstname-Newton-0",
+   "category": "person-firstname",
+   "type": "person",
+   "relation": "firstname",
+   "clue": "scientist who wrote the Principia Mathematica",
+   "prompt": "Fact: The first name of the scientist who wrote the Principia Mathematica was",
+   "intermediate": "Newton",
+   "answer_forms": [
+    "Isaac",
+    "Sir"
+   ],
+   "swap_to": "Darwin",
+   "swap_answer_forms": [
+    "Charles"
+   ],
+   "one_hop_source": "Fact: The first name of the famous Newton was",
+   "one_hop_target": "Fact: The first name of the famous Darwin was",
+   "answer": "Isaac",
+   "swap_answer": "Charles"
+  },
+  {
+   "name": "c40-person-firstname-Newton-1",
+   "category": "person-firstname",
+   "type": "person",
+   "relation": "firstname",
+   "clue": "physicist who used a prism to split white light into a spectrum",
+   "prompt": "Fact: The first name of the physicist who used a prism to split white light into a spectrum was",
+   "intermediate": "Newton",
+   "answer_forms": [
+    "Isaac",
+    "Sir"
+   ],
+   "swap_to": "Lincoln",
+   "swap_answer_forms": [
+    "Abraham"
+   ],
+   "one_hop_source": "Fact: The first name of the famous Newton was",
+   "one_hop_target": "Fact: The first name of the famous Lincoln was",
+   "answer": "Isaac",
+   "swap_answer": "Abraham"
+  },
+  {
+   "name": "c40-person-firstname-Shakespeare-0",
+   "category": "person-firstname",
+   "type": "person",
+   "relation": "firstname",
+   "clue": "playwright who wrote King Lear and Othello",
+   "prompt": "Fact: The first name of the playwright who wrote King Lear and Othello was",
+   "intermediate": "Shakespeare",
+   "answer_forms": [
+    "William"
+   ],
+   "swap_to": "Darwin",
+   "swap_answer_forms": [
+    "Charles"
+   ],
+   "one_hop_source": "Fact: The first name of the famous Shakespeare was",
+   "one_hop_target": "Fact: The first name of the famous Darwin was",
+   "answer": "William",
+   "swap_answer": "Charles"
+  },
+  {
+   "name": "c40-person-firstname-Shakespeare-1",
+   "category": "person-firstname",
+   "type": "person",
+   "relation": "firstname",
+   "clue": "poet who wrote the sonnet beginning 'Shall I compare thee to a summer's day'",
+   "prompt": "Fact: The first name of the poet who wrote the sonnet beginning 'Shall I compare thee to a summer's day' was",
+   "intermediate": "Shakespeare",
+   "answer_forms": [
+    "William"
+   ],
+   "swap_to": "Einstein",
+   "swap_answer_forms": [
+    "Albert"
+   ],
+   "one_hop_source": "Fact: The first name of the famous Shakespeare was",
+   "one_hop_target": "Fact: The first name of the famous Einstein was",
+   "answer": "William",
+   "swap_answer": "Albert"
+  },
+  {
+   "name": "c40-satellite-host-Europa-0",
+   "category": "satellite-host",
+   "type": "satellite",
+   "relation": "host",
+   "clue": "icy satellite that NASA's Clipper mission was launched to study",
+   "prompt": "Fact: The planet orbited by the icy satellite that NASA's Clipper mission was launched to study is",
+   "intermediate": "Europa",
+   "answer_forms": [
+    "Jupiter"
+   ],
+   "swap_to": "moon",
+   "swap_answer_forms": [
+    "Earth"
+   ],
+   "one_hop_source": "Fact: The planet orbited by Europa is",
+   "one_hop_target": "Fact: The planet orbited by moon is",
+   "answer": "Jupiter",
+   "swap_answer": "Earth"
+  },
+  {
+   "name": "c40-satellite-host-Europa-1",
+   "category": "satellite-host",
+   "type": "satellite",
+   "relation": "host",
+   "clue": "ice-covered satellite thought to hide a salty ocean beneath its crust, discovered by Galileo",
+   "prompt": "Fact: The planet orbited by the ice-covered satellite thought to hide a salty ocean beneath its crust, discovered by Galileo is",
+   "intermediate": "Europa",
+   "answer_forms": [
+    "Jupiter"
+   ],
+   "swap_to": "moon",
+   "swap_answer_forms": [
+    "Earth"
+   ],
+   "one_hop_source": "Fact: The planet orbited by Europa is",
+   "one_hop_target": "Fact: The planet orbited by moon is",
+   "answer": "Jupiter",
+   "swap_answer": "Earth"
+  },
+  {
+   "name": "c40-satellite-host-moon-0",
+   "category": "satellite-host",
+   "type": "satellite",
+   "relation": "host",
+   "clue": "natural satellite that Neil Armstrong walked on in 1969",
+   "prompt": "Fact: The planet orbited by the natural satellite that Neil Armstrong walked on in 1969 is",
+   "intermediate": "moon",
+   "answer_forms": [
+    "Earth"
+   ],
+   "swap_to": "Europa",
+   "swap_answer_forms": [
+    "Jupiter"
+   ],
+   "one_hop_source": "Fact: The planet orbited by moon is",
+   "one_hop_target": "Fact: The planet orbited by Europa is",
+   "answer": "Earth",
+   "swap_answer": "Jupiter"
+  },
+  {
+   "name": "c40-satellite-host-moon-1",
+   "category": "satellite-host",
+   "type": "satellite",
+   "relation": "host",
+   "clue": "satellite whose phases include new, crescent and full",
+   "prompt": "Fact: The planet orbited by the satellite whose phases include new, crescent and full is",
+   "intermediate": "moon",
+   "answer_forms": [
+    "Earth"
+   ],
+   "swap_to": "Europa",
+   "swap_answer_forms": [
+    "Jupiter"
+   ],
+   "one_hop_source": "Fact: The planet orbited by moon is",
+   "one_hop_target": "Fact: The planet orbited by Europa is",
+   "answer": "Earth",
+   "swap_answer": "Jupiter"
+  },
+  {
+   "name": "c40-tree-seed-oak-0",
+   "category": "tree-seed",
+   "type": "tree",
+   "relation": "seed",
+   "clue": "hardwood tree whose barrels are used to age wine",
+   "prompt": "Fact: The seed-bearing structure produced by the hardwood tree whose barrels are used to age wine is called the",
+   "intermediate": "oak",
+   "answer_forms": [
+    "acorn",
+    "acorns"
+   ],
+   "swap_to": "pine",
+   "swap_answer_forms": [
+    "cone",
+    "cones"
+   ],
+   "one_hop_source": "Fact: The seed-bearing structure produced by the oak tree is called the",
+   "one_hop_target": "Fact: The seed-bearing structure produced by the pine tree is called the",
+   "answer": "acorn",
+   "swap_answer": "cone"
+  },
+  {
+   "name": "c40-tree-seed-pine-0",
+   "category": "tree-seed",
+   "type": "tree",
+   "relation": "seed",
+   "clue": "evergreen tree whose sap is distilled into turpentine",
+   "prompt": "Fact: The seed-bearing structure produced by the evergreen tree whose sap is distilled into turpentine is called the",
+   "intermediate": "pine",
+   "answer_forms": [
+    "cone",
+    "cones"
+   ],
+   "swap_to": "oak",
+   "swap_answer_forms": [
+    "acorn",
+    "acorns"
+   ],
+   "one_hop_source": "Fact: The seed-bearing structure produced by the pine tree is called the",
+   "one_hop_target": "Fact: The seed-bearing structure produced by the oak tree is called the",
+   "answer": "cone",
+   "swap_answer": "acorn"
+  }
+ ],
+ "sha256": "5fd84ac5070f05feb62cfa3e0132ed6feed04d1878ac068da81c7242c48c85bc"
+}

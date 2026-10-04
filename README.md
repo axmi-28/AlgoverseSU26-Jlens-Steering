@@ -4,6 +4,11 @@ This repo hosts the research code for the paper Investigating J-Lens Steering wi
 causal effects of writing its directions into a language model. The principal
 experiments are on Qwen3-8B.
 
+Subsequent work adds an expanded latent panel, loading/position analyses,
+Gemma and Llama replications, and a Gemma pressure test. See the
+[updated experiment map](docs/EXPERIMENTS.md#subsequent-experimental-work)
+for their code, frozen protocols and data availability.
+
 ## Start here
 
 - [Reproduce the results](docs/REPRODUCING.md): offline verification, reports,

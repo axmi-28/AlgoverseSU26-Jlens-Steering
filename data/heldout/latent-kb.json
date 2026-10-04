@@ -1,0 +1,1634 @@
+{
+ "description": "Fact table for the expanded latent-intermediate panel (C40). Every entity is one of the 70 target words the component lens artifact covers. A clue identifies its entity without naming it. Answers list accepted continuation forms; an item is correct if the greedy continuation begins with any form. A clue's 'skip' lists relations it must not be used with (e.g. a landmark inside the capital city). 'forbid' lists words that must not appear in a prompt using that entity (names, demonyms, language adjectives). Clues are new: none is copied from the upstream probe-swap set or from data/heldout/concept-use.json. Authored 2026-09-30, before any model call on these prompts.",
+ "types": {
+  "country": {
+   "relations": {
+    "capital": {
+     "template": "Fact: The capital of the country {clue} is",
+     "one_hop": "Fact: The capital of {name} is"
+    },
+    "language": {
+     "template": "Fact: The official language of the country {clue} is",
+     "one_hop": "Fact: The official language of {name} is"
+    },
+    "currency": {
+     "template": "Fact: The currency used in the country {clue} is the",
+     "one_hop": "Fact: The currency used in {name} is the"
+    },
+    "continent": {
+     "template": "Fact: The continent that contains the country {clue} is",
+     "one_hop": "Fact: The continent that contains {name} is"
+    }
+   },
+   "entities": {
+    "Australia": {
+     "forbid": [
+      "Australia",
+      "Australian",
+      "Aussie"
+     ],
+     "clues": [
+      {
+       "text": "whose largest city is Sydney"
+      },
+      {
+       "text": "where the red sandstone monolith Uluru stands"
+      },
+      {
+       "text": "where the Sydney Opera House stands"
+      }
+     ],
+     "capital": [
+      "Canberra"
+     ],
+     "language": [
+      "English"
+     ],
+     "currency": [
+      "Australian",
+      "dollar"
+     ],
+     "continent": [
+      "Oceania",
+      "Australia"
+     ]
+    },
+    "Brazil": {
+     "forbid": [
+      "Brazil",
+      "Brazilian"
+     ],
+     "clues": [
+      {
+       "text": "where the Christ the Redeemer statue overlooks Rio de Janeiro"
+      },
+      {
+       "text": "where the city of Sao Paulo is located"
+      },
+      {
+       "text": "where the footballer Pele was born"
+      }
+     ],
+     "capital": [
+      "Brasilia",
+      "Brasília"
+     ],
+     "language": [
+      "Portuguese"
+     ],
+     "currency": [
+      "real",
+      "Brazilian"
+     ],
+     "continent": [
+      "South"
+     ]
+    },
+    "Canada": {
+     "forbid": [
+      "Canada",
+      "Canadian"
+     ],
+     "clues": [
+      {
+       "text": "where the city of Vancouver is located"
+      },
+      {
+       "text": "where the CN Tower stands"
+      },
+      {
+       "text": "where the city of Montreal is located"
+      }
+     ],
+     "capital": [
+      "Ottawa"
+     ],
+     "language": [
+      "English",
+      "French"
+     ],
+     "currency": [
+      "Canadian",
+      "dollar"
+     ],
+     "continent": [
+      "North"
+     ]
+    },
+    "China": {
+     "forbid": [
+      "China",
+      "Chinese",
+      "Mandarin"
+     ],
+     "clues": [
+      {
+       "text": "where the Forbidden City was built",
+       "skip": [
+        "capital"
+       ]
+      },
+      {
+       "text": "where the city of Shanghai is located"
+      },
+      {
+       "text": "where the Terracotta Army was found"
+      }
+     ],
+     "capital": [
+      "Beijing",
+      "Peking"
+     ],
+     "language": [
+      "Mandarin",
+      "Chinese"
+     ],
+     "currency": [
+      "yuan",
+      "renminbi",
+      "Chinese",
+      "RMB"
+     ],
+     "continent": [
+      "Asia"
+     ]
+    },
+    "Egypt": {
+     "forbid": [
+      "Egypt",
+      "Egyptian"
+     ],
+     "clues": [
+      {
+       "text": "where the Great Pyramid of Giza stands",
+       "skip": [
+        "capital"
+       ]
+      },
+      {
+       "text": "where the city of Alexandria is located"
+      },
+      {
+       "text": "where the temples of Luxor and Karnak stand"
+      }
+     ],
+     "capital": [
+      "Cairo"
+     ],
+     "language": [
+      "Arabic"
+     ],
+     "currency": [
+      "Egyptian",
+      "pound"
+     ],
+     "continent": [
+      "Africa"
+     ]
+    },
+    "England": {
+     "forbid": [
+      "England",
+      "English",
+      "British",
+      "Britain",
+      "UK"
+     ],
+     "clues": [
+      {
+       "text": "where the prehistoric monument Stonehenge stands"
+      },
+      {
+       "text": "where the city of Manchester is located"
+      },
+      {
+       "text": "where the universities of Oxford and Cambridge are located"
+      }
+     ],
+     "capital": [
+      "London"
+     ],
+     "language": [
+      "English"
+     ],
+     "currency": [
+      "pound",
+      "British",
+      "sterling",
+      "Pound"
+     ],
+     "continent": [
+      "Europe"
+     ]
+    },
+    "France": {
+     "forbid": [
+      "France",
+      "French"
+     ],
+     "clues": [
+      {
+       "text": "where the city of Marseille is located"
+      },
+      {
+       "text": "where the abbey of Mont Saint-Michel stands"
+      },
+      {
+       "text": "where the city of Nice is located"
+      }
+     ],
+     "capital": [
+      "Paris"
+     ],
+     "language": [
+      "French"
+     ],
+     "currency": [
+      "euro",
+      "Euro"
+     ],
+     "continent": [
+      "Europe"
+     ]
+    },
+    "Germany": {
+     "forbid": [
+      "Germany",
+      "German"
+     ],
+     "clues": [
+      {
+       "text": "where the city of Hamburg is located"
+      },
+      {
+       "text": "where Neuschwanstein Castle stands"
+      },
+      {
+       "text": "where the composer Beethoven was born"
+      }
+     ],
+     "capital": [
+      "Berlin"
+     ],
+     "language": [
+      "German"
+     ],
+     "currency": [
+      "euro",
+      "Euro"
+     ],
+     "continent": [
+      "Europe"
+     ]
+    },
+    "Greece": {
+     "forbid": [
+      "Greece",
+      "Greek",
+      "Hellenic"
+     ],
+     "clues": [
+      {
+       "text": "where the city of Thessaloniki is located"
+      },
+      {
+       "text": "where the island of Santorini lies"
+      },
+      {
+       "text": "where Mount Olympus stands"
+      }
+     ],
+     "capital": [
+      "Athens"
+     ],
+     "language": [
+      "Greek"
+     ],
+     "currency": [
+      "euro",
+      "Euro"
+     ],
+     "continent": [
+      "Europe"
+     ]
+    },
+    "Hungary": {
+     "forbid": [
+      "Hungary",
+      "Hungarian",
+      "Magyar"
+     ],
+     "clues": [
+      {
+       "text": "where Lake Balaton lies"
+      },
+      {
+       "text": "where the city of Debrecen is located"
+      },
+      {
+       "text": "where the dish goulash originated"
+      }
+     ],
+     "capital": [
+      "Budapest"
+     ],
+     "language": [
+      "Hungarian",
+      "Magyar"
+     ],
+     "currency": [
+      "forint",
+      "Hungarian"
+     ],
+     "continent": [
+      "Europe"
+     ]
+    },
+    "India": {
+     "forbid": [
+      "India",
+      "Indian",
+      "Hindi"
+     ],
+     "clues": [
+      {
+       "text": "where the city of Mumbai is located"
+      },
+      {
+       "text": "where Mahatma Gandhi led the independence movement"
+      },
+      {
+       "text": "where the city of Bangalore is located"
+      }
+     ],
+     "capital": [
+      "New Delhi",
+      "Delhi"
+     ],
+     "language": [
+      "Hindi",
+      "English"
+     ],
+     "currency": [
+      "rupee",
+      "Indian"
+     ],
+     "continent": [
+      "Asia"
+     ]
+    },
+    "Italy": {
+     "forbid": [
+      "Italy",
+      "Italian"
+     ],
+     "clues": [
+      {
+       "text": "where the Leaning Tower of Pisa stands"
+      },
+      {
+       "text": "where the city of Milan is located"
+      },
+      {
+       "text": "where the canals of Venice are located"
+      }
+     ],
+     "capital": [
+      "Rome"
+     ],
+     "language": [
+      "Italian"
+     ],
+     "currency": [
+      "euro",
+      "Euro"
+     ],
+     "continent": [
+      "Europe"
+     ]
+    },
+    "Japan": {
+     "forbid": [
+      "Japan",
+      "Japanese",
+      "Nippon"
+     ],
+     "clues": [
+      {
+       "text": "where the city of Osaka is located"
+      },
+      {
+       "text": "where the ancient temples of Kyoto stand"
+      },
+      {
+       "text": "where the city of Hiroshima is located"
+      }
+     ],
+     "capital": [
+      "Tokyo"
+     ],
+     "language": [
+      "Japanese"
+     ],
+     "currency": [
+      "yen",
+      "Japanese"
+     ],
+     "continent": [
+      "Asia"
+     ]
+    },
+    "Mexico": {
+     "forbid": [
+      "Mexico",
+      "Mexican"
+     ],
+     "clues": [
+      {
+       "text": "where the Mayan pyramid of Chichen Itza stands"
+      },
+      {
+       "text": "where the city of Guadalajara is located"
+      },
+      {
+       "text": "where the beach resort of Cancun is located"
+      }
+     ],
+     "language": [
+      "Spanish"
+     ],
+     "currency": [
+      "peso",
+      "Mexican"
+     ],
+     "continent": [
+      "North"
+     ]
+    },
+    "Peru": {
+     "forbid": [
+      "Peru",
+      "Peruvian"
+     ],
+     "clues": [
+      {
+       "text": "where the ancient Inca city of Cusco is located"
+      },
+      {
+       "text": "where the Nazca Lines were drawn"
+      },
+      {
+       "text": "where the dish ceviche originated"
+      }
+     ],
+     "capital": [
+      "Lima"
+     ],
+     "language": [
+      "Spanish",
+      "Quechua"
+     ],
+     "currency": [
+      "sol",
+      "Peruvian",
+      "nuevo"
+     ],
+     "continent": [
+      "South"
+     ]
+    },
+    "Poland": {
+     "forbid": [
+      "Poland",
+      "Polish"
+     ],
+     "clues": [
+      {
+       "text": "where the city of Krakow is located"
+      },
+      {
+       "text": "where the Wieliczka Salt Mine is located"
+      },
+      {
+       "text": "where the city of Gdansk is located"
+      }
+     ],
+     "capital": [
+      "Warsaw"
+     ],
+     "language": [
+      "Polish"
+     ],
+     "currency": [
+      "zloty",
+      "złoty",
+      "Polish"
+     ],
+     "continent": [
+      "Europe"
+     ]
+    },
+    "Russia": {
+     "forbid": [
+      "Russia",
+      "Russian",
+      "Soviet"
+     ],
+     "clues": [
+      {
+       "text": "where the city of Saint Petersburg is located"
+      },
+      {
+       "text": "where Lake Baikal lies"
+      },
+      {
+       "text": "where the writer Leo Tolstoy was born"
+      }
+     ],
+     "capital": [
+      "Moscow"
+     ],
+     "language": [
+      "Russian"
+     ],
+     "currency": [
+      "ruble",
+      "rouble",
+      "Russian"
+     ]
+    },
+    "Spain": {
+     "forbid": [
+      "Spain",
+      "Spanish",
+      "Castilian"
+     ],
+     "clues": [
+      {
+       "text": "where the city of Barcelona is located"
+      },
+      {
+       "text": "where the Alhambra palace stands"
+      },
+      {
+       "text": "where the city of Seville is located"
+      }
+     ],
+     "capital": [
+      "Madrid"
+     ],
+     "language": [
+      "Spanish",
+      "Castilian"
+     ],
+     "currency": [
+      "euro",
+      "Euro"
+     ],
+     "continent": [
+      "Europe"
+     ]
+    },
+    "Sweden": {
+     "forbid": [
+      "Sweden",
+      "Swedish",
+      "Swede"
+     ],
+     "clues": [
+      {
+       "text": "where the city of Gothenburg is located"
+      },
+      {
+       "text": "that the pop group ABBA came from"
+      },
+      {
+       "text": "where the car maker Volvo was founded"
+      }
+     ],
+     "capital": [
+      "Stockholm"
+     ],
+     "language": [
+      "Swedish"
+     ],
+     "currency": [
+      "krona",
+      "Swedish",
+      "kronor"
+     ],
+     "continent": [
+      "Europe"
+     ]
+    }
+   }
+  },
+  "person": {
+   "relations": {
+    "firstname": {
+     "template": "Fact: The first name of the {clue} was",
+     "one_hop": "Fact: The first name of the famous {name} was"
+    },
+    "birthcountry": {
+     "template": "Fact: The country where the {clue} was born is",
+     "one_hop": "Fact: The country where {name} was born is"
+    },
+    "deathcentury": {
+     "template": "Fact: The {clue} died in the",
+     "one_hop": "Fact: {name} died in the"
+    }
+   },
+   "entities": {
+    "Darwin": {
+     "forbid": [
+      "Darwin",
+      "Charles"
+     ],
+     "clues": [
+      {
+       "text": "naturalist who wrote On the Origin of Species"
+      },
+      {
+       "text": "naturalist who studied the finches of the Galapagos Islands"
+      }
+     ],
+     "firstname": [
+      "Charles"
+     ],
+     "birthcountry": [
+      "England",
+      "the United Kingdom",
+      "United Kingdom",
+      "Britain",
+      "Great Britain"
+     ],
+     "deathcentury": [
+      "19th",
+      "nineteenth"
+     ]
+    },
+    "Einstein": {
+     "forbid": [
+      "Einstein",
+      "Albert"
+     ],
+     "clues": [
+      {
+       "text": "physicist who won the 1921 Nobel Prize for explaining the photoelectric effect"
+      },
+      {
+       "text": "scientist who worked as a patent clerk in Bern before publishing special relativity"
+      }
+     ],
+     "firstname": [
+      "Albert"
+     ],
+     "birthcountry": [
+      "Germany"
+     ],
+     "deathcentury": [
+      "20th",
+      "twentieth"
+     ]
+    },
+    "Lincoln": {
+     "forbid": [
+      "Lincoln",
+      "Abraham"
+     ],
+     "clues": [
+      {
+       "text": "sixteenth president of the United States"
+      },
+      {
+       "text": "president whose face is on the American penny"
+      }
+     ],
+     "firstname": [
+      "Abraham"
+     ],
+     "birthcountry": [
+      "the United States",
+      "United States",
+      "America",
+      "the USA",
+      "USA",
+      "the US"
+     ],
+     "deathcentury": [
+      "19th",
+      "nineteenth"
+     ]
+    },
+    "Mozart": {
+     "forbid": [
+      "Mozart",
+      "Wolfgang",
+      "Amadeus"
+     ],
+     "clues": [
+      {
+       "text": "composer who wrote the opera Don Giovanni"
+      },
+      {
+       "text": "composer who wrote Eine kleine Nachtmusik"
+      }
+     ],
+     "firstname": [
+      "Wolfgang"
+     ],
+     "birthcountry": [
+      "Austria"
+     ],
+     "deathcentury": [
+      "18th",
+      "eighteenth"
+     ]
+    },
+    "Napoleon": {
+     "forbid": [
+      "Napoleon",
+      "Napoléon",
+      "Bonaparte"
+     ],
+     "clues": [
+      {
+       "text": "emperor who crowned himself at Notre-Dame in 1804"
+      },
+      {
+       "text": "Corsican general who became Emperor of the French"
+      }
+     ],
+     "deathcentury": [
+      "19th",
+      "nineteenth"
+     ]
+    },
+    "Newton": {
+     "forbid": [
+      "Newton",
+      "Isaac"
+     ],
+     "clues": [
+      {
+       "text": "scientist who wrote the Principia Mathematica"
+      },
+      {
+       "text": "physicist who used a prism to split white light into a spectrum"
+      }
+     ],
+     "firstname": [
+      "Isaac",
+      "Sir"
+     ],
+     "birthcountry": [
+      "England",
+      "the United Kingdom",
+      "United Kingdom",
+      "Britain",
+      "Great Britain"
+     ],
+     "deathcentury": [
+      "18th",
+      "eighteenth"
+     ]
+    },
+    "Shakespeare": {
+     "forbid": [
+      "Shakespeare",
+      "William"
+     ],
+     "clues": [
+      {
+       "text": "playwright who wrote King Lear and Othello"
+      },
+      {
+       "text": "poet who wrote the sonnet beginning 'Shall I compare thee to a summer's day'"
+      }
+     ],
+     "firstname": [
+      "William"
+     ],
+     "birthcountry": [
+      "England",
+      "the United Kingdom",
+      "United Kingdom",
+      "Britain",
+      "Great Britain"
+     ],
+     "deathcentury": [
+      "17th",
+      "seventeenth"
+     ]
+    }
+   }
+  },
+  "element": {
+   "relations": {
+    "symbol": {
+     "template": "Fact: The chemical symbol of the {clue} is",
+     "one_hop": "Fact: The chemical symbol of {name} is"
+    },
+    "state": {
+     "template": "Fact: At room temperature, the {clue} is a",
+     "one_hop": "Fact: At room temperature, {name} is a"
+    }
+   },
+   "entities": {
+    "calcium": {
+     "forbid": [
+      "calcium"
+     ],
+     "clues": [
+      {
+       "text": "metal whose carbonate forms chalk and limestone"
+      },
+      {
+       "text": "element with atomic number 20"
+      }
+     ],
+     "symbol": [
+      "Ca"
+     ],
+     "state": [
+      "solid"
+     ]
+    },
+    "carbon": {
+     "forbid": [
+      "carbon"
+     ],
+     "clues": [
+      {
+       "text": "element whose isotope 14 is used to date ancient artifacts"
+      },
+      {
+       "text": "element that pencil graphite is made of"
+      }
+     ],
+     "symbol": [
+      "C"
+     ],
+     "state": [
+      "solid"
+     ]
+    },
+    "gold": {
+     "forbid": [
+      "gold",
+      "golden"
+     ],
+     "clues": [
+      {
+       "text": "precious metal whose purity is measured in karats"
+      },
+      {
+       "text": "metal sought by prospectors in the 1849 California rush"
+      }
+     ],
+     "symbol": [
+      "Au"
+     ],
+     "state": [
+      "solid"
+     ]
+    },
+    "iron": {
+     "forbid": [
+      "iron"
+     ],
+     "clues": [
+      {
+       "text": "metal smelted from hematite ore"
+      },
+      {
+       "text": "metal that makes up most of the Earth's core"
+      }
+     ],
+     "symbol": [
+      "Fe"
+     ],
+     "state": [
+      "solid"
+     ]
+    },
+    "mercury": {
+     "forbid": [
+      "mercury",
+      "Mercury"
+     ],
+     "clues": [
+      {
+       "text": "metal whose vapor glows inside fluorescent lamps"
+      },
+      {
+       "text": "silvery metal once used in dental amalgam fillings and thermometers"
+      }
+     ],
+     "symbol": [
+      "Hg"
+     ],
+     "state": [
+      "liquid"
+     ]
+    },
+    "oxygen": {
+     "forbid": [
+      "oxygen"
+     ],
+     "clues": [
+      {
+       "text": "gas that hospitals supply to patients through nasal tubes"
+      },
+      {
+       "text": "element that ozone molecules are made of"
+      }
+     ],
+     "symbol": [
+      "O"
+     ],
+     "state": [
+      "gas"
+     ]
+    },
+    "silver": {
+     "forbid": [
+      "silver"
+     ],
+     "clues": [
+      {
+       "text": "precious metal with atomic number 47"
+      },
+      {
+       "text": "precious metal whose compounds were used in early photographic film"
+      }
+     ],
+     "symbol": [
+      "Ag"
+     ],
+     "state": [
+      "solid"
+     ]
+    },
+    "sodium": {
+     "forbid": [
+      "sodium"
+     ],
+     "clues": [
+      {
+       "text": "metal in baking soda"
+      },
+      {
+       "text": "soft alkali metal stored under oil because it reacts violently with water"
+      }
+     ],
+     "symbol": [
+      "Na"
+     ],
+     "state": [
+      "solid"
+     ]
+    }
+   }
+  },
+  "celestial": {
+   "relations": {
+    "color": {
+     "template": "Fact: As seen from space, the color of the {clue} is",
+     "one_hop": "Fact: As seen from space, the color of {name} is"
+    },
+    "moons": {
+     "template": "Fact: The number of natural moons of the {clue} is",
+     "one_hop": "Fact: The number of natural moons of {name} is"
+    }
+   },
+   "entities": {
+    "Earth": {
+     "forbid": [
+      "Earth"
+     ],
+     "clues": [
+      {
+       "text": "planet whose surface is about 71 percent ocean"
+      },
+      {
+       "text": "only planet known to support life"
+      }
+     ],
+     "color": [
+      "blue"
+     ],
+     "moons": [
+      "one",
+      "1"
+     ]
+    },
+    "Mars": {
+     "forbid": [
+      "Mars",
+      "Martian"
+     ],
+     "clues": [
+      {
+       "text": "planet explored by the Curiosity and Perseverance rovers"
+      },
+      {
+       "text": "planet whose Olympus Mons is the tallest volcano in the solar system"
+      }
+     ],
+     "color": [
+      "red",
+      "reddish",
+      "rust"
+     ],
+     "moons": [
+      "two",
+      "2"
+     ]
+    }
+   }
+  },
+  "satellite": {
+   "relations": {
+    "host": {
+     "template": "Fact: The planet orbited by the {clue} is",
+     "one_hop": "Fact: The planet orbited by {name} is"
+    }
+   },
+   "entities": {
+    "moon": {
+     "forbid": [
+      "moon",
+      "Moon",
+      "lunar"
+     ],
+     "clues": [
+      {
+       "text": "natural satellite that Neil Armstrong walked on in 1969"
+      },
+      {
+       "text": "satellite whose phases include new, crescent and full"
+      }
+     ],
+     "host": [
+      "Earth"
+     ]
+    },
+    "Europa": {
+     "forbid": [
+      "Europa"
+     ],
+     "clues": [
+      {
+       "text": "icy satellite that NASA's Clipper mission was launched to study"
+      },
+      {
+       "text": "ice-covered satellite thought to hide a salty ocean beneath its crust, discovered by Galileo"
+      }
+     ],
+     "host": [
+      "Jupiter"
+     ]
+    }
+   }
+  },
+  "month": {
+   "relations": {
+    "next": {
+     "template": "Fact: The month that comes right after the {clue} is",
+     "one_hop": "Fact: The month that comes right after {name} is"
+    },
+    "season": {
+     "template": "Fact: In the Northern Hemisphere, the {clue} falls in the season of",
+     "one_hop": "Fact: In the Northern Hemisphere, {name} falls in the season of"
+    }
+   },
+   "entities": {
+    "July": {
+     "forbid": [
+      "July"
+     ],
+     "clues": [
+      {
+       "text": "month named after Julius Caesar"
+      },
+      {
+       "text": "month in which the United States celebrates Independence Day"
+      }
+     ],
+     "next": [
+      "August"
+     ],
+     "season": [
+      "summer"
+     ]
+    },
+    "May": {
+     "forbid": [
+      "May"
+     ],
+     "clues": [
+      {
+       "text": "month in which the United States observes Memorial Day"
+      },
+      {
+       "text": "month named after the Greek goddess Maia"
+      }
+     ],
+     "next": [
+      "June"
+     ],
+     "season": [
+      "spring"
+     ]
+    }
+   }
+  },
+  "holiday": {
+   "relations": {
+    "season": {
+     "template": "Fact: The season in which the {clue} is celebrated is",
+     "one_hop": "Fact: The season in which {name} is celebrated is"
+    }
+   },
+   "entities": {
+    "Christmas": {
+     "forbid": [
+      "Christmas",
+      "Xmas"
+     ],
+     "clues": [
+      {
+       "text": "holiday when children hang stockings for Santa Claus"
+      },
+      {
+       "text": "holiday marking the birth of Jesus"
+      }
+     ],
+     "season": [
+      "winter"
+     ]
+    },
+    "Easter": {
+     "forbid": [
+      "Easter"
+     ],
+     "clues": [
+      {
+       "text": "holiday of egg hunts and chocolate bunnies"
+      },
+      {
+       "text": "holiday celebrating the resurrection of Jesus"
+      }
+     ],
+     "season": [
+      "spring"
+     ]
+    }
+   }
+  },
+  "organ": {
+   "relations": {
+    "location": {
+     "template": "Fact: The part of the body that contains the {clue} is the",
+     "one_hop": "Fact: The part of the body that contains the {name} is the"
+    }
+   },
+   "entities": {
+    "brain": {
+     "forbid": [
+      "brain",
+      "cerebral"
+     ],
+     "clues": [
+      {
+       "text": "organ made of two hemispheres joined by the corpus callosum"
+      },
+      {
+       "text": "organ where neurons process thought and memory"
+      }
+     ],
+     "location": [
+      "head",
+      "skull",
+      "cranium"
+     ]
+    },
+    "heart": {
+     "forbid": [
+      "heart",
+      "cardiac"
+     ],
+     "clues": [
+      {
+       "text": "organ whose beat a doctor listens to with a stethoscope"
+      },
+      {
+       "text": "four-chambered organ that circulates blood"
+      }
+     ],
+     "location": [
+      "chest",
+      "thorax",
+      "thoracic",
+      "ribcage",
+      "rib"
+     ]
+    },
+    "lung": {
+     "forbid": [
+      "lung",
+      "lungs",
+      "pulmonary"
+     ],
+     "clues": [
+      {
+       "text": "organ filled with air sacs called alveoli"
+      },
+      {
+       "text": "spongy organ that exchanges oxygen and carbon dioxide"
+      }
+     ],
+     "location": [
+      "chest",
+      "thorax",
+      "thoracic",
+      "ribcage",
+      "rib"
+     ]
+    },
+    "liver": {
+     "forbid": [
+      "liver",
+      "hepatic"
+     ],
+     "clues": [
+      {
+       "text": "organ that produces bile and is damaged by cirrhosis"
+      },
+      {
+       "text": "organ that stores glycogen and filters toxins from the blood"
+      }
+     ],
+     "location": [
+      "abdomen",
+      "abdominal",
+      "belly"
+     ]
+    }
+   }
+  },
+  "animal": {
+   "relations": {
+    "legs": {
+     "template": "Fact: The number of legs on the {clue} is",
+     "one_hop": "Fact: The number of legs on a {name} is"
+    }
+   },
+   "entities": {
+    "ant": {
+     "forbid": [
+      "ant",
+      "ants"
+     ],
+     "clues": [
+      {
+       "text": "small insect that lives in colonies and farms aphids"
+      }
+     ],
+     "legs": [
+      "six",
+      "6"
+     ]
+    },
+    "spider": {
+     "forbid": [
+      "spider",
+      "spiders",
+      "arachnid"
+     ],
+     "clues": [
+      {
+       "text": "creature that spins silk webs to trap flies"
+      }
+     ],
+     "legs": [
+      "eight",
+      "8"
+     ]
+    },
+    "elephant": {
+     "forbid": [
+      "elephant",
+      "elephants"
+     ],
+     "clues": [
+      {
+       "text": "animal with ivory tusks and a long trunk"
+      }
+     ],
+     "legs": [
+      "four",
+      "4"
+     ]
+    },
+    "snake": {
+     "forbid": [
+      "snake",
+      "snakes",
+      "serpent"
+     ],
+     "clues": [
+      {
+       "text": "reptile that slithers and flicks its forked tongue"
+      }
+     ],
+     "legs": [
+      "zero",
+      "0",
+      "none",
+      "no"
+     ]
+    }
+   }
+  },
+  "food": {
+   "relations": {
+    "producer": {
+     "template": "Fact: The animal that produces the {clue} is the",
+     "one_hop": "Fact: The animal that produces {name} is the"
+    },
+    "plant": {
+     "template": "Fact: The kind of plant that the {clue} grows on is a",
+     "one_hop": "Fact: The kind of plant that the {name} grows on is a"
+    }
+   },
+   "entities": {
+    "butter": {
+     "forbid": [
+      "butter"
+     ],
+     "clues": [
+      {
+       "text": "yellow dairy spread made by churning cream"
+      }
+     ],
+     "producer": [
+      "cow",
+      "cows"
+     ]
+    },
+    "honey": {
+     "forbid": [
+      "honey"
+     ],
+     "clues": [
+      {
+       "text": "sweet syrup stored in wax combs inside hives"
+      }
+     ],
+     "producer": [
+      "bee",
+      "bees",
+      "honeybee"
+     ]
+    },
+    "apple": {
+     "forbid": [
+      "apple",
+      "apples"
+     ],
+     "clues": [
+      {
+       "text": "fruit that cider is pressed from"
+      }
+     ],
+     "plant": [
+      "tree"
+     ]
+    },
+    "grape": {
+     "forbid": [
+      "grape",
+      "grapes"
+     ],
+     "clues": [
+      {
+       "text": "fruit that raisins are dried from"
+      }
+     ],
+     "plant": [
+      "vine",
+      "grapevine"
+     ]
+    }
+   }
+  },
+  "instrument": {
+   "relations": {
+    "strings": {
+     "template": "Fact: The number of strings on the {clue} is",
+     "one_hop": "Fact: The number of strings on a {name} is"
+    }
+   },
+   "entities": {
+    "guitar": {
+     "forbid": [
+      "guitar",
+      "guitars"
+     ],
+     "clues": [
+      {
+       "text": "instrument that Jimi Hendrix famously played at Woodstock"
+      }
+     ],
+     "strings": [
+      "six",
+      "6"
+     ]
+    },
+    "violin": {
+     "forbid": [
+      "violin",
+      "violins",
+      "fiddle"
+     ],
+     "clues": [
+      {
+       "text": "instrument made famous by the workshop of Antonio Stradivari and played under the chin"
+      }
+     ],
+     "strings": [
+      "four",
+      "4"
+     ]
+    }
+   }
+  },
+  "gem": {
+   "relations": {
+    "color": {
+     "template": "Fact: The color of the {clue} is",
+     "one_hop": "Fact: The color of a {name} is"
+    }
+   },
+   "entities": {
+    "ruby": {
+     "forbid": [
+      "ruby",
+      "rubies"
+     ],
+     "clues": [
+      {
+       "text": "gemstone traditionally given on a fortieth wedding anniversary"
+      }
+     ],
+     "color": [
+      "red",
+      "deep",
+      "crimson"
+     ]
+    },
+    "pearl": {
+     "forbid": [
+      "pearl",
+      "pearls"
+     ],
+     "clues": [
+      {
+       "text": "gem that forms inside an oyster"
+      }
+     ],
+     "color": [
+      "white",
+      "creamy",
+      "cream",
+      "iridescent"
+     ]
+    }
+   }
+  },
+  "tree": {
+   "relations": {
+    "seed": {
+     "template": "Fact: The seed-bearing structure produced by the {clue} is called the",
+     "one_hop": "Fact: The seed-bearing structure produced by the {name} tree is called the"
+    }
+   },
+   "entities": {
+    "oak": {
+     "forbid": [
+      "oak",
+      "oaks"
+     ],
+     "clues": [
+      {
+       "text": "hardwood tree whose barrels are used to age wine"
+      }
+     ],
+     "seed": [
+      "acorn",
+      "acorns"
+     ]
+    },
+    "pine": {
+     "forbid": [
+      "pine",
+      "pines"
+     ],
+     "clues": [
+      {
+       "text": "evergreen tree whose sap is distilled into turpentine"
+      }
+     ],
+     "seed": [
+      "cone",
+      "cones",
+      "pinecone",
+      "pine"
+     ]
+    }
+   }
+  },
+  "city": {
+   "relations": {
+    "state": {
+     "template": "Fact: The US state in which the {clue} is located is",
+     "one_hop": "Fact: The US state in which {name} is located is"
+    }
+   },
+   "entities": {
+    "Philadelphia": {
+     "forbid": [
+      "Philadelphia",
+      "Philly"
+     ],
+     "clues": [
+      {
+       "text": "city where the Declaration of Independence was signed"
+      },
+      {
+       "text": "city whose museum steps Rocky Balboa ran up"
+      }
+     ],
+     "state": [
+      "Pennsylvania"
+     ]
+    },
+    "Seattle": {
+     "forbid": [
+      "Seattle"
+     ],
+     "clues": [
+      {
+       "text": "city where the first Starbucks cafe opened"
+      },
+      {
+       "text": "city where the grunge band Nirvana rose to fame"
+      }
+     ],
+     "state": [
+      "Washington"
+     ]
+    }
+   }
+  },
+  "citystate": {
+   "relations": {
+    "continent": {
+     "template": "Fact: The continent that contains the {clue} is",
+     "one_hop": "Fact: The continent that contains {name} is"
+    }
+   },
+   "entities": {
+    "Singapore": {
+     "forbid": [
+      "Singapore",
+      "Singaporean"
+     ],
+     "clues": [
+      {
+       "text": "island city-state at the southern tip of the Malay Peninsula"
+      }
+     ],
+     "continent": [
+      "Asia"
+     ]
+    },
+    "Vatican": {
+     "forbid": [
+      "Vatican"
+     ],
+     "clues": [
+      {
+       "text": "city-state where the Pope lives"
+      }
+     ],
+     "continent": [
+      "Europe"
+     ]
+    }
+   }
+  }
+ }
+}
