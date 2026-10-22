@@ -1,9 +1,6 @@
 # Position-Pair Filtering Separates Concept Use from Name Leakage in J-lens Swaps
 
-**Andy Xu, Claire Charles, Ankith Gundimeda, Ishan Nagpal, and Melwina Albuquerque.**
-Accepted at ACCV 2026; proceedings details will be added when available.
-
-This repository contains the research code and recorded evaluation outputs for
+This repository contains the research code and evaluation outputs for
 the paper. We test how a Jacobian lens's same-position and later-position
 contributions affect concept-swap interventions. Across 16 model/lens conditions
 on 13 checkpoints, filtering reduces name leakage at unit strength; downstream
