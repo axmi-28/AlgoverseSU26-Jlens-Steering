@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "status": "Pinned source inventory for the authorized published-lens plus estimated-diagonal protocol",
+  "lens_revision": "e166deb5ad540932100ef803c8c9bcc2a5453694",
+  "models": [
+    {
+      "config_name": "gemma-2-2b-it-np",
+      "hf_model_id": "google/gemma-2-2b-it",
+      "model_revision": "299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8",
+      "lens_repository": "neuronpedia/jacobian-lens",
+      "lens_revision": "e166deb5ad540932100ef803c8c9bcc2a5453694",
+      "lens_filename": "gemma-2-2b-it/jlens/Salesforce-wikitext/gemma-2-2b-it_jacobian_lens.pt",
+      "published_fit_prompts": 337,
+      "n_layers": 26,
+      "d_model": 2304
+    },
+    {
+      "config_name": "gemma-2-9b-it-np",
+      "hf_model_id": "google/gemma-2-9b-it",
+      "model_revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+      "lens_repository": "neuronpedia/jacobian-lens",
+      "lens_revision": "e166deb5ad540932100ef803c8c9bcc2a5453694",
+      "lens_filename": "gemma-2-9b-it/jlens/Salesforce-wikitext/gemma-2-9b-it_jacobian_lens.pt",
+      "published_fit_prompts": 453,
+      "n_layers": 42,
+      "d_model": 3584
+    },
+    {
+      "config_name": "gemma-3-4b-it-np",
+      "hf_model_id": "google/gemma-3-4b-it",
+      "model_revision": "093f9f388b31de276ce2de164bdc2081324b9767",
+      "lens_repository": "neuronpedia/jacobian-lens",
+      "lens_revision": "e166deb5ad540932100ef803c8c9bcc2a5453694",
+      "lens_filename": "gemma-3-4b-it/jlens/Salesforce-wikitext/gemma-3-4b-it_jacobian_lens.pt",
+      "published_fit_prompts": 546,
+      "n_layers": 34,
+      "d_model": 2560
+    },
+    {
+      "config_name": "gemma-3-12b-pt-np",
+      "hf_model_id": "google/gemma-3-12b-pt",
+      "model_revision": "295efb63d01a7017928f273a94ebb86105c9526f",
+      "lens_repository": "neuronpedia/jacobian-lens",
+      "lens_revision": "e166deb5ad540932100ef803c8c9bcc2a5453694",
+      "lens_filename": "gemma-3-12b/jlens/Salesforce-wikitext/gemma-3-12b-pt_jacobian_lens.pt",
+      "published_fit_prompts": 775,
+      "n_layers": 48,
+      "d_model": 3840
+    },
+    {
+      "config_name": "llama-3.1-8b-np",
+      "hf_model_id": "meta-llama/Llama-3.1-8B",
+      "model_revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b",
+      "lens_repository": "neuronpedia/jacobian-lens",
+      "lens_revision": "e166deb5ad540932100ef803c8c9bcc2a5453694",
+      "lens_filename": "llama3.1-8b/jlens/Salesforce-wikitext/Llama-3.1-8B_jacobian_lens.pt",
+      "published_fit_prompts": 539,
+      "n_layers": 32,
+      "d_model": 4096
+    },
+    {
+      "config_name": "llama-3.1-8b-instruct-np",
+      "hf_model_id": "meta-llama/Llama-3.1-8B-Instruct",
+      "model_revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "lens_repository": "neuronpedia/jacobian-lens",
+      "lens_revision": "e166deb5ad540932100ef803c8c9bcc2a5453694",
+      "lens_filename": "llama3.1-8b-it/jlens/Salesforce-wikitext/Llama-3.1-8B-Instruct_jacobian_lens.pt",
+      "published_fit_prompts": 461,
+      "n_layers": 32,
+      "d_model": 4096
+    }
+  ]
+}

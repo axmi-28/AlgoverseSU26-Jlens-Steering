@@ -1,0 +1,973 @@
+{
+  "source": "output/core-results/full_table.json",
+  "source_sha256": "09b35ee8486beb6640735573e2746d6a5d77664bb28dcc96948de798776b676c",
+  "script_sha256": "2188c2f384242b77d2a55301d4d6f7d71908fb79474928f0f3fb246f211125f0",
+  "strength": 1,
+  "display_selection": {
+    "rule": "Prefer IT over base; published over self-fitted for the same checkpoint; newer Qwen replay over original references. No outcome-based selection or averaging.",
+    "shown_ids": [
+      "F-05",
+      "F-06",
+      "F-04",
+      "F-03",
+      "F-01",
+      "F-02",
+      "H-01",
+      "NP-01",
+      "NP-02",
+      "NP-04",
+      "NP-05"
+    ],
+    "omitted_from_display": {
+      "P-GSM": "Original Qwen3-8B GSM8K reference; newer F-06 shown",
+      "P-WIKI": "Original Qwen3-8B WikiText reference; newer F-06 shown",
+      "H-02": "Self-fitted Llama Instruct; published NP-05 shown",
+      "NP-03": "Gemma 3 12B base; instruction-tuned H-01 shown",
+      "NP-06": "Llama 3.1 8B base; instruction-tuned NP-05 shown"
+    },
+    "all_16_conditions_retained_in_source_table": true
+  },
+  "shared_x_limits": {
+    "success": [
+      -20,
+      30
+    ],
+    "incorrect_name_emission": [
+      -60,
+      10
+    ]
+  },
+  "sample_definition": "N eligible prompt-target swap trials, paired across full and filtered lenses; one generated continuation per lens per trial, 2N outputs; both metrics use the same N trials",
+  "leakage_definition": "Target-name substring in an incorrect continuation; correct answers containing the name are excluded",
+  "confidence_interval": "Paired 95% source-entity bootstrap; 2000 draws; pointwise, conditional on one fit/diagonal estimate",
+  "neuronpedia": [
+    {
+      "id": "NP-01",
+      "model": "gemma-2-2b-it",
+      "label": "Gemma 2 2B IT",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 374,
+      "n": 187,
+      "clusters": 58,
+      "baseline": 16.577540106951872,
+      "filtered": 33.155080213903744,
+      "delta": 16.577540106951872,
+      "ci": [
+        10.106382978723403,
+        23.91304347826087
+      ],
+      "wins": 32,
+      "losses": 1
+    },
+    {
+      "id": "NP-02",
+      "model": "gemma-2-9b-it",
+      "label": "Gemma 2 9B IT",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 444,
+      "n": 222,
+      "clusters": 65,
+      "baseline": 31.08108108108108,
+      "filtered": 39.189189189189186,
+      "delta": 8.108108108108109,
+      "ci": [
+        4.11522633744856,
+        12.280701754385964
+      ],
+      "wins": 20,
+      "losses": 2
+    },
+    {
+      "id": "NP-04",
+      "model": "gemma-3-4b-it",
+      "label": "Gemma 3 4B IT",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 338,
+      "n": 169,
+      "clusters": 58,
+      "baseline": 25.443786982248522,
+      "filtered": 34.319526627218934,
+      "delta": 8.875739644970409,
+      "ci": [
+        4.069767441860465,
+        14.012738853503185
+      ],
+      "wins": 18,
+      "losses": 3
+    },
+    {
+      "id": "NP-05",
+      "model": "llama-3.1-8b-instruct",
+      "label": "Llama 3.1 8B Instruct",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 364,
+      "n": 182,
+      "clusters": 57,
+      "baseline": 15.384615384615385,
+      "filtered": 27.472527472527474,
+      "delta": 12.08791208791209,
+      "ci": [
+        6.451612903225806,
+        17.616580310880828
+      ],
+      "wins": 25,
+      "losses": 3
+    },
+    {
+      "id": "NP-01",
+      "model": "gemma-2-2b-it",
+      "label": "Gemma 2 2B IT",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 374,
+      "n": 187,
+      "clusters": 58,
+      "baseline": 60.962566844919785,
+      "filtered": 40.64171122994652,
+      "delta": -20.32085561497326,
+      "ci": [
+        -25.268817204301076,
+        -14.973262032085561
+      ],
+      "wins": 2,
+      "losses": 40
+    },
+    {
+      "id": "NP-02",
+      "model": "gemma-2-9b-it",
+      "label": "Gemma 2 9B IT",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 444,
+      "n": 222,
+      "clusters": 65,
+      "baseline": 42.792792792792795,
+      "filtered": 25.675675675675674,
+      "delta": -17.117117117117118,
+      "ci": [
+        -23.809523809523807,
+        -11.312217194570136
+      ],
+      "wins": 1,
+      "losses": 39
+    },
+    {
+      "id": "NP-04",
+      "model": "gemma-3-4b-it",
+      "label": "Gemma 3 4B IT",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 338,
+      "n": 169,
+      "clusters": 58,
+      "baseline": 34.9112426035503,
+      "filtered": 12.42603550295858,
+      "delta": -22.485207100591715,
+      "ci": [
+        -28.915662650602407,
+        -16.352201257861633
+      ],
+      "wins": 0,
+      "losses": 38
+    },
+    {
+      "id": "NP-05",
+      "model": "llama-3.1-8b-instruct",
+      "label": "Llama 3.1 8B Instruct",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 364,
+      "n": 182,
+      "clusters": 57,
+      "baseline": 46.15384615384615,
+      "filtered": 34.065934065934066,
+      "delta": -12.08791208791209,
+      "ci": [
+        -20.496894409937887,
+        -3.482587064676617
+      ],
+      "wins": 10,
+      "losses": 32
+    }
+  ],
+  "self_fitted": [
+    {
+      "id": "F-05",
+      "model": "qwen3-4b",
+      "label": "Qwen3-4B",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 384,
+      "n": 192,
+      "clusters": 62,
+      "baseline": 27.604166666666668,
+      "filtered": 35.9375,
+      "delta": 8.333333333333332,
+      "ci": [
+        2.2857142857142856,
+        14.678899082568808
+      ],
+      "wins": 23,
+      "losses": 7
+    },
+    {
+      "id": "F-06",
+      "model": "qwen3-8b",
+      "label": "Qwen3-8B",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 378,
+      "n": 189,
+      "clusters": 58,
+      "baseline": 31.746031746031743,
+      "filtered": 47.61904761904761,
+      "delta": 15.873015873015872,
+      "ci": [
+        9.62566844919786,
+        21.890547263681594
+      ],
+      "wins": 33,
+      "losses": 3
+    },
+    {
+      "id": "F-04",
+      "model": "qwen3-14b",
+      "label": "Qwen3-14B",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 438,
+      "n": 219,
+      "clusters": 64,
+      "baseline": 49.31506849315068,
+      "filtered": 54.794520547945204,
+      "delta": 5.47945205479452,
+      "ci": [
+        0.5154639175257731,
+        10.0
+      ],
+      "wins": 19,
+      "losses": 7
+    },
+    {
+      "id": "F-03",
+      "model": "qwen2.5-7b-instruct",
+      "label": "Qwen2.5-7B Instruct",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 380,
+      "n": 190,
+      "clusters": 64,
+      "baseline": 44.21052631578947,
+      "filtered": 40.526315789473685,
+      "delta": -3.68421052631579,
+      "ci": [
+        -10.0,
+        2.312138728323699
+      ],
+      "wins": 11,
+      "losses": 18
+    },
+    {
+      "id": "F-01",
+      "model": "mistral-7b-instruct-v0.3",
+      "label": "Mistral-7B Instruct v0.3",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 328,
+      "n": 164,
+      "clusters": 43,
+      "baseline": 25.0,
+      "filtered": 44.51219512195122,
+      "delta": 19.51219512195122,
+      "ci": [
+        12.5,
+        26.506024096385545
+      ],
+      "wins": 35,
+      "losses": 3
+    },
+    {
+      "id": "F-02",
+      "model": "olmo-2-1124-7b-instruct",
+      "label": "OLMo-2-7B Instruct",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 420,
+      "n": 210,
+      "clusters": 66,
+      "baseline": 30.476190476190478,
+      "filtered": 40.476190476190474,
+      "delta": 9.999999999999998,
+      "ci": [
+        1.4925373134328357,
+        18.91891891891892
+      ],
+      "wins": 42,
+      "losses": 21
+    },
+    {
+      "id": "H-01",
+      "model": "gemma-3-12b-it",
+      "label": "Gemma 3 12B IT",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 444,
+      "n": 222,
+      "clusters": 68,
+      "baseline": 30.630630630630627,
+      "filtered": 30.180180180180184,
+      "delta": -0.45045045045044585,
+      "ci": [
+        -5.970149253731343,
+        5.288461538461538
+      ],
+      "wins": 13,
+      "losses": 14
+    },
+    {
+      "id": "F-05",
+      "model": "qwen3-4b",
+      "label": "Qwen3-4B",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 384,
+      "n": 192,
+      "clusters": 62,
+      "baseline": 40.625,
+      "filtered": 20.833333333333336,
+      "delta": -19.791666666666664,
+      "ci": [
+        -26.31578947368421,
+        -12.5
+      ],
+      "wins": 3,
+      "losses": 41
+    },
+    {
+      "id": "F-06",
+      "model": "qwen3-8b",
+      "label": "Qwen3-8B",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 378,
+      "n": 189,
+      "clusters": 58,
+      "baseline": 34.39153439153439,
+      "filtered": 8.465608465608465,
+      "delta": -25.925925925925924,
+      "ci": [
+        -32.12435233160622,
+        -19.672131147540984
+      ],
+      "wins": 0,
+      "losses": 49
+    },
+    {
+      "id": "F-04",
+      "model": "qwen3-14b",
+      "label": "Qwen3-14B",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 438,
+      "n": 219,
+      "clusters": 64,
+      "baseline": 24.200913242009133,
+      "filtered": 10.50228310502283,
+      "delta": -13.698630136986301,
+      "ci": [
+        -18.421052631578945,
+        -9.01639344262295
+      ],
+      "wins": 1,
+      "losses": 31
+    },
+    {
+      "id": "F-03",
+      "model": "qwen2.5-7b-instruct",
+      "label": "Qwen2.5-7B Instruct",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 380,
+      "n": 190,
+      "clusters": 64,
+      "baseline": 14.210526315789473,
+      "filtered": 4.2105263157894735,
+      "delta": -10.0,
+      "ci": [
+        -14.925373134328357,
+        -5.454545454545454
+      ],
+      "wins": 1,
+      "losses": 20
+    },
+    {
+      "id": "F-01",
+      "model": "mistral-7b-instruct-v0.3",
+      "label": "Mistral-7B Instruct v0.3",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 328,
+      "n": 164,
+      "clusters": 43,
+      "baseline": 62.19512195121951,
+      "filtered": 37.80487804878049,
+      "delta": -24.390243902439025,
+      "ci": [
+        -32.121212121212125,
+        -16.853932584269664
+      ],
+      "wins": 2,
+      "losses": 42
+    },
+    {
+      "id": "F-02",
+      "model": "olmo-2-1124-7b-instruct",
+      "label": "OLMo-2-7B Instruct",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 420,
+      "n": 210,
+      "clusters": 66,
+      "baseline": 48.57142857142857,
+      "filtered": 7.142857142857142,
+      "delta": -41.42857142857142,
+      "ci": [
+        -49.46808510638298,
+        -33.99209486166008
+      ],
+      "wins": 0,
+      "losses": 87
+    },
+    {
+      "id": "H-01",
+      "model": "gemma-3-12b-it",
+      "label": "Gemma 3 12B IT",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 444,
+      "n": 222,
+      "clusters": 68,
+      "baseline": 15.315315315315313,
+      "filtered": 4.954954954954955,
+      "delta": -10.36036036036036,
+      "ci": [
+        -15.416666666666668,
+        -5.357142857142857
+      ],
+      "wins": 2,
+      "losses": 25
+    }
+  ],
+  "combined": [
+    {
+      "id": "F-05",
+      "model": "qwen3-4b",
+      "label": "Qwen3-4B",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 384,
+      "n": 192,
+      "clusters": 62,
+      "baseline": 27.604166666666668,
+      "filtered": 35.9375,
+      "delta": 8.333333333333332,
+      "ci": [
+        2.2857142857142856,
+        14.678899082568808
+      ],
+      "wins": 23,
+      "losses": 7
+    },
+    {
+      "id": "F-06",
+      "model": "qwen3-8b",
+      "label": "Qwen3-8B",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 378,
+      "n": 189,
+      "clusters": 58,
+      "baseline": 31.746031746031743,
+      "filtered": 47.61904761904761,
+      "delta": 15.873015873015872,
+      "ci": [
+        9.62566844919786,
+        21.890547263681594
+      ],
+      "wins": 33,
+      "losses": 3
+    },
+    {
+      "id": "F-04",
+      "model": "qwen3-14b",
+      "label": "Qwen3-14B",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 438,
+      "n": 219,
+      "clusters": 64,
+      "baseline": 49.31506849315068,
+      "filtered": 54.794520547945204,
+      "delta": 5.47945205479452,
+      "ci": [
+        0.5154639175257731,
+        10.0
+      ],
+      "wins": 19,
+      "losses": 7
+    },
+    {
+      "id": "F-03",
+      "model": "qwen2.5-7b-instruct",
+      "label": "Qwen2.5-7B Instruct",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 380,
+      "n": 190,
+      "clusters": 64,
+      "baseline": 44.21052631578947,
+      "filtered": 40.526315789473685,
+      "delta": -3.68421052631579,
+      "ci": [
+        -10.0,
+        2.312138728323699
+      ],
+      "wins": 11,
+      "losses": 18
+    },
+    {
+      "id": "F-01",
+      "model": "mistral-7b-instruct-v0.3",
+      "label": "Mistral-7B Instruct v0.3",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 328,
+      "n": 164,
+      "clusters": 43,
+      "baseline": 25.0,
+      "filtered": 44.51219512195122,
+      "delta": 19.51219512195122,
+      "ci": [
+        12.5,
+        26.506024096385545
+      ],
+      "wins": 35,
+      "losses": 3
+    },
+    {
+      "id": "F-02",
+      "model": "olmo-2-1124-7b-instruct",
+      "label": "OLMo-2-7B Instruct",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 420,
+      "n": 210,
+      "clusters": 66,
+      "baseline": 30.476190476190478,
+      "filtered": 40.476190476190474,
+      "delta": 9.999999999999998,
+      "ci": [
+        1.4925373134328357,
+        18.91891891891892
+      ],
+      "wins": 42,
+      "losses": 21
+    },
+    {
+      "id": "H-01",
+      "model": "gemma-3-12b-it",
+      "label": "Gemma 3 12B IT",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 444,
+      "n": 222,
+      "clusters": 68,
+      "baseline": 30.630630630630627,
+      "filtered": 30.180180180180184,
+      "delta": -0.45045045045044585,
+      "ci": [
+        -5.970149253731343,
+        5.288461538461538
+      ],
+      "wins": 13,
+      "losses": 14
+    },
+    {
+      "id": "NP-01",
+      "model": "gemma-2-2b-it",
+      "label": "Gemma 2 2B IT",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 374,
+      "n": 187,
+      "clusters": 58,
+      "baseline": 16.577540106951872,
+      "filtered": 33.155080213903744,
+      "delta": 16.577540106951872,
+      "ci": [
+        10.106382978723403,
+        23.91304347826087
+      ],
+      "wins": 32,
+      "losses": 1
+    },
+    {
+      "id": "NP-02",
+      "model": "gemma-2-9b-it",
+      "label": "Gemma 2 9B IT",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 444,
+      "n": 222,
+      "clusters": 65,
+      "baseline": 31.08108108108108,
+      "filtered": 39.189189189189186,
+      "delta": 8.108108108108109,
+      "ci": [
+        4.11522633744856,
+        12.280701754385964
+      ],
+      "wins": 20,
+      "losses": 2
+    },
+    {
+      "id": "NP-04",
+      "model": "gemma-3-4b-it",
+      "label": "Gemma 3 4B IT",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 338,
+      "n": 169,
+      "clusters": 58,
+      "baseline": 25.443786982248522,
+      "filtered": 34.319526627218934,
+      "delta": 8.875739644970409,
+      "ci": [
+        4.069767441860465,
+        14.012738853503185
+      ],
+      "wins": 18,
+      "losses": 3
+    },
+    {
+      "id": "NP-05",
+      "model": "llama-3.1-8b-instruct",
+      "label": "Llama 3.1 8B Instruct",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "task": "latent / 1",
+      "metric": "success",
+      "metric_label": "Latent swap success",
+      "outputs_in_paired_comparison": 364,
+      "n": 182,
+      "clusters": 57,
+      "baseline": 15.384615384615385,
+      "filtered": 27.472527472527474,
+      "delta": 12.08791208791209,
+      "ci": [
+        6.451612903225806,
+        17.616580310880828
+      ],
+      "wins": 25,
+      "losses": 3
+    },
+    {
+      "id": "F-05",
+      "model": "qwen3-4b",
+      "label": "Qwen3-4B",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 384,
+      "n": 192,
+      "clusters": 62,
+      "baseline": 40.625,
+      "filtered": 20.833333333333336,
+      "delta": -19.791666666666664,
+      "ci": [
+        -26.31578947368421,
+        -12.5
+      ],
+      "wins": 3,
+      "losses": 41
+    },
+    {
+      "id": "F-06",
+      "model": "qwen3-8b",
+      "label": "Qwen3-8B",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 378,
+      "n": 189,
+      "clusters": 58,
+      "baseline": 34.39153439153439,
+      "filtered": 8.465608465608465,
+      "delta": -25.925925925925924,
+      "ci": [
+        -32.12435233160622,
+        -19.672131147540984
+      ],
+      "wins": 0,
+      "losses": 49
+    },
+    {
+      "id": "F-04",
+      "model": "qwen3-14b",
+      "label": "Qwen3-14B",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 438,
+      "n": 219,
+      "clusters": 64,
+      "baseline": 24.200913242009133,
+      "filtered": 10.50228310502283,
+      "delta": -13.698630136986301,
+      "ci": [
+        -18.421052631578945,
+        -9.01639344262295
+      ],
+      "wins": 1,
+      "losses": 31
+    },
+    {
+      "id": "F-03",
+      "model": "qwen2.5-7b-instruct",
+      "label": "Qwen2.5-7B Instruct",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 380,
+      "n": 190,
+      "clusters": 64,
+      "baseline": 14.210526315789473,
+      "filtered": 4.2105263157894735,
+      "delta": -10.0,
+      "ci": [
+        -14.925373134328357,
+        -5.454545454545454
+      ],
+      "wins": 1,
+      "losses": 20
+    },
+    {
+      "id": "F-01",
+      "model": "mistral-7b-instruct-v0.3",
+      "label": "Mistral-7B Instruct v0.3",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 328,
+      "n": 164,
+      "clusters": 43,
+      "baseline": 62.19512195121951,
+      "filtered": 37.80487804878049,
+      "delta": -24.390243902439025,
+      "ci": [
+        -32.121212121212125,
+        -16.853932584269664
+      ],
+      "wins": 2,
+      "losses": 42
+    },
+    {
+      "id": "F-02",
+      "model": "olmo-2-1124-7b-instruct",
+      "label": "OLMo-2-7B Instruct",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 420,
+      "n": 210,
+      "clusters": 66,
+      "baseline": 48.57142857142857,
+      "filtered": 7.142857142857142,
+      "delta": -41.42857142857142,
+      "ci": [
+        -49.46808510638298,
+        -33.99209486166008
+      ],
+      "wins": 0,
+      "losses": 87
+    },
+    {
+      "id": "H-01",
+      "model": "gemma-3-12b-it",
+      "label": "Gemma 3 12B IT",
+      "lens": "Self-fit GSM8K / exact components",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 444,
+      "n": 222,
+      "clusters": 68,
+      "baseline": 15.315315315315313,
+      "filtered": 4.954954954954955,
+      "delta": -10.36036036036036,
+      "ci": [
+        -15.416666666666668,
+        -5.357142857142857
+      ],
+      "wins": 2,
+      "losses": 25
+    },
+    {
+      "id": "NP-01",
+      "model": "gemma-2-2b-it",
+      "label": "Gemma 2 2B IT",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 374,
+      "n": 187,
+      "clusters": 58,
+      "baseline": 60.962566844919785,
+      "filtered": 40.64171122994652,
+      "delta": -20.32085561497326,
+      "ci": [
+        -25.268817204301076,
+        -14.973262032085561
+      ],
+      "wins": 2,
+      "losses": 40
+    },
+    {
+      "id": "NP-02",
+      "model": "gemma-2-9b-it",
+      "label": "Gemma 2 9B IT",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 444,
+      "n": 222,
+      "clusters": 65,
+      "baseline": 42.792792792792795,
+      "filtered": 25.675675675675674,
+      "delta": -17.117117117117118,
+      "ci": [
+        -23.809523809523807,
+        -11.312217194570136
+      ],
+      "wins": 1,
+      "losses": 39
+    },
+    {
+      "id": "NP-04",
+      "model": "gemma-3-4b-it",
+      "label": "Gemma 3 4B IT",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 338,
+      "n": 169,
+      "clusters": 58,
+      "baseline": 34.9112426035503,
+      "filtered": 12.42603550295858,
+      "delta": -22.485207100591715,
+      "ci": [
+        -28.915662650602407,
+        -16.352201257861633
+      ],
+      "wins": 0,
+      "losses": 38
+    },
+    {
+      "id": "NP-05",
+      "model": "llama-3.1-8b-instruct",
+      "label": "Llama 3.1 8B Instruct",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "task": "latent / 1",
+      "metric": "incorrect_name_emission",
+      "metric_label": "Leakage",
+      "outputs_in_paired_comparison": 364,
+      "n": 182,
+      "clusters": 57,
+      "baseline": 46.15384615384615,
+      "filtered": 34.065934065934066,
+      "delta": -12.08791208791209,
+      "ci": [
+        -20.496894409937887,
+        -3.482587064676617
+      ],
+      "wins": 10,
+      "losses": 32
+    }
+  ]
+}

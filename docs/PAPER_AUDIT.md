@@ -1,5 +1,11 @@
 # Manuscript consistency and provenance audit
 
+This is a historical audit of an earlier manuscript, retained to explain
+population and provenance differences. It is not a certification of the final
+camera-ready PDF. The October 21 expanded results and scoring convention are
+documented in [the public results](results/full_table.md) and
+[release verification](VERIFICATION.md).
+
 These issues were found while connecting the submitted manuscript to saved
 experiments. The manuscript itself was not edited or included in the release.
 They are limitations of an exact-reproduction claim, not instructions to change

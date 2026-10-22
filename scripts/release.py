@@ -26,6 +26,8 @@ TOP_FILES = {
     "THIRD_PARTY_NOTICES.md",
     "pyproject.toml",
     "modal_app.py",
+    "modal_replication.py",
+    "CITATION.cff",
 }
 PREFIXES = (
     "src/jsteer/",
@@ -176,7 +178,7 @@ def main():
     parser.add_argument("command", choices=("verify", "restore", "archive", "audit"))
     parser.add_argument("--destination", type=Path, default=ROOT)
     parser.add_argument(
-        "--output", type=Path, default=ROOT / "dist/jlens-steering-anonymous.zip"
+        "--output", type=Path, default=ROOT / "dist/jlens-steering-camera-ready.zip"
     )
     parser.add_argument(
         "--deny",

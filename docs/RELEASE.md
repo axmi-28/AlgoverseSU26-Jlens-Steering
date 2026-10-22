@@ -1,33 +1,69 @@
-# Release and anonymous-review packaging
+# Camera-ready source and results release
 
-The release includes research code, frozen evaluation definitions, checksummed
-reference artifacts, documentation and offline tests. Local manuscripts,
-paper drafts, downloaded PDFs, notes, logs, credentials, caches and generated
-results are excluded by `.gitignore` and by the archive's explicit inclusion
-policy. These exclusions preserve local working files rather than deleting
-research history. Only the 49 curated artifacts in `data/reference/` belong in
-Git; the rest of the raw result workspace does not.
+The October 21, 2026 release accompanies the paper *Position-Pair Filtering
+Separates Concept Use from Name Leakage in J-lens Swaps*, accepted at ACCV 2026.
+It is de-anonymized and retains the existing public Git history.
+
+## Included material
+
+- Research code, pinned model configurations, frozen evaluation definitions,
+  both replication protocols and offline tests.
+- 217 checksummed reference artifacts: the original 49-file bundle plus saved
+  cross-model trial outputs, campaign JSON metadata, the mechanism CSV and other
+  data inputs needed for the combined results table.
+- The curated [public results snapshot](results/full_table.md), vector/raster
+  figures, plotting statistics, source provenance and snapshot checksums.
+- Both optional remote entrypoints, `modal_app.py` and `modal_replication.py`.
+
+The manifest preserves historical input/output bytes; gzip is transport only.
+`restore` refuses to overwrite differing local results. Model weights, downloaded
+published lenses and the complete auxiliary tensor banks are not included.
+Reanalysis of saved generations does not repeat a GPU experiment or establish
+variation across independent lens fits. See [reproduction instructions](REPRODUCING.md).
+
+## Verify and package
 
 ```bash
-python scripts/release.py audit
 python scripts/release.py verify
+python scripts/release.py restore
+python scripts/release.py audit
+python scripts/publish_results.py verify
+python -m pytest -q
 python scripts/release.py archive
 ```
 
-`audit` also rejects unexpected tracked paths. For a private final check, pass
-identifying strings as repeatable `--deny` arguments; do not put personal names
-or account handles in a committed checklist. The scanner decompresses reference
-files and examines Torch metadata as well as source text. It is a deterministic
-check for known strings and common path/token patterns, not a guarantee against
-all indirect identification.
+The default archive is `dist/jlens-steering-camera-ready.zip`, with fixed
+archive timestamps, a neutral root directory, SHA256SUMS and no Git metadata.
+It includes only the explicit allowlist in `scripts/release.py`. Local
+manuscripts, review correspondence, notes, logs, credentials and uncurated
+results remain excluded. The public snapshot under `docs/results/` is
+intentionally included; the general `output/` tree remains ignored.
 
-The ZIP has a neutral root directory, fixed timestamps, SHA256SUMS and no Git
-metadata. Extract it into a fresh directory, install dependencies, restore data,
-and run tests/reproduction there before distribution. Anyone hosting a new
-review repository should initialize new history with an anonymous author and
-avoid an identifying account or link. Existing public history, forks, ownership
-and prior publication cannot be anonymized by changing working-tree files.
+The scanner checks common absolute-path and credential patterns, including
+decompressed reference records and Torch metadata. It does not guarantee that
+a public repository or this identified author/citation information is anonymous.
+The archive's earlier anonymous-review name/workflow is historical.
 
-Original project code is released under MIT, as selected by the rights holder.
-Third-party attributions and terms remain in THIRD_PARTY_NOTICES.md. This
-preparation does not rewrite public history or delete local working materials.
+The complete source/reference archive is larger than the 100 MB conference
+supplementary-file limit. It is intended for distribution through the code host,
+not direct upload as an ACCV supplementary file. A conference supplement is
+optional and must be curated and checked separately; nothing in this workflow
+uploads to OpenReview.
+
+## Updating the published snapshot
+
+```bash
+python scripts/75_all_core_results.py
+python scripts/76_core_results_figures.py
+python scripts/publish_results.py build
+python scripts/publish_results.py verify --rebuilt
+```
+
+Do not edit derived point estimates by hand. The full table retains all 16
+model/lens conditions. The main figure displays 11 distinct model/size entries,
+preferring instruction-tuned variants, published lenses for identical checkpoints,
+and the newer Qwen3-8B replication. Selection uses no outcome values and does
+not average or discard the other conditions.
+
+Original project code is MIT-licensed. Third-party data, models and dependencies
+retain their upstream terms; see [attributions](../THIRD_PARTY_NOTICES.md).

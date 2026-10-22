@@ -15,15 +15,31 @@ from types import SimpleNamespace
 
 import torch
 
-from jsteer.config import REPO_ROOT, load_config
 from jsteer.concept_use import (
-    Bank, band_residuals, build_units, encode, evaluate, hits, swap_deltas,
+    Bank,
+    band_residuals,
+    build_units,
+    encode,
+    evaluate,
+    hits,
+    swap_deltas,
 )
+from jsteer.config import REPO_ROOT, load_config
 from jsteer.jacobian import component_pullbacks_for_prompt, pullback_for_prompt
 from jsteer.loading import load_model, single_token_id, unembedding_rows
 from jsteer.write_controls import file_hash
 
 INPUT = REPO_ROOT / "data/protocols/cross_model_filtering.json"
+
+
+def input_hashes(config_name):
+    """Hash every local input used by this runner, including the concept panel."""
+    paths = [INPUT, REPO_ROOT / "data/heldout/concept-use.json",
+             REPO_ROOT / "configs" / f"{config_name}.yaml"]
+    paths += [Path(__file__).with_name(name) for name in
+              ("cross_model.py", "concept_use.py", "jacobian.py", "loading.py",
+               "steering.py", "write_controls.py", "config.py")]
+    return {str(p.relative_to(REPO_ROOT)): file_hash(p) for p in paths}
 
 
 def sha(value):
@@ -64,6 +80,7 @@ class CrossModelSpec:
     out_dir: str = "/results/cross_model"
     max_seconds: int = 21000
     expected_source_sha: str = ""
+    expected_inputs_sha: str = ""
 
 
 def run_cross_model(spec: CrossModelSpec):
@@ -71,6 +88,9 @@ def run_cross_model(spec: CrossModelSpec):
     source_sha = file_hash(Path(__file__))
     if spec.expected_source_sha != source_sha:
         raise ValueError("Deployed cross_model.py differs from launch source")
+    inputs = input_hashes(spec.config_name)
+    if spec.expected_inputs_sha and spec.expected_inputs_sha != sha(inputs):
+        raise ValueError("Deployed replication inputs differ from launch inputs")
     config = load_config(spec.config_name)
     protocol = json.loads(INPUT.read_text())
     # Preserve the original Qwen seven-point relative-depth grid exactly.
@@ -78,12 +98,20 @@ def run_cross_model(spec: CrossModelSpec):
     manifest = {
         "config": asdict(config), "protocol_sha": file_hash(INPUT),
         "source_sha": source_sha, "layers": layers,
+        "inputs": inputs,
         "dependency_sha": {name: file_hash(Path(__file__).with_name(name)) for name in
                            ("concept_use.py", "jacobian.py", "loading.py", "steering.py", "write_controls.py")},
     }
     root = Path(spec.out_dir) / config.name / sha(manifest)[:12]
     root.mkdir(parents=True, exist_ok=True)
     save(root / "manifest.json", manifest)
+    import importlib.metadata
+    save(root / "environment.json", {
+        "packages": {name: importlib.metadata.version(name) for name in
+                     ("torch", "transformers", "jlens", "numpy", "huggingface_hub")},
+        "cuda": torch.version.cuda,
+        "gpu": torch.cuda.get_device_name() if torch.cuda.is_available() else None,
+    })
 
     def checkpoint(stage, detail=None):
         save(root / "status.json", {"stage": stage, "seconds": time.monotonic() - started,
@@ -218,6 +246,20 @@ def run_cross_model(spec: CrossModelSpec):
             family = "full" if part == "total" else part
             digests[f"gsm8k_{family}|{l}"] = {"pullbacks": value / count, "n": count}
         torch.save({"targets": words, "digests": digests, "manifest_sha": sha(manifest)}, fit_path)
+    fitted = torch.load(fit_path, weights_only=False, map_location="cpu")
+    if any(d["n"] != len(protocol["fit_texts"]) for d in fitted["digests"].values()):
+        raise RuntimeError("Fitted direction bank has an incorrect prompt count")
+    decomposition_errors = {}
+    for l in layers:
+        full = fitted["digests"][f"gsm8k_full|{l}"]["pullbacks"]
+        diag = fitted["digests"][f"gsm8k_diag|{l}"]["pullbacks"]
+        off = fitted["digests"][f"gsm8k_off|{l}"]["pullbacks"]
+        error = float((full - diag - off).norm() / full.norm().clamp_min(1e-12))
+        if not torch.isfinite(full).all() or not error < 1e-5:
+            raise RuntimeError(f"Invalid component decomposition at layer {l}: {error}")
+        decomposition_errors[l] = error
+    save(root / "fit_diagnostics.json", {"prompts": len(protocol["fit_texts"]),
+                                       "decomposition_relative_errors": decomposition_errors})
     bank = Bank(model, [str(fit_path)], words)
     checkpoint("fit_complete", {"words": len(words), "fit_seconds": round(time.monotonic()-fit_started)})
 
@@ -261,6 +303,11 @@ def run_cross_model(spec: CrossModelSpec):
             if len(rows) % 80 == 0:
                 checkpoint("latent_interventions", len(rows) // 4)
     checkpoint("latent_complete", len(rows) // 4)
+    expected_latent = {(i["name"], arm, strength) for i in latent
+                       for arm in ("full", "off_m") for strength in (0.5, 1.0)}
+    actual_latent = {(r["name"], r["arm"], r["strength"]) for r in rows}
+    if len(rows) != len(expected_latent) or actual_latent != expected_latent:
+        raise RuntimeError("Latent results are incomplete or duplicated")
     path = root / "concept_results.json"
     rows = json.loads(path.read_text()) if path.exists() else []
     done = {(r["key"], r["relation"]) for r in rows}
@@ -281,5 +328,9 @@ def run_cross_model(spec: CrossModelSpec):
     expected = sum(len(eligible[u.key]) for u in selected) * len(arms)
     if len(rows) != expected:
         raise RuntimeError(f"Concept rows {len(rows)} != {expected}")
+    expected_concept = {(u.key, relation, arm) for u in selected
+                        for relation in eligible[u.key] for arm in arms}
+    if {(r["key"], r["relation"], r["arm"]) for r in rows} != expected_concept:
+        raise RuntimeError("Concept results are incomplete or duplicated")
     checkpoint("complete", {"latent_items": len(latent), "concept_units": len(selected), "concept_rows": len(rows)})
     return {"path": str(root), "status": "complete", "seconds": time.monotonic()-started}

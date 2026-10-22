@@ -1,0 +1,3049 @@
+{
+  "scope": "completed core position-pair filtering evaluations",
+  "bootstrap": {
+    "draws": 2000,
+    "seed": 42102,
+    "cluster": "source entity",
+    "pointwise": true
+  },
+  "notes": [
+    "Completed position-pair filtering evaluations: 13 model checkpoints, 16 main model/lens evaluations. Rates and paired intervals are derived from saved outputs; no new model calls or GPU work.",
+    "IDs: P = original Qwen paper reference; H = initial Gemma/Llama replication; F = broader-model balanced replication; NP = published Neuronpedia-lens replication. Full per-run provenance is listed below.",
+    "Full \u2192 filtered reports target-answer accuracy in percent. \u0394 is filtered \u2212 full in percentage points. All displayed paired intervals are recomputed with the same source-entity cluster bootstrap (2000 draws, seed 42102), conditional on one fitted lens/diagonal estimate; pointwise and unadjusted for multiple comparisons. The 14 replication rows are checked against their existing summaries. Original Qwen reference intervals can differ slightly from the paper\u2019s 10,000-draw intervals.",
+    "Lens provenance: self-fit GSM8K/WikiText rows use jointly fitted full/diagonal/off components (32 fitting texts). Neuronpedia rows hold the published full lens fixed and subtract a separately estimated 64-text WikiText diagonal: this is approximate filtering. Full-fit prompt counts refer to the released lens; D32 is a sensitivity with the same full baseline. Projection proxies remove the unembedding-aligned component and are reported separately.",
+    "The main table uses strength 1 and whole-prompt edits. Latent swaps retain native direction-column scales and match filtered edit norms to full. Concept-use/naming comparisons unit-normalize both columns, with per-position/per-layer norm matching. Concept accuracy averages eligible relations within units, then units equally. N is latent items or concept units, not generated tokens or relation queries.",
+    "Populations, layer bands, lens-fitting corpus and sampling differ across campaigns; compare full vs filtered within each row. The original Qwen panel uses 194 latent items and 661 country-heavy concept units; later replications select up to 40 concept units per type. Original Qwen paper-reference and later Qwen control rows are distinct evaluations and are not pooled. Naming accuracy and incorrect-name emission are separate endpoints; emission reduction alone does not establish improved use.",
+    "Gemma pressure-test validation is exploratory: source groups are separated from development selection, but earlier aggregate/some latent outcomes were already observed. All six evaluated validation settings are retained, including unsuccessful settings. Its projection row is a proxy, and its native-column concept controls differ from the main unit-column comparison.",
+    "Coverage: Qwen3-1.7B and Qwen3.6-27B have other domain/geometry or local-vs-averaged experiments, but no completed paired latent-plus-concept position-filtering replication was located for this table. They are untested for these endpoints, not negative results. The configured Gemma 2 2B base checkpoint likewise has no completed core pair here."
+  ],
+  "core": [
+    {
+      "id": "P-GSM",
+      "model": "qwen3-8b",
+      "study": "Original Qwen paper panel",
+      "lens": "Self-fit GSM8K / exact components",
+      "method": "jointly fitted full / off-diagonal",
+      "corpus": "gsm8k",
+      "full_fit_prompts": 32,
+      "diagonal_fit_prompts": 32,
+      "source_path": "results/c22/write_controls_dac7603b1af57dbd.json; results/latent/latent_controls_gsm8k_80a6934224f0ac55.json; results/concept/swap_c37lambdaprompt_qwen3-8b_034da26ce9_shard[0\u20133]of4.json",
+      "layers": [
+        13,
+        16,
+        19,
+        22,
+        25,
+        28,
+        31
+      ],
+      "contrasts": {
+        "latent / 0.5": {
+          "success": {
+            "n": 194,
+            "clusters": 58,
+            "baseline": 37.628865979381445,
+            "filtered": 26.804123711340207,
+            "delta": -10.824742268041238,
+            "ci": [
+              -15.625,
+              -6.074766355140187
+            ],
+            "wins": 5,
+            "losses": 26
+          },
+          "incorrect_name_emission": {
+            "n": 194,
+            "clusters": 58,
+            "baseline": 10.824742268041238,
+            "filtered": 4.639175257731959,
+            "delta": -6.185567010309279,
+            "ci": [
+              -9.72972972972973,
+              -3.0927835051546393
+            ],
+            "wins": 0,
+            "losses": 12
+          }
+        },
+        "latent / 1": {
+          "success": {
+            "n": 194,
+            "clusters": 58,
+            "baseline": 31.958762886597935,
+            "filtered": 47.42268041237113,
+            "delta": 15.463917525773196,
+            "ci": [
+              8.823529411764707,
+              21.658986175115206
+            ],
+            "wins": 34,
+            "losses": 4
+          },
+          "incorrect_name_emission": {
+            "n": 194,
+            "clusters": 58,
+            "baseline": 34.02061855670103,
+            "filtered": 8.762886597938143,
+            "delta": -25.257731958762886,
+            "ci": [
+              -31.65829145728643,
+              -18.781725888324875
+            ],
+            "wins": 0,
+            "losses": 49
+          }
+        },
+        "concept use / 1": {
+          "success": {
+            "n": 661,
+            "clusters": 30,
+            "baseline": 66.76752395360565,
+            "filtered": 74.93696419566314,
+            "delta": 8.16944024205749,
+            "ci": [
+              3.070827142149579,
+              13.664596273291925
+            ],
+            "wins": 165,
+            "losses": 62
+          },
+          "incorrect_name_emission": {
+            "n": 661,
+            "clusters": 30,
+            "baseline": 21.533030761472517,
+            "filtered": 5.6984367120524455,
+            "delta": -15.834594049420073,
+            "ci": [
+              -20.206243032329986,
+              -11.937716262975778
+            ],
+            "wins": 0,
+            "losses": 184
+          }
+        }
+      },
+      "naming": {
+        "n": 661,
+        "clusters": 30,
+        "baseline": 95.91527987897126,
+        "filtered": 86.535552193646,
+        "delta": -9.379727685325268,
+        "ci": [
+          -14.130434782608695,
+          -5.421686746987952
+        ],
+        "wins": 2,
+        "losses": 64
+      },
+      "sensitivity32": {}
+    },
+    {
+      "id": "P-WIKI",
+      "model": "qwen3-8b",
+      "study": "Original Qwen paper panel",
+      "lens": "Self-fit WikiText / exact components",
+      "method": "jointly fitted full / off-diagonal",
+      "corpus": "wikitext_a",
+      "full_fit_prompts": 32,
+      "diagonal_fit_prompts": 32,
+      "source_path": "results/c22/write_controls_6fff00659415ddf5.json; results/latent/latent_controls_wikitext_a_393f229cc9c869be.json; results/concept/swap_c37lambdaprompt_qwen3-8b_034da26ce9_shard[0\u20133]of4.json",
+      "layers": [
+        13,
+        16,
+        19,
+        22,
+        25,
+        28,
+        31
+      ],
+      "contrasts": {
+        "latent / 0.5": {
+          "success": {
+            "n": 194,
+            "clusters": 58,
+            "baseline": 43.29896907216495,
+            "filtered": 46.90721649484536,
+            "delta": 3.6082474226804107,
+            "ci": [
+              -1.0471204188481675,
+              8.64864864864865
+            ],
+            "wins": 13,
+            "losses": 6
+          },
+          "incorrect_name_emission": {
+            "n": 194,
+            "clusters": 58,
+            "baseline": 14.948453608247423,
+            "filtered": 7.216494845360824,
+            "delta": -7.731958762886598,
+            "ci": [
+              -12.807881773399016,
+              -3.7037037037037033
+            ],
+            "wins": 0,
+            "losses": 15
+          }
+        },
+        "latent / 1": {
+          "success": {
+            "n": 194,
+            "clusters": 58,
+            "baseline": 35.051546391752574,
+            "filtered": 49.48453608247423,
+            "delta": 14.432989690721653,
+            "ci": [
+              7.6923076923076925,
+              20.657276995305164
+            ],
+            "wins": 33,
+            "losses": 5
+          },
+          "incorrect_name_emission": {
+            "n": 194,
+            "clusters": 58,
+            "baseline": 35.051546391752574,
+            "filtered": 13.402061855670103,
+            "delta": -21.649484536082472,
+            "ci": [
+              -29.25531914893617,
+              -14.499999999999998
+            ],
+            "wins": 0,
+            "losses": 42
+          }
+        },
+        "concept use / 1": {
+          "success": {
+            "n": 661,
+            "clusters": 30,
+            "baseline": 60.61522945032779,
+            "filtered": 77.05496722138174,
+            "delta": 16.439737771053952,
+            "ci": [
+              12.64737406216506,
+              20.510563380281692
+            ],
+            "wins": 226,
+            "losses": 20
+          },
+          "incorrect_name_emission": {
+            "n": 661,
+            "clusters": 30,
+            "baseline": 30.10590015128593,
+            "filtered": 10.136157337367626,
+            "delta": -19.969742813918305,
+            "ci": [
+              -23.525872442839955,
+              -16.441441441441444
+            ],
+            "wins": 0,
+            "losses": 240
+          }
+        }
+      },
+      "naming": {
+        "n": 661,
+        "clusters": 30,
+        "baseline": 95.46142208774585,
+        "filtered": 92.28441754916793,
+        "delta": -3.17700453857791,
+        "ci": [
+          -6.043165467625899,
+          -0.5494505494505495
+        ],
+        "wins": 8,
+        "losses": 29
+      },
+      "sensitivity32": {}
+    },
+    {
+      "id": "H-01",
+      "model": "gemma-3-12b-it",
+      "study": "Initial Gemma/Llama replication",
+      "lens": "Self-fit GSM8K / exact components",
+      "method": "jointly fitted full / off-diagonal",
+      "corpus": "GSM8K",
+      "full_fit_prompts": 32,
+      "diagonal_fit_prompts": 32,
+      "model_revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+      "layers": [
+        17,
+        21,
+        26,
+        30,
+        34,
+        38,
+        42
+      ],
+      "source_path": "results/cross_model/gemma-3-12b-it/22b06e8c0089",
+      "published_metadata": null,
+      "contrasts": {
+        "latent / 0.5": {
+          "success": {
+            "n": 222,
+            "clusters": 68,
+            "baseline": 22.972972972972975,
+            "filtered": 18.01801801801802,
+            "delta": -4.954954954954957,
+            "ci": [
+              -8.294930875576037,
+              -1.4218009478672986
+            ],
+            "wins": 4,
+            "losses": 15
+          },
+          "incorrect_name_emission": {
+            "n": 222,
+            "clusters": 68,
+            "baseline": 6.306306306306306,
+            "filtered": 1.3513513513513513,
+            "delta": -4.954954954954954,
+            "ci": [
+              -7.636363636363637,
+              -2.3923444976076556
+            ],
+            "wins": 0,
+            "losses": 11
+          }
+        },
+        "latent / 1": {
+          "success": {
+            "n": 222,
+            "clusters": 68,
+            "baseline": 30.630630630630627,
+            "filtered": 30.180180180180184,
+            "delta": -0.45045045045044585,
+            "ci": [
+              -5.970149253731343,
+              5.288461538461538
+            ],
+            "wins": 13,
+            "losses": 14
+          },
+          "incorrect_name_emission": {
+            "n": 222,
+            "clusters": 68,
+            "baseline": 15.315315315315313,
+            "filtered": 4.954954954954955,
+            "delta": -10.36036036036036,
+            "ci": [
+              -15.416666666666668,
+              -5.357142857142857
+            ],
+            "wins": 2,
+            "losses": 25
+          }
+        },
+        "concept use / 1": {
+          "success": {
+            "n": 120,
+            "clusters": 33,
+            "baseline": 24.166666666666668,
+            "filtered": 18.75,
+            "delta": -5.416666666666667,
+            "ci": [
+              -11.159420289855072,
+              0.4796163069544364
+            ],
+            "wins": 7,
+            "losses": 21
+          },
+          "incorrect_name_emission": {
+            "n": 120,
+            "clusters": 33,
+            "baseline": 21.25,
+            "filtered": 4.444444444444444,
+            "delta": -16.805555555555557,
+            "ci": [
+              -24.6031746031746,
+              -9.375
+            ],
+            "wins": 3,
+            "losses": 28
+          }
+        }
+      },
+      "naming": {
+        "n": 120,
+        "clusters": 33,
+        "baseline": 60.83333333333333,
+        "filtered": 19.166666666666668,
+        "delta": -41.666666666666664,
+        "ci": [
+          -53.2608695652174,
+          -31.386861313868614
+        ],
+        "wins": 1,
+        "losses": 51
+      },
+      "sensitivity32": {}
+    },
+    {
+      "id": "H-02",
+      "model": "llama-3.1-8b-instruct",
+      "study": "Initial Gemma/Llama replication",
+      "lens": "Self-fit GSM8K / exact components",
+      "method": "jointly fitted full / off-diagonal",
+      "corpus": "GSM8K",
+      "full_fit_prompts": 32,
+      "diagonal_fit_prompts": 32,
+      "model_revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "layers": [
+        12,
+        14,
+        17,
+        19,
+        22,
+        25,
+        27
+      ],
+      "source_path": "results/cross_model/llama-3.1-8b-instruct/19b48f435ca8",
+      "published_metadata": null,
+      "contrasts": {
+        "latent / 0.5": {
+          "success": {
+            "n": 183,
+            "clusters": 57,
+            "baseline": 33.87978142076503,
+            "filtered": 42.62295081967213,
+            "delta": 8.743169398907103,
+            "ci": [
+              4.301075268817205,
+              13.043478260869565
+            ],
+            "wins": 16,
+            "losses": 0
+          },
+          "incorrect_name_emission": {
+            "n": 183,
+            "clusters": 57,
+            "baseline": 29.508196721311474,
+            "filtered": 16.39344262295082,
+            "delta": -13.114754098360656,
+            "ci": [
+              -18.65284974093264,
+              -7.262569832402235
+            ],
+            "wins": 3,
+            "losses": 27
+          }
+        },
+        "latent / 1": {
+          "success": {
+            "n": 183,
+            "clusters": 57,
+            "baseline": 21.85792349726776,
+            "filtered": 36.6120218579235,
+            "delta": 14.75409836065574,
+            "ci": [
+              9.554140127388536,
+              19.45945945945946
+            ],
+            "wins": 29,
+            "losses": 2
+          },
+          "incorrect_name_emission": {
+            "n": 183,
+            "clusters": 57,
+            "baseline": 46.994535519125684,
+            "filtered": 27.322404371584703,
+            "delta": -19.672131147540984,
+            "ci": [
+              -26.993865030674847,
+              -13.089005235602095
+            ],
+            "wins": 1,
+            "losses": 37
+          }
+        },
+        "concept use / 1": {
+          "success": {
+            "n": 89,
+            "clusters": 22,
+            "baseline": 20.973782771535582,
+            "filtered": 33.333333333333336,
+            "delta": 12.359550561797755,
+            "ci": [
+              6.327160493827161,
+              19.871794871794872
+            ],
+            "wins": 22,
+            "losses": 4
+          },
+          "incorrect_name_emission": {
+            "n": 89,
+            "clusters": 22,
+            "baseline": 48.68913857677903,
+            "filtered": 28.277153558052436,
+            "delta": -20.411985018726593,
+            "ci": [
+              -29.40074906367041,
+              -12.025316455696203
+            ],
+            "wins": 0,
+            "losses": 26
+          }
+        }
+      },
+      "naming": {
+        "n": 89,
+        "clusters": 22,
+        "baseline": 82.02247191011236,
+        "filtered": 67.41573033707866,
+        "delta": -14.60674157303371,
+        "ci": [
+          -23.232323232323232,
+          -6.329113924050633
+        ],
+        "wins": 1,
+        "losses": 14
+      },
+      "sensitivity32": {}
+    },
+    {
+      "id": "F-01",
+      "model": "mistral-7b-instruct-v0.3",
+      "study": "Broader-model balanced replication",
+      "lens": "Self-fit GSM8K / exact components",
+      "method": "jointly fitted full / off-diagonal",
+      "corpus": "GSM8K",
+      "full_fit_prompts": 32,
+      "diagonal_fit_prompts": 32,
+      "model_revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+      "layers": [
+        12,
+        14,
+        17,
+        19,
+        22,
+        25,
+        27
+      ],
+      "source_path": "results/filtering_replication/mistral-7b-instruct-v0.3/5d0378eb34d3",
+      "published_metadata": null,
+      "contrasts": {
+        "latent / 0.5": {
+          "success": {
+            "n": 164,
+            "clusters": 43,
+            "baseline": 46.34146341463415,
+            "filtered": 51.21951219512195,
+            "delta": 4.878048780487804,
+            "ci": [
+              0.0,
+              9.523809523809524
+            ],
+            "wins": 12,
+            "losses": 4
+          },
+          "incorrect_name_emission": {
+            "n": 164,
+            "clusters": 43,
+            "baseline": 30.48780487804878,
+            "filtered": 15.853658536585366,
+            "delta": -14.634146341463413,
+            "ci": [
+              -20.64516129032258,
+              -9.195402298850574
+            ],
+            "wins": 0,
+            "losses": 24
+          }
+        },
+        "latent / 1": {
+          "success": {
+            "n": 164,
+            "clusters": 43,
+            "baseline": 25.0,
+            "filtered": 44.51219512195122,
+            "delta": 19.51219512195122,
+            "ci": [
+              12.5,
+              26.506024096385545
+            ],
+            "wins": 35,
+            "losses": 3
+          },
+          "incorrect_name_emission": {
+            "n": 164,
+            "clusters": 43,
+            "baseline": 62.19512195121951,
+            "filtered": 37.80487804878049,
+            "delta": -24.390243902439025,
+            "ci": [
+              -32.121212121212125,
+              -16.853932584269664
+            ],
+            "wins": 2,
+            "losses": 42
+          }
+        },
+        "concept use / 1": {
+          "success": {
+            "n": 106,
+            "clusters": 27,
+            "baseline": 29.71698113207547,
+            "filtered": 38.67924528301887,
+            "delta": 8.9622641509434,
+            "ci": [
+              3.731343283582089,
+              15.611814345991561
+            ],
+            "wins": 19,
+            "losses": 5
+          },
+          "incorrect_name_emission": {
+            "n": 106,
+            "clusters": 27,
+            "baseline": 58.17610062893082,
+            "filtered": 35.84905660377358,
+            "delta": -22.32704402515723,
+            "ci": [
+              -33.18318318318318,
+              -12.5
+            ],
+            "wins": 4,
+            "losses": 36
+          }
+        }
+      },
+      "naming": {
+        "n": 106,
+        "clusters": 27,
+        "baseline": 90.56603773584906,
+        "filtered": 83.9622641509434,
+        "delta": -6.6037735849056585,
+        "ci": [
+          -15.384615384615385,
+          1.0526315789473684
+        ],
+        "wins": 1,
+        "losses": 8
+      },
+      "sensitivity32": {}
+    },
+    {
+      "id": "F-02",
+      "model": "olmo-2-1124-7b-instruct",
+      "study": "Broader-model balanced replication",
+      "lens": "Self-fit GSM8K / exact components",
+      "method": "jointly fitted full / off-diagonal",
+      "corpus": "GSM8K",
+      "full_fit_prompts": 32,
+      "diagonal_fit_prompts": 32,
+      "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+      "layers": [
+        12,
+        14,
+        17,
+        19,
+        22,
+        25,
+        27
+      ],
+      "source_path": "results/filtering_replication/olmo-2-1124-7b-instruct/5b97caf5275b",
+      "published_metadata": null,
+      "contrasts": {
+        "latent / 0.5": {
+          "success": {
+            "n": 210,
+            "clusters": 66,
+            "baseline": 40.0,
+            "filtered": 6.666666666666667,
+            "delta": -33.333333333333336,
+            "ci": [
+              -42.857142857142854,
+              -23.316062176165804
+            ],
+            "wins": 3,
+            "losses": 73
+          },
+          "incorrect_name_emission": {
+            "n": 210,
+            "clusters": 66,
+            "baseline": 22.380952380952383,
+            "filtered": 1.9047619047619049,
+            "delta": -20.476190476190474,
+            "ci": [
+              -27.173913043478258,
+              -14.553990610328638
+            ],
+            "wins": 0,
+            "losses": 43
+          }
+        },
+        "latent / 1": {
+          "success": {
+            "n": 210,
+            "clusters": 66,
+            "baseline": 30.476190476190478,
+            "filtered": 40.476190476190474,
+            "delta": 9.999999999999998,
+            "ci": [
+              1.4925373134328357,
+              18.91891891891892
+            ],
+            "wins": 42,
+            "losses": 21
+          },
+          "incorrect_name_emission": {
+            "n": 210,
+            "clusters": 66,
+            "baseline": 48.57142857142857,
+            "filtered": 7.142857142857142,
+            "delta": -41.42857142857142,
+            "ci": [
+              -49.46808510638298,
+              -33.99209486166008
+            ],
+            "wins": 0,
+            "losses": 87
+          }
+        },
+        "concept use / 1": {
+          "success": {
+            "n": 120,
+            "clusters": 33,
+            "baseline": 36.666666666666664,
+            "filtered": 32.916666666666664,
+            "delta": -3.749999999999998,
+            "ci": [
+              -14.713541666666666,
+              7.460317460317461
+            ],
+            "wins": 23,
+            "losses": 27
+          },
+          "incorrect_name_emission": {
+            "n": 120,
+            "clusters": 33,
+            "baseline": 43.888888888888886,
+            "filtered": 3.3333333333333335,
+            "delta": -40.55555555555556,
+            "ci": [
+              -55.026455026455025,
+              -25.730994152046783
+            ],
+            "wins": 2,
+            "losses": 63
+          }
+        }
+      },
+      "naming": {
+        "n": 120,
+        "clusters": 33,
+        "baseline": 98.33333333333333,
+        "filtered": 40.833333333333336,
+        "delta": -57.49999999999999,
+        "ci": [
+          -69.46564885496184,
+          -43.75
+        ],
+        "wins": 0,
+        "losses": 69
+      },
+      "sensitivity32": {}
+    },
+    {
+      "id": "F-03",
+      "model": "qwen2.5-7b-instruct",
+      "study": "Broader-model balanced replication",
+      "lens": "Self-fit GSM8K / exact components",
+      "method": "jointly fitted full / off-diagonal",
+      "corpus": "GSM8K",
+      "full_fit_prompts": 32,
+      "diagonal_fit_prompts": 32,
+      "model_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+      "layers": [
+        10,
+        12,
+        15,
+        17,
+        19,
+        22,
+        24
+      ],
+      "source_path": "results/filtering_replication/qwen2.5-7b-instruct/f3b780e2c198",
+      "published_metadata": null,
+      "contrasts": {
+        "latent / 0.5": {
+          "success": {
+            "n": 190,
+            "clusters": 64,
+            "baseline": 23.684210526315788,
+            "filtered": 12.631578947368421,
+            "delta": -11.052631578947366,
+            "ci": [
+              -16.666666666666664,
+              -5.9459459459459465
+            ],
+            "wins": 1,
+            "losses": 22
+          },
+          "incorrect_name_emission": {
+            "n": 190,
+            "clusters": 64,
+            "baseline": 3.1578947368421053,
+            "filtered": 0.5263157894736842,
+            "delta": -2.6315789473684212,
+            "ci": [
+              -4.787234042553192,
+              -0.5780346820809248
+            ],
+            "wins": 0,
+            "losses": 5
+          }
+        },
+        "latent / 1": {
+          "success": {
+            "n": 190,
+            "clusters": 64,
+            "baseline": 44.21052631578947,
+            "filtered": 40.526315789473685,
+            "delta": -3.68421052631579,
+            "ci": [
+              -10.0,
+              2.312138728323699
+            ],
+            "wins": 11,
+            "losses": 18
+          },
+          "incorrect_name_emission": {
+            "n": 190,
+            "clusters": 64,
+            "baseline": 14.210526315789473,
+            "filtered": 4.2105263157894735,
+            "delta": -10.0,
+            "ci": [
+              -14.925373134328357,
+              -5.454545454545454
+            ],
+            "wins": 1,
+            "losses": 20
+          }
+        },
+        "concept use / 1": {
+          "success": {
+            "n": 120,
+            "clusters": 31,
+            "baseline": 35.138888888888886,
+            "filtered": 25.972222222222225,
+            "delta": -9.166666666666663,
+            "ci": [
+              -15.591397849462366,
+              -2.28494623655914
+            ],
+            "wins": 14,
+            "losses": 26
+          },
+          "incorrect_name_emission": {
+            "n": 120,
+            "clusters": 31,
+            "baseline": 21.805555555555557,
+            "filtered": 0.0,
+            "delta": -21.805555555555557,
+            "ci": [
+              -32.916666666666664,
+              -11.014492753623188
+            ],
+            "wins": 0,
+            "losses": 35
+          }
+        }
+      },
+      "naming": {
+        "n": 120,
+        "clusters": 31,
+        "baseline": 85.83333333333333,
+        "filtered": 40.0,
+        "delta": -45.83333333333333,
+        "ci": [
+          -60.58394160583942,
+          -29.166666666666668
+        ],
+        "wins": 0,
+        "losses": 55
+      },
+      "sensitivity32": {}
+    },
+    {
+      "id": "F-04",
+      "model": "qwen3-14b",
+      "study": "Broader-model balanced replication",
+      "lens": "Self-fit GSM8K / exact components",
+      "method": "jointly fitted full / off-diagonal",
+      "corpus": "GSM8K",
+      "full_fit_prompts": 32,
+      "diagonal_fit_prompts": 32,
+      "model_revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+      "layers": [
+        14,
+        18,
+        21,
+        25,
+        28,
+        31,
+        35
+      ],
+      "source_path": "results/filtering_replication/qwen3-14b/f35c5fb3d674",
+      "published_metadata": null,
+      "contrasts": {
+        "latent / 0.5": {
+          "success": {
+            "n": 219,
+            "clusters": 64,
+            "baseline": 38.35616438356164,
+            "filtered": 31.963470319634702,
+            "delta": -6.392694063926941,
+            "ci": [
+              -10.628019323671497,
+              -2.0202020202020203
+            ],
+            "wins": 3,
+            "losses": 17
+          },
+          "incorrect_name_emission": {
+            "n": 219,
+            "clusters": 64,
+            "baseline": 5.93607305936073,
+            "filtered": 3.1963470319634704,
+            "delta": -2.73972602739726,
+            "ci": [
+              -4.9504950495049505,
+              -0.9090909090909091
+            ],
+            "wins": 0,
+            "losses": 6
+          }
+        },
+        "latent / 1": {
+          "success": {
+            "n": 219,
+            "clusters": 64,
+            "baseline": 49.31506849315068,
+            "filtered": 54.794520547945204,
+            "delta": 5.47945205479452,
+            "ci": [
+              0.5154639175257731,
+              10.0
+            ],
+            "wins": 19,
+            "losses": 7
+          },
+          "incorrect_name_emission": {
+            "n": 219,
+            "clusters": 64,
+            "baseline": 24.200913242009133,
+            "filtered": 10.50228310502283,
+            "delta": -13.698630136986301,
+            "ci": [
+              -18.421052631578945,
+              -9.01639344262295
+            ],
+            "wins": 1,
+            "losses": 31
+          }
+        },
+        "concept use / 1": {
+          "success": {
+            "n": 94,
+            "clusters": 14,
+            "baseline": 40.602836879432616,
+            "filtered": 43.61702127659575,
+            "delta": 3.0141843971631275,
+            "ci": [
+              -3.1578947368421053,
+              10.460992907801419
+            ],
+            "wins": 14,
+            "losses": 6
+          },
+          "incorrect_name_emission": {
+            "n": 94,
+            "clusters": 14,
+            "baseline": 40.0709219858156,
+            "filtered": 11.52482269503546,
+            "delta": -28.546099290780134,
+            "ci": [
+              -42.13836477987421,
+              -15.816326530612246
+            ],
+            "wins": 0,
+            "losses": 35
+          }
+        }
+      },
+      "naming": {
+        "n": 94,
+        "clusters": 14,
+        "baseline": 93.61702127659575,
+        "filtered": 63.829787234042556,
+        "delta": -29.78723404255319,
+        "ci": [
+          -44.44444444444444,
+          -14.772727272727273
+        ],
+        "wins": 1,
+        "losses": 29
+      },
+      "sensitivity32": {}
+    },
+    {
+      "id": "F-05",
+      "model": "qwen3-4b",
+      "study": "Broader-model balanced replication",
+      "lens": "Self-fit GSM8K / exact components",
+      "method": "jointly fitted full / off-diagonal",
+      "corpus": "GSM8K",
+      "full_fit_prompts": 32,
+      "diagonal_fit_prompts": 32,
+      "model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+      "layers": [
+        13,
+        16,
+        19,
+        22,
+        25,
+        28,
+        31
+      ],
+      "source_path": "results/filtering_replication/qwen3-4b/144f15df1fd0",
+      "published_metadata": null,
+      "contrasts": {
+        "latent / 0.5": {
+          "success": {
+            "n": 192,
+            "clusters": 62,
+            "baseline": 35.41666666666667,
+            "filtered": 30.729166666666668,
+            "delta": -4.6875,
+            "ci": [
+              -10.471204188481675,
+              1.4423076923076923
+            ],
+            "wins": 9,
+            "losses": 18
+          },
+          "incorrect_name_emission": {
+            "n": 192,
+            "clusters": 62,
+            "baseline": 18.75,
+            "filtered": 8.854166666666668,
+            "delta": -9.895833333333332,
+            "ci": [
+              -15.508021390374333,
+              -4.975124378109453
+            ],
+            "wins": 2,
+            "losses": 21
+          }
+        },
+        "latent / 1": {
+          "success": {
+            "n": 192,
+            "clusters": 62,
+            "baseline": 27.604166666666668,
+            "filtered": 35.9375,
+            "delta": 8.333333333333332,
+            "ci": [
+              2.2857142857142856,
+              14.678899082568808
+            ],
+            "wins": 23,
+            "losses": 7
+          },
+          "incorrect_name_emission": {
+            "n": 192,
+            "clusters": 62,
+            "baseline": 40.625,
+            "filtered": 20.833333333333336,
+            "delta": -19.791666666666664,
+            "ci": [
+              -26.31578947368421,
+              -12.5
+            ],
+            "wins": 3,
+            "losses": 41
+          }
+        },
+        "concept use / 1": {
+          "success": {
+            "n": 120,
+            "clusters": 29,
+            "baseline": 37.916666666666664,
+            "filtered": 42.77777777777778,
+            "delta": 4.861111111111116,
+            "ci": [
+              -1.1666666666666665,
+              11.111111111111112
+            ],
+            "wins": 16,
+            "losses": 6
+          },
+          "incorrect_name_emission": {
+            "n": 120,
+            "clusters": 29,
+            "baseline": 38.47222222222222,
+            "filtered": 27.361111111111114,
+            "delta": -11.111111111111105,
+            "ci": [
+              -20.72072072072072,
+              -2.1367521367521367
+            ],
+            "wins": 6,
+            "losses": 22
+          }
+        }
+      },
+      "naming": {
+        "n": 120,
+        "clusters": 29,
+        "baseline": 93.33333333333333,
+        "filtered": 73.33333333333333,
+        "delta": -20.000000000000007,
+        "ci": [
+          -29.03225806451613,
+          -10.909090909090908
+        ],
+        "wins": 0,
+        "losses": 24
+      },
+      "sensitivity32": {}
+    },
+    {
+      "id": "F-06",
+      "model": "qwen3-8b",
+      "study": "Broader-model balanced replication",
+      "lens": "Self-fit GSM8K / exact components",
+      "method": "jointly fitted full / off-diagonal",
+      "corpus": "GSM8K",
+      "full_fit_prompts": 32,
+      "diagonal_fit_prompts": 32,
+      "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "layers": [
+        13,
+        16,
+        19,
+        22,
+        25,
+        28,
+        31
+      ],
+      "source_path": "results/filtering_replication/qwen3-8b/592cdb16c2cc",
+      "published_metadata": null,
+      "contrasts": {
+        "latent / 0.5": {
+          "success": {
+            "n": 189,
+            "clusters": 58,
+            "baseline": 38.62433862433862,
+            "filtered": 26.455026455026452,
+            "delta": -12.16931216931217,
+            "ci": [
+              -17.67676767676768,
+              -7.100591715976331
+            ],
+            "wins": 4,
+            "losses": 27
+          },
+          "incorrect_name_emission": {
+            "n": 189,
+            "clusters": 58,
+            "baseline": 9.523809523809524,
+            "filtered": 4.232804232804233,
+            "delta": -5.291005291005291,
+            "ci": [
+              -8.37696335078534,
+              -2.604166666666667
+            ],
+            "wins": 0,
+            "losses": 10
+          }
+        },
+        "latent / 1": {
+          "success": {
+            "n": 189,
+            "clusters": 58,
+            "baseline": 31.746031746031743,
+            "filtered": 47.61904761904761,
+            "delta": 15.873015873015872,
+            "ci": [
+              9.62566844919786,
+              21.890547263681594
+            ],
+            "wins": 33,
+            "losses": 3
+          },
+          "incorrect_name_emission": {
+            "n": 189,
+            "clusters": 58,
+            "baseline": 34.39153439153439,
+            "filtered": 8.465608465608465,
+            "delta": -25.925925925925924,
+            "ci": [
+              -32.12435233160622,
+              -19.672131147540984
+            ],
+            "wins": 0,
+            "losses": 49
+          }
+        },
+        "concept use / 1": {
+          "success": {
+            "n": 120,
+            "clusters": 29,
+            "baseline": 51.388888888888886,
+            "filtered": 57.22222222222223,
+            "delta": 5.833333333333346,
+            "ci": [
+              -0.15151515151515138,
+              12.878787878787879
+            ],
+            "wins": 15,
+            "losses": 3
+          },
+          "incorrect_name_emission": {
+            "n": 120,
+            "clusters": 29,
+            "baseline": 29.72222222222222,
+            "filtered": 12.083333333333334,
+            "delta": -17.638888888888886,
+            "ci": [
+              -27.582159624413144,
+              -8.672086720867208
+            ],
+            "wins": 0,
+            "losses": 29
+          }
+        }
+      },
+      "naming": {
+        "n": 120,
+        "clusters": 29,
+        "baseline": 91.66666666666666,
+        "filtered": 78.33333333333333,
+        "delta": -13.33333333333333,
+        "ci": [
+          -20.8955223880597,
+          -6.422018348623854
+        ],
+        "wins": 0,
+        "losses": 16
+      },
+      "sensitivity32": {}
+    },
+    {
+      "id": "NP-01",
+      "model": "gemma-2-2b-it",
+      "study": "Published-lens replication",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "method": "published full \u2212 estimated diagonal",
+      "corpus": "WikiText",
+      "full_fit_prompts": 337,
+      "diagonal_fit_prompts": 64,
+      "model_revision": "299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8",
+      "layers": [
+        9,
+        11,
+        14,
+        16,
+        18,
+        20,
+        22
+      ],
+      "source_path": "results/neuronpedia_replication/gemma-2-2b-it-np/c2382ae25c35",
+      "published_metadata": {
+        "repository": "neuronpedia/jacobian-lens",
+        "revision": "e166deb5ad540932100ef803c8c9bcc2a5453694",
+        "filename": "gemma-2-2b-it/jlens/Salesforce-wikitext/gemma-2-2b-it_jacobian_lens.pt",
+        "file_sha256": "48d3e83cb53805340a0b036399a7673bbd428e95cfec7201e51629e91512e6df",
+        "n_prompts": 337,
+        "d_model": 2304,
+        "source_layers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "full_lens_refitted": false
+      },
+      "contrasts": {
+        "latent / 0.5": {
+          "success": {
+            "n": 187,
+            "clusters": 58,
+            "baseline": 35.82887700534759,
+            "filtered": 45.45454545454545,
+            "delta": 9.62566844919786,
+            "ci": [
+              5.699481865284974,
+              13.736263736263737
+            ],
+            "wins": 18,
+            "losses": 0
+          },
+          "incorrect_name_emission": {
+            "n": 187,
+            "clusters": 58,
+            "baseline": 39.57219251336899,
+            "filtered": 28.342245989304814,
+            "delta": -11.229946524064172,
+            "ci": [
+              -15.254237288135593,
+              -7.2727272727272725
+            ],
+            "wins": 0,
+            "losses": 21
+          }
+        },
+        "latent / 1": {
+          "success": {
+            "n": 187,
+            "clusters": 58,
+            "baseline": 16.577540106951872,
+            "filtered": 33.155080213903744,
+            "delta": 16.577540106951872,
+            "ci": [
+              10.106382978723403,
+              23.91304347826087
+            ],
+            "wins": 32,
+            "losses": 1
+          },
+          "incorrect_name_emission": {
+            "n": 187,
+            "clusters": 58,
+            "baseline": 60.962566844919785,
+            "filtered": 40.64171122994652,
+            "delta": -20.32085561497326,
+            "ci": [
+              -25.268817204301076,
+              -14.973262032085561
+            ],
+            "wins": 2,
+            "losses": 40
+          }
+        },
+        "concept use / 1": {
+          "success": {
+            "n": 120,
+            "clusters": 29,
+            "baseline": 21.38888888888889,
+            "filtered": 34.72222222222222,
+            "delta": 13.33333333333333,
+            "ci": [
+              7.3573573573573565,
+              19.5906432748538
+            ],
+            "wins": 22,
+            "losses": 2
+          },
+          "incorrect_name_emission": {
+            "n": 120,
+            "clusters": 29,
+            "baseline": 68.47222222222223,
+            "filtered": 50.416666666666664,
+            "delta": -18.055555555555557,
+            "ci": [
+              -24.561403508771928,
+              -11.773700305810399
+            ],
+            "wins": 1,
+            "losses": 30
+          }
+        }
+      },
+      "naming": {
+        "n": 120,
+        "clusters": 29,
+        "baseline": 93.33333333333333,
+        "filtered": 91.66666666666666,
+        "delta": -1.6666666666666718,
+        "ci": [
+          -6.25,
+          1.7699115044247788
+        ],
+        "wins": 1,
+        "losses": 3
+      },
+      "sensitivity32": {
+        "latent / 0.5": {
+          "n": 187,
+          "clusters": 58,
+          "baseline": 35.82887700534759,
+          "filtered": 44.919786096256686,
+          "delta": 9.090909090909093,
+          "ci": [
+            5.405405405405405,
+            13.0
+          ],
+          "wins": 17,
+          "losses": 0
+        },
+        "latent / 1": {
+          "n": 187,
+          "clusters": 58,
+          "baseline": 16.577540106951872,
+          "filtered": 34.22459893048128,
+          "delta": 17.64705882352941,
+          "ci": [
+            11.616161616161616,
+            24.571428571428573
+          ],
+          "wins": 33,
+          "losses": 0
+        },
+        "concept use / 1": {
+          "n": 120,
+          "clusters": 29,
+          "baseline": 21.38888888888889,
+          "filtered": 34.44444444444444,
+          "delta": 13.055555555555554,
+          "ci": [
+            6.98005698005698,
+            19.242424242424246
+          ],
+          "wins": 22,
+          "losses": 2
+        }
+      }
+    },
+    {
+      "id": "NP-02",
+      "model": "gemma-2-9b-it",
+      "study": "Published-lens replication",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "method": "published full \u2212 estimated diagonal",
+      "corpus": "WikiText",
+      "full_fit_prompts": 453,
+      "diagonal_fit_prompts": 64,
+      "model_revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+      "layers": [
+        15,
+        19,
+        22,
+        26,
+        29,
+        33,
+        36
+      ],
+      "source_path": "results/neuronpedia_replication/gemma-2-9b-it-np/d632d955f641",
+      "published_metadata": {
+        "repository": "neuronpedia/jacobian-lens",
+        "revision": "e166deb5ad540932100ef803c8c9bcc2a5453694",
+        "filename": "gemma-2-9b-it/jlens/Salesforce-wikitext/gemma-2-9b-it_jacobian_lens.pt",
+        "file_sha256": "dcc03a24e76205098bd89bc8f2f627c2fe869d516ac31911bb2ab991e5c124a9",
+        "n_prompts": 453,
+        "d_model": 3584,
+        "source_layers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40
+        ],
+        "full_lens_refitted": false
+      },
+      "contrasts": {
+        "latent / 0.5": {
+          "success": {
+            "n": 222,
+            "clusters": 65,
+            "baseline": 35.585585585585584,
+            "filtered": 41.44144144144144,
+            "delta": 5.855855855855857,
+            "ci": [
+              1.7857142857142856,
+              10.42654028436019
+            ],
+            "wins": 16,
+            "losses": 3
+          },
+          "incorrect_name_emission": {
+            "n": 222,
+            "clusters": 65,
+            "baseline": 19.36936936936937,
+            "filtered": 9.00900900900901,
+            "delta": -10.36036036036036,
+            "ci": [
+              -15.311004784688995,
+              -6.220095693779904
+            ],
+            "wins": 0,
+            "losses": 23
+          }
+        },
+        "latent / 1": {
+          "success": {
+            "n": 222,
+            "clusters": 65,
+            "baseline": 31.08108108108108,
+            "filtered": 39.189189189189186,
+            "delta": 8.108108108108109,
+            "ci": [
+              4.11522633744856,
+              12.280701754385964
+            ],
+            "wins": 20,
+            "losses": 2
+          },
+          "incorrect_name_emission": {
+            "n": 222,
+            "clusters": 65,
+            "baseline": 42.792792792792795,
+            "filtered": 25.675675675675674,
+            "delta": -17.117117117117118,
+            "ci": [
+              -23.809523809523807,
+              -11.312217194570136
+            ],
+            "wins": 1,
+            "losses": 39
+          }
+        },
+        "concept use / 1": {
+          "success": {
+            "n": 120,
+            "clusters": 31,
+            "baseline": 41.388888888888886,
+            "filtered": 50.55555555555556,
+            "delta": 9.166666666666668,
+            "ci": [
+              4.411764705882353,
+              13.787878787878787
+            ],
+            "wins": 19,
+            "losses": 3
+          },
+          "incorrect_name_emission": {
+            "n": 120,
+            "clusters": 31,
+            "baseline": 33.611111111111114,
+            "filtered": 20.97222222222222,
+            "delta": -12.638888888888891,
+            "ci": [
+              -17.937853107344633,
+              -6.775067750677508
+            ],
+            "wins": 1,
+            "losses": 19
+          }
+        }
+      },
+      "naming": {
+        "n": 120,
+        "clusters": 31,
+        "baseline": 83.33333333333334,
+        "filtered": 80.0,
+        "delta": -3.3333333333333326,
+        "ci": [
+          -9.565217391304348,
+          2.479338842975207
+        ],
+        "wins": 5,
+        "losses": 9
+      },
+      "sensitivity32": {
+        "latent / 0.5": {
+          "n": 222,
+          "clusters": 65,
+          "baseline": 35.585585585585584,
+          "filtered": 41.44144144144144,
+          "delta": 5.855855855855857,
+          "ci": [
+            1.9920318725099602,
+            10.330578512396695
+          ],
+          "wins": 15,
+          "losses": 2
+        },
+        "latent / 1": {
+          "n": 222,
+          "clusters": 65,
+          "baseline": 31.08108108108108,
+          "filtered": 37.83783783783784,
+          "delta": 6.75675675675676,
+          "ci": [
+            2.666666666666667,
+            11.016949152542372
+          ],
+          "wins": 17,
+          "losses": 2
+        },
+        "concept use / 1": {
+          "n": 120,
+          "clusters": 31,
+          "baseline": 41.388888888888886,
+          "filtered": 49.02777777777778,
+          "delta": 7.638888888888895,
+          "ci": [
+            3.5211267605633805,
+            12.684365781710916
+          ],
+          "wins": 18,
+          "losses": 4
+        }
+      }
+    },
+    {
+      "id": "NP-03",
+      "model": "gemma-3-12b-pt",
+      "study": "Published-lens replication",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "method": "published full \u2212 estimated diagonal",
+      "corpus": "WikiText",
+      "full_fit_prompts": 775,
+      "diagonal_fit_prompts": 64,
+      "model_revision": "295efb63d01a7017928f273a94ebb86105c9526f",
+      "layers": [
+        17,
+        21,
+        26,
+        30,
+        34,
+        38,
+        42
+      ],
+      "source_path": "results/neuronpedia_replication/gemma-3-12b-pt-np/788be0987a8e",
+      "published_metadata": {
+        "repository": "neuronpedia/jacobian-lens",
+        "revision": "e166deb5ad540932100ef803c8c9bcc2a5453694",
+        "filename": "gemma-3-12b/jlens/Salesforce-wikitext/gemma-3-12b-pt_jacobian_lens.pt",
+        "file_sha256": "d0a12ccee11520c66646db5f1fe0ae585d923dd69ee6dee4c9e48e6ae63e0c27",
+        "n_prompts": 775,
+        "d_model": 3840,
+        "source_layers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "full_lens_refitted": false
+      },
+      "contrasts": {
+        "latent / 0.5": {
+          "success": {
+            "n": 207,
+            "clusters": 60,
+            "baseline": 45.410628019323674,
+            "filtered": 44.927536231884055,
+            "delta": -0.48309178743961567,
+            "ci": [
+              -5.429864253393665,
+              4.807692307692308
+            ],
+            "wins": 12,
+            "losses": 13
+          },
+          "incorrect_name_emission": {
+            "n": 207,
+            "clusters": 60,
+            "baseline": 13.526570048309178,
+            "filtered": 4.3478260869565215,
+            "delta": -9.178743961352657,
+            "ci": [
+              -13.440860215053762,
+              -5.181347150259067
+            ],
+            "wins": 0,
+            "losses": 19
+          }
+        },
+        "latent / 1": {
+          "success": {
+            "n": 207,
+            "clusters": 60,
+            "baseline": 26.570048309178745,
+            "filtered": 28.985507246376812,
+            "delta": 2.4154589371980673,
+            "ci": [
+              -3.535353535353535,
+              8.73362445414847
+            ],
+            "wins": 20,
+            "losses": 15
+          },
+          "incorrect_name_emission": {
+            "n": 207,
+            "clusters": 60,
+            "baseline": 31.88405797101449,
+            "filtered": 10.628019323671497,
+            "delta": -21.256038647342994,
+            "ci": [
+              -27.88844621513944,
+              -14.792899408284024
+            ],
+            "wins": 3,
+            "losses": 47
+          }
+        },
+        "concept use / 1": {
+          "success": {
+            "n": 120,
+            "clusters": 32,
+            "baseline": 24.166666666666668,
+            "filtered": 20.13888888888889,
+            "delta": -4.027777777777778,
+            "ci": [
+              -9.27536231884058,
+              0.6830601092896175
+            ],
+            "wins": 10,
+            "losses": 19
+          },
+          "incorrect_name_emission": {
+            "n": 120,
+            "clusters": 32,
+            "baseline": 58.333333333333336,
+            "filtered": 22.5,
+            "delta": -35.83333333333334,
+            "ci": [
+              -44.81481481481481,
+              -25.34013605442177
+            ],
+            "wins": 4,
+            "losses": 55
+          }
+        }
+      },
+      "naming": {
+        "n": 120,
+        "clusters": 32,
+        "baseline": 93.33333333333333,
+        "filtered": 53.333333333333336,
+        "delta": -40.0,
+        "ci": [
+          -49.30555555555556,
+          -28.57142857142857
+        ],
+        "wins": 0,
+        "losses": 48
+      },
+      "sensitivity32": {
+        "latent / 0.5": {
+          "n": 207,
+          "clusters": 60,
+          "baseline": 45.410628019323674,
+          "filtered": 44.927536231884055,
+          "delta": -0.48309178743961567,
+          "ci": [
+            -5.714285714285714,
+            5.05050505050505
+          ],
+          "wins": 12,
+          "losses": 13
+        },
+        "latent / 1": {
+          "n": 207,
+          "clusters": 60,
+          "baseline": 26.570048309178745,
+          "filtered": 30.434782608695656,
+          "delta": 3.8647342995169085,
+          "ci": [
+            -1.5706806282722512,
+            9.865470852017937
+          ],
+          "wins": 20,
+          "losses": 12
+        },
+        "concept use / 1": {
+          "n": 120,
+          "clusters": 32,
+          "baseline": 24.166666666666668,
+          "filtered": 23.055555555555557,
+          "delta": -1.1111111111111098,
+          "ci": [
+            -6.269113149847094,
+            3.7990196078431375
+          ],
+          "wins": 12,
+          "losses": 15
+        }
+      }
+    },
+    {
+      "id": "NP-04",
+      "model": "gemma-3-4b-it",
+      "study": "Published-lens replication",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "method": "published full \u2212 estimated diagonal",
+      "corpus": "WikiText",
+      "full_fit_prompts": 546,
+      "diagonal_fit_prompts": 64,
+      "model_revision": "093f9f388b31de276ce2de164bdc2081324b9767",
+      "layers": [
+        12,
+        15,
+        18,
+        21,
+        24,
+        26,
+        29
+      ],
+      "source_path": "results/neuronpedia_replication/gemma-3-4b-it-np/0f7ee6bdd66d",
+      "published_metadata": {
+        "repository": "neuronpedia/jacobian-lens",
+        "revision": "e166deb5ad540932100ef803c8c9bcc2a5453694",
+        "filename": "gemma-3-4b-it/jlens/Salesforce-wikitext/gemma-3-4b-it_jacobian_lens.pt",
+        "file_sha256": "dcb23c8627b2ef94225f45550d792d7608bd96f6cf89aa8d1701bd6a4681277c",
+        "n_prompts": 546,
+        "d_model": 2560,
+        "source_layers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32
+        ],
+        "full_lens_refitted": false
+      },
+      "contrasts": {
+        "latent / 0.5": {
+          "success": {
+            "n": 169,
+            "clusters": 58,
+            "baseline": 46.15384615384615,
+            "filtered": 46.15384615384615,
+            "delta": 0.0,
+            "ci": [
+              -5.454545454545454,
+              5.555555555555555
+            ],
+            "wins": 9,
+            "losses": 9
+          },
+          "incorrect_name_emission": {
+            "n": 169,
+            "clusters": 58,
+            "baseline": 17.75147928994083,
+            "filtered": 9.467455621301776,
+            "delta": -8.284023668639053,
+            "ci": [
+              -12.865497076023392,
+              -4.117647058823529
+            ],
+            "wins": 0,
+            "losses": 14
+          }
+        },
+        "latent / 1": {
+          "success": {
+            "n": 169,
+            "clusters": 58,
+            "baseline": 25.443786982248522,
+            "filtered": 34.319526627218934,
+            "delta": 8.875739644970409,
+            "ci": [
+              4.069767441860465,
+              14.012738853503185
+            ],
+            "wins": 18,
+            "losses": 3
+          },
+          "incorrect_name_emission": {
+            "n": 169,
+            "clusters": 58,
+            "baseline": 34.9112426035503,
+            "filtered": 12.42603550295858,
+            "delta": -22.485207100591715,
+            "ci": [
+              -28.915662650602407,
+              -16.352201257861633
+            ],
+            "wins": 0,
+            "losses": 38
+          }
+        },
+        "concept use / 1": {
+          "success": {
+            "n": 101,
+            "clusters": 28,
+            "baseline": 19.801980198019802,
+            "filtered": 21.452145214521455,
+            "delta": 1.6501650165016506,
+            "ci": [
+              -4.4061302681992345,
+              7.476635514018691
+            ],
+            "wins": 10,
+            "losses": 10
+          },
+          "incorrect_name_emission": {
+            "n": 101,
+            "clusters": 28,
+            "baseline": 30.693069306930692,
+            "filtered": 11.221122112211223,
+            "delta": -19.47194719471947,
+            "ci": [
+              -26.953125,
+              -11.946902654867257
+            ],
+            "wins": 3,
+            "losses": 30
+          }
+        }
+      },
+      "naming": {
+        "n": 101,
+        "clusters": 28,
+        "baseline": 77.22772277227723,
+        "filtered": 40.5940594059406,
+        "delta": -36.633663366336634,
+        "ci": [
+          -45.26315789473684,
+          -26.732673267326735
+        ],
+        "wins": 0,
+        "losses": 37
+      },
+      "sensitivity32": {
+        "latent / 0.5": {
+          "n": 169,
+          "clusters": 58,
+          "baseline": 46.15384615384615,
+          "filtered": 46.15384615384615,
+          "delta": 0.0,
+          "ci": [
+            -5.7324840764331215,
+            5.590062111801243
+          ],
+          "wins": 9,
+          "losses": 9
+        },
+        "latent / 1": {
+          "n": 169,
+          "clusters": 58,
+          "baseline": 25.443786982248522,
+          "filtered": 36.68639053254438,
+          "delta": 11.242603550295854,
+          "ci": [
+            5.521472392638037,
+            17.575757575757574
+          ],
+          "wins": 24,
+          "losses": 5
+        },
+        "concept use / 1": {
+          "n": 101,
+          "clusters": 28,
+          "baseline": 19.801980198019802,
+          "filtered": 21.782178217821784,
+          "delta": 1.9801980198019793,
+          "ci": [
+            -4.385964912280702,
+            9.034267912772584
+          ],
+          "wins": 12,
+          "losses": 11
+        }
+      }
+    },
+    {
+      "id": "NP-05",
+      "model": "llama-3.1-8b-instruct",
+      "study": "Published-lens replication",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "method": "published full \u2212 estimated diagonal",
+      "corpus": "WikiText",
+      "full_fit_prompts": 461,
+      "diagonal_fit_prompts": 64,
+      "model_revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "layers": [
+        12,
+        14,
+        17,
+        19,
+        22,
+        25,
+        27
+      ],
+      "source_path": "results/neuronpedia_replication/llama-3.1-8b-instruct-np/08e31a2fa1c2",
+      "published_metadata": {
+        "repository": "neuronpedia/jacobian-lens",
+        "revision": "e166deb5ad540932100ef803c8c9bcc2a5453694",
+        "filename": "llama3.1-8b-it/jlens/Salesforce-wikitext/Llama-3.1-8B-Instruct_jacobian_lens.pt",
+        "file_sha256": "d5300a1575c0b5ad6e01b098c75adb072f3a6c246f184ce2fb35a3550fc8c68b",
+        "n_prompts": 461,
+        "d_model": 4096,
+        "source_layers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "full_lens_refitted": false
+      },
+      "contrasts": {
+        "latent / 0.5": {
+          "success": {
+            "n": 182,
+            "clusters": 57,
+            "baseline": 34.61538461538461,
+            "filtered": 44.505494505494504,
+            "delta": 9.890109890109889,
+            "ci": [
+              3.686635944700461,
+              16.875
+            ],
+            "wins": 25,
+            "losses": 7
+          },
+          "incorrect_name_emission": {
+            "n": 182,
+            "clusters": 57,
+            "baseline": 31.318681318681318,
+            "filtered": 17.032967032967033,
+            "delta": -14.285714285714285,
+            "ci": [
+              -20.32967032967033,
+              -8.64864864864865
+            ],
+            "wins": 4,
+            "losses": 30
+          }
+        },
+        "latent / 1": {
+          "success": {
+            "n": 182,
+            "clusters": 57,
+            "baseline": 15.384615384615385,
+            "filtered": 27.472527472527474,
+            "delta": 12.08791208791209,
+            "ci": [
+              6.451612903225806,
+              17.616580310880828
+            ],
+            "wins": 25,
+            "losses": 3
+          },
+          "incorrect_name_emission": {
+            "n": 182,
+            "clusters": 57,
+            "baseline": 46.15384615384615,
+            "filtered": 34.065934065934066,
+            "delta": -12.08791208791209,
+            "ci": [
+              -20.496894409937887,
+              -3.482587064676617
+            ],
+            "wins": 10,
+            "losses": 32
+          }
+        },
+        "concept use / 1": {
+          "success": {
+            "n": 89,
+            "clusters": 22,
+            "baseline": 19.850187265917604,
+            "filtered": 29.40074906367041,
+            "delta": 9.550561797752808,
+            "ci": [
+              2.5974025974025974,
+              19.761904761904763
+            ],
+            "wins": 17,
+            "losses": 5
+          },
+          "incorrect_name_emission": {
+            "n": 89,
+            "clusters": 22,
+            "baseline": 47.94007490636704,
+            "filtered": 28.838951310861425,
+            "delta": -19.10112359550561,
+            "ci": [
+              -29.607843137254903,
+              -10.942760942760943
+            ],
+            "wins": 2,
+            "losses": 25
+          }
+        }
+      },
+      "naming": {
+        "n": 89,
+        "clusters": 22,
+        "baseline": 79.7752808988764,
+        "filtered": 62.92134831460674,
+        "delta": -16.85393258426966,
+        "ci": [
+          -26.595744680851062,
+          -7.6923076923076925
+        ],
+        "wins": 1,
+        "losses": 16
+      },
+      "sensitivity32": {
+        "latent / 0.5": {
+          "n": 182,
+          "clusters": 57,
+          "baseline": 34.61538461538461,
+          "filtered": 41.75824175824176,
+          "delta": 7.142857142857145,
+          "ci": [
+            1.0582010582010581,
+            12.980769230769232
+          ],
+          "wins": 23,
+          "losses": 10
+        },
+        "latent / 1": {
+          "n": 182,
+          "clusters": 57,
+          "baseline": 15.384615384615385,
+          "filtered": 26.373626373626376,
+          "delta": 10.989010989010989,
+          "ci": [
+            4.712041884816754,
+            17.142857142857142
+          ],
+          "wins": 24,
+          "losses": 4
+        },
+        "concept use / 1": {
+          "n": 89,
+          "clusters": 22,
+          "baseline": 19.850187265917604,
+          "filtered": 35.20599250936329,
+          "delta": 15.355805243445689,
+          "ci": [
+            7.851239669421488,
+            24.88888888888889
+          ],
+          "wins": 23,
+          "losses": 4
+        }
+      }
+    },
+    {
+      "id": "NP-06",
+      "model": "llama-3.1-8b",
+      "study": "Published-lens replication",
+      "lens": "Neuronpedia WikiText + estimated D64",
+      "method": "published full \u2212 estimated diagonal",
+      "corpus": "WikiText",
+      "full_fit_prompts": 539,
+      "diagonal_fit_prompts": 64,
+      "model_revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b",
+      "layers": [
+        12,
+        14,
+        17,
+        19,
+        22,
+        25,
+        27
+      ],
+      "source_path": "results/neuronpedia_replication/llama-3.1-8b-np/ac6f9f78ca05",
+      "published_metadata": {
+        "repository": "neuronpedia/jacobian-lens",
+        "revision": "e166deb5ad540932100ef803c8c9bcc2a5453694",
+        "filename": "llama3.1-8b/jlens/Salesforce-wikitext/Llama-3.1-8B_jacobian_lens.pt",
+        "file_sha256": "2708741972010bbfbe36e290d623f89d706a9d69d2f032e05ad5faf098bca20b",
+        "n_prompts": 539,
+        "d_model": 4096,
+        "source_layers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "full_lens_refitted": false
+      },
+      "contrasts": {
+        "latent / 0.5": {
+          "success": {
+            "n": 175,
+            "clusters": 54,
+            "baseline": 33.714285714285715,
+            "filtered": 46.285714285714285,
+            "delta": 12.571428571428573,
+            "ci": [
+              6.842105263157896,
+              18.452380952380953
+            ],
+            "wins": 24,
+            "losses": 2
+          },
+          "incorrect_name_emission": {
+            "n": 175,
+            "clusters": 54,
+            "baseline": 37.714285714285715,
+            "filtered": 23.42857142857143,
+            "delta": -14.285714285714288,
+            "ci": [
+              -20.833333333333336,
+              -7.894736842105263
+            ],
+            "wins": 4,
+            "losses": 29
+          }
+        },
+        "latent / 1": {
+          "success": {
+            "n": 175,
+            "clusters": 54,
+            "baseline": 17.142857142857142,
+            "filtered": 32.0,
+            "delta": 14.857142857142858,
+            "ci": [
+              8.053691275167784,
+              21.85792349726776
+            ],
+            "wins": 29,
+            "losses": 3
+          },
+          "incorrect_name_emission": {
+            "n": 175,
+            "clusters": 54,
+            "baseline": 49.142857142857146,
+            "filtered": 32.0,
+            "delta": -17.142857142857142,
+            "ci": [
+              -24.019607843137255,
+              -10.526315789473683
+            ],
+            "wins": 5,
+            "losses": 35
+          }
+        },
+        "concept use / 1": {
+          "success": {
+            "n": 115,
+            "clusters": 26,
+            "baseline": 23.47826086956522,
+            "filtered": 29.565217391304348,
+            "delta": 6.086956521739132,
+            "ci": [
+              -0.1436781609195403,
+              13.77551020408163
+            ],
+            "wins": 17,
+            "losses": 7
+          },
+          "incorrect_name_emission": {
+            "n": 115,
+            "clusters": 26,
+            "baseline": 45.94202898550725,
+            "filtered": 35.94202898550725,
+            "delta": -10.000000000000004,
+            "ci": [
+              -18.289085545722713,
+              -2.955082742316785
+            ],
+            "wins": 2,
+            "losses": 16
+          }
+        }
+      },
+      "naming": {
+        "n": 115,
+        "clusters": 26,
+        "baseline": 80.0,
+        "filtered": 66.08695652173913,
+        "delta": -13.913043478260878,
+        "ci": [
+          -21.951219512195124,
+          -5.952380952380952
+        ],
+        "wins": 1,
+        "losses": 17
+      },
+      "sensitivity32": {
+        "latent / 0.5": {
+          "n": 175,
+          "clusters": 54,
+          "baseline": 33.714285714285715,
+          "filtered": 48.0,
+          "delta": 14.285714285714285,
+          "ci": [
+            8.235294117647058,
+            20.8955223880597
+          ],
+          "wins": 29,
+          "losses": 4
+        },
+        "latent / 1": {
+          "n": 175,
+          "clusters": 54,
+          "baseline": 17.142857142857142,
+          "filtered": 36.0,
+          "delta": 18.857142857142854,
+          "ci": [
+            12.574850299401197,
+            25.136612021857925
+          ],
+          "wins": 35,
+          "losses": 2
+        },
+        "concept use / 1": {
+          "n": 115,
+          "clusters": 26,
+          "baseline": 23.47826086956522,
+          "filtered": 33.333333333333336,
+          "delta": 9.855072463768119,
+          "ci": [
+            4.027777777777778,
+            16.134751773049643
+          ],
+          "wins": 27,
+          "losses": 7
+        }
+      }
+    }
+  ],
+  "gemma_pressure_validation": [
+    {
+      "setting": "gsm8k/early/2/native",
+      "corpus": "gsm8k",
+      "layers": "early",
+      "strength": 2.0,
+      "columns": "native",
+      "selected_on_dev": true,
+      "contrasts": {
+        "latent": {
+          "success": {
+            "n": 104,
+            "clusters": 35,
+            "baseline": 47.11538461538461,
+            "filtered": 46.15384615384615,
+            "delta": -0.9615384615384581,
+            "ci": [
+              -6.796116504854369,
+              3.418803418803419
+            ],
+            "wins": 3,
+            "losses": 4
+          },
+          "incorrect_name_emission": {
+            "n": 104,
+            "clusters": 35,
+            "baseline": 5.769230769230769,
+            "filtered": 5.769230769230769,
+            "delta": 0.0,
+            "ci": [
+              0.0,
+              0.0
+            ],
+            "wins": 0,
+            "losses": 0
+          }
+        },
+        "concept": {
+          "success": {
+            "n": 60,
+            "clusters": 17,
+            "baseline": 59.166666666666664,
+            "filtered": 59.166666666666664,
+            "delta": 0.0,
+            "ci": [
+              -6.122448979591836,
+              4.901960784313726
+            ],
+            "wins": 3,
+            "losses": 3
+          },
+          "incorrect_name_emission": {
+            "n": 60,
+            "clusters": 17,
+            "baseline": 1.6666666666666667,
+            "filtered": 0.0,
+            "delta": -1.6666666666666667,
+            "ci": [
+              -5.084745762711865,
+              0.0
+            ],
+            "wins": 0,
+            "losses": 1
+          }
+        }
+      },
+      "method": "Self-fit GSM8K (32 texts) / exact components",
+      "full_fit_prompts": 32,
+      "model_revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+      "published_metadata": null,
+      "source_path": "results/gemma_pressure/7a5e8f6c4503/validation_results.json"
+    },
+    {
+      "setting": "gsm8k/original/1/native",
+      "corpus": "gsm8k",
+      "layers": "original",
+      "strength": 1.0,
+      "columns": "native",
+      "selected_on_dev": false,
+      "contrasts": {
+        "latent": {
+          "success": {
+            "n": 104,
+            "clusters": 35,
+            "baseline": 30.76923076923077,
+            "filtered": 27.884615384615387,
+            "delta": -2.8846153846153855,
+            "ci": [
+              -9.90990990990991,
+              3.7735849056603774
+            ],
+            "wins": 4,
+            "losses": 7
+          },
+          "incorrect_name_emission": {
+            "n": 104,
+            "clusters": 35,
+            "baseline": 15.384615384615385,
+            "filtered": 4.807692307692308,
+            "delta": -10.576923076923078,
+            "ci": [
+              -17.543859649122805,
+              -3.6585365853658534
+            ],
+            "wins": 1,
+            "losses": 12
+          }
+        },
+        "concept": {
+          "success": {
+            "n": 60,
+            "clusters": 17,
+            "baseline": 18.888888888888893,
+            "filtered": 13.88888888888889,
+            "delta": -5.000000000000002,
+            "ci": [
+              -14.130434782608695,
+              1.643192488262911
+            ],
+            "wins": 2,
+            "losses": 8
+          },
+          "incorrect_name_emission": {
+            "n": 60,
+            "clusters": 17,
+            "baseline": 24.72222222222222,
+            "filtered": 5.277777777777778,
+            "delta": -19.444444444444446,
+            "ci": [
+              -33.088235294117645,
+              -4.2483660130718945
+            ],
+            "wins": 0,
+            "losses": 15
+          }
+        }
+      },
+      "method": "Self-fit GSM8K (32 texts) / exact components",
+      "full_fit_prompts": 32,
+      "model_revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+      "published_metadata": null,
+      "source_path": "results/gemma_pressure/7a5e8f6c4503/validation_results.json"
+    },
+    {
+      "setting": "gsm8k/original/1/unit",
+      "corpus": "gsm8k",
+      "layers": "original",
+      "strength": 1.0,
+      "columns": "unit",
+      "selected_on_dev": false,
+      "contrasts": {
+        "latent": {
+          "success": {
+            "n": 104,
+            "clusters": 35,
+            "baseline": 28.846153846153843,
+            "filtered": 25.0,
+            "delta": -3.8461538461538436,
+            "ci": [
+              -9.090909090909092,
+              1.5037593984962405
+            ],
+            "wins": 2,
+            "losses": 6
+          },
+          "incorrect_name_emission": {
+            "n": 104,
+            "clusters": 35,
+            "baseline": 12.5,
+            "filtered": 4.807692307692308,
+            "delta": -7.6923076923076925,
+            "ci": [
+              -14.444444444444443,
+              -1.1764705882352942
+            ],
+            "wins": 1,
+            "losses": 9
+          }
+        },
+        "concept": {
+          "success": {
+            "n": 60,
+            "clusters": 17,
+            "baseline": 23.88888888888889,
+            "filtered": 10.277777777777779,
+            "delta": -13.611111111111112,
+            "ci": [
+              -25.163398692810457,
+              -5.88235294117647
+            ],
+            "wins": 0,
+            "losses": 13
+          },
+          "incorrect_name_emission": {
+            "n": 60,
+            "clusters": 17,
+            "baseline": 22.5,
+            "filtered": 5.833333333333333,
+            "delta": -16.666666666666668,
+            "ci": [
+              -26.973684210526315,
+              -5.681818181818182
+            ],
+            "wins": 0,
+            "losses": 14
+          }
+        }
+      },
+      "method": "Self-fit GSM8K (32 texts) / exact components",
+      "full_fit_prompts": 32,
+      "model_revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+      "published_metadata": null,
+      "source_path": "results/gemma_pressure/7a5e8f6c4503/validation_results.json"
+    },
+    {
+      "setting": "released/original/1/native",
+      "corpus": "released",
+      "layers": "original",
+      "strength": 1.0,
+      "columns": "native",
+      "selected_on_dev": false,
+      "contrasts": {
+        "latent": {
+          "success": {
+            "n": 104,
+            "clusters": 35,
+            "baseline": 27.884615384615387,
+            "filtered": 18.269230769230766,
+            "delta": -9.615384615384617,
+            "ci": [
+              -16.541353383458645,
+              -2.2988505747126435
+            ],
+            "wins": 5,
+            "losses": 15
+          },
+          "incorrect_name_emission": {
+            "n": 104,
+            "clusters": 35,
+            "baseline": 31.73076923076923,
+            "filtered": 7.6923076923076925,
+            "delta": -24.038461538461537,
+            "ci": [
+              -32.62411347517731,
+              -15.11627906976744
+            ],
+            "wins": 2,
+            "losses": 27
+          }
+        },
+        "concept": {
+          "success": {
+            "n": 60,
+            "clusters": 17,
+            "baseline": 24.72222222222222,
+            "filtered": 17.777777777777775,
+            "delta": -6.944444444444447,
+            "ci": [
+              -18.589743589743595,
+              1.0256410256410258
+            ],
+            "wins": 3,
+            "losses": 10
+          },
+          "incorrect_name_emission": {
+            "n": 60,
+            "clusters": 17,
+            "baseline": 45.83333333333333,
+            "filtered": 10.555555555555555,
+            "delta": -35.27777777777777,
+            "ci": [
+              -45.024875621890544,
+              -22.32704402515723
+            ],
+            "wins": 3,
+            "losses": 27
+          }
+        }
+      },
+      "method": "Neuronpedia WikiText (844 texts) / unembedding-projection proxy",
+      "full_fit_prompts": 844,
+      "model_revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+      "published_metadata": {
+        "n_prompts": 844,
+        "layers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "d_model": 3840,
+        "file_sha": "5356d210bf8f9495fc83d4a8b65056b6631664a9a258bd332316ea2fd0e5d91a",
+        "revision": "b25d72a96b79c8e309d6625955a98751da47e67a"
+      },
+      "source_path": "results/gemma_pressure/7a5e8f6c4503/validation_results.json"
+    },
+    {
+      "setting": "wikitext_a/early/1.5/unit",
+      "corpus": "wikitext_a",
+      "layers": "early",
+      "strength": 1.5,
+      "columns": "unit",
+      "selected_on_dev": true,
+      "contrasts": {
+        "latent": {
+          "success": {
+            "n": 104,
+            "clusters": 35,
+            "baseline": 44.230769230769226,
+            "filtered": 44.230769230769226,
+            "delta": 0.0,
+            "ci": [
+              -6.666666666666667,
+              5.952380952380952
+            ],
+            "wins": 4,
+            "losses": 4
+          },
+          "incorrect_name_emission": {
+            "n": 104,
+            "clusters": 35,
+            "baseline": 6.730769230769231,
+            "filtered": 5.769230769230769,
+            "delta": -0.9615384615384609,
+            "ci": [
+              -4.3478260869565215,
+              2.2988505747126435
+            ],
+            "wins": 1,
+            "losses": 2
+          }
+        },
+        "concept": {
+          "success": {
+            "n": 60,
+            "clusters": 17,
+            "baseline": 55.00000000000001,
+            "filtered": 60.83333333333333,
+            "delta": 5.833333333333323,
+            "ci": [
+              0.847457627118644,
+              12.096774193548388
+            ],
+            "wins": 5,
+            "losses": 0
+          },
+          "incorrect_name_emission": {
+            "n": 60,
+            "clusters": 17,
+            "baseline": 0.0,
+            "filtered": 0.0,
+            "delta": 0.0,
+            "ci": [
+              0.0,
+              0.0
+            ],
+            "wins": 0,
+            "losses": 0
+          }
+        }
+      },
+      "method": "Self-fit WikiText (32 texts) / exact components",
+      "full_fit_prompts": 32,
+      "model_revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+      "published_metadata": null,
+      "source_path": "results/gemma_pressure/7a5e8f6c4503/validation_results.json"
+    },
+    {
+      "setting": "wikitext_a/original/1/native",
+      "corpus": "wikitext_a",
+      "layers": "original",
+      "strength": 1.0,
+      "columns": "native",
+      "selected_on_dev": false,
+      "contrasts": {
+        "latent": {
+          "success": {
+            "n": 104,
+            "clusters": 35,
+            "baseline": 26.923076923076923,
+            "filtered": 29.807692307692307,
+            "delta": 2.8846153846153855,
+            "ci": [
+              -4.081632653061225,
+              9.01639344262295
+            ],
+            "wins": 7,
+            "losses": 4
+          },
+          "incorrect_name_emission": {
+            "n": 104,
+            "clusters": 35,
+            "baseline": 30.76923076923077,
+            "filtered": 7.6923076923076925,
+            "delta": -23.076923076923077,
+            "ci": [
+              -30.985915492957744,
+              -13.20754716981132
+            ],
+            "wins": 0,
+            "losses": 24
+          }
+        },
+        "concept": {
+          "success": {
+            "n": 60,
+            "clusters": 17,
+            "baseline": 28.055555555555557,
+            "filtered": 15.555555555555555,
+            "delta": -12.5,
+            "ci": [
+              -21.0,
+              -5.9523809523809526
+            ],
+            "wins": 1,
+            "losses": 13
+          },
+          "incorrect_name_emission": {
+            "n": 60,
+            "clusters": 17,
+            "baseline": 41.111111111111114,
+            "filtered": 14.166666666666666,
+            "delta": -26.94444444444445,
+            "ci": [
+              -38.44086021505376,
+              -14.743589743589745
+            ],
+            "wins": 1,
+            "losses": 22
+          }
+        }
+      },
+      "method": "Self-fit WikiText (32 texts) / exact components",
+      "full_fit_prompts": 32,
+      "model_revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+      "published_metadata": null,
+      "source_path": "results/gemma_pressure/7a5e8f6c4503/validation_results.json"
+    }
+  ],
+  "published_projection_controls": [
+    {
+      "model": "qwen3-4b",
+      "n": 99,
+      "baseline_count": 18,
+      "filtered_count": 40,
+      "baseline": 18.181818181818183,
+      "filtered": 40.4040404040404,
+      "delta": 22.22222222222222,
+      "method": "published WikiText / unembedding-projection proxy (beta=1)",
+      "source_path": "results/c31_second_model_qwen3-4b.md"
+    },
+    {
+      "model": "qwen3-8b",
+      "n": 105,
+      "baseline_count": 20,
+      "filtered_count": 47,
+      "baseline": 19.047619047619047,
+      "filtered": 44.76190476190476,
+      "delta": 25.714285714285715,
+      "method": "published WikiText / unembedding-projection proxy (beta=1)",
+      "source_path": "results/c31_second_model_qwen3-4b.md"
+    }
+  ],
+  "qwen_prefix_controls": [
+    {
+      "corpus": "gsm8k",
+      "contrasts": {
+        "success": {
+          "n": 661,
+          "clusters": 30,
+          "baseline": 55.421079172970245,
+          "filtered": 47.907211296016136,
+          "delta": -7.513867876954105,
+          "ci": [
+            -10.883190883190883,
+            -4.3845315904139435
+          ],
+          "wins": 18,
+          "losses": 98
+        },
+        "incorrect_name_emission": {
+          "n": 661,
+          "clusters": 30,
+          "baseline": 0.9077155824508321,
+          "filtered": 0.8320726172465961,
+          "delta": -0.07564296520423605,
+          "ci": [
+            -0.72,
+            0.5775577557755776
+          ],
+          "wins": 2,
+          "losses": 4
+        }
+      },
+      "source_path": "results/concept/swap_c37lambdaprefix_qwen3-8b_75f74629d0"
+    },
+    {
+      "corpus": "wikitext_a",
+      "contrasts": {
+        "success": {
+          "n": 661,
+          "clusters": 30,
+          "baseline": 76.87846696923853,
+          "filtered": 78.11396873424106,
+          "delta": 1.2355017650025224,
+          "ci": [
+            -0.49857549857549865,
+            3.2414910858995136
+          ],
+          "wins": 36,
+          "losses": 25
+        },
+        "incorrect_name_emission": {
+          "n": 661,
+          "clusters": 30,
+          "baseline": 1.4372163388804842,
+          "filtered": 1.9667170953101363,
+          "delta": 0.5295007564296522,
+          "ci": [
+            -0.6055363321799307,
+            2.0114942528735633
+          ],
+          "wins": 6,
+          "losses": 2
+        }
+      },
+      "source_path": "results/concept/swap_c37lambdaprefix_qwen3-8b_75f74629d0"
+    }
+  ]
+}

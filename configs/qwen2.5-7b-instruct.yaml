@@ -1,0 +1,12 @@
+name: qwen2.5-7b-instruct
+hf_model_id: Qwen/Qwen2.5-7B-Instruct
+model_revision: a09a35458c702b33eeacc393d103063234e8bc28
+np_model_id: qwen2.5-7b-instruct
+n_layers: 28
+d_model: 3584
+lens_filename: unused-direct-component-fit
+dtype: bfloat16
+device: cuda
+dim_batch: 8
+band_start: 10
+band_end: 25

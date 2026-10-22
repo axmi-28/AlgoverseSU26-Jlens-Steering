@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this code or these results, please cite the accompanying paper, accepted at ACCV 2026. Proceedings details will be added when available."
+title: "Position-Pair Filtering Separates Concept Use from Name Leakage in J-lens Swaps"
+type: software
+version: "2026.10.21"
+date-released: "2026-10-21"
+repository-code: "https://github.com/axmi-28/AlgoverseSU26-Jlens-Steering"
+license: MIT
+authors:
+  - family-names: Xu
+    given-names: Andy
+    affiliation: Algoverse AI Research
+  - family-names: Charles
+    given-names: Claire
+    affiliation: Algoverse AI Research
+  - family-names: Gundimeda
+    given-names: Ankith
+    affiliation: Algoverse AI Research
+  - family-names: Nagpal
+    given-names: Ishan
+    affiliation: Algoverse AI Research
+  - family-names: Albuquerque
+    given-names: Melwina
+    affiliation: Independent Researcher

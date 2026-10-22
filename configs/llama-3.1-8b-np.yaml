@@ -1,0 +1,17 @@
+name: llama-3.1-8b-np
+hf_model_id: meta-llama/Llama-3.1-8B
+model_revision: d04e592bb4f6aa9cfee91e2e20afa771667e1d4b
+np_model_id: llama3.1-8b
+n_layers: 32
+d_model: 4096
+lens_filename: llama3.1-8b/jlens/Salesforce-wikitext/Llama-3.1-8B_jacobian_lens.pt
+lens_revision: e166deb5ad540932100ef803c8c9bcc2a5453694
+hf_auto_class: AutoModelForCausalLM
+dtype: bfloat16
+device: cuda
+dim_batch: 8
+band_start: 12
+band_end: 29
+fit:
+  prompts_fitted: 539
+  final_identity_distance: 0.637892

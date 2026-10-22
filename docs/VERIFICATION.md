@@ -1,30 +1,40 @@
-# Release verification
+# Release verification — October 21, 2026
 
-The following checks were completed on Python 3.12 during release preparation.
+The camera-ready code/results release was checked with Python 3.12 on the local
+macOS environment. No new model download, paid cloud invocation or GPU sweep was
+performed during preparation.
 
-- Fresh environment installed from `requirements/analysis-tested.txt`, followed
-  by an editable install of the extracted anonymous source archive.
-- All **49** bundled reference artifacts passed compressed and raw SHA-256
-  checks and restored successfully in that extracted copy.
-- **164 tests passed; 10 network tests deselected**, with Hugging Face offline
-  environment flags enabled. The tests cover Jacobians, steering, grading,
-  model-loading guards, revision propagation, archive boundaries and safe
-  restoration.
-- The extracted copy rebuilt latent counts, corpus replicates, C36 complete-run
-  rates and C37 interpolation tables. The headline latent counts matched the
-  asserted 15→25 / 13→23 answer hits and 21→5 / 21→9 leakage counts.
-- Rebuilding eligibility from both original clean shards exactly matched the
-  reference eligibility mapping.
-- The original checkout rebuilt the frozen-panel paired report, C38 magnitude
-  analysis and C39 gradient report. The reported whole-prompt unadjusted lambda
-  effects reproduced: GSM8K R +5.08 / L +4.86, WikiText R +3.12 / L +4.91 nats.
-- All seven available scripted figures rebuilt; their generator checked vector
-  PDFs, figure width, text bounds, input populations and source counts.
-- The release inclusion policy and known-identifier scan passed for source,
-  compressed records and Torch metadata. Documentation links and diff whitespace
-  checks passed. The ZIP was extracted and checked for corruption/private paths.
+- **188 offline tests passed; 22 network/slow tests deselected.** Three Modal
+  warnings concern mocked supervisor functions executing locally, not cloud jobs.
+- All **217** bundled reference artifacts pass compressed and raw SHA-256 checks.
+- The master table recomputes **16 model/lens conditions on 13 checkpoints** from
+  saved outputs. Its provenance records **85** input/code hashes. The published
+  figure displays **11 distinct checkpoints** using the declared display policy.
+- The public snapshot checks **15 published files**, all plotted statistics
+  against the full table, the figure generator hash and the recorded input hashes.
+  Freshly rebuilt tables and plotting statistics match the snapshot exactly.
+- The release allowlist/secret scan passes, including decompressed records and
+  historical Torch metadata. The optional remote entrypoint and citation file
+  are included; manuscripts and review correspondence remain excluded.
+- The mechanism, lambda and outcome-breakdown figures rebuild from restored
+  saved inputs. Their axes use same-position/filtered terminology.
+- Release/publishing helpers and the cross-model plot generator pass Ruff;
+  `git diff --check` passes. This is not a claim that all historical exploratory
+  scripts satisfy every current lint rule.
 
-These checks establish offline reanalysis and source-package portability on the
-tested local platform. They do not establish fresh GPU equivalence, a historical
-CUDA environment, Linux CI success, or reproduction of the older 649-unit table
-and unsourced manuscript composite. Those limits are listed in PAPER_AUDIT.md.
+The extracted archive is checked with restoration, snapshot verification,
+all offline tests and CPU regeneration of the master table and cross-model
+figures. Source imports are redirected to the extracted checkout; the existing
+Python environment supplies dependencies. This is an extracted-source check,
+not a newly installed dependency environment or a fresh GPU experiment.
+
+These checks establish integrity and offline reanalysis of the recorded outputs.
+They do not establish fresh GPU equivalence, repeated-fit stability, functional
+layer equivalence across models or Linux CI success before its run finishes.
+Published-lens filtering remains approximate. The unsourced overview composite,
+historical population differences and original environment limits are described
+in [the historical audit](PAPER_AUDIT.md).
+
+The default source/reference archive exceeds the conference supplement size
+limit. It is a code-host artifact; it is not a ready-to-upload ACCV supplement.
+The final paper PDF and OpenReview fields require their own submission checks.

@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "campaign": "jlens-filtering-replication",
+  "created_date": "2026-10-18",
+  "description": "Prospective extension of the frozen cross-model filtering protocol, with Qwen3-8B positive control. No outcome-dependent model, layer, strength or eligibility tuning.",
+  "models": [
+    "qwen3-8b",
+    "mistral-7b-instruct-v0.3",
+    "olmo-2-1124-7b-instruct",
+    "qwen2.5-7b-instruct",
+    "qwen3-4b",
+    "qwen3-14b"
+  ],
+  "positive_control": "qwen3-8b",
+  "base_protocol": "data/protocols/cross_model_filtering.json",
+  "gpu": "H100",
+  "max_concurrent_gpus": 2,
+  "max_gpu_seconds_per_model": 3600,
+  "scientific_budget_seconds_per_model": 3500,
+  "retries": 0,
+  "fit_prompts": 32,
+  "fit_max_tokens": 128,
+  "fit_skip_first": 16,
+  "fit_target_stride": 4,
+  "reference_layers": [
+    13,
+    16,
+    19,
+    22,
+    25,
+    28,
+    31
+  ],
+  "layer_mapping": "round(reference_layer / 35 * (n_layers - 1))",
+  "clean_eligibility": "Native raw continuation, source-correct, target-incorrect; single-token source and target; concept <=40 units per type balanced over source entities. Frozen before edits.",
+  "latent_arms": [
+    "full",
+    "off_m"
+  ],
+  "latent_strengths": [
+    0.5,
+    1.0
+  ],
+  "concept_arms": [
+    "lam0_cn",
+    "lam0.5_cn",
+    "lam1_cn",
+    "lam2_cn",
+    "rand_m"
+  ],
+  "concept_strengths": [
+    1.0
+  ],
+  "primary_metrics": [
+    "target_answer_success",
+    "incorrect_name_emission"
+  ],
+  "contrasts": [
+    "latent full vs off_m at each fixed strength",
+    "concept lam1_cn vs lam0_cn, within-unit query means"
+  ],
+  "uncertainty": "Paired 95% source-entity cluster bootstrap, 2000 fixed-seed draws, conditional on one lens fit. Pointwise intervals, no multiplicity correction.",
+  "interpretation": "Assess both relational success and incorrect name emission. Report every completed model and every failure; no model selected by edited outcomes. Fresh positive-control replay checks pipeline behavior; differing eligibility prevents exact paper-rate comparison.",
+  "scope_limits": [
+    "One GSM8K fit per model; no WikiText or fit-seed replication.",
+    "Fixed seven-layer relative grid; no model-specific workspace calibration.",
+    "Raw continuation prompts; no chat templates.",
+    "Limited to latent-intermediate and concept express/use tasks, not the entire paper."
+  ]
+}

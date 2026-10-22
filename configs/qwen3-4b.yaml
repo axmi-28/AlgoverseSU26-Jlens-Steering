@@ -1,5 +1,6 @@
 name: qwen3-4b
 hf_model_id: Qwen/Qwen3-4B
+model_revision: 1cfa9a7208912126459214e8b04321603b3df60c
 np_model_id: qwen3-4b
 n_layers: 36
 d_model: 2560

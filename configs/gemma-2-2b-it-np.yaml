@@ -1,0 +1,17 @@
+name: gemma-2-2b-it-np
+hf_model_id: google/gemma-2-2b-it
+model_revision: 299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8
+np_model_id: gemma-2-2b-it
+n_layers: 26
+d_model: 2304
+lens_filename: gemma-2-2b-it/jlens/Salesforce-wikitext/gemma-2-2b-it_jacobian_lens.pt
+lens_revision: e166deb5ad540932100ef803c8c9bcc2a5453694
+hf_auto_class: AutoModelForCausalLM
+dtype: bfloat16
+device: cuda
+dim_batch: 8
+band_start: 10
+band_end: 23
+fit:
+  prompts_fitted: 337
+  final_identity_distance: 0.473329

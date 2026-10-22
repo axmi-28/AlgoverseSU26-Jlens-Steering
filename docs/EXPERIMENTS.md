@@ -33,10 +33,20 @@ remain available for extensions, but their results are not all bundled.
 | Gemma 3 12B and Llama 3.1 8B replication | `cross_model.py`; pinned model configs and `cross_model_filtering.json` | `59_cross_model.py`, `60_cross_model_report.py` |
 | Gemma pressure test | `gemma_pressure.py`; frozen `gemma_pressure.json` | `61_gemma_pressure.py`, `fetch_gemma_pressure.py`, `62_gemma_pressure_report.py` |
 | Updated manuscript figures | CPU analysis of saved outputs | `63_paper_figures_v3.py` |
+| Qwen mechanism figure | Recorded C39 trial margins and restored C37 geometry CSV | `64_mechanism_figure.py` |
+| Six additional self-fitted model checkpoints | `cross_model.py`, `filtering_replication.json`, pinned configs | `66_filtering_replication.py`, `67_filtering_replication_report.py` |
+| Six published Neuronpedia lenses | `neuronpedia_replication.py`, pinned inventory and WikiText estimation protocol | `72_neuronpedia_replication.py`, `73_neuronpedia_report.py` |
+| All-condition results and cross-model figure | Saved paired trial outputs; no new model execution | `75_all_core_results.py`, `76_core_results_figures.py`, `publish_results.py` |
 
 These additions retain their frozen protocols and tests. GPU launchers require
-the appropriate model access and an existing Modal deployment; committing them
-does not launch experiments. Their generated results remain under the ignored
-`results/` tree and are **not part of the earlier 49-file reference bundle**.
-The newer figure scripts write to the ignored manuscript figure directory;
+the appropriate model access and an existing Modal deployment; installation
+and CPU reanalysis do not launch experiments. The October 21 extension adds
+saved trial outputs and JSON metadata to the reference manifest, including all
+data inputs for the combined master table. It does not include every auxiliary
+tensor or generated file in the ignored `results/` workspace. The curated
+public outputs are in [docs/results](results/full_table.md).
+Some older figure scripts write to the ignored manuscript figure directory;
 `63_paper_figures_v3.py --collect` additionally requires a local manuscript.
+The finer position sweep (`65_position_sweep.py`) remains a diagnostic: its
+recorded replay check exceeds the frozen threshold, so it is not evidence for
+a resolved localization claim in this release.

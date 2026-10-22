@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "status": "post-hoc CPU scoring sensitivity, after Qwen3-8B and Mistral outputs were inspected",
+  "reason": "The frozen token-prefix aliases can reject semantically correct currency answers, e.g. Indian Rupee when only rupee is accepted. Preserve primary labels and eligibility; report an alias expansion and a complete exclusion of currency questions separately.",
+  "selection": "Original clean-eligible paired items, unchanged. No GPU reruns or outcome-dependent model/strength selection.",
+  "currency_detection": "currency substring in frozen prompt, case-insensitive",
+  "new_aliases": {
+    "America": ["US dollar", "U.S. dollar", "United States dollar", "American dollar"],
+    "Australia": ["Australian dollar"],
+    "Brazil": ["Brazilian real"],
+    "Canada": ["Canadian dollar"],
+    "China": ["Chinese yuan", "Chinese renminbi", "renminbi", "RMB"],
+    "Egypt": ["Egyptian pound"],
+    "England": ["British pound", "pound sterling", "sterling"],
+    "France": ["euro"],
+    "Germany": ["euro"],
+    "Greece": ["euro"],
+    "Hungary": ["Hungarian forint"],
+    "India": ["Indian rupee"],
+    "Italy": ["euro"],
+    "Japan": ["Japanese yen"],
+    "Mexico": ["Mexican peso"],
+    "Peru": ["Peruvian sol", "nuevo sol"],
+    "Poland": ["Polish zloty", "Polish złoty"],
+    "Russia": ["Russian ruble", "Russian rouble"],
+    "Spain": ["euro"],
+    "Sweden": ["Swedish krona", "Swedish kronor"]
+  },
+  "limits": "Only adds explicit equivalent currency names; does not provide exhaustive human semantic grading, change original permissive prefixes, rescreen clean eligibility, or repair non-currency aliases. Excluding all currency questions is a complementary sensitivity. Both are exploratory."
+}

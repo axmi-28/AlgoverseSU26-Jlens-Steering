@@ -1,0 +1,57 @@
+{
+ "version": 1,
+ "experiment": "C42 position sweep",
+ "written": "2026-10-09, before any position-resolved run",
+ "question": "Where in the prompt does the same-position (diagonal) term change the outcome? For each prompt position p, compare the full and off-diagonal lenses at matched edit norm on the relational margin, leakage margin and generated outcome.",
+ "prior_evidence": "Region-level only: C32 (prefix / question / whole prompt, raw columns) and C37/C38 (prefix / whole prompt, unit columns). Whole prompt: lambda 0->2 raises dR by +3 to +5 and dL by about +5 nats; prefix only: lambda does almost nothing. No per-token resolution exists.",
+ "panel": "data/heldout/concept-use.json, frozen eligibility results/concept/eligibility.json; clues 0 and 1, filler 0, use queries only (1,339 trials, 661 units)",
+ "intervention": {
+  "preset": "c42pos (scripts/48_concept_use.py)",
+  "arms": ["lam0_cn", "lam0.5_cn", "lam1_cn", "lam2_cn"],
+  "lenses": ["gsm8k", "wikitext_a"],
+  "layers": [13, 16, 19, 22, 25, 28, 31],
+  "dose": 1.0,
+  "construction": "C38's whole-prompt swap built once on the clean residual, unit columns, every arm row-matched to the full lens's delta norm at every (layer, position); then masked by position",
+  "modes": {
+   "single": "keep only position p (sufficiency)",
+   "drop": "keep every position except p (necessity)",
+   "all": "no mask; must reproduce C38 c38magprompt"
+  },
+  "generation": "8 greedy tokens from the edited prompt; nothing re-injected"
+ },
+ "outcomes": {
+  "dR": "change from clean in log p(target answer) - log p(source answer), teacher-forced",
+  "dL": "change from clean in log p(target name) - log p(target answer), teacher-forced",
+  "success": "continuation begins with a target-answer alias",
+  "leak": "target name in the continuation and not success",
+  "retained": "source answer and not success",
+  "kl": "final-position KL from clean (collateral)"
+ },
+ "roles": {
+  "template": "tokens of 'Fact: Consider' (position 0, the attention sink, reported separately)",
+  "clue_first / clue_inner / clue_last": "tokens of the clue phrase",
+  "period": "the prefix's closing period",
+  "query": "question tokens before the last",
+  "readout": "the last prompt token"
+ },
+ "estimands": {
+  "primary": "Delta_D(p) = Y(lam1_cn) - Y(lam0_cn) under the single mode, per trial, averaged within role; also by distance from the readout",
+  "secondary": [
+   "contribution C(p) = Delta_D(all) - Delta_D(drop p)",
+   "within-trial slope of Y on lambda over {0, 0.5, 1, 2}, per role"
+  ]
+ },
+ "predictions": {
+  "P1": "single-site Delta_D on dL is positive at the readout and larger there than at any prefix role",
+  "P2": "at prefix roles, single-site Delta_D on success is >= -2 pp (the diagonal is not harmful upstream)",
+  "P3": "dropping the readout removes a larger share of the whole-prompt Delta_D on dL than dropping any other single position"
+ },
+ "inference": "95% cluster-bootstrap intervals over source entities, 2000 resamples, seed 0; trials weighted equally, unit-weighted as sensitivity; replicated across the two lenses",
+ "sensitivity": ["single-token answers and names only", "clue 0 vs clue 1", "with and without position 0"],
+ "gates": [
+  "record count equals the 1,339 eligible use trials, summed over shards",
+  "every shard's source_sha equals the local module's",
+  "all-mode log-probs reproduce c38magprompt for the four shared arms (median |diff| < 0.02 nats)",
+  "applied-norm spread across arms < 1e-3 at every live site"
+ ]
+}

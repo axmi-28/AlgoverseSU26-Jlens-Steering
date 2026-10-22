@@ -179,7 +179,7 @@ def fig_filtering(F, L, P):
                 ax.errorbar(x, pct(m), yerr=[pct(m - lo), pct(hi - m)], color=color, ls=st["ls"],
                             marker=st["marker"], ms=3.4, lw=1.2, elinewidth=.7, capsize=1.6,
                             mfc=color if corp == "gsm8k" else "white", mec=color, zorder=3)
-        ax.set_xticks([0, 1], ["Full", "Off-diagonal"])
+        ax.set_xticks([0, 1], ["Full", "Filtered"])
         ax.set_xlim(-.35, 1.35)
         ax.set_ylim(0, 85)
         ax.set_yticks([0, 20, 40, 60, 80])
@@ -217,7 +217,7 @@ def fig_lambda(P):
             if i == 0:
                 ax.set_title(LENS[corp]["label"], fontsize=7.5, pad=4)
             if i == 1:
-                ax.set_xlabel(r"Diagonal weight $\lambda$")
+                ax.set_xlabel(r"Same-position weight $\lambda$")
             if j == 0:
                 ax.set_ylabel("Share of queries (%)")
                 ax.text(-.30, .5, rlab, transform=ax.transAxes, rotation=90, ha="center", va="center",
@@ -259,7 +259,7 @@ def fig_competition():
                     label=st["label"])
         ax.set_xlim(-.08, 2.08)
         ax.set_xticks([0, .5, 1, 1.5, 2], ["0", "0.5", "1", "1.5", "2"])
-        ax.set_xlabel(r"Diagonal weight $\lambda$")
+        ax.set_xlabel(r"Same-position weight $\lambda$")
         ax.set_ylabel(lab)
         if F == "R":
             ax.set_ylim(20, 40)
@@ -373,7 +373,7 @@ def fig_breakdown():
             if i == 0:
                 ax.set_title(LENS[corp]["label"], fontsize=7.5, pad=4)
             if i == 1:
-                ax.set_xlabel(r"Diagonal weight $\lambda$")
+                ax.set_xlabel(r"Same-position weight $\lambda$")
             if j == 0:
                 ax.set_ylabel("Share of queries (%)")
                 ax.text(-.30, .5, ["Whole prompt edited", "Prefix only edited"][i], transform=ax.transAxes,

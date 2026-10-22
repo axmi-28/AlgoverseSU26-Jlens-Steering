@@ -398,3 +398,45 @@ def test_clean_site_grads_match_finite_differences(hf_model):
     assert abs(fd - g1_only) > 1e-2
     # the gradient pass must not leave the model's parameters trainable or hooked
     assert all(len(m._forward_hooks) == 0 for m in model.layers)
+
+
+def test_position_masks_single_drop_all():
+    rows = cu.position_masks(["single", "drop", "all"], 5)
+    assert [(m, p) for m, p, _ in rows] == (
+        [("single", p) for p in range(5)] + [("drop", p) for p in range(5)] + [("all", -1)]
+    )
+    M = torch.stack([m for _, _, m in rows])
+    torch.testing.assert_close(M[:5], torch.eye(5))
+    torch.testing.assert_close(M[5:10], 1 - torch.eye(5))
+    torch.testing.assert_close(M[10], torch.ones(5))
+    with pytest.raises(ValueError):
+        cu.position_masks(["prefix"], 5)
+
+
+def test_masked_deltas_reproduce_the_whole_prompt_edit(hf_model):
+    """Row k*C+c is condition c under mask k; the `all` row is the unmasked edit."""
+    model = hf_model
+    ids = model.encode("abcdefghij")
+    T, C, layers = ids.shape[1], 3, [1, 2]
+    whole = _prefix_edit(T, model.d_model, C, layers, seed=4)
+    rows = cu.position_masks(["single", "all"], T)
+    masked = cu.mask_deltas(whole, torch.stack([m for _, _, m in rows]))
+    K = len(rows)
+    assert masked[1].shape == (K * C, T, model.d_model)
+    for c in range(C):
+        for l in layers:
+            # single-site rows partition the whole edit
+            torch.testing.assert_close(sum(masked[l][k * C + c] for k in range(T)), whole[l][c])
+            torch.testing.assert_close(masked[l][T * C + c], whole[l][c])
+            assert torch.count_nonzero(masked[l][2 * C + c].norm(dim=-1)) == 1
+    out_all = cu.evaluate(model, ids, {l: masked[l][T * C:] for l in layers}, answers={"a": [3, 4]})
+    out_ref = cu.evaluate(model, ids, whole, answers={"a": [3, 4]})
+    torch.testing.assert_close(torch.tensor(out_all["ans"]["a"]), torch.tensor(out_ref["ans"]["a"]))
+    # an edit at the last position cannot move what precedes it, only what follows
+    last = {l: masked[l][(T - 1) * C : T * C] for l in layers}
+    first = {l: masked[l][:C] for l in layers}
+    h_last = cu.evaluate(model, ids, last)["lp_last"]
+    h_first = cu.evaluate(model, ids, first)["lp_last"]
+    clean = cu.evaluate(model, ids, {l: torch.zeros(1, T, model.d_model) for l in layers})["lp_last"]
+    assert not torch.allclose(h_last, clean.expand_as(h_last))
+    assert not torch.allclose(h_first, clean.expand_as(h_first))

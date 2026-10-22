@@ -136,6 +136,21 @@ def preset(name: str) -> tuple[dict, int]:
         kw, n = preset("c38mag" + where)
         kw.update(stage="magmatched", label=name)
         return kw, n
+    if name.startswith("c42pos"):
+        # Colleague request (2026-10-09): the effect of the diagonal term as a
+        # function of edit position. C38's whole-prompt deltas (unit columns,
+        # row-matched to the full lens), masked to one position (`single`), all
+        # but one (`drop`), or none removed (`all`, must reproduce C38).
+        # Protocol: data/protocols/position_sweep.json.
+        kw, n = preset("c38magprompt")
+        kw.update(stage="positions", label=name, chunk=128,
+                  swap_arms=["lam0_cn", "lam0.5_cn", "lam1_cn", "lam2_cn"],
+                  position_sets=["single", "drop", "all"])
+        if name == "c42possmoke":
+            return dict(kw, max_units=3), 1
+        if name != "c42pos":
+            raise SystemExit(f"unknown preset {name}")
+        return kw, 4
     if name.startswith("c38mag"):
         # Realized edit magnitude on the C37 unit-column sweep (mentor spec,
         # Experiment 1): same eligible units, use queries only, dose 1.0, both

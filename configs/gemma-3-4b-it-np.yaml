@@ -1,0 +1,17 @@
+name: gemma-3-4b-it-np
+hf_model_id: google/gemma-3-4b-it
+model_revision: 093f9f388b31de276ce2de164bdc2081324b9767
+np_model_id: gemma-3-4b-it
+n_layers: 34
+d_model: 2560
+lens_filename: gemma-3-4b-it/jlens/Salesforce-wikitext/gemma-3-4b-it_jacobian_lens.pt
+lens_revision: e166deb5ad540932100ef803c8c9bcc2a5453694
+hf_auto_class: Gemma3ForConditionalGeneration
+dtype: bfloat16
+device: cuda
+dim_batch: 8
+band_start: 13
+band_end: 30
+fit:
+  prompts_fitted: 546
+  final_identity_distance: 0.960022

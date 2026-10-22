@@ -1,0 +1,12 @@
+name: mistral-7b-instruct-v0.3
+hf_model_id: mistralai/Mistral-7B-Instruct-v0.3
+model_revision: c170c708c41dac9275d15a8fff4eca08d52bab71
+np_model_id: mistral-7b-instruct-v0.3
+n_layers: 32
+d_model: 4096
+lens_filename: unused-direct-component-fit
+dtype: bfloat16
+device: cuda
+dim_batch: 8
+band_start: 12
+band_end: 29

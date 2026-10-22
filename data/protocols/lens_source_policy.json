@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "user_instruction_date": "2026-10-18",
+  "scope": "Future J-lens experiments in this project",
+  "lens_source": "Neuronpedia published J-lenses",
+  "repository": "neuronpedia/jacobian-lens",
+  "pin_lens_revision": true,
+  "fresh_full_lens_fits": false,
+  "missing_lens_action": "Skip and report; do not silently fit a replacement",
+  "auxiliary_diagonal_estimation": "Explicitly authorized: estimate only diagonal on WikiText while keeping published full J-lens fixed; label filtering as estimated",
+  "past_results": "Retain and identify the previous self-fitted component experiments separately"
+}

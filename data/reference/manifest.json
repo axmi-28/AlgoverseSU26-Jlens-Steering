@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "description": "Unmodified reference inputs and outputs; gzip transport only. Run scripts/release.py restore.",
+  "description": "Unmodified historical and camera-ready analysis inputs/outputs; gzip transport only. Includes all data inputs for scripts/75_all_core_results.py plus campaign JSON metadata and the mechanism CSV. Run scripts/release.py restore. Model weights and full auxiliary lens banks are not redistributed.",
   "files": [
     {
       "path": "data/jlens-upstream/experiments/flexible-generalization.json",
@@ -442,6 +442,1518 @@
       "bytes": 48187909,
       "packed_bytes": 44551195,
       "purpose": "Frozen experimental inputs and pilot provenance"
+    },
+    {
+      "path": "results/c31_second_model_qwen3-4b.md",
+      "packed": "results__c31_second_model_qwen3-4b.md.gz",
+      "sha256": "40f18e2649d9fb5fd10267b8bf7287337446b05722f208833458ca4e58166ed2",
+      "bytes": 2085,
+      "packed_sha256": "47f4d70d22eeb3753ddb98f4f9548a8fd09c3edc2eae536fc903982323a3a671",
+      "packed_bytes": 1109,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/cross_model/gemma-3-12b-it/22b06e8c0089/clean_generations.json",
+      "packed": "results__cross_model__gemma-3-12b-it__22b06e8c0089__clean_generations.json.gz",
+      "sha256": "2386549a0d73f3a22a515d7cd49322d774fa11ab7d40b08bae211f933402302e",
+      "bytes": 55591,
+      "packed_sha256": "8e050777459d95ea7533229a2e71c4f9f3c04bc83ffee601f240fe3b5017a4c7",
+      "packed_bytes": 27428,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/cross_model/gemma-3-12b-it/22b06e8c0089/concept_results.json",
+      "packed": "results__cross_model__gemma-3-12b-it__22b06e8c0089__concept_results.json.gz",
+      "sha256": "c9b0f36e39849e2eaffb30dd294e1de0ccf2b18f103c3dc44ea5b6f96ece1a9e",
+      "bytes": 521398,
+      "packed_sha256": "e52ef9072f22c44a9cf8bb9f24fd7023655757b005c7dfacfcd65129d0372f5b",
+      "packed_bytes": 22039,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/cross_model/gemma-3-12b-it/22b06e8c0089/eligibility.json",
+      "packed": "results__cross_model__gemma-3-12b-it__22b06e8c0089__eligibility.json.gz",
+      "sha256": "ff1b1b435584f346b2a2efa8c4d7c2f3fbe73456ff5dbb8f5ecff96916072996",
+      "bytes": 195582,
+      "packed_sha256": "758e20c77f62b601277284059e4759d3a9c9efc6b5003e660dc5c75e9b844258",
+      "packed_bytes": 16680,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/cross_model/gemma-3-12b-it/22b06e8c0089/latent_results.json",
+      "packed": "results__cross_model__gemma-3-12b-it__22b06e8c0089__latent_results.json.gz",
+      "sha256": "fbc34527f256c0953f84ad5b27e5e04b63c75d077579a03be7f96b97ea08d594",
+      "bytes": 234847,
+      "packed_sha256": "0f617b71e6fac9fb0430d1054370e48f767269fd5a7441e3892bea08ec0128de",
+      "packed_bytes": 14714,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/cross_model/gemma-3-12b-it/22b06e8c0089/latent_screen.json",
+      "packed": "results__cross_model__gemma-3-12b-it__22b06e8c0089__latent_screen.json.gz",
+      "sha256": "29da3e23babc896a83dabb7f0a06c3b44edb07699f74a2e4c4bb54fe1d900be8",
+      "bytes": 33501,
+      "packed_sha256": "dc01567d454b468ae0bb334d2de1b8dab3edbabdbd1a1fe91aab8ed8ed0faae9",
+      "packed_bytes": 5166,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/cross_model/gemma-3-12b-it/22b06e8c0089/manifest.json",
+      "packed": "results__cross_model__gemma-3-12b-it__22b06e8c0089__manifest.json.gz",
+      "sha256": "770833f04b3ee10015265d890d5463c2d79d5e4ed79e78e2595235f36d72697d",
+      "bytes": 1525,
+      "packed_sha256": "6d846e11ce3879f949946db74cd59d49d2070a16efbada60cf0346f06e7dbacd",
+      "packed_bytes": 848,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/cross_model/gemma-3-12b-it/22b06e8c0089/smoke.json",
+      "packed": "results__cross_model__gemma-3-12b-it__22b06e8c0089__smoke.json.gz",
+      "sha256": "d5f607b5da3b2b7d97e33d21eecd4eb572a328428f90e45ebfc131e62b33f11e",
+      "bytes": 77,
+      "packed_sha256": "9be32bdf07ac2dbacf5a12c1cd10cf77b0f3319271a4065066d8fe566f8cf9ab",
+      "packed_bytes": 84,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/cross_model/gemma-3-12b-it/22b06e8c0089/status.json",
+      "packed": "results__cross_model__gemma-3-12b-it__22b06e8c0089__status.json.gz",
+      "sha256": "1a641e8093e6fac284faddc381d68f72dc2a1d5ef958cce971444686ce7c80eb",
+      "bytes": 224,
+      "packed_sha256": "7514b124006ae7e9bcfa9f32b1de651215a81e22248fabf06282a7fe9170b1f7",
+      "packed_bytes": 181,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/cross_model/gemma-3-12b-it/22b06e8c0089/token_coverage.json",
+      "packed": "results__cross_model__gemma-3-12b-it__22b06e8c0089__token_coverage.json.gz",
+      "sha256": "b5269c855279608d844c755108800452e71f696ee205fcce5ab98e21ad6c3d28",
+      "bytes": 1851,
+      "packed_sha256": "9c217d54ddc7ea065640c725b07ac20a2670467a0387377687db0fef3a2403f3",
+      "packed_bytes": 913,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/cross_model/llama-3.1-8b-instruct/19b48f435ca8/clean_generations.json",
+      "packed": "results__cross_model__llama-3.1-8b-instruct__19b48f435ca8__clean_generations.json.gz",
+      "sha256": "6a52623ff6249235d754d133ea3b5994c239e900568931acfc845ba94c798049",
+      "bytes": 56198,
+      "packed_sha256": "21fea909bae33aa0929efbcd4c67bd385f94ed781829f2a89c1cce4dea4dd897",
+      "packed_bytes": 27377,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/cross_model/llama-3.1-8b-instruct/19b48f435ca8/concept_results.json",
+      "packed": "results__cross_model__llama-3.1-8b-instruct__19b48f435ca8__concept_results.json.gz",
+      "sha256": "06fe79cc5cd507f9f2750d1bdbdf8a163212bd1a0503e43ba3fe602633724c93",
+      "bytes": 371571,
+      "packed_sha256": "d3bae77a81fb252604ac08b8107c58e2ad3f8752678f901acace5beacfa9d407",
+      "packed_bytes": 14009,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/cross_model/llama-3.1-8b-instruct/19b48f435ca8/eligibility.json",
+      "packed": "results__cross_model__llama-3.1-8b-instruct__19b48f435ca8__eligibility.json.gz",
+      "sha256": "b7f54aacfc27599df3fdb9a2161c7641b3c87a6e23acb0bbe8acd22e7481a2b9",
+      "bytes": 153044,
+      "packed_sha256": "a64948f41531d6b29c00ff7c44db8c7b89e904c309313aaef9d3f9ff9233f2e1",
+      "packed_bytes": 13615,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/cross_model/llama-3.1-8b-instruct/19b48f435ca8/latent_results.json",
+      "packed": "results__cross_model__llama-3.1-8b-instruct__19b48f435ca8__latent_results.json.gz",
+      "sha256": "13a7f1dd6556505ac5a364cc8c46443079f25cefd33297584dd19921c527e18e",
+      "bytes": 194842,
+      "packed_sha256": "bc26ea9eae7224ad881546c8ec954d2dde0c93d78e006df7f01677c91422459a",
+      "packed_bytes": 11300,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/cross_model/llama-3.1-8b-instruct/19b48f435ca8/latent_screen.json",
+      "packed": "results__cross_model__llama-3.1-8b-instruct__19b48f435ca8__latent_screen.json.gz",
+      "sha256": "13d70c82e42094ab5e16f3eabb13731d644de285f6cbd88935f6d37e076df1b7",
+      "bytes": 33702,
+      "packed_sha256": "2841b3e054796a7bde9802603f291510f78b0033a200529e75a64dcbdc1ed731",
+      "packed_bytes": 4747,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/cross_model/llama-3.1-8b-instruct/19b48f435ca8/manifest.json",
+      "packed": "results__cross_model__llama-3.1-8b-instruct__19b48f435ca8__manifest.json.gz",
+      "sha256": "d20ae419c4550f430a7d0df7de426c2581ab08961d33ac3cd34a07f4ac3f585d",
+      "bytes": 1540,
+      "packed_sha256": "71e5e39723381d6a10915a811b1b6a9aae7d92d14226adc29754e6779f84d3d8",
+      "packed_bytes": 859,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/cross_model/llama-3.1-8b-instruct/19b48f435ca8/smoke.json",
+      "packed": "results__cross_model__llama-3.1-8b-instruct__19b48f435ca8__smoke.json.gz",
+      "sha256": "c7d5fca3048cd0b250444c3444b5055283e21d648cc492d2fec73bfccae44d4a",
+      "bytes": 77,
+      "packed_sha256": "77bd8c80b946f2b14b0170ed34ed2cde0140bf6abdca36a396485da8ee86eadb",
+      "packed_bytes": 86,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/cross_model/llama-3.1-8b-instruct/19b48f435ca8/status.json",
+      "packed": "results__cross_model__llama-3.1-8b-instruct__19b48f435ca8__status.json.gz",
+      "sha256": "11fc97ac2a3bd7df6e52324573d1334db0a5cb2e939bc129fb5c2ce354442457",
+      "bytes": 223,
+      "packed_sha256": "a6d0ee505c7f403a2cfcc85e6239fd5ce4d10309476c019f203330f4cb840cae",
+      "packed_bytes": 181,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/cross_model/llama-3.1-8b-instruct/19b48f435ca8/token_coverage.json",
+      "packed": "results__cross_model__llama-3.1-8b-instruct__19b48f435ca8__token_coverage.json.gz",
+      "sha256": "76e3887654deeed610d253e7d339fe2c4692df1f2c54aeca3a4a7dc686b9853c",
+      "bytes": 1892,
+      "packed_sha256": "bf5e636bc5a0c3ff556c0320c0f06e58cf8b159f0be01fc6cf227bd46144d880",
+      "packed_bytes": 951,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/cross_model/summary.json",
+      "packed": "results__cross_model__summary.json.gz",
+      "sha256": "e72a9cd9be87d0fbe2f3d06ad90df9bb3b224dd01bc44de09257bbe3d8b96e4d",
+      "bytes": 4932,
+      "packed_sha256": "15a456160079c448f4b70c7f0d21789a28c0e31af6319a0da26d2c5e7eda3cab",
+      "packed_bytes": 1003,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/figures/fig_c37_lambda_interpolation.csv",
+      "packed": "results__figures__fig_c37_lambda_interpolation.csv.gz",
+      "sha256": "037540bfc821b00f05c7914c6fc18218b5bd447e62119b37c50ef4da203423fe",
+      "bytes": 1949,
+      "packed_sha256": "f463f543222cb4c8ff2c386bd6f2af92f0051975dd386776c8708526dca214ed",
+      "packed_bytes": 724,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/mistral-7b-instruct-v0.3/5d0378eb34d3/clean_generations.json",
+      "packed": "results__filtering_replication__mistral-7b-instruct-v0.3__5d0378eb34d3__clean_generations.json.gz",
+      "sha256": "cff5f01e5b0e80c2b43465d426e24b70c8fdb3c0db1c7f70ee247a638e27dfa8",
+      "bytes": 41149,
+      "packed_sha256": "5331240514609db3bd254777e91bbba68e8aa5339088ce3782594766b0db16f4",
+      "packed_bytes": 21064,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/mistral-7b-instruct-v0.3/5d0378eb34d3/concept_results.json",
+      "packed": "results__filtering_replication__mistral-7b-instruct-v0.3__5d0378eb34d3__concept_results.json.gz",
+      "sha256": "cf9498a93dbb43f1966445db5d9aa6416e8fa20bf4d3683a14ddc7f45f8baaff",
+      "bytes": 425923,
+      "packed_sha256": "1f7b59a1e49beaf506dc7e370b46b35d09c7ae678aab5ef1bf5dc477c52ab343",
+      "packed_bytes": 14233,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/mistral-7b-instruct-v0.3/5d0378eb34d3/eligibility.json",
+      "packed": "results__filtering_replication__mistral-7b-instruct-v0.3__5d0378eb34d3__eligibility.json.gz",
+      "sha256": "ee0242d8c65a4bacb6e1598536f18f4fb5b4d165cbaaad02d627dd6d927bcd21",
+      "bytes": 145261,
+      "packed_sha256": "b4f2cd4ff8168679a6c12296149cc61f9cb11f383fbe199eaf2ea5d69ff6649e",
+      "packed_bytes": 12324,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/mistral-7b-instruct-v0.3/5d0378eb34d3/environment.json",
+      "packed": "results__filtering_replication__mistral-7b-instruct-v0.3__5d0378eb34d3__environment.json.gz",
+      "sha256": "407c00f37539f3d11e8c292c54d8898b190f3e9832ba0f08d3a39b674157485d",
+      "bytes": 190,
+      "packed_sha256": "7b99215688d969117ced271a45f6770a84e951070f52fc39a6e2ed9bf5bce91b",
+      "packed_bytes": 163,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/mistral-7b-instruct-v0.3/5d0378eb34d3/fit_diagnostics.json",
+      "packed": "results__filtering_replication__mistral-7b-instruct-v0.3__5d0378eb34d3__fit_diagnostics.json.gz",
+      "sha256": "df8c329b5c64b1fe0bfcfde0b8521ab25f240501aca18775be7528dd8ff44695",
+      "bytes": 280,
+      "packed_sha256": "c2c31a74cf85bf7cc55e26e81c3f9e1a2138185e5a0b44daa5b3d63c46684b17",
+      "packed_bytes": 182,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/mistral-7b-instruct-v0.3/5d0378eb34d3/latent_results.json",
+      "packed": "results__filtering_replication__mistral-7b-instruct-v0.3__5d0378eb34d3__latent_results.json.gz",
+      "sha256": "899586d9c9479cea3b7fcc2e54983e875e91818c1589b48d569636c1d6241680",
+      "bytes": 169424,
+      "packed_sha256": "bd8690dba7ebe64b9f71d14172a9c9c7c4463ca79af1d7923d7f4e06aefce1b5",
+      "packed_bytes": 8674,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/mistral-7b-instruct-v0.3/5d0378eb34d3/latent_screen.json",
+      "packed": "results__filtering_replication__mistral-7b-instruct-v0.3__5d0378eb34d3__latent_screen.json.gz",
+      "sha256": "d40eadecaea3f109d0b9658e7702cefea521ecff41b2a64c5b28e1156a3b0e43",
+      "bytes": 23627,
+      "packed_sha256": "8f202a62c8391e0bab92245594679142b59b4280f43110c72550e298de33d225",
+      "packed_bytes": 3348,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/mistral-7b-instruct-v0.3/5d0378eb34d3/manifest.json",
+      "packed": "results__filtering_replication__mistral-7b-instruct-v0.3__5d0378eb34d3__manifest.json.gz",
+      "sha256": "417785bfb38eb936fa7d0632720b5ff0a49ea4dcc1696fdbf7ea164a92638152",
+      "bytes": 2574,
+      "packed_sha256": "91bd6221c5d529c1d8350e12626ed5c79736822366301b903539d4f67a9dced6",
+      "packed_bytes": 1083,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/mistral-7b-instruct-v0.3/5d0378eb34d3/smoke.json",
+      "packed": "results__filtering_replication__mistral-7b-instruct-v0.3__5d0378eb34d3__smoke.json.gz",
+      "sha256": "a4866d4b022580f7b718cbea4b86fef16faceead3dde612fd93a0a4c2c09c829",
+      "bytes": 77,
+      "packed_sha256": "3c3df8c8470f936c2f9415be63c4c2f8a4279b30f3df3a4da5a33adb422b36cd",
+      "packed_bytes": 86,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/mistral-7b-instruct-v0.3/5d0378eb34d3/status.json",
+      "packed": "results__filtering_replication__mistral-7b-instruct-v0.3__5d0378eb34d3__status.json.gz",
+      "sha256": "922a54f4821b1fd58f03b5627822a1dd7f4ab6a53f4af114e609b15da19d8a27",
+      "bytes": 223,
+      "packed_sha256": "f6dd4e48a6f66c761d3509fd9ec5cd45f31beb222304729a4eddd855d1f8e961",
+      "packed_bytes": 180,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/mistral-7b-instruct-v0.3/5d0378eb34d3/token_coverage.json",
+      "packed": "results__filtering_replication__mistral-7b-instruct-v0.3__5d0378eb34d3__token_coverage.json.gz",
+      "sha256": "134126d472d101ff5b29e36d1a29b6e260656696430162fe814a92d68a124c79",
+      "bytes": 2843,
+      "packed_sha256": "22fb0147fd69f967e2e68152680903abf2766583cd393dd8417d7d8f1553d48c",
+      "packed_bytes": 1099,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/olmo-2-1124-7b-instruct/5b97caf5275b/clean_generations.json",
+      "packed": "results__filtering_replication__olmo-2-1124-7b-instruct__5b97caf5275b__clean_generations.json.gz",
+      "sha256": "4edff9dfab81107c727f9fe68c2434d5f4bc2d6cc775be20ad83ae6238dcd686",
+      "bytes": 57682,
+      "packed_sha256": "794ff22f152bda455ebac2a09e333e16416daae3a260ebebb34b0cc19bcaecdb",
+      "packed_bytes": 27705,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/olmo-2-1124-7b-instruct/5b97caf5275b/concept_results.json",
+      "packed": "results__filtering_replication__olmo-2-1124-7b-instruct__5b97caf5275b__concept_results.json.gz",
+      "sha256": "38bf843224ea54ebef81cd7353f168bcea466db599c91508baffae65ed010032",
+      "bytes": 515555,
+      "packed_sha256": "37bf7a297fe3aae723bbb7fdff781f79e92248da6fcd0c9d65b0cda7d5bdb4a7",
+      "packed_bytes": 20808,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/olmo-2-1124-7b-instruct/5b97caf5275b/eligibility.json",
+      "packed": "results__filtering_replication__olmo-2-1124-7b-instruct__5b97caf5275b__eligibility.json.gz",
+      "sha256": "23b4dda8c74a27289b39f139853c5b3f773ecf8fe3f04239143a0c1558853420",
+      "bytes": 180097,
+      "packed_sha256": "02a19d390af4494790cb3c887b0e90598f903deb2cefa89c137d1b26490f112c",
+      "packed_bytes": 15715,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/olmo-2-1124-7b-instruct/5b97caf5275b/environment.json",
+      "packed": "results__filtering_replication__olmo-2-1124-7b-instruct__5b97caf5275b__environment.json.gz",
+      "sha256": "407c00f37539f3d11e8c292c54d8898b190f3e9832ba0f08d3a39b674157485d",
+      "bytes": 190,
+      "packed_sha256": "7b99215688d969117ced271a45f6770a84e951070f52fc39a6e2ed9bf5bce91b",
+      "packed_bytes": 163,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/olmo-2-1124-7b-instruct/5b97caf5275b/fit_diagnostics.json",
+      "packed": "results__filtering_replication__olmo-2-1124-7b-instruct__5b97caf5275b__fit_diagnostics.json.gz",
+      "sha256": "102bfc90b8a77cd35d1f4f1153343233690cf43f102ee05dccad5b1732e95e2e",
+      "bytes": 277,
+      "packed_sha256": "c2e2187ebc42c5e54cf6e4fe148da9ce5522f638dc48ecfe45e62897d4140b47",
+      "packed_bytes": 179,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/olmo-2-1124-7b-instruct/5b97caf5275b/latent_results.json",
+      "packed": "results__filtering_replication__olmo-2-1124-7b-instruct__5b97caf5275b__latent_results.json.gz",
+      "sha256": "68bd3bd8aa9674a1bb837c7800f832b42aade821ee35f5a4b6ce0d025449c6d3",
+      "bytes": 227266,
+      "packed_sha256": "cd03bdc1a5df0d4e09cca2b64284482a45e4534a7d942aee0216ff71c8c52991",
+      "packed_bytes": 13439,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/olmo-2-1124-7b-instruct/5b97caf5275b/latent_screen.json",
+      "packed": "results__filtering_replication__olmo-2-1124-7b-instruct__5b97caf5275b__latent_screen.json.gz",
+      "sha256": "9f5e1a3c3f923c48262862cf95dee3abf0dbef58bc28577ebcdd5de0a40572ca",
+      "bytes": 35042,
+      "packed_sha256": "366e386facfe58063fbbcdd57c824786ba5ebee0d2b201ea2e8c2acbf492e5a8",
+      "packed_bytes": 4837,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/olmo-2-1124-7b-instruct/5b97caf5275b/manifest.json",
+      "packed": "results__filtering_replication__olmo-2-1124-7b-instruct__5b97caf5275b__manifest.json.gz",
+      "sha256": "be7f26e88dc94e97699cd708cc59a876ca73606450b71084f69fa99b0b2a2a99",
+      "bytes": 2568,
+      "packed_sha256": "c9ffa18e0004765260b5d1a25af5b501f74fee35b770ce3f3a056876eb433985",
+      "packed_bytes": 1088,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/olmo-2-1124-7b-instruct/5b97caf5275b/smoke.json",
+      "packed": "results__filtering_replication__olmo-2-1124-7b-instruct__5b97caf5275b__smoke.json.gz",
+      "sha256": "78b15f3b7a750f7467949576f7ced32fcc0d0db5c9314b0d346edbc58323329f",
+      "bytes": 77,
+      "packed_sha256": "136210620da9c63088618d3b2a3e85141bf4a3782b2689251e7b2f14e38f8128",
+      "packed_bytes": 86,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/olmo-2-1124-7b-instruct/5b97caf5275b/status.json",
+      "packed": "results__filtering_replication__olmo-2-1124-7b-instruct__5b97caf5275b__status.json.gz",
+      "sha256": "2bab342ae45abe3dec1bffd23b09b24850617fc8529560c28a57000a292cd277",
+      "bytes": 223,
+      "packed_sha256": "4a9069c3a79d003e6c1c67f7bcb01acd6c205691ff1838c97f341267b20c017d",
+      "packed_bytes": 181,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/olmo-2-1124-7b-instruct/5b97caf5275b/token_coverage.json",
+      "packed": "results__filtering_replication__olmo-2-1124-7b-instruct__5b97caf5275b__token_coverage.json.gz",
+      "sha256": "76e3887654deeed610d253e7d339fe2c4692df1f2c54aeca3a4a7dc686b9853c",
+      "bytes": 1892,
+      "packed_sha256": "bf5e636bc5a0c3ff556c0320c0f06e58cf8b159f0be01fc6cf227bd46144d880",
+      "packed_bytes": 951,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen2.5-7b-instruct/f3b780e2c198/clean_generations.json",
+      "packed": "results__filtering_replication__qwen2.5-7b-instruct__f3b780e2c198__clean_generations.json.gz",
+      "sha256": "47fdc1b3c239b2ce922826041ffed57e8caf916fb575e5b3b6d134be36ae3980",
+      "bytes": 57650,
+      "packed_sha256": "c9f888ad181117696e96ecfdc064b691857383c00accb5d419a99fb7ee8365c6",
+      "packed_bytes": 26656,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen2.5-7b-instruct/f3b780e2c198/concept_results.json",
+      "packed": "results__filtering_replication__qwen2.5-7b-instruct__f3b780e2c198__concept_results.json.gz",
+      "sha256": "42ee98aec4d32004910c65822c03c7213235e7a40e3755471f5271400afc971b",
+      "bytes": 521853,
+      "packed_sha256": "d610a668fb913565e2998e5ab78b1ab916c3971d37f8c9b459bdf59644a577ac",
+      "packed_bytes": 20437,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen2.5-7b-instruct/f3b780e2c198/eligibility.json",
+      "packed": "results__filtering_replication__qwen2.5-7b-instruct__f3b780e2c198__eligibility.json.gz",
+      "sha256": "e310f141897b8d915ab6933bd3a963da7e26e94f2873a15301292b5b0d0aa910",
+      "bytes": 166400,
+      "packed_sha256": "f41012dcbcf3cc007376ca5abf47b90ed3097dd853bcb4a0eb262cab16f1a6fa",
+      "packed_bytes": 14979,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen2.5-7b-instruct/f3b780e2c198/environment.json",
+      "packed": "results__filtering_replication__qwen2.5-7b-instruct__f3b780e2c198__environment.json.gz",
+      "sha256": "407c00f37539f3d11e8c292c54d8898b190f3e9832ba0f08d3a39b674157485d",
+      "bytes": 190,
+      "packed_sha256": "7b99215688d969117ced271a45f6770a84e951070f52fc39a6e2ed9bf5bce91b",
+      "packed_bytes": 163,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen2.5-7b-instruct/f3b780e2c198/fit_diagnostics.json",
+      "packed": "results__filtering_replication__qwen2.5-7b-instruct__f3b780e2c198__fit_diagnostics.json.gz",
+      "sha256": "23c3392256b556b6910960508784c0e5943ebe896dba0c08461e0692200aa35d",
+      "bytes": 280,
+      "packed_sha256": "6c25fdb20169a5dc21d84e706bd280db61c2e3b58ba9d9baad51084d9a773e31",
+      "packed_bytes": 182,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen2.5-7b-instruct/f3b780e2c198/latent_results.json",
+      "packed": "results__filtering_replication__qwen2.5-7b-instruct__f3b780e2c198__latent_results.json.gz",
+      "sha256": "3d84fc7705dbf91c18dfde849eb4585928d874fdcedc35bb0a4c34721a6add46",
+      "bytes": 204827,
+      "packed_sha256": "68e04b07a6bef50c5e8ab4146a4101d42ad5bb6d020390e98df315c2a473da6f",
+      "packed_bytes": 11489,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen2.5-7b-instruct/f3b780e2c198/latent_screen.json",
+      "packed": "results__filtering_replication__qwen2.5-7b-instruct__f3b780e2c198__latent_screen.json.gz",
+      "sha256": "ec7b706e70834a1a235e4b0ccd8befe2962eef034a2d11654334c645b5d23b04",
+      "bytes": 34999,
+      "packed_sha256": "0796767494393d9dd8525f6e4e7ba68a004c0bf4351c3c1d280bd34313f6a786",
+      "packed_bytes": 4272,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen2.5-7b-instruct/f3b780e2c198/manifest.json",
+      "packed": "results__filtering_replication__qwen2.5-7b-instruct__f3b780e2c198__manifest.json.gz",
+      "sha256": "5f18c58cb46742feef438af55d4c388d3aed972ffef05e126a526f324f0589e5",
+      "bytes": 2549,
+      "packed_sha256": "0127e6ab748fdbb22593630158fcb40e82790b8ef2d62a305acbeb7cb436b755",
+      "packed_bytes": 1084,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen2.5-7b-instruct/f3b780e2c198/smoke.json",
+      "packed": "results__filtering_replication__qwen2.5-7b-instruct__f3b780e2c198__smoke.json.gz",
+      "sha256": "7df1888e1281d2d8304a81f025ae3b0e99bc7891aa6135bc40eed7c47706717b",
+      "bytes": 77,
+      "packed_sha256": "95c85f678049995283bc76039366a975cf385c3804a845cf37fe262446c80425",
+      "packed_bytes": 84,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen2.5-7b-instruct/f3b780e2c198/status.json",
+      "packed": "results__filtering_replication__qwen2.5-7b-instruct__f3b780e2c198__status.json.gz",
+      "sha256": "773269d5221957812a7860b59fd9a0bd52ae07f1c1e86a83e75b0279e38facab",
+      "bytes": 227,
+      "packed_sha256": "c21d97fe8677682257aa9aeee9afe2e6fa8567e018c1823fd8146b382f3a99aa",
+      "packed_bytes": 180,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen2.5-7b-instruct/f3b780e2c198/token_coverage.json",
+      "packed": "results__filtering_replication__qwen2.5-7b-instruct__f3b780e2c198__token_coverage.json.gz",
+      "sha256": "1f30a8cca1a0765dbe470654da666feb6a05b5d6efcad75c6c167a5efaf281e8",
+      "bytes": 1891,
+      "packed_sha256": "6cdd5c78e94d98cfee5d55fa571d8a72a3cd6a34fabee54c525d15d30df489b6",
+      "packed_bytes": 947,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-14b/f35c5fb3d674/clean_generations.json",
+      "packed": "results__filtering_replication__qwen3-14b__f35c5fb3d674__clean_generations.json.gz",
+      "sha256": "52f3a368dcc369df1a3273dc5842055f0fdb43bc4f936dc319d241bc7d92a39e",
+      "bytes": 56790,
+      "packed_sha256": "aa6a69b97974cea9f15f3e26f61a5d289806ca45fd35c77eafa9b3c9deb14403",
+      "packed_bytes": 26623,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-14b/f35c5fb3d674/concept_results.json",
+      "packed": "results__filtering_replication__qwen3-14b__f35c5fb3d674__concept_results.json.gz",
+      "sha256": "2923da4189b8a0fd92de46c410851c75c7149111061142dea5d84954cdd3e741",
+      "bytes": 411963,
+      "packed_sha256": "a5309194da1648597c1daf8ddb6a5b6d78dcad70721a2f18d5012b4843c4401a",
+      "packed_bytes": 14181,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-14b/f35c5fb3d674/eligibility.json",
+      "packed": "results__filtering_replication__qwen3-14b__f35c5fb3d674__eligibility.json.gz",
+      "sha256": "acf646058d9cf6045306352c6090e499c12770b82c2208539c2fc80c0812e4d1",
+      "bytes": 144531,
+      "packed_sha256": "37cfda3ad78be844cd9bf90c32b0a0d6cb4cf4e3c69e301a880e69d710cb2718",
+      "packed_bytes": 13787,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-14b/f35c5fb3d674/environment.json",
+      "packed": "results__filtering_replication__qwen3-14b__f35c5fb3d674__environment.json.gz",
+      "sha256": "407c00f37539f3d11e8c292c54d8898b190f3e9832ba0f08d3a39b674157485d",
+      "bytes": 190,
+      "packed_sha256": "7b99215688d969117ced271a45f6770a84e951070f52fc39a6e2ed9bf5bce91b",
+      "packed_bytes": 163,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-14b/f35c5fb3d674/fit_diagnostics.json",
+      "packed": "results__filtering_replication__qwen3-14b__f35c5fb3d674__fit_diagnostics.json.gz",
+      "sha256": "71df5322c7b82b09eb81041b4739a1595a67ee16466c063704c47ec1f4d13310",
+      "bytes": 280,
+      "packed_sha256": "fe22117a948a30757018b99935e84616d9d32c2134179c99655b74a8dcb88419",
+      "packed_bytes": 186,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-14b/f35c5fb3d674/latent_results.json",
+      "packed": "results__filtering_replication__qwen3-14b__f35c5fb3d674__latent_results.json.gz",
+      "sha256": "e0f4aaed338c347cd05c704b86ae2dfcc5fdfc19460d0807d5d3d2ea3fd5ad6a",
+      "bytes": 234570,
+      "packed_sha256": "c5a8f54961cac9f1a08186ff2f2ce0b542fd074cdb26a280cd2ce4be6c7b1156",
+      "packed_bytes": 12803,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-14b/f35c5fb3d674/latent_screen.json",
+      "packed": "results__filtering_replication__qwen3-14b__f35c5fb3d674__latent_screen.json.gz",
+      "sha256": "51e6244cf9e0c620364dbfc8d963a1f9eee23773e7f2bbce3e364faa671fffbe",
+      "bytes": 34384,
+      "packed_sha256": "e8c8287e2f9bc56417de0d926f1ad7904d153bab18b3c3af450dedb463177ce3",
+      "packed_bytes": 4349,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-14b/f35c5fb3d674/manifest.json",
+      "packed": "results__filtering_replication__qwen3-14b__f35c5fb3d674__manifest.json.gz",
+      "sha256": "73008fea476255477a2b6e7b497d84be3e2f9ff12cab25b4c4aa337c6a6e412a",
+      "bytes": 2509,
+      "packed_sha256": "970bf5c868d56fbe5afd931896d4fe85765c572410c71fb14cac85774e197b53",
+      "packed_bytes": 1072,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-14b/f35c5fb3d674/smoke.json",
+      "packed": "results__filtering_replication__qwen3-14b__f35c5fb3d674__smoke.json.gz",
+      "sha256": "282a059463685e8aa525b409ef7d099b762a94b0d6c38ca9a59ff875a6f4c140",
+      "bytes": 77,
+      "packed_sha256": "01810f36114a3dce206efb1d64f3190174de73a384737f05d7d6bdf4e3b613c6",
+      "packed_bytes": 86,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-14b/f35c5fb3d674/status.json",
+      "packed": "results__filtering_replication__qwen3-14b__f35c5fb3d674__status.json.gz",
+      "sha256": "8bd9da5d7d7e73797d3c7ab098747f0511f5ab22e377eb56f461425d01183dff",
+      "bytes": 226,
+      "packed_sha256": "5a782aa66f6dd256a26a91307797e7094ea56feeec72eb94098be63c57801806",
+      "packed_bytes": 183,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-14b/f35c5fb3d674/token_coverage.json",
+      "packed": "results__filtering_replication__qwen3-14b__f35c5fb3d674__token_coverage.json.gz",
+      "sha256": "1f30a8cca1a0765dbe470654da666feb6a05b5d6efcad75c6c167a5efaf281e8",
+      "bytes": 1891,
+      "packed_sha256": "6cdd5c78e94d98cfee5d55fa571d8a72a3cd6a34fabee54c525d15d30df489b6",
+      "packed_bytes": 947,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-4b/144f15df1fd0/clean_generations.json",
+      "packed": "results__filtering_replication__qwen3-4b__144f15df1fd0__clean_generations.json.gz",
+      "sha256": "6b0686389a83c55a70f48054391472acf3375f179659a6dbf853085e22971830",
+      "bytes": 56275,
+      "packed_sha256": "e097db5d2a26fbd05838a51914bbf95307cb6631237d22b77980b34cde680ee2",
+      "packed_bytes": 27159,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-4b/144f15df1fd0/concept_results.json",
+      "packed": "results__filtering_replication__qwen3-4b__144f15df1fd0__concept_results.json.gz",
+      "sha256": "40abc29dc0ff28e3233ea3a66ae0f9f13325ad64ed9a00cde9b8541a35330805",
+      "bytes": 461366,
+      "packed_sha256": "db758607626f2248c4a7372681cf16aaf19544f7a57c6bec28d6453c812f9073",
+      "packed_bytes": 17789,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-4b/144f15df1fd0/eligibility.json",
+      "packed": "results__filtering_replication__qwen3-4b__144f15df1fd0__eligibility.json.gz",
+      "sha256": "826dabe940cd8f2ca6d813cb0b44ad9689d3ba9cfcd15227e8c209a72b3384b6",
+      "bytes": 152986,
+      "packed_sha256": "18ac41a5a37ad0d5bcd003d3345e68436d4d200dc5148a272a70abbd4978c5ca",
+      "packed_bytes": 14398,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-4b/144f15df1fd0/environment.json",
+      "packed": "results__filtering_replication__qwen3-4b__144f15df1fd0__environment.json.gz",
+      "sha256": "407c00f37539f3d11e8c292c54d8898b190f3e9832ba0f08d3a39b674157485d",
+      "bytes": 190,
+      "packed_sha256": "7b99215688d969117ced271a45f6770a84e951070f52fc39a6e2ed9bf5bce91b",
+      "packed_bytes": 163,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-4b/144f15df1fd0/fit_diagnostics.json",
+      "packed": "results__filtering_replication__qwen3-4b__144f15df1fd0__fit_diagnostics.json.gz",
+      "sha256": "2636cb24789923d78b4b5ec6a7727bf37d362354f07521cdaba93a6a72fb768d",
+      "bytes": 281,
+      "packed_sha256": "a3feb6e14835b26726978b8d188c7dc38ce0e304427703b9fc1d7f4375e40f11",
+      "packed_bytes": 182,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-4b/144f15df1fd0/latent_results.json",
+      "packed": "results__filtering_replication__qwen3-4b__144f15df1fd0__latent_results.json.gz",
+      "sha256": "a803287f3364aa9539be14e24e4b92bede8a85493763ef1c8fdb8d73f4e5e6fc",
+      "bytes": 204667,
+      "packed_sha256": "265a5822704162b7608bc7561fd8e0c9d112c583688ea783696261ffc233e863",
+      "packed_bytes": 12610,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-4b/144f15df1fd0/latent_screen.json",
+      "packed": "results__filtering_replication__qwen3-4b__144f15df1fd0__latent_screen.json.gz",
+      "sha256": "457203273a2b3e29f078680856e294ed5377321797583bee9deb91ac6fdbdc8d",
+      "bytes": 34102,
+      "packed_sha256": "3549be6161b6d1c5afa8e20cfbb6bbefe87e4d216d8d0b3d957b341975b48a69",
+      "packed_bytes": 4786,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-4b/144f15df1fd0/manifest.json",
+      "packed": "results__filtering_replication__qwen3-4b__144f15df1fd0__manifest.json.gz",
+      "sha256": "37d1ec1c04407aea0058c9e8ad46c1eca55b081fb50f23cf81efb7ef1663816e",
+      "bytes": 2541,
+      "packed_sha256": "06272a378386745737f42ce236358d988554bcdc13aad9d4bbac3d5014c3a2b6",
+      "packed_bytes": 1076,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-4b/144f15df1fd0/smoke.json",
+      "packed": "results__filtering_replication__qwen3-4b__144f15df1fd0__smoke.json.gz",
+      "sha256": "7ad74d7935927293a8d8541d67cee144e42d52efd5236d9b401f0598e061f96a",
+      "bytes": 77,
+      "packed_sha256": "3ce31bc2e9fb74fa0b4ed2fda047efa081bfb7bd1c4eaf34f68d01e01ea91bfa",
+      "packed_bytes": 86,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-4b/144f15df1fd0/status.json",
+      "packed": "results__filtering_replication__qwen3-4b__144f15df1fd0__status.json.gz",
+      "sha256": "f214208eeca0377871cb289fba405a1ece21725f850276410930bd2c60bacb49",
+      "bytes": 227,
+      "packed_sha256": "b4af985015626c389a55c5df0f3b9dd2b9e4beb16c52882df9b75048841805d3",
+      "packed_bytes": 182,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-4b/144f15df1fd0/token_coverage.json",
+      "packed": "results__filtering_replication__qwen3-4b__144f15df1fd0__token_coverage.json.gz",
+      "sha256": "1f30a8cca1a0765dbe470654da666feb6a05b5d6efcad75c6c167a5efaf281e8",
+      "bytes": 1891,
+      "packed_sha256": "6cdd5c78e94d98cfee5d55fa571d8a72a3cd6a34fabee54c525d15d30df489b6",
+      "packed_bytes": 947,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-8b/592cdb16c2cc/clean_generations.json",
+      "packed": "results__filtering_replication__qwen3-8b__592cdb16c2cc__clean_generations.json.gz",
+      "sha256": "9143f6431574fdfa97e0db2399b774fb5fc320769d389295da6fad9358cbbb52",
+      "bytes": 57208,
+      "packed_sha256": "22e449612e4e589e9586e8952ae7ca1e61f5ab987c1a193edcbae0b20f408f4f",
+      "packed_bytes": 26752,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-8b/592cdb16c2cc/concept_results.json",
+      "packed": "results__filtering_replication__qwen3-8b__592cdb16c2cc__concept_results.json.gz",
+      "sha256": "ac5f06518702ec59fa06dcdfa9c40ae8f12015cc428f630d1a86868279f1a108",
+      "bytes": 493360,
+      "packed_sha256": "155817abb116cb1472323679a4a07e7be3aa2b5e6888ea1e3642107bdf9971c1",
+      "packed_bytes": 17302,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-8b/592cdb16c2cc/eligibility.json",
+      "packed": "results__filtering_replication__qwen3-8b__592cdb16c2cc__eligibility.json.gz",
+      "sha256": "307174c2793df6afd8d8b74a38984e86aa6d2bf5f2c46243f868a58227db91e9",
+      "bytes": 162841,
+      "packed_sha256": "e51270988d666c041623fc87053c8f8a950f180ed1a88cad4a251c63d9ab51af",
+      "packed_bytes": 14865,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-8b/592cdb16c2cc/environment.json",
+      "packed": "results__filtering_replication__qwen3-8b__592cdb16c2cc__environment.json.gz",
+      "sha256": "407c00f37539f3d11e8c292c54d8898b190f3e9832ba0f08d3a39b674157485d",
+      "bytes": 190,
+      "packed_sha256": "7b99215688d969117ced271a45f6770a84e951070f52fc39a6e2ed9bf5bce91b",
+      "packed_bytes": 163,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-8b/592cdb16c2cc/fit_diagnostics.json",
+      "packed": "results__filtering_replication__qwen3-8b__592cdb16c2cc__fit_diagnostics.json.gz",
+      "sha256": "d8fd0061f976bb1d18018074f355b55d4734c9d1ed2d040f8b39158d5761426d",
+      "bytes": 280,
+      "packed_sha256": "e0aae97a6980d5211ac305cee6441d4480c6528715401ac532ffc568c4bd9e9c",
+      "packed_bytes": 183,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-8b/592cdb16c2cc/latent_results.json",
+      "packed": "results__filtering_replication__qwen3-8b__592cdb16c2cc__latent_results.json.gz",
+      "sha256": "54bf9e3628921c5e0afbadf6b638736c55bb748385ae4d8e8c42eff749a09537",
+      "bytes": 202998,
+      "packed_sha256": "b47143c6bf2c5594bcf2be514ce5be1d8ee1893ec877526bfed040d0d7fc725e",
+      "packed_bytes": 11576,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-8b/592cdb16c2cc/latent_screen.json",
+      "packed": "results__filtering_replication__qwen3-8b__592cdb16c2cc__latent_screen.json.gz",
+      "sha256": "5f0661d5970f07fcf500545ec979cac37b521bd9326a8e6e40562198ea0b1d1a",
+      "bytes": 34706,
+      "packed_sha256": "52504d7543f1d6fd730fecc84fbeed622be56d0c93f07d26ea8b9fbd7d91e41b",
+      "packed_bytes": 4469,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-8b/592cdb16c2cc/manifest.json",
+      "packed": "results__filtering_replication__qwen3-8b__592cdb16c2cc__manifest.json.gz",
+      "sha256": "e145fda70573383af1adea33a773b0cd1afd1e33b3fe8adc1a2b950198036f4f",
+      "bytes": 2579,
+      "packed_sha256": "b728c54885949a9ec6febbb750d5ae546c41e72d21f15be467e0893cb43fed5d",
+      "packed_bytes": 1101,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-8b/592cdb16c2cc/smoke.json",
+      "packed": "results__filtering_replication__qwen3-8b__592cdb16c2cc__smoke.json.gz",
+      "sha256": "6ed30598705f51ee1dd24deb5e8be1e1acd03cd9069c7dccf5c7727fcca33430",
+      "bytes": 77,
+      "packed_sha256": "641d038ab50b570eb971a60d35722d8f725c3cf3cd720afa4a4fd648dea23897",
+      "packed_bytes": 84,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-8b/592cdb16c2cc/status.json",
+      "packed": "results__filtering_replication__qwen3-8b__592cdb16c2cc__status.json.gz",
+      "sha256": "743c9566c0cd6d45674ce22a2e864f3611de36b445435b76f4b0cde1d94bcb7e",
+      "bytes": 223,
+      "packed_sha256": "504f32f5aa3f4cac8989f6cd5f5a891952590a2cf91ff791dd62de9d7cbf3dbb",
+      "packed_bytes": 179,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/qwen3-8b/592cdb16c2cc/token_coverage.json",
+      "packed": "results__filtering_replication__qwen3-8b__592cdb16c2cc__token_coverage.json.gz",
+      "sha256": "1f30a8cca1a0765dbe470654da666feb6a05b5d6efcad75c6c167a5efaf281e8",
+      "bytes": 1891,
+      "packed_sha256": "6cdd5c78e94d98cfee5d55fa571d8a72a3cd6a34fabee54c525d15d30df489b6",
+      "packed_bytes": 947,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/filtering_replication/summary.json",
+      "packed": "results__filtering_replication__summary.json.gz",
+      "sha256": "316ce87f7a67feb7efd726052772e2846763e8c9a33511427f7cd12ea5d05a96",
+      "bytes": 14722,
+      "packed_sha256": "8a7dd62b2f653776bd343b3c4376aff3bb8b52e7aba8fcdd6d7e16c9fe3073e8",
+      "packed_bytes": 2232,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/gemma_pressure/7a5e8f6c4503/manifest.json",
+      "packed": "results__gemma_pressure__7a5e8f6c4503__manifest.json.gz",
+      "sha256": "176643ac0bd4d50918412c6a947021ac300448243c4c7a46a6c06e8852aed326",
+      "bytes": 1464,
+      "packed_sha256": "26c4746cbf2fe3dfc77c0caa32f223e88bc8e6b0d015eabcbe0f105da59e4594",
+      "packed_bytes": 821,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/gemma_pressure/7a5e8f6c4503/released_metadata.json",
+      "packed": "results__gemma_pressure__7a5e8f6c4503__released_metadata.json.gz",
+      "sha256": "68dce5aa9819d310734cd3c599476eede096be6b494d1f65625564ca9ecbbbda",
+      "bytes": 465,
+      "packed_sha256": "ac3e0282397d885f25d4073fffd04709efd69d56b1419183fcdbdbc49ce0c88f",
+      "packed_bytes": 260,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/gemma_pressure/7a5e8f6c4503/selection.json",
+      "packed": "results__gemma_pressure__7a5e8f6c4503__selection.json.gz",
+      "sha256": "e6ce27f7238a8d2799245bef03b7abf2fac760501164e8e80111da29c97255e9",
+      "bytes": 14926,
+      "packed_sha256": "b31567cbc6a11382cc10e98426893afca6f46f74d53d1479f0ea1f6ce0f94b83",
+      "packed_bytes": 1396,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/gemma_pressure/7a5e8f6c4503/status.json",
+      "packed": "results__gemma_pressure__7a5e8f6c4503__status.json.gz",
+      "sha256": "2fc710e885ba5f8474ee47af4f731f2a61c790ee002e02bb8160347342a501c1",
+      "bytes": 494,
+      "packed_sha256": "6c53ed5f056e7628a6059bfb5295abae1f6729e8b41243c2fa05b0f38282267d",
+      "packed_bytes": 249,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/gemma_pressure/7a5e8f6c4503/validation_results.json",
+      "packed": "results__gemma_pressure__7a5e8f6c4503__validation_results.json.gz",
+      "sha256": "ecd044a70d68ff15f8325afb2535ed8a4cc3967f7ebd09a20c1fc3a2447d084b",
+      "bytes": 1272807,
+      "packed_sha256": "7261c7bed8426881fec1be00d275cc8ae4ed5a7f290c17b2db5e87e5810349fc",
+      "packed_bytes": 35384,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/latent/latent_controls_gsm8k_80a6934224f0ac55.json",
+      "packed": "results__latent__latent_controls_gsm8k_80a6934224f0ac55.json.gz",
+      "sha256": "121186a66de6861f9fad1ad1e8078ce63aef34b3e5083f173c9387a5cc55f5a0",
+      "bytes": 1157334,
+      "packed_sha256": "0ce2983a86dde7d59a4e5296f226b3f118f167641a03b900d90b4ed15c3a31f3",
+      "packed_bytes": 49296,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/latent/latent_controls_wikitext_a_393f229cc9c869be.json",
+      "packed": "results__latent__latent_controls_wikitext_a_393f229cc9c869be.json.gz",
+      "sha256": "642559a5b91535c9f9b7acc5707bbbdf3ac70a343630908cf26b713e2bda1cc0",
+      "bytes": 1158248,
+      "packed_sha256": "96642b381d46038e7157dc0fcbd5c42ddb5f343a7f2486a2be7260a752aeafe2",
+      "packed_bytes": 50342,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-2b-it-np/c2382ae25c35/clean_generations.json",
+      "packed": "results__neuronpedia_replication__gemma-2-2b-it-np__c2382ae25c35__clean_generations.json.gz",
+      "sha256": "e091481a6dcc855a3c1b6661e9e996fe68e39642733edff2f8beb3c4be235285",
+      "bytes": 55608,
+      "packed_sha256": "6f4fcfffc36076569ce6a138e5b878f15ae4cdb713073974437be1eb7d685003",
+      "packed_bytes": 26174,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-2b-it-np/c2382ae25c35/concept_results.json",
+      "packed": "results__neuronpedia_replication__gemma-2-2b-it-np__c2382ae25c35__concept_results.json.gz",
+      "sha256": "bfa664b37be356e915966cc716c253dfef2b9cccb35dbb16f5937ff9d03cc790",
+      "bytes": 591371,
+      "packed_sha256": "8a4391cf5163d872901b73e555faae6e1264f08faab9026b7a10e6125e93873a",
+      "packed_bytes": 17446,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-2b-it-np/c2382ae25c35/eligibility.json",
+      "packed": "results__neuronpedia_replication__gemma-2-2b-it-np__c2382ae25c35__eligibility.json.gz",
+      "sha256": "c0a46ef92b723a922583e9b2dc848aa4b8425fff51725fc18fe5b393d1484db0",
+      "bytes": 160543,
+      "packed_sha256": "c91e20eaa85a5a065bb1cef128e4d38ed2003e9056d526620f0633fe5f20ff35",
+      "packed_bytes": 14217,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-2b-it-np/c2382ae25c35/environment.json",
+      "packed": "results__neuronpedia_replication__gemma-2-2b-it-np__c2382ae25c35__environment.json.gz",
+      "sha256": "407c00f37539f3d11e8c292c54d8898b190f3e9832ba0f08d3a39b674157485d",
+      "bytes": 190,
+      "packed_sha256": "7b99215688d969117ced271a45f6770a84e951070f52fc39a6e2ed9bf5bce91b",
+      "packed_bytes": 163,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-2b-it-np/c2382ae25c35/fit_diagnostics.json",
+      "packed": "results__neuronpedia_replication__gemma-2-2b-it-np__c2382ae25c35__fit_diagnostics.json.gz",
+      "sha256": "d009c6bb515eae49908f5ba0b3400a000a310ca264c59152dca98f7ed54eef00",
+      "bytes": 1448,
+      "packed_sha256": "83d27fa69504779e02bab0189abb17dfa2aba0f451c113b735bc2a9e84ad68e1",
+      "packed_bytes": 426,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-2b-it-np/c2382ae25c35/latent_results.json",
+      "packed": "results__neuronpedia_replication__gemma-2-2b-it-np__c2382ae25c35__latent_results.json.gz",
+      "sha256": "3305bd56d755fe9503cd4e6a36a21e7dcbc72aa816a9bc457fff31ae2eaf048c",
+      "bytes": 302252,
+      "packed_sha256": "2bd673f6448bc678acfeed79bc87e67f1a7b1d2cd5190a78747181f9b5648213",
+      "packed_bytes": 12119,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-2b-it-np/c2382ae25c35/latent_screen.json",
+      "packed": "results__neuronpedia_replication__gemma-2-2b-it-np__c2382ae25c35__latent_screen.json.gz",
+      "sha256": "945234412b391dadc14bdb1c11e3db32398a9fc0ca385477867865762037b21d",
+      "bytes": 33672,
+      "packed_sha256": "ed276001203bae96ff2a13de271b7bf0ce6c32edf4f414d9abb9156910726258",
+      "packed_bytes": 4352,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-2b-it-np/c2382ae25c35/manifest.json",
+      "packed": "results__neuronpedia_replication__gemma-2-2b-it-np__c2382ae25c35__manifest.json.gz",
+      "sha256": "3d32fb56757f61cb6032efb387c3413e5f30e1c289fb177883d6af2751a0fc27",
+      "bytes": 2739,
+      "packed_sha256": "ba1ea24291546eaba409dee85dd3cd9c01fcf5b8b1e37c13b768e5c784543d2b",
+      "packed_bytes": 1365,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-2b-it-np/c2382ae25c35/published_metadata.json",
+      "packed": "results__neuronpedia_replication__gemma-2-2b-it-np__c2382ae25c35__published_metadata.json.gz",
+      "sha256": "e8a1a288e88d1871f5e20911f6220be4b10a287a5680b9b6ea563de848caf400",
+      "bytes": 504,
+      "packed_sha256": "95d16125d34dce82df5dc559ce5bf6b8c293a2969fb493894d19a3cc693aa3fc",
+      "packed_bytes": 324,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-2b-it-np/c2382ae25c35/smoke.json",
+      "packed": "results__neuronpedia_replication__gemma-2-2b-it-np__c2382ae25c35__smoke.json.gz",
+      "sha256": "74a0391218a209d1ded8baa3d917eacee45cb617fa6523b024c250e5b32ad8d2",
+      "bytes": 77,
+      "packed_sha256": "8a665409f99e9806b4937b639a84772740e512ab26a9f89cd2c459d21d5b0080",
+      "packed_bytes": 84,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-2b-it-np/c2382ae25c35/status.json",
+      "packed": "results__neuronpedia_replication__gemma-2-2b-it-np__c2382ae25c35__status.json.gz",
+      "sha256": "f24d4b4b65161965960df1c5c7aa038f0971bf6b8e6a3d4d5eecd4e71c837023",
+      "bytes": 223,
+      "packed_sha256": "ccb30306a5e0e419131fac3c73c47d7ae68aa43290b5e7ee2f7c1cfb9c265a93",
+      "packed_bytes": 180,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-2b-it-np/c2382ae25c35/token_coverage.json",
+      "packed": "results__neuronpedia_replication__gemma-2-2b-it-np__c2382ae25c35__token_coverage.json.gz",
+      "sha256": "a07ef007a575b7d1300deff02890d9cb634b970aeea2b10baaea530df85c28e5",
+      "bytes": 1849,
+      "packed_sha256": "c51aff3f27fb27a9f28be34568d6190f6f9fa68270aeeb6d941b1e4ae7a76ff0",
+      "packed_bytes": 910,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-9b-it-np/d632d955f641/clean_generations.json",
+      "packed": "results__neuronpedia_replication__gemma-2-9b-it-np__d632d955f641__clean_generations.json.gz",
+      "sha256": "2684ba21bd98725bea88dd173ef0c5bd2952ac220ca779be95a50903b41f2688",
+      "bytes": 55429,
+      "packed_sha256": "8109ec64e8d7bf54a010819bfef984698a15742b558404048a9e71408aa8bcc1",
+      "packed_bytes": 26633,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-9b-it-np/d632d955f641/concept_results.json",
+      "packed": "results__neuronpedia_replication__gemma-2-9b-it-np__d632d955f641__concept_results.json.gz",
+      "sha256": "aa5f10f9019d7c10510b47df58bebd549d61e191dca8a761eed0477b7bb2c404",
+      "bytes": 590314,
+      "packed_sha256": "edb67cdc2de30a83206de00b30b9f38b9185ac1bbe7edf016d7f1e1f8a5275c4",
+      "packed_bytes": 18798,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-9b-it-np/d632d955f641/eligibility.json",
+      "packed": "results__neuronpedia_replication__gemma-2-9b-it-np__d632d955f641__eligibility.json.gz",
+      "sha256": "d27f1bce2666c8624de3d4879507f93e867c2537e32d6b2d02754f7a00009bba",
+      "bytes": 188618,
+      "packed_sha256": "2e56dde76e83e57ba60bb435beeaec336ac946ea62647e7a73d0c6ff4840c8cd",
+      "packed_bytes": 16484,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-9b-it-np/d632d955f641/environment.json",
+      "packed": "results__neuronpedia_replication__gemma-2-9b-it-np__d632d955f641__environment.json.gz",
+      "sha256": "407c00f37539f3d11e8c292c54d8898b190f3e9832ba0f08d3a39b674157485d",
+      "bytes": 190,
+      "packed_sha256": "7b99215688d969117ced271a45f6770a84e951070f52fc39a6e2ed9bf5bce91b",
+      "packed_bytes": 163,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-9b-it-np/d632d955f641/fit_diagnostics.json",
+      "packed": "results__neuronpedia_replication__gemma-2-9b-it-np__d632d955f641__fit_diagnostics.json.gz",
+      "sha256": "fcf3c646e2f18453cac9801878c7e827e1eba1703fa733a59e9d9a0ed349d58c",
+      "bytes": 1450,
+      "packed_sha256": "8f86c11dfd5ecd369618e8a53012f9c346b6a408f20f3c173ed338266b2f73c0",
+      "packed_bytes": 432,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-9b-it-np/d632d955f641/latent_results.json",
+      "packed": "results__neuronpedia_replication__gemma-2-9b-it-np__d632d955f641__latent_results.json.gz",
+      "sha256": "5ae584b8d365807cd8594d429326b47f985cde3d10eda3ee1f4400928acab004",
+      "bytes": 355448,
+      "packed_sha256": "189f02a83f120c9f309b22ab143b25da5cc7a0fd5af172e3c93ee52bad16803d",
+      "packed_bytes": 15368,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-9b-it-np/d632d955f641/latent_screen.json",
+      "packed": "results__neuronpedia_replication__gemma-2-9b-it-np__d632d955f641__latent_screen.json.gz",
+      "sha256": "5d50dd8b7ce5c3a1aeb3c8329415f4f0c7f5c1df3c930852d8d2979b98748d0a",
+      "bytes": 33502,
+      "packed_sha256": "2894854f1028b59abe8c56854e84b98afd4746fe5a3a7f7e0846fed3df8e2fea",
+      "packed_bytes": 4640,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-9b-it-np/d632d955f641/manifest.json",
+      "packed": "results__neuronpedia_replication__gemma-2-9b-it-np__d632d955f641__manifest.json.gz",
+      "sha256": "b5ee904827f6485a826584e87e3b0eb217454a91813ab793e2cd2f6d022d1f93",
+      "bytes": 2740,
+      "packed_sha256": "97935768dca6e4212998ae1787f47ac9b54415f1868473c335964a30fcdf5fa3",
+      "packed_bytes": 1366,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-9b-it-np/d632d955f641/published_metadata.json",
+      "packed": "results__neuronpedia_replication__gemma-2-9b-it-np__d632d955f641__published_metadata.json.gz",
+      "sha256": "558a7c794c9ff48200f04ddaf2fbbef8c5449c7b98cd1e99379efe5d9e67fb56",
+      "bytes": 600,
+      "packed_sha256": "d70d67d9287c04f5c330134de2497d24e4f7f88973d1225af5b6cafd8132d708",
+      "packed_bytes": 357,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-9b-it-np/d632d955f641/smoke.json",
+      "packed": "results__neuronpedia_replication__gemma-2-9b-it-np__d632d955f641__smoke.json.gz",
+      "sha256": "44751b45dc7d386aa381447c34baee7e62863d84ef166f109e4c622d2f1029ca",
+      "bytes": 77,
+      "packed_sha256": "3ee1bf867be81bf723b56b69e71d6dd6eaa9b68a405d133b8cab6fbbd66db280",
+      "packed_bytes": 86,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-9b-it-np/d632d955f641/status.json",
+      "packed": "results__neuronpedia_replication__gemma-2-9b-it-np__d632d955f641__status.json.gz",
+      "sha256": "2de2b73158ab9dcf1f82889995b69476a6850a3cba93183de3b177e16b900e76",
+      "bytes": 224,
+      "packed_sha256": "1194c745eb6a40528c9dba51ef324b372dc03158ef0b3110d70813e6f026468c",
+      "packed_bytes": 182,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-2-9b-it-np/d632d955f641/token_coverage.json",
+      "packed": "results__neuronpedia_replication__gemma-2-9b-it-np__d632d955f641__token_coverage.json.gz",
+      "sha256": "a07ef007a575b7d1300deff02890d9cb634b970aeea2b10baaea530df85c28e5",
+      "bytes": 1849,
+      "packed_sha256": "c51aff3f27fb27a9f28be34568d6190f6f9fa68270aeeb6d941b1e4ae7a76ff0",
+      "packed_bytes": 910,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-12b-pt-np/788be0987a8e/clean_generations.json",
+      "packed": "results__neuronpedia_replication__gemma-3-12b-pt-np__788be0987a8e__clean_generations.json.gz",
+      "sha256": "512ab9af431546b4471ba9c9d3dc1302075fd14172efda14849405da7741e5a8",
+      "bytes": 55255,
+      "packed_sha256": "1eb93797db5e082589d4ea40e747def216f8d981e1a6e8cf74710d48facf40cf",
+      "packed_bytes": 26140,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-12b-pt-np/788be0987a8e/concept_results.json",
+      "packed": "results__neuronpedia_replication__gemma-3-12b-pt-np__788be0987a8e__concept_results.json.gz",
+      "sha256": "4f53d82bd7d212844e79825ce14e583f392d62bffa373ba5c518a3dd295b07a9",
+      "bytes": 583692,
+      "packed_sha256": "18f0f53a3a5348acfcdf004d42602965a7e0e8d518f5d48bab90f6c9695b1acc",
+      "packed_bytes": 22539,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-12b-pt-np/788be0987a8e/eligibility.json",
+      "packed": "results__neuronpedia_replication__gemma-3-12b-pt-np__788be0987a8e__eligibility.json.gz",
+      "sha256": "ef1807f9d260fea3125b4f29d68b65279b353e9591a8ffdd0dc6e76936cb9bf9",
+      "bytes": 184108,
+      "packed_sha256": "70963202db0bc375de4c92032292e11ffe350ded41b08f528e5078de51e387df",
+      "packed_bytes": 15241,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-12b-pt-np/788be0987a8e/environment.json",
+      "packed": "results__neuronpedia_replication__gemma-3-12b-pt-np__788be0987a8e__environment.json.gz",
+      "sha256": "407c00f37539f3d11e8c292c54d8898b190f3e9832ba0f08d3a39b674157485d",
+      "bytes": 190,
+      "packed_sha256": "7b99215688d969117ced271a45f6770a84e951070f52fc39a6e2ed9bf5bce91b",
+      "packed_bytes": 163,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-12b-pt-np/788be0987a8e/fit_diagnostics.json",
+      "packed": "results__neuronpedia_replication__gemma-3-12b-pt-np__788be0987a8e__fit_diagnostics.json.gz",
+      "sha256": "1d82d40a3963fd780757a4cfb04202399b427c37ac2d98e3c0c0f94fbca43e36",
+      "bytes": 1447,
+      "packed_sha256": "0c08ce7fc69393e6f17c6a4d9cc9318498c839fd5824b8a5868f7c0a22e49176",
+      "packed_bytes": 434,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-12b-pt-np/788be0987a8e/latent_results.json",
+      "packed": "results__neuronpedia_replication__gemma-3-12b-pt-np__788be0987a8e__latent_results.json.gz",
+      "sha256": "fd3df4b934e2d469a512712e383059d3af5f2c372b22a0239398bbab79f69658",
+      "bytes": 328201,
+      "packed_sha256": "67b4b76e1868bf1c6997a406b62adc12b3a7295c5e0f71d60f82e30acd7abfdf",
+      "packed_bytes": 16358,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-12b-pt-np/788be0987a8e/latent_screen.json",
+      "packed": "results__neuronpedia_replication__gemma-3-12b-pt-np__788be0987a8e__latent_screen.json.gz",
+      "sha256": "ae4323713225ba2a5d0c738bb8517003b7215ab3a7b19340cc38bb235343f613",
+      "bytes": 33059,
+      "packed_sha256": "09eaa26bb128fc02206e4be2daa318623efa389e1afd7c7c72b95252df0d777c",
+      "packed_bytes": 4058,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-12b-pt-np/788be0987a8e/manifest.json",
+      "packed": "results__neuronpedia_replication__gemma-3-12b-pt-np__788be0987a8e__manifest.json.gz",
+      "sha256": "fc0ee550868a987e4100d10e20711d57b17b8a6e0ab56063b49f833bd57818cd",
+      "bytes": 2750,
+      "packed_sha256": "43e701c6d9514c2d0d5c3e98ff2a9dbfaf9b2cb82a46f73b613fb584651ba0d1",
+      "packed_bytes": 1369,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-12b-pt-np/788be0987a8e/published_metadata.json",
+      "packed": "results__neuronpedia_replication__gemma-3-12b-pt-np__788be0987a8e__published_metadata.json.gz",
+      "sha256": "287a4225cb0fdbd6790ac8073065aefa2872418a23a0893a51944d540231cc5e",
+      "bytes": 635,
+      "packed_sha256": "6b2b35d0e2e91d01684465867a2efbeac072e3c9982044a2ee95e37b5ae9c273",
+      "packed_bytes": 366,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-12b-pt-np/788be0987a8e/smoke.json",
+      "packed": "results__neuronpedia_replication__gemma-3-12b-pt-np__788be0987a8e__smoke.json.gz",
+      "sha256": "447a045c8c8a79b234ed522f2963ae63b405f0a844f2c79181138432072cd179",
+      "bytes": 77,
+      "packed_sha256": "e4b3b6050cf7956c7efa11eac14059fd3e05ec9e1faddfb3db5c4ec88fb4f8f1",
+      "packed_bytes": 86,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-12b-pt-np/788be0987a8e/status.json",
+      "packed": "results__neuronpedia_replication__gemma-3-12b-pt-np__788be0987a8e__status.json.gz",
+      "sha256": "85fafa7aec9701b5daed414c4135e43eccbd06d4e9c7e34ae2ebd390a490432a",
+      "bytes": 224,
+      "packed_sha256": "9b2ecc2990db47b56f20d1d46aace84197de000496c8ab2443fcdbd24df4aec9",
+      "packed_bytes": 179,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-12b-pt-np/788be0987a8e/token_coverage.json",
+      "packed": "results__neuronpedia_replication__gemma-3-12b-pt-np__788be0987a8e__token_coverage.json.gz",
+      "sha256": "b5269c855279608d844c755108800452e71f696ee205fcce5ab98e21ad6c3d28",
+      "bytes": 1851,
+      "packed_sha256": "9c217d54ddc7ea065640c725b07ac20a2670467a0387377687db0fef3a2403f3",
+      "packed_bytes": 913,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-4b-it-np/0f7ee6bdd66d/clean_generations.json",
+      "packed": "results__neuronpedia_replication__gemma-3-4b-it-np__0f7ee6bdd66d__clean_generations.json.gz",
+      "sha256": "d1d986a5b77735dcaeb8a27e88c9f130644332133ac59dc0dc32fc729ff5d2c1",
+      "bytes": 56049,
+      "packed_sha256": "31357a2c6836237bc2e679b712152373d9ef2c442dbcb32eb343c7ad4406a5b0",
+      "packed_bytes": 27299,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-4b-it-np/0f7ee6bdd66d/concept_results.json",
+      "packed": "results__neuronpedia_replication__gemma-3-4b-it-np__0f7ee6bdd66d__concept_results.json.gz",
+      "sha256": "cd15c6be36fa581989a8e532a96bed60ae1a9e1c56b9713d91be42512881c966",
+      "bytes": 516926,
+      "packed_sha256": "1282337159135e675b1c5882f948333bfc7f3dc0533ea0feb092a63b7d5e8a57",
+      "packed_bytes": 19813,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-4b-it-np/0f7ee6bdd66d/eligibility.json",
+      "packed": "results__neuronpedia_replication__gemma-3-4b-it-np__0f7ee6bdd66d__eligibility.json.gz",
+      "sha256": "5cccf3e4fc5fb011397f978be7ea40dbd5dc4fb9ea2989b2593b51bc84e6ecdb",
+      "bytes": 152815,
+      "packed_sha256": "144bcc42e97bd6b062b4c15c4816f0aee818ff97229946cb4b1f158780a2842f",
+      "packed_bytes": 13469,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-4b-it-np/0f7ee6bdd66d/environment.json",
+      "packed": "results__neuronpedia_replication__gemma-3-4b-it-np__0f7ee6bdd66d__environment.json.gz",
+      "sha256": "407c00f37539f3d11e8c292c54d8898b190f3e9832ba0f08d3a39b674157485d",
+      "bytes": 190,
+      "packed_sha256": "7b99215688d969117ced271a45f6770a84e951070f52fc39a6e2ed9bf5bce91b",
+      "packed_bytes": 163,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-4b-it-np/0f7ee6bdd66d/fit_diagnostics.json",
+      "packed": "results__neuronpedia_replication__gemma-3-4b-it-np__0f7ee6bdd66d__fit_diagnostics.json.gz",
+      "sha256": "f6a465637f0c2e45b1f95fdf9916871dea54c613941bc02ec270b36b7c95a96e",
+      "bytes": 1452,
+      "packed_sha256": "77e8cc450c1a8e32b2a2200edff0177bda389d7b1dd16353c95e81c72a752d7b",
+      "packed_bytes": 430,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-4b-it-np/0f7ee6bdd66d/latent_results.json",
+      "packed": "results__neuronpedia_replication__gemma-3-4b-it-np__0f7ee6bdd66d__latent_results.json.gz",
+      "sha256": "b8b39c3312d33e2fe850dd083e1de0537fb39338056dc5abf7f517c966999d38",
+      "bytes": 271499,
+      "packed_sha256": "2dcde0015b66bfd5b60589de42425c5497b781945c43dce65ffb22a0bc51e998",
+      "packed_bytes": 13225,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-4b-it-np/0f7ee6bdd66d/latent_screen.json",
+      "packed": "results__neuronpedia_replication__gemma-3-4b-it-np__0f7ee6bdd66d__latent_screen.json.gz",
+      "sha256": "75048da94363082c277418be85b1f02e632badbc8f4fdf9ee6722bfd16707181",
+      "bytes": 33936,
+      "packed_sha256": "d9cf5bc54565d5a5af3fd2652014c1af4d03856f854ddca5a827b8af9359ec11",
+      "packed_bytes": 5132,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-4b-it-np/0f7ee6bdd66d/manifest.json",
+      "packed": "results__neuronpedia_replication__gemma-3-4b-it-np__0f7ee6bdd66d__manifest.json.gz",
+      "sha256": "8a410b28b43f658dd725d80f1035b2316bccb18ccd6655a6a893a49d4884779a",
+      "bytes": 2750,
+      "packed_sha256": "50916c6ae9e0a0c1710e42c4b26e38734e79fbcf5b3541cfe13ee747500c038e",
+      "packed_bytes": 1369,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-4b-it-np/0f7ee6bdd66d/published_metadata.json",
+      "packed": "results__neuronpedia_replication__gemma-3-4b-it-np__0f7ee6bdd66d__published_metadata.json.gz",
+      "sha256": "9840be92975bfb6ecb76165809303bc2164ef3b933c280164ec7265b1ffbfebb",
+      "bytes": 552,
+      "packed_sha256": "0e3dd7df0ebab52f722d6418de1373bcf9f4ca0b5c3c7a8d8eac7574a01d303b",
+      "packed_bytes": 339,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-4b-it-np/0f7ee6bdd66d/smoke.json",
+      "packed": "results__neuronpedia_replication__gemma-3-4b-it-np__0f7ee6bdd66d__smoke.json.gz",
+      "sha256": "9dd5bc440660a8d6a61713ed3a25094e5f3c58fb8e647ffaeae4dd5d278de019",
+      "bytes": 76,
+      "packed_sha256": "fde2b368073ea1edbf540fc31515af753f0aba46878df6a6ce0ac55a70fbe85f",
+      "packed_bytes": 85,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-4b-it-np/0f7ee6bdd66d/status.json",
+      "packed": "results__neuronpedia_replication__gemma-3-4b-it-np__0f7ee6bdd66d__status.json.gz",
+      "sha256": "ad5a5d32c3afb17242f131b8cd2aa1f119f6b4133f5c40bb2778ffb54299f146",
+      "bytes": 228,
+      "packed_sha256": "3221cac225c785111e6c8be30ea633bd4447e447cc1b3ef7e5a0b3c6dde61caa",
+      "packed_bytes": 182,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/gemma-3-4b-it-np/0f7ee6bdd66d/token_coverage.json",
+      "packed": "results__neuronpedia_replication__gemma-3-4b-it-np__0f7ee6bdd66d__token_coverage.json.gz",
+      "sha256": "b5269c855279608d844c755108800452e71f696ee205fcce5ab98e21ad6c3d28",
+      "bytes": 1851,
+      "packed_sha256": "9c217d54ddc7ea065640c725b07ac20a2670467a0387377687db0fef3a2403f3",
+      "packed_bytes": 913,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-instruct-np/08e31a2fa1c2/clean_generations.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-instruct-np__08e31a2fa1c2__clean_generations.json.gz",
+      "sha256": "86cd9978705e24f2812394a9df4915448e23b4826b6c52135a714f0cf9a2cba6",
+      "bytes": 56204,
+      "packed_sha256": "cc4f0cc5e40d3ee7be611d9e35817a54b550c318277f0dc6807e9c97a4d35aef",
+      "packed_bytes": 27359,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-instruct-np/08e31a2fa1c2/concept_results.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-instruct-np__08e31a2fa1c2__concept_results.json.gz",
+      "sha256": "f3cb9ccb071490acddb8dc6a708bb9f918c0a63368dcc879d4e3a9f5b8282989",
+      "bytes": 441282,
+      "packed_sha256": "94b466f44120186d46ae9356fea844fa4e2d44c598ea9e057257f8fee866542f",
+      "packed_bytes": 17596,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-instruct-np/08e31a2fa1c2/eligibility.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-instruct-np__08e31a2fa1c2__eligibility.json.gz",
+      "sha256": "6a1fe6c4dded06e4057e53406bcfa69927232cbe7b64a82f201e4a007e8b0b92",
+      "bytes": 152213,
+      "packed_sha256": "8e6d798736be6323de6bc47e9b14e61435a066bc41ef4dfcda3cfd12965a69a8",
+      "packed_bytes": 13581,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-instruct-np/08e31a2fa1c2/environment.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-instruct-np__08e31a2fa1c2__environment.json.gz",
+      "sha256": "407c00f37539f3d11e8c292c54d8898b190f3e9832ba0f08d3a39b674157485d",
+      "bytes": 190,
+      "packed_sha256": "7b99215688d969117ced271a45f6770a84e951070f52fc39a6e2ed9bf5bce91b",
+      "packed_bytes": 163,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-instruct-np/08e31a2fa1c2/fit_diagnostics.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-instruct-np__08e31a2fa1c2__fit_diagnostics.json.gz",
+      "sha256": "61ded56b986d822c19a081f0f8a23f1a8265c5b4d5733ce07035afaae80dc0e5",
+      "bytes": 1448,
+      "packed_sha256": "cdb1f730225f4b1ac1a2bed93c3e7a88052dbbd904b71f44f771f934025818aa",
+      "packed_bytes": 431,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-instruct-np/08e31a2fa1c2/latent_results.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-instruct-np__08e31a2fa1c2__latent_results.json.gz",
+      "sha256": "9c36a93e4e3cd7aa97f11362edc583b4235514ead3e5ca24d3f0a8a9bd934d01",
+      "bytes": 292767,
+      "packed_sha256": "9c1c7efc9069604d13583af737b56382c49e78441d784f321c193242f284307c",
+      "packed_bytes": 14691,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-instruct-np/08e31a2fa1c2/latent_screen.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-instruct-np__08e31a2fa1c2__latent_screen.json.gz",
+      "sha256": "ac6e89fcb51f2785f9bbd895c3ee6c014bf7299868c3cb36240d9612f45c78b9",
+      "bytes": 33694,
+      "packed_sha256": "233e5269d44cbfe3e1e1ea2afe04f761b1ea46aa479ba8492f19b9fe1570e6d5",
+      "packed_bytes": 4742,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-instruct-np/08e31a2fa1c2/manifest.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-instruct-np__08e31a2fa1c2__manifest.json.gz",
+      "sha256": "02fe31d6d1fa5eb7647ddafa55d25e65367ad2b0b9593a0cd3b108fd9432e489",
+      "bytes": 2778,
+      "packed_sha256": "b11cdbecd6ed0a56fd9411cc263e562f4c7945871c97e90c29c75cbd388f555f",
+      "packed_bytes": 1387,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-instruct-np/08e31a2fa1c2/published_metadata.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-instruct-np__08e31a2fa1c2__published_metadata.json.gz",
+      "sha256": "52e29cff20a72eea5d74de7180668e356832e77dbe98e42d743944a955276d67",
+      "bytes": 549,
+      "packed_sha256": "0a1fe49b9be10cd32b96c479554e05205d5f381419e6491418fb15458e9aea7e",
+      "packed_bytes": 347,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-instruct-np/08e31a2fa1c2/smoke.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-instruct-np__08e31a2fa1c2__smoke.json.gz",
+      "sha256": "4ae7df1380f7870b8fab5dc7585357a125826f8731ca79a39676fd4db191d5f2",
+      "bytes": 76,
+      "packed_sha256": "1bf280fd903049cbc0be82c28f4b1bf629075815905fc02663c3e2142800d400",
+      "packed_bytes": 85,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-instruct-np/08e31a2fa1c2/status.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-instruct-np__08e31a2fa1c2__status.json.gz",
+      "sha256": "0007b83c0f0fe67aac164ade34108a49caba698d1fb17baa7a1223294a3b7207",
+      "bytes": 226,
+      "packed_sha256": "db1e00fa28ce6073634b550414d02b04af7a6c7a6ce18ec53d55eadb884900cb",
+      "packed_bytes": 183,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-instruct-np/08e31a2fa1c2/token_coverage.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-instruct-np__08e31a2fa1c2__token_coverage.json.gz",
+      "sha256": "76e3887654deeed610d253e7d339fe2c4692df1f2c54aeca3a4a7dc686b9853c",
+      "bytes": 1892,
+      "packed_sha256": "bf5e636bc5a0c3ff556c0320c0f06e58cf8b159f0be01fc6cf227bd46144d880",
+      "packed_bytes": 951,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-np/ac6f9f78ca05/clean_generations.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-np__ac6f9f78ca05__clean_generations.json.gz",
+      "sha256": "e233207b69b59b0c8e214194aed30536d28df70d17e9c7a1dcd768ee8e856065",
+      "bytes": 56179,
+      "packed_sha256": "c53fbc9eb006c6eeb3c6697caf3bc38dcea08fe7f7f2968faa6a0253316f99be",
+      "packed_bytes": 26923,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-np/ac6f9f78ca05/concept_results.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-np__ac6f9f78ca05__concept_results.json.gz",
+      "sha256": "55f1f67447902662aa375a06a57628d330e5cb4bc2642d63c379a3a74fe97245",
+      "bytes": 556921,
+      "packed_sha256": "2d8c184528f15af67f4c93564b6ba19a54bc241c19a0c9ca89f3b8a0311aaa07",
+      "packed_bytes": 20903,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-np/ac6f9f78ca05/eligibility.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-np__ac6f9f78ca05__eligibility.json.gz",
+      "sha256": "4b1a3ef151d80b93b7ca3a18b018e2ee26a6fc56aa9384e5979f708dc3e9d8e0",
+      "bytes": 146491,
+      "packed_sha256": "cb0162286cc6cc5c0189c0713f72fdf65d572eae5ef141294a89a67274e18c34",
+      "packed_bytes": 13194,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-np/ac6f9f78ca05/environment.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-np__ac6f9f78ca05__environment.json.gz",
+      "sha256": "407c00f37539f3d11e8c292c54d8898b190f3e9832ba0f08d3a39b674157485d",
+      "bytes": 190,
+      "packed_sha256": "7b99215688d969117ced271a45f6770a84e951070f52fc39a6e2ed9bf5bce91b",
+      "packed_bytes": 163,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-np/ac6f9f78ca05/fit_diagnostics.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-np__ac6f9f78ca05__fit_diagnostics.json.gz",
+      "sha256": "5037ca68f68e1575d6a58f64d26ff4b46225aaa18be70f201c3b07f13ea3c5f2",
+      "bytes": 1450,
+      "packed_sha256": "0c7d7046d5d469a8239ddd9cd8c2b90358bfac3068b5340b3e81d63dd4296f39",
+      "packed_bytes": 435,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-np/ac6f9f78ca05/latent_results.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-np__ac6f9f78ca05__latent_results.json.gz",
+      "sha256": "e43cdeb1112fb0deeaa5937b441136711a014ed0dacd503fffb5fa1fbcc8a9f1",
+      "bytes": 281541,
+      "packed_sha256": "2fab901324094adc7491b5e2d710f9599d4ba70a163d4e7de69a58a92578d774",
+      "packed_bytes": 13407,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-np/ac6f9f78ca05/latent_screen.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-np__ac6f9f78ca05__latent_screen.json.gz",
+      "sha256": "fc89467693f40a04e2d205f77596c6ee822bcb95c713f5c3ca16c68d169f99ed",
+      "bytes": 33961,
+      "packed_sha256": "4f0114f5b2272dc98ad3c6b0071949e7a74fcd0fb0e868462ed395aceef9509f",
+      "packed_bytes": 4560,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-np/ac6f9f78ca05/manifest.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-np__ac6f9f78ca05__manifest.json.gz",
+      "sha256": "1a230a8c406dd46412ea5190eff55398f50bc7e8b36fea69310f33cbbea2401c",
+      "bytes": 2736,
+      "packed_sha256": "bdeba1a7974568090ff1f5cabf464297195573abdca6e25b7df54523f76eaf64",
+      "packed_bytes": 1377,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-np/ac6f9f78ca05/published_metadata.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-np__ac6f9f78ca05__published_metadata.json.gz",
+      "sha256": "0b8cf8bfb217e25f7d69590e245070a998fa1eda7a9c5358d245aba7dd73a8c3",
+      "bytes": 537,
+      "packed_sha256": "bb0c99ec4d4aeba3b083560de46948cdda8c7bbce7590e667a2972beb878fed6",
+      "packed_bytes": 337,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-np/ac6f9f78ca05/smoke.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-np__ac6f9f78ca05__smoke.json.gz",
+      "sha256": "324cd233ffb9721c77203a1082865112bbeeeed485162c5db0a00db4273cf582",
+      "bytes": 77,
+      "packed_sha256": "df30672b25288f31cd3b7d9895a93963e3b01d95a43bcd4c1cb707f3f4aa6aa9",
+      "packed_bytes": 86,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-np/ac6f9f78ca05/status.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-np__ac6f9f78ca05__status.json.gz",
+      "sha256": "e08b88638be88f164e38f93b6a3288902dad0e05aa490ab4dca230f915d1f0b2",
+      "bytes": 223,
+      "packed_sha256": "37792492aafbc26f528ed81351fd384e4180b57e7d499ac15a8ca6601cd3a7e3",
+      "packed_bytes": 179,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/llama-3.1-8b-np/ac6f9f78ca05/token_coverage.json",
+      "packed": "results__neuronpedia_replication__llama-3.1-8b-np__ac6f9f78ca05__token_coverage.json.gz",
+      "sha256": "76e3887654deeed610d253e7d339fe2c4692df1f2c54aeca3a4a7dc686b9853c",
+      "bytes": 1892,
+      "packed_sha256": "bf5e636bc5a0c3ff556c0320c0f06e58cf8b159f0be01fc6cf227bd46144d880",
+      "packed_bytes": 951,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
+    },
+    {
+      "path": "results/neuronpedia_replication/summary.json",
+      "packed": "results__neuronpedia_replication__summary.json.gz",
+      "sha256": "eec83412c732dc47faf8365ac8921134dd04735e1979f767dce7137d3eef3766",
+      "bytes": 43671,
+      "packed_sha256": "0e8903de8ad6bc7a10493a9c26f9d132993972782a5c57400fcb872b47f0bed1",
+      "packed_bytes": 6580,
+      "purpose": "Camera-ready recorded cross-model reanalysis and run metadata"
     }
   ]
 }

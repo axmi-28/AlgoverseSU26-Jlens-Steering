@@ -1819,7 +1819,171 @@ def run_concept_gradcheck(spec: ConceptSpec) -> dict:
     return {"path": str(path), "units": len(units), "records": len(records)}
 
 
+#: Position-sweep modes (C42), carried in ``ConceptSpec.position_sets`` so the
+#: spec's manifest -- hence every earlier run's tag -- is unchanged.
+#: ``single`` keeps one prompt position of the whole-prompt edit (is the edit
+#: there sufficient?), ``drop`` keeps every position but one (is it
+#: necessary?), ``all`` keeps them all and must reproduce C38's prompt run.
+POSITION_MODES = ("single", "drop", "all")
+
+
+def position_masks(modes, T: int) -> list[tuple[str, int, torch.Tensor]]:
+    """``(mode, position, mask[T])`` rows; ``position`` is -1 for ``all``."""
+    rows = []
+    for mode in modes:
+        if mode == "all":
+            rows.append(("all", -1, torch.ones(T)))
+        elif mode in ("single", "drop"):
+            for p in range(T):
+                m = torch.zeros(T) if mode == "single" else torch.ones(T)
+                m[p] = 1.0 if mode == "single" else 0.0
+                rows.append((mode, p, m))
+        else:
+            raise ValueError(f"unknown position mode {mode!r}; expected {POSITION_MODES}")
+    return rows
+
+
+def mask_deltas(deltas: dict[int, torch.Tensor], masks: torch.Tensor) -> dict[int, torch.Tensor]:
+    """``{layer: [C, T, d]}`` x ``masks [K, T]`` -> ``{layer: [K*C, T, d]}``, row ``k*C + c``."""
+    return {
+        l: (masks[:, None, :, None] * D[None]).reshape(-1, *D.shape[1:]) for l, D in deltas.items()
+    }
+
+
+@torch.no_grad()
+def run_concept_positions(spec: ConceptSpec) -> dict:
+    """C42: where in the prompt does the same-position (diagonal) term act?
+
+    For every eligible use query, the C37/C38 whole-prompt swap is built once
+    on the clean residual (so each site's delta, and its row-matched norm, is
+    exactly C38's), then masked to the positions of each mode in
+    ``spec.position_sets``. Every arm is row-matched to the full lens's delta
+    norm, so at any one site the arms differ only in direction: comparing
+    ``lam1_cn`` with ``lam0_cn`` at position p is the effect of re-admitting the
+    diagonal term there at matched edit norm.
+
+    Per (trial, mode, position, corpus, arm): teacher-forced log-probs of the
+    target answer, source answer and target name (so R and L, as in C38), KL of
+    the final-position distribution from clean, and the greedy continuation's
+    success / retention / name flags. The applied per-position norm of every
+    condition is recorded so the matching can be checked downstream.
+    """
+    if spec.swap_positions != "prompt":
+        raise ValueError("the position sweep masks the whole-prompt edit; use swap_positions='prompt'")
+    if spec.doses != [1.0]:
+        raise ValueError("the position sweep measures dose 1.0 only")
+    if any(not arm_spec(a)["matched"] for a in spec.swap_arms):
+        raise ValueError("every arm must be norm-matched, or positions compare edit sizes")
+    position_masks(spec.position_sets, 1)  # validate the modes before loading a model
+    config, model = _setup(spec)
+    units = _shard(_eligible_units(spec), spec)
+    bank = Bank(model, spec.digest_paths, sorted({w for u, _, _ in units for w in (u.source, u.target)}))
+    conds = [(c, a) for c in spec.corpora for a in spec.swap_arms]
+    dev = next(model.layers[0].parameters()).device
+    path = spec.out_path()
+    payload = {"manifest": spec.manifest(), "conditions": conds, "layers": spec.layers, "records": []}
+    if path.exists():
+        old = json.loads(path.read_text())
+        if old["manifest"] != payload["manifest"]:
+            raise ValueError("existing output has a different manifest")
+        payload = old
+    done = {r["trial"] for r in payload["records"]}
+    dead_rows: dict[str, int] = payload.get("dead_rows", {})
+    checks = payload.get("checks", {"applied_spread": 0.0})
+    expected = []
+    start = time.time()
+    for i, (u, qs, rels) in enumerate(units):
+        pre_ids = encode(model, u.prefix)
+        P = pre_ids.shape[1]
+        for nf in spec.fillers:
+            ok = set(rels.get(str(nf), []))
+            if "express" not in ok:
+                continue
+            for q in qs:
+                if q.kind != "use" or q.relation not in ok:
+                    continue
+                tid = f"{u.key}|{q.relation}|f{nf}"
+                expected.append(tid)
+                if tid in done:
+                    continue
+                _, text = _prompt(u, q, nf)
+                ids = encode(model, text)
+                if not torch.equal(ids[0, :P], pre_ids[0]):
+                    raise RuntimeError("prefix mismatch")
+                T = ids.shape[1]
+                h = band_residuals(model, ids, spec.layers)
+                per = {c: swap_deltas(bank, h, u, c, spec.swap_arms, T, dead_rows) for c in spec.corpora}
+                masks = position_masks(spec.position_sets, T)
+                deltas = mask_deltas(
+                    {l: torch.stack([per[c][a][l] for c, a in conds]) for l in spec.layers},
+                    torch.stack([m for _, _, m in masks]),
+                )
+                deltas = {l: d.to(dev) for l, d in deltas.items()}
+                # Applied norm per (condition, position), L2 over the band. Arms
+                # within a corpus must agree wherever no row is dead.
+                applied = torch.stack([
+                    torch.stack([per[c][a][l].norm(dim=-1) for l in spec.layers]).norm(dim=0)
+                    for c, a in conds
+                ])  # [C, T]
+                for ci, c in enumerate(spec.corpora):
+                    blk = applied[ci * len(spec.swap_arms):(ci + 1) * len(spec.swap_arms)]
+                    live = blk.amin(0) > 0  # dead rows are counted in dead_rows instead
+                    spread = ((blk.amax(0) - blk.amin(0)) / blk.amax(0).clamp_min(1e-6))[live]
+                    if spread.numel():
+                        checks["applied_spread"] = max(checks["applied_spread"], float(spread.max()))
+                ans = {
+                    "t": _answer_ids(model, q.target), "s": _answer_ids(model, q.source),
+                    "n": _answer_ids(model, (u.target,)),
+                }
+                zero = {l: torch.zeros_like(deltas[l][:1]) for l in spec.layers}
+                clean = evaluate(model, ids, zero, answers=ans, gen_tokens=spec.gen_tokens)
+                res = evaluate(
+                    model, ids, deltas, answers=ans, gen_tokens=spec.gen_tokens,
+                    chunk=spec.chunk, ref_logprobs=clean["lp_last"][0],
+                )
+                if len(res["texts"]) != len(masks) * len(conds):
+                    raise RuntimeError("evaluate returned the wrong number of conditions")
+                ctext = clean["texts"][0]
+                payload["records"].append({
+                    "trial": tid, "key": u.key, "type": u.type, "source": u.source, "target": u.target,
+                    "clue": u.clue, "split": u.split, "relation": q.relation, "filler": nf,
+                    "tokens": [model.tokenizer.decode([t]) for t in ids[0].tolist()],
+                    "n_tokens": T, "prefix_len": P,
+                    "ans_len": {k: len(v) for k, v in ans.items()},
+                    "masks": [[m, p] for m, p, _ in masks],
+                    "clean": {
+                        **{k: round(v[0], 4) for k, v in clean["ans"].items()}, "text": ctext,
+                        "hit_t": hits(ctext, q.target), "hit_s": hits(ctext, q.source),
+                        "name_t": u.target.casefold() in ctext.casefold(),
+                    },
+                    # Flattened [mask, condition] in row-major order: index k*C + c.
+                    **{k: [round(x, 4) for x in v] for k, v in res["ans"].items()},
+                    "kl": [round(x, 5) for x in res["kl"]],
+                    "text": res["texts"],
+                    "hit_t": [hits(x, q.target) for x in res["texts"]],
+                    "hit_s": [hits(x, q.source) for x in res["texts"]],
+                    "name_t": [u.target.casefold() in x.casefold() for x in res["texts"]],
+                    "applied": [[round(float(x), 3) for x in row] for row in applied],
+                })
+        if (i + 1) % 10 == 0 or i + 1 == len(units):
+            payload.update(dead_rows=dead_rows, checks=checks)
+            _save(spec, payload)
+            logger.info("positions %d/%d units %.0fs %s", i + 1, len(units), time.time() - start, checks)
+    produced = {r["trial"] for r in payload["records"]}
+    missing = sorted(set(expected) - produced)
+    if missing or len(produced) != len(payload["records"]):
+        raise RuntimeError(
+            f"{len(missing)} expected trials missing (e.g. {missing[:3]}), "
+            f"{len(payload['records']) - len(produced)} duplicated; the shard is incomplete"
+        )
+    payload.update(dead_rows=dead_rows, checks=checks)
+    path = _save(spec, payload)
+    return {"path": str(path), "units": len(units), "records": len(payload["records"]),
+            "checks": checks, "dead_rows": sum(dead_rows.values())}
+
+
 STAGES = {
+    "positions": run_concept_positions,
     "gradcheck": run_concept_gradcheck,
     "gradgeom": run_concept_gradgeom,
     "magmatched": run_concept_magmatched,

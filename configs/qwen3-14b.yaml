@@ -1,0 +1,12 @@
+name: qwen3-14b
+hf_model_id: Qwen/Qwen3-14B
+model_revision: 40c069824f4251a91eefaf281ebe4c544efd3e18
+np_model_id: qwen3-14b
+n_layers: 40
+d_model: 5120
+lens_filename: unused-direct-component-fit
+dtype: bfloat16
+device: cuda
+dim_batch: 8
+band_start: 15
+band_end: 36

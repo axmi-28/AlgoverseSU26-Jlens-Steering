@@ -16,6 +16,7 @@ jobs:
       - run: python scripts/release.py verify
       - run: python scripts/release.py restore
       - run: python scripts/release.py audit
+      - run: python scripts/publish_results.py verify
       - run: python -m pytest -q
         env:
           HF_HUB_OFFLINE: '1'
