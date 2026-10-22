@@ -72,7 +72,13 @@ def build():
     for name in FILES:
         destination = DESTINATION / name
         destination.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(SOURCE / name, destination)
+        if destination.suffix == ".svg":
+            # Matplotlib pads path-data lines; normalize formatting for Git.
+            # Newlines still delimit coordinates, so the drawing is unchanged.
+            raw = (SOURCE / name).read_text()
+            destination.write_text("\n".join(line.rstrip() for line in raw.splitlines()) + "\n")
+        else:
+            shutil.copyfile(SOURCE / name, destination)
     manifest = {
         "description": "Curated public results; regenerate from checksummed saved outputs, not new GPU runs.",
         "files_sha256": {name: digest(DESTINATION / name) for name in FILES},

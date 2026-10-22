@@ -8,13 +8,13 @@
     "figures/figure_data.json": "074fce982a897e36d377c606a18bbdf6a447a82b11173d8893264a0164ee74d7",
     "figures/captions.md": "4a19f72051f8264928ac9afc04d07fe2b7d4d9a71d0ea82501ccbe64e23f507d",
     "figures/cross_model_deduplicated.pdf": "e57b5ec8ab796bdeaef994e47613ee6e1589e86d3695320b507246d55d541617",
-    "figures/cross_model_deduplicated.svg": "6655928c8018dce1c26fc6705a918031691ad57f48ec3f76223b3a53df524508",
+    "figures/cross_model_deduplicated.svg": "d0ce639c7720ebbf963fc60284b6604f749e30e359afd3aa10b133ef8952936d",
     "figures/cross_model_deduplicated.png": "0b5a038cb86532ace99d4172012920499ed3cf621c28138e106e75be561bdf22",
     "figures/self_fitted_across_models.pdf": "30d63314032b47a20764db0c001aec8a8ffbec1678c17291a4a6940a3ff7972b",
-    "figures/self_fitted_across_models.svg": "0d3a1470b7ddee5918f12bb4e3ba861149a4b4d4aee3fc14e6ef9b586f1b07c8",
+    "figures/self_fitted_across_models.svg": "3baffd8d0563b93872df1216f37b0f94ce75492a3bae5938acb0a7fc718b2468",
     "figures/self_fitted_across_models.png": "bef34823d8585d53344e5d7c28e6992a53a95a10651e9ddff254c8208e11dc73",
     "figures/neuronpedia_across_models.pdf": "0d0264e9f72c943ea76f2125969eb835e5576da628b3f7a15f8dcc3b32a511a0",
-    "figures/neuronpedia_across_models.svg": "0adfc57cce262a3187f2d2bb8de3e65d3f894c9037bd5d9ca7f63dd316dc5653",
+    "figures/neuronpedia_across_models.svg": "598c1034dab7c55756f98247526f6c1ffb7ee7d00cfb85297e41e455eb8fa5d5",
     "figures/neuronpedia_across_models.png": "b155bdd8202dbe4bc6a1657f9535e330541000d8381032bd8966f63b140e30bd"
   },
   "rebuild": [
